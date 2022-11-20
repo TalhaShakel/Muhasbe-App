@@ -1,0 +1,82 @@
+{
+  "project_info": {
+    "project_number": "551015874048",
+    "project_id": "muhasebe-19a85",
+    "storage_bucket": "muhasebe-19a85.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:551015874048:android:d224582e3e365d8e2e22e5",
+        "android_client_info": {
+          "package_name": "com.example.muhasebe_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "551015874048-lo04ro19dthhmr797clectv0dbid0os5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAmbOYwEQNCQv160_D4_nIhkZJf4WvfSXY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "551015874048-lo04ro19dthhmr797clectv0dbid0os5.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "551015874048-1c3ff7r8nebn4u8ri98propfcvku8uck.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.muhasebeApp"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:551015874048:android:df254ab12997f0ca2e22e5",
+        "android_client_info": {
+          "package_name": "com.muhasebe.muhasebe_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "551015874048-lo04ro19dthhmr797clectv0dbid0os5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAmbOYwEQNCQv160_D4_nIhkZJf4WvfSXY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "551015874048-lo04ro19dthhmr797clectv0dbid0os5.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "551015874048-1c3ff7r8nebn4u8ri98propfcvku8uck.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.muhasebeApp"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
