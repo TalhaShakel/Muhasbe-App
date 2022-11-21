@@ -245,92 +245,94 @@ class _HomeState extends State<Home> {
           ]),
           child: Padding(
             padding: const EdgeInsets.only(top: 0),
-            child: Row(
-              children: [
-                SizedBox(
-                  width: 20,
-                ),
-                GestureDetector(
-                  onTap: () {
-                    scaffoldKey.currentState?.openDrawer();
-                  },
-                  child: Padding(
-                    padding: const EdgeInsets.only(top: 25),
-                    child: Container(
-                        height: 30,
-                        width: 30,
-                        decoration: BoxDecoration(
-                            shape: BoxShape.circle, color: Colors.white),
-                        child: Center(
-                            child: FaIcon(
-                          FontAwesomeIcons.bars,
-                          size: 18,
-                          color: ConstColors.secondary,
-                        ))),
+            child: FittedBox(
+              child: Row(
+                children: [
+                  SizedBox(
+                    width: 20,
                   ),
-                ),
-                SizedBox(
-                  width: 20,
-                ),
-                SingleChildScrollView(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      SizedBox(
-                        height: 35,
-                      ),
-                      Text(
-                        "Welcome, ",
-                        style: TextStyle(
-                            fontSize: 13,
-                            fontFamily: 'Trial',
-                            fontWeight: FontWeight.w600,
-                            color: Colors.white),
-                      ),
-                      Text(
-                        "User Name",
-                        style: TextStyle(
-                            fontFamily: 'CodeNext-Trial',
-                            fontSize: 18,
-                            fontWeight: FontWeight.w600,
-                            color: Colors.white),
-                      ),
-                    ],
+                  GestureDetector(
+                    onTap: () {
+                      scaffoldKey.currentState?.openDrawer();
+                    },
+                    child: Padding(
+                      padding: const EdgeInsets.only(top: 25),
+                      child: Container(
+                          height: 30,
+                          width: 30,
+                          decoration: BoxDecoration(
+                              shape: BoxShape.circle, color: Colors.white),
+                          child: Center(
+                              child: FaIcon(
+                            FontAwesomeIcons.bars,
+                            size: 18,
+                            color: ConstColors.secondary,
+                          ))),
+                    ),
                   ),
-                ),
-                SizedBox(
-                  width: 50,
-                ),
-                SingleChildScrollView(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      SizedBox(
-                        height: 35,
-                      ),
-                      Text(
-                        "29, Sep, 2022",
-                        style: TextStyle(
-                            fontSize: 13,
-                            fontFamily: 'Trial',
-                            fontWeight: FontWeight.w600,
-                            color: Colors.white),
-                      ),
-                      SizedBox(
-                        height: 5,
-                      ),
-                      Text(
-                        "Hijri : Shaban 23",
-                        style: TextStyle(
-                            fontSize: 14,
-                            fontFamily: 'Trial',
-                            fontWeight: FontWeight.w600,
-                            color: Colors.white),
-                      ),
-                    ],
+                  SizedBox(
+                    width: 20,
                   ),
-                ),
-              ],
+                  SingleChildScrollView(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        SizedBox(
+                          height: 35,
+                        ),
+                        Text(
+                          "Welcome, ",
+                          style: TextStyle(
+                              fontSize: 13,
+                              fontFamily: 'Trial',
+                              fontWeight: FontWeight.w600,
+                              color: Colors.white),
+                        ),
+                        Text(
+                          "User Name",
+                          style: TextStyle(
+                              fontFamily: 'CodeNext-Trial',
+                              fontSize: 18,
+                              fontWeight: FontWeight.w600,
+                              color: Colors.white),
+                        ),
+                      ],
+                    ),
+                  ),
+                  SizedBox(
+                    width: 50,
+                  ),
+                  SingleChildScrollView(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        SizedBox(
+                          height: 35,
+                        ),
+                        Text(
+                          "29, Sep, 2022",
+                          style: TextStyle(
+                              fontSize: 13,
+                              fontFamily: 'Trial',
+                              fontWeight: FontWeight.w600,
+                              color: Colors.white),
+                        ),
+                        SizedBox(
+                          height: 5,
+                        ),
+                        Text(
+                          "Hijri : Shaban 23",
+                          style: TextStyle(
+                              fontSize: 14,
+                              fontFamily: 'Trial',
+                              fontWeight: FontWeight.w600,
+                              color: Colors.white),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
         ),
@@ -381,7 +383,8 @@ class _HomeState extends State<Home> {
                   stream: FirebaseFirestore.instance
                       .collection('users')
                       .doc(FirebaseAuth.instance.currentUser!.uid)
-                      .collection('image').orderBy('userImage',descending: true)
+                      .collection('image')
+                      .orderBy('userImage', descending: true)
                       .snapshots(),
                   builder: (context, AsyncSnapshot<QuerySnapshot> snapshot) {
                     if (snapshot.connectionState == ConnectionState.waiting) {
@@ -462,7 +465,7 @@ class _HomeState extends State<Home> {
                         ),
                       );
                     } else {
-                      return  Container(
+                      return Container(
                         width: 148,
                         height: 148,
                         alignment: Alignment.center,
@@ -470,8 +473,7 @@ class _HomeState extends State<Home> {
                             shape: BoxShape.circle,
                             boxShadow: [
                               BoxShadow(
-                                  color: Color(0xff587CA7)
-                                      .withOpacity(0.31),
+                                  color: Color(0xff587CA7).withOpacity(0.31),
                                   blurRadius: 22,
                                   spreadRadius: 0,
                                   offset: Offset(
@@ -492,8 +494,7 @@ class _HomeState extends State<Home> {
                                   ConstColors.primaryColor,
                                 ])),
                         child: Padding(
-                          padding: const EdgeInsets.only(
-                              left: 0, right: 0),
+                          padding: const EdgeInsets.only(left: 0, right: 0),
                           child: Container(
                             width: 146,
                             height: 146,
@@ -503,93 +504,234 @@ class _HomeState extends State<Home> {
                             ),
                             alignment: Alignment.center,
                             child: Container(
-                              height: 140,
-                              width: 140,
-                              child: Image.asset('assets/images/user1.png')
-                              ),
-                            ),
-                            // child: FaIcon(
-                            //   FontAwesomeIcons.user,
-                            //   color: ConstColors.primaryColor,
-                            //   size: 70,
-                            // )),
+                                height: 140,
+                                width: 140,
+                                child: Image.asset('assets/images/user1.png')),
                           ),
-                        );
+                          // child: FaIcon(
+                          //   FontAwesomeIcons.user,
+                          //   color: ConstColors.primaryColor,
+                          //   size: 70,
+                          // )),
+                        ),
+                      );
                     }
-                  }
-                  ),
+                  }),
               SizedBox(
                 height: 30,
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  GestureDetector(
-                    onTap: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => Goals()));
-                    },
-                    child: Container(
-                      height: 100,
-                      width: 163,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20),
-                        gradient: LinearGradient(
-                            begin: Alignment.topCenter,
-                            end: Alignment.bottomCenter,
-                            colors: [
-                              ConstColors.secondary,
-                              ConstColors.primaryColor,
-                            ]),
-                        boxShadow: [
-                          BoxShadow(
-                              color: Color(0xffFFFFFF).withOpacity(0.72),
-                              blurRadius: 10,
-                              spreadRadius: 0,
-                              offset: Offset(
-                                3,
-                                3,
-                              )),
-                          BoxShadow(
-                              color: Color(0xff032B47).withOpacity(0.24),
-                              blurRadius: 40,
-                              spreadRadius: 0,
-                              offset: Offset(0, 20))
-                        ],
-                      ),
-                      child: Column(
-                        children: [
-                          SizedBox(
-                            height: 32,
-                          ),
-                          Text(
-                            "Goals",
-                            style: TextStyle(
-                                fontSize: 17,
-                                fontFamily: 'Trial',
-                                fontWeight: FontWeight.w500,
-                                color: Colors.white),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.only(left: 120, top: 20),
-                            child: FaIcon(
-                              FontAwesomeIcons.arrowRight,
-                              color: Colors.white,
-                              size: 18,
+              FittedBox(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (context) => Goals()));
+                      },
+                      child: Container(
+                        height: 100,
+                        width: 163,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20),
+                          gradient: LinearGradient(
+                              begin: Alignment.topCenter,
+                              end: Alignment.bottomCenter,
+                              colors: [
+                                ConstColors.secondary,
+                                ConstColors.primaryColor,
+                              ]),
+                          boxShadow: [
+                            BoxShadow(
+                                color: Color(0xffFFFFFF).withOpacity(0.72),
+                                blurRadius: 10,
+                                spreadRadius: 0,
+                                offset: Offset(
+                                  3,
+                                  3,
+                                )),
+                            BoxShadow(
+                                color: Color(0xff032B47).withOpacity(0.24),
+                                blurRadius: 40,
+                                spreadRadius: 0,
+                                offset: Offset(0, 20))
+                          ],
+                        ),
+                        child: Column(
+                          children: [
+                            SizedBox(
+                              height: 32,
                             ),
-                          )
-                        ],
+                            Text(
+                              "Goals",
+                              style: TextStyle(
+                                  fontSize: 17,
+                                  fontFamily: 'Trial',
+                                  fontWeight: FontWeight.w500,
+                                  color: Colors.white),
+                            ),
+                            Padding(
+                              padding:
+                                  const EdgeInsets.only(left: 120, top: 20),
+                              child: FaIcon(
+                                FontAwesomeIcons.arrowRight,
+                                color: Colors.white,
+                                size: 18,
+                              ),
+                            )
+                          ],
+                        ),
                       ),
                     ),
-                  ),
-                  GestureDetector(
-                    onTap: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => AddCatogaries()));
-                    },
-                    child: Container(
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => AddCatogaries()));
+                      },
+                      child: Container(
+                        height: 100,
+                        width: 163,
+                        alignment: Alignment.center,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20),
+                          gradient: LinearGradient(
+                              begin: Alignment.topCenter,
+                              end: Alignment.bottomCenter,
+                              colors: [
+                                ConstColors.secondary,
+                                ConstColors.primaryColor,
+                              ]),
+                          boxShadow: [
+                            BoxShadow(
+                                color: Color(0xffFFFFFF).withOpacity(0.72),
+                                blurRadius: 10,
+                                spreadRadius: 0,
+                                offset: Offset(
+                                  3,
+                                  3,
+                                )),
+                            BoxShadow(
+                                color: Color(0xff032B47).withOpacity(0.24),
+                                blurRadius: 40,
+                                spreadRadius: 0,
+                                offset: Offset(0, 20))
+                          ],
+                        ),
+                        child: Container(
+                          height: 98,
+                          width: 161,
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(19),
+                          ),
+                          child: Column(
+                            children: [
+                              SizedBox(
+                                height: 30,
+                              ),
+                              Text(
+                                "Categories",
+                                style: TextStyle(
+                                    fontSize: 17,
+                                    fontFamily: 'Trial',
+                                    fontWeight: FontWeight.w500,
+                                    color: ConstColors.primaryColor),
+                              ),
+                              Padding(
+                                padding:
+                                    const EdgeInsets.only(left: 120, top: 20),
+                                child: FaIcon(
+                                  FontAwesomeIcons.arrowRight,
+                                  color: ConstColors.secondary,
+                                  size: 18,
+                                ),
+                              )
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              SizedBox(
+                height: 21,
+              ),
+              FittedBox(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (context) => Routine()));
+                      },
+                      child: Container(
+                        height: 100,
+                        width: 163,
+                        alignment: Alignment.center,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20),
+                          gradient: LinearGradient(
+                              begin: Alignment.topCenter,
+                              end: Alignment.bottomCenter,
+                              colors: [
+                                ConstColors.secondary,
+                                ConstColors.primaryColor,
+                              ]),
+                          boxShadow: [
+                            BoxShadow(
+                                color: Color(0xffFFFFFF).withOpacity(0.72),
+                                blurRadius: 10,
+                                spreadRadius: 0,
+                                offset: Offset(
+                                  3,
+                                  3,
+                                )),
+                            BoxShadow(
+                                color: Color(0xff032B47).withOpacity(0.24),
+                                blurRadius: 40,
+                                spreadRadius: 0,
+                                offset: Offset(0, 20))
+                          ],
+                        ),
+                        child: Container(
+                          height: 98,
+                          width: 161,
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(19),
+                          ),
+                          child: Column(
+                            children: [
+                              SizedBox(
+                                height: 25,
+                              ),
+                              Text(
+                                "Morning \nRoutines",
+                                style: TextStyle(
+                                    fontSize: 17,
+                                    fontFamily: 'Trial',
+                                    fontWeight: FontWeight.w500,
+                                    color: ConstColors.primaryColor),
+                              ),
+                              Padding(
+                                padding:
+                                    const EdgeInsets.only(left: 120, top: 3),
+                                child: FaIcon(
+                                  FontAwesomeIcons.arrowRight,
+                                  color: ConstColors.secondary,
+                                  size: 18,
+                                ),
+                              )
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                    Container(
                       height: 100,
                       width: 163,
                       alignment: Alignment.center,
@@ -618,54 +760,58 @@ class _HomeState extends State<Home> {
                               offset: Offset(0, 20))
                         ],
                       ),
-                      child: Container(
-                        height: 98,
-                        width: 161,
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(19),
-                        ),
-                        child: Column(
-                          children: [
-                            SizedBox(
-                              height: 30,
-                            ),
-                            Text(
-                              "Categories",
-                              style: TextStyle(
-                                  fontSize: 17,
-                                  fontFamily: 'Trial',
-                                  fontWeight: FontWeight.w500,
-                                  color: ConstColors.primaryColor),
-                            ),
-                            Padding(
-                              padding:
-                                  const EdgeInsets.only(left: 120, top: 20),
-                              child: FaIcon(
-                                FontAwesomeIcons.arrowRight,
-                                color: ConstColors.secondary,
-                                size: 18,
+                      child: GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => DailyReflection()));
+                        },
+                        child: Container(
+                          height: 98,
+                          width: 161,
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(19),
+                          ),
+                          child: Column(
+                            children: [
+                              SizedBox(
+                                height: 32,
                               ),
-                            )
-                          ],
+                              Text(
+                                "      Daily \nReflections",
+                                style: TextStyle(
+                                    fontSize: 17,
+                                    fontFamily: 'Book',
+                                    fontWeight: FontWeight.w500,
+                                    color: ConstColors.primaryColor),
+                              ),
+                              Padding(
+                                padding:
+                                    const EdgeInsets.only(left: 120, top: 3),
+                                child: FaIcon(
+                                  FontAwesomeIcons.arrowRight,
+                                  color: ConstColors.secondary,
+                                  size: 18,
+                                ),
+                              )
+                            ],
+                          ),
                         ),
                       ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
               SizedBox(
                 height: 21,
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  GestureDetector(
-                    onTap: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => Routine()));
-                    },
-                    child: Container(
+              FittedBox(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Container(
                       height: 100,
                       width: 163,
                       alignment: Alignment.center,
@@ -694,257 +840,119 @@ class _HomeState extends State<Home> {
                               offset: Offset(0, 20))
                         ],
                       ),
-                      child: Container(
-                        height: 98,
-                        width: 161,
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(19),
-                        ),
-                        child: Column(
-                          children: [
-                            SizedBox(
-                              height: 25,
-                            ),
-                            Text(
-                              "Morning \nRoutines",
-                              style: TextStyle(
-                                  fontSize: 17,
-                                  fontFamily: 'Trial',
-                                  fontWeight: FontWeight.w500,
-                                  color: ConstColors.primaryColor),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.only(left: 120, top: 3),
-                              child: FaIcon(
-                                FontAwesomeIcons.arrowRight,
-                                color: ConstColors.secondary,
-                                size: 18,
+                      child: GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => VirtueAdd()));
+                        },
+                        child: Container(
+                          height: 98,
+                          width: 161,
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(19),
+                          ),
+                          child: Column(
+                            children: [
+                              SizedBox(
+                                height: 32,
                               ),
-                            )
-                          ],
+                              Text(
+                                "Healthy Habits",
+                                style: TextStyle(
+                                    fontSize: 17,
+                                    fontFamily: 'Trial',
+                                    fontWeight: FontWeight.w500,
+                                    color: ConstColors.primaryColor),
+                              ),
+                              Padding(
+                                padding:
+                                    const EdgeInsets.only(left: 120, top: 20),
+                                child: FaIcon(
+                                  FontAwesomeIcons.arrowRight,
+                                  color: ConstColors.secondary,
+                                  size: 18,
+                                ),
+                              )
+                            ],
+                          ),
                         ),
                       ),
                     ),
-                  ),
-                  Container(
-                    height: 100,
-                    width: 163,
-                    alignment: Alignment.center,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(20),
-                      gradient: LinearGradient(
-                          begin: Alignment.topCenter,
-                          end: Alignment.bottomCenter,
-                          colors: [
-                            ConstColors.secondary,
-                            ConstColors.primaryColor,
-                          ]),
-                      boxShadow: [
-                        BoxShadow(
-                            color: Color(0xffFFFFFF).withOpacity(0.72),
-                            blurRadius: 10,
-                            spreadRadius: 0,
-                            offset: Offset(
-                              3,
-                              3,
-                            )),
-                        BoxShadow(
-                            color: Color(0xff032B47).withOpacity(0.24),
-                            blurRadius: 40,
-                            spreadRadius: 0,
-                            offset: Offset(0, 20))
-                      ],
-                    ),
-                    child: GestureDetector(
-                      onTap: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => DailyReflection()));
-                      },
-                      child: Container(
-                        height: 98,
-                        width: 161,
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(19),
-                        ),
-                        child: Column(
-                          children: [
-                            SizedBox(
-                              height: 32,
-                            ),
-                            Text(
-                              "      Daily \nReflections",
-                              style: TextStyle(
-                                  fontSize: 17,
-                                  fontFamily: 'Book',
-                                  fontWeight: FontWeight.w500,
-                                  color: ConstColors.primaryColor),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.only(left: 120, top: 3),
-                              child: FaIcon(
-                                FontAwesomeIcons.arrowRight,
-                                color: ConstColors.secondary,
-                                size: 18,
+                    Container(
+                      height: 100,
+                      width: 163,
+                      alignment: Alignment.center,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(20),
+                        gradient: LinearGradient(
+                            begin: Alignment.topCenter,
+                            end: Alignment.bottomCenter,
+                            colors: [
+                              ConstColors.secondary,
+                              ConstColors.primaryColor,
+                            ]),
+                        boxShadow: [
+                          BoxShadow(
+                              color: Color(0xffFFFFFF).withOpacity(0.72),
+                              blurRadius: 10,
+                              spreadRadius: 0,
+                              offset: Offset(
+                                3,
+                                3,
+                              )),
+                          BoxShadow(
+                              color: Color(0xff032B47).withOpacity(0.24),
+                              blurRadius: 40,
+                              spreadRadius: 0,
+                              offset: Offset(0, 20))
+                        ],
+                      ),
+                      child: GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => VisesDelete()));
+                        },
+                        child: Container(
+                          height: 98,
+                          width: 161,
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(19),
+                          ),
+                          child: Column(
+                            children: [
+                              SizedBox(
+                                height: 35,
                               ),
-                            )
-                          ],
+                              Text(
+                                "Affirmation",
+                                style: TextStyle(
+                                    fontSize: 17,
+                                    fontFamily: 'Book',
+                                    fontWeight: FontWeight.w500,
+                                    color: ConstColors.primaryColor),
+                              ),
+                              Padding(
+                                padding:
+                                    const EdgeInsets.only(left: 120, top: 20),
+                                child: FaIcon(
+                                  FontAwesomeIcons.arrowRight,
+                                  color: ConstColors.secondary,
+                                  size: 18,
+                                ),
+                              )
+                            ],
+                          ),
                         ),
                       ),
                     ),
-                  ),
-                ],
-              ),
-              SizedBox(
-                height: 21,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  Container(
-                    height: 100,
-                    width: 163,
-                    alignment: Alignment.center,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(20),
-                      gradient: LinearGradient(
-                          begin: Alignment.topCenter,
-                          end: Alignment.bottomCenter,
-                          colors: [
-                            ConstColors.secondary,
-                            ConstColors.primaryColor,
-                          ]),
-                      boxShadow: [
-                        BoxShadow(
-                            color: Color(0xffFFFFFF).withOpacity(0.72),
-                            blurRadius: 10,
-                            spreadRadius: 0,
-                            offset: Offset(
-                              3,
-                              3,
-                            )),
-                        BoxShadow(
-                            color: Color(0xff032B47).withOpacity(0.24),
-                            blurRadius: 40,
-                            spreadRadius: 0,
-                            offset: Offset(0, 20))
-                      ],
-                    ),
-                    child: GestureDetector(
-                      onTap: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => VirtueAdd()));
-                      },
-                      child: Container(
-                        height: 98,
-                        width: 161,
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(19),
-                        ),
-                        child: Column(
-                          children: [
-                            SizedBox(
-                              height: 32,
-                            ),
-                            Text(
-                              "Healthy Habits",
-                              style: TextStyle(
-                                  fontSize: 17,
-                                  fontFamily: 'Trial',
-                                  fontWeight: FontWeight.w500,
-                                  color: ConstColors.primaryColor),
-                            ),
-                            Padding(
-                              padding:
-                                  const EdgeInsets.only(left: 120, top: 20),
-                              child: FaIcon(
-                                FontAwesomeIcons.arrowRight,
-                                color: ConstColors.secondary,
-                                size: 18,
-                              ),
-                            )
-                          ],
-                        ),
-                      ),
-                    ),
-                  ),
-                  Container(
-                    height: 100,
-                    width: 163,
-                    alignment: Alignment.center,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(20),
-                      gradient: LinearGradient(
-                          begin: Alignment.topCenter,
-                          end: Alignment.bottomCenter,
-                          colors: [
-                            ConstColors.secondary,
-                            ConstColors.primaryColor,
-                          ]),
-                      boxShadow: [
-                        BoxShadow(
-                            color: Color(0xffFFFFFF).withOpacity(0.72),
-                            blurRadius: 10,
-                            spreadRadius: 0,
-                            offset: Offset(
-                              3,
-                              3,
-                            )),
-                        BoxShadow(
-                            color: Color(0xff032B47).withOpacity(0.24),
-                            blurRadius: 40,
-                            spreadRadius: 0,
-                            offset: Offset(0, 20))
-                      ],
-                    ),
-                    child: GestureDetector(
-                      onTap: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => VisesDelete()));
-                      },
-                      child: Container(
-                        height: 98,
-                        width: 161,
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(19),
-                        ),
-                        child: Column(
-                          children: [
-                            SizedBox(
-                              height: 35,
-                            ),
-                            Text(
-                              "Affirmation",
-                              style: TextStyle(
-                                  fontSize: 17,
-                                  fontFamily: 'Book',
-                                  fontWeight: FontWeight.w500,
-                                  color: ConstColors.primaryColor),
-                            ),
-                            Padding(
-                              padding:
-                                  const EdgeInsets.only(left: 120, top: 20),
-                              child: FaIcon(
-                                FontAwesomeIcons.arrowRight,
-                                color: ConstColors.secondary,
-                                size: 18,
-                              ),
-                            )
-                          ],
-                        ),
-                      ),
-                    ),
-                  ),
-                ],
+                  ],
+                ),
               ),
               SizedBox(
                 height: 21,

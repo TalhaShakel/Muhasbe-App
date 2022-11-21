@@ -6,11 +6,13 @@ import '../DrawerScreens/Home.dart';
 import '../DrawerScreens/account.dart';
 import '../DrawerScreens/activity_dashboard.dart';
 import 'Home2.dart';
+
 class Quran extends StatefulWidget {
   const Quran({Key? key}) : super(key: key);
   @override
   State<Quran> createState() => _QuranState();
 }
+
 class _QuranState extends State<Quran> {
   String defaultvalue = "";
   List dropDownlistData = [
@@ -62,7 +64,7 @@ class _QuranState extends State<Quran> {
                                 boxShadow: [
                                   BoxShadow(
                                       color:
-                                      Color(0xffBBC3CE).withOpacity(0.60),
+                                          Color(0xffBBC3CE).withOpacity(0.60),
                                       blurRadius: 12,
                                       spreadRadius: 0,
                                       offset: Offset(
@@ -71,7 +73,7 @@ class _QuranState extends State<Quran> {
                                       )),
                                   BoxShadow(
                                       color:
-                                      Color(0xffFDFFFF).withOpacity(0.80),
+                                          Color(0xffFDFFFF).withOpacity(0.80),
                                       blurRadius: 12,
                                       spreadRadius: 0,
                                       offset: Offset(-4, -4))
@@ -101,7 +103,8 @@ class _QuranState extends State<Quran> {
                                   style: TextStyle(
                                       fontFamily: 'Trial',
                                       fontWeight: FontWeight.w500,
-                                      fontSize: 16, color: Colors.white),
+                                      fontSize: 16,
+                                      color: Colors.white),
                                 ),
                                 // Text(
                                 //   "View Profile",
@@ -133,10 +136,7 @@ class _QuranState extends State<Quran> {
                   ),
                   title: Text(
                     "Home",
-                    style: TextStyle(
-                        fontSize: 16,
-                        fontFamily: 'Trial'
-                    ),
+                    style: TextStyle(fontSize: 16, fontFamily: 'Trial'),
                   ),
                 ),
               ),
@@ -195,10 +195,7 @@ class _QuranState extends State<Quran> {
                   ),
                   title: Text(
                     "Activity Dashboard",
-                    style: TextStyle(
-                        fontSize: 16,
-                        fontFamily: 'Trial'
-                    ),
+                    style: TextStyle(fontSize: 16, fontFamily: 'Trial'),
                   ),
                 ),
               ),
@@ -229,7 +226,8 @@ class _QuranState extends State<Quran> {
                     "Version 1.0.0",
                     style: TextStyle(
                         fontFamily: 'Trial',
-                        fontSize: 10, color: ConstColors.primaryColor),
+                        fontSize: 10,
+                        color: ConstColors.primaryColor),
                   )
                 ],
               ),
@@ -242,7 +240,7 @@ class _QuranState extends State<Quran> {
         child: Container(
           height: 114,
           decoration:
-          BoxDecoration(color: ConstColors.primaryColor, boxShadow: [
+              BoxDecoration(color: ConstColors.primaryColor, boxShadow: [
             BoxShadow(
                 color: Color(0xff000000).withOpacity(0.10),
                 blurRadius: 10,
@@ -251,88 +249,90 @@ class _QuranState extends State<Quran> {
           ]),
           child: Padding(
             padding: const EdgeInsets.only(top: 0),
-            child: Row(
-              children: [
-                SizedBox(
-                  width: 20,
-                ),
-                GestureDetector(
-                  onTap: () {
-                    scaffoldKey.currentState?.openDrawer();
-                  },
-                  child: Padding(
-                    padding: const EdgeInsets.only(top: 25),
-                    child: Container(
-                        height: 30,
-                        width: 30,
-                        decoration: BoxDecoration(
-                            shape: BoxShape.circle, color: Colors.white),
-                        child: Center(
-                            child: FaIcon(
-                              FontAwesomeIcons.bars,
-                              size: 18,
-                              color: ConstColors.secondary,
-                            ))),
+            child: FittedBox(
+              child: Row(
+                children: [
+                  SizedBox(
+                    width: 20,
                   ),
-                ),
-                SizedBox(
-                  width: 20,
-                ),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    SizedBox(
-                      height: 35,
+                  GestureDetector(
+                    onTap: () {
+                      scaffoldKey.currentState?.openDrawer();
+                    },
+                    child: Padding(
+                      padding: const EdgeInsets.only(top: 25),
+                      child: Container(
+                          height: 30,
+                          width: 30,
+                          decoration: BoxDecoration(
+                              shape: BoxShape.circle, color: Colors.white),
+                          child: Center(
+                              child: FaIcon(
+                            FontAwesomeIcons.bars,
+                            size: 18,
+                            color: ConstColors.secondary,
+                          ))),
                     ),
-                    Text(
-                      "Welcome, ",
-                      style: TextStyle(
-                          fontSize: 13,
-                          fontFamily: 'Trial',
-                          fontWeight: FontWeight.w600,
-                          color: Colors.white),
-                    ),
-                    Text(
-                      "User Name",
-                      style: TextStyle(
-                          fontFamily: 'CodeNext-Trial',
-                          fontSize: 18,
-                          fontWeight: FontWeight.w600,
-                          color: Colors.white),
-                    ),
-                  ],
-                ),
-                SizedBox(
-                  width: 50,
-                ),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    SizedBox(
-                      height: 35,
-                    ),
-                    Text(
-                      "29, Sep, 2022",
-                      style: TextStyle(
-                          fontSize: 13,
-                          fontFamily: 'Trial',
-                          fontWeight: FontWeight.w600,
-                          color: Colors.white),
-                    ),
-                    SizedBox(
-                      height: 5,
-                    ),
-                    Text(
-                      "Hijri : Shaban 23",
-                      style: TextStyle(
-                          fontSize: 14,
-                          fontFamily: 'Trial',
-                          fontWeight: FontWeight.w600,
-                          color: Colors.white),
-                    ),
-                  ],
-                ),
-              ],
+                  ),
+                  SizedBox(
+                    width: 20,
+                  ),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      SizedBox(
+                        height: 35,
+                      ),
+                      Text(
+                        "Welcome, ",
+                        style: TextStyle(
+                            fontSize: 13,
+                            fontFamily: 'Trial',
+                            fontWeight: FontWeight.w600,
+                            color: Colors.white),
+                      ),
+                      Text(
+                        "User Name",
+                        style: TextStyle(
+                            fontFamily: 'CodeNext-Trial',
+                            fontSize: 18,
+                            fontWeight: FontWeight.w600,
+                            color: Colors.white),
+                      ),
+                    ],
+                  ),
+                  SizedBox(
+                    width: 50,
+                  ),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      SizedBox(
+                        height: 35,
+                      ),
+                      Text(
+                        "29, Sep, 2022",
+                        style: TextStyle(
+                            fontSize: 13,
+                            fontFamily: 'Trial',
+                            fontWeight: FontWeight.w600,
+                            color: Colors.white),
+                      ),
+                      SizedBox(
+                        height: 5,
+                      ),
+                      Text(
+                        "Hijri : Shaban 23",
+                        style: TextStyle(
+                            fontSize: 14,
+                            fontFamily: 'Trial',
+                            fontWeight: FontWeight.w600,
+                            color: Colors.white),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
             ),
           ),
         ),
@@ -345,22 +345,26 @@ class _QuranState extends State<Quran> {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              SizedBox(height: 30,),
-              Text("Quran & Moon",style:
-            TextStyle(
-              fontSize: 28,
-              fontFamily: 'Bold',
-              color: ConstColors.primaryColor
-
-            )),
-              SizedBox(height: 4,),
-              Text("Lunar Reminder Settings",style:
-              TextStyle(
-                  fontFamily: 'Trial',
-                  fontSize: 12,
-                  color: Color(0xff828282)),),
+              SizedBox(
+                height: 30,
+              ),
+              Text("Quran & Moon",
+                  style: TextStyle(
+                      fontSize: 28,
+                      fontFamily: 'Bold',
+                      color: ConstColors.primaryColor)),
+              SizedBox(
+                height: 4,
+              ),
+              Text(
+                "Lunar Reminder Settings",
+                style: TextStyle(
+                    fontFamily: 'Trial',
+                    fontSize: 12,
+                    color: Color(0xff828282)),
+              ),
               Padding(
-                padding: const EdgeInsets.only(left: 20,right: 20,top: 30),
+                padding: const EdgeInsets.only(left: 20, right: 20, top: 30),
                 child: Container(
                   height: 310,
                   width: double.infinity,
@@ -372,38 +376,45 @@ class _QuranState extends State<Quran> {
                           color: Color(0xffFFFFFF),
                           blurRadius: 20,
                           spreadRadius: 0,
-                          offset: Offset(-4,-4)
-                      ),
+                          offset: Offset(-4, -4)),
                       BoxShadow(
                           color: Color(0xff587CA7).withOpacity(0.31),
                           blurRadius: 22,
                           spreadRadius: 0,
-                          offset: Offset(6,6,)),
+                          offset: Offset(
+                            6,
+                            6,
+                          )),
                     ],
                   ),
                   child: Column(
                     children: [
-                      SizedBox(height: 40,),
+                      SizedBox(
+                        height: 40,
+                      ),
                       Padding(
-                        padding: const EdgeInsets.only(left: 35,right: 35),
+                        padding: const EdgeInsets.only(left: 35, right: 35),
                         child: Container(
                           width: double.infinity,
                           height: 40,
                           alignment: Alignment.center,
                           decoration: BoxDecoration(
-                              borderRadius: const BorderRadius.all(Radius.circular(4)),
+                              borderRadius:
+                                  const BorderRadius.all(Radius.circular(4)),
                               boxShadow: [
                                 BoxShadow(
                                     color: Color(0xff587CA7).withOpacity(0.31),
                                     blurRadius: 22,
                                     spreadRadius: 0,
-                                    offset: Offset(6,6,)),
+                                    offset: Offset(
+                                      6,
+                                      6,
+                                    )),
                                 BoxShadow(
                                     color: Color(0xffFFFFFF),
                                     blurRadius: 20,
                                     spreadRadius: 0,
-                                    offset: Offset(-4,-4)
-                                )
+                                    offset: Offset(-4, -4))
                               ],
                               gradient: LinearGradient(
                                   begin: Alignment.topCenter,
@@ -413,12 +424,13 @@ class _QuranState extends State<Quran> {
                                     ConstColors.primaryColor,
                                   ])),
                           child: Padding(
-                            padding: const EdgeInsets.only(left: 1,right: 1),
+                            padding: const EdgeInsets.only(left: 1, right: 1),
                             child: Container(
                               width: double.infinity,
                               height: 38,
                               decoration: const BoxDecoration(
-                                borderRadius: BorderRadius.all(Radius.circular(3)),
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(3)),
                                 color: Colors.white,
                               ),
                               alignment: Alignment.center,
@@ -440,17 +452,26 @@ class _QuranState extends State<Quran> {
                                       items: [
                                         DropdownMenuItem(
                                           child: Padding(
-                                            padding: const EdgeInsets.only(left: 10),
-                                            child: Text("Day of Month",style: AppTextTheme.hintTxt,),
+                                            padding:
+                                                const EdgeInsets.only(left: 10),
+                                            child: Text(
+                                              "Day of Month",
+                                              style: AppTextTheme.hintTxt,
+                                            ),
                                           ),
                                           value: "",
                                         ),
                                         ...dropDownlistData
-                                            .map<DropdownMenuItem<String>>((data) {
+                                            .map<DropdownMenuItem<String>>(
+                                                (data) {
                                           return DropdownMenuItem<String>(
                                               child: Padding(
-                                                padding: const EdgeInsets.only(left: 10),
-                                                child: Text(data['title'],style: AppTextTheme.hintTxt,),
+                                                padding: const EdgeInsets.only(
+                                                    left: 10),
+                                                child: Text(
+                                                  data['title'],
+                                                  style: AppTextTheme.hintTxt,
+                                                ),
                                               ),
                                               value: data['value']);
                                         }).toList(),
@@ -461,27 +482,32 @@ class _QuranState extends State<Quran> {
                           ),
                         ),
                       ),
-                      SizedBox(height: 22,),
+                      SizedBox(
+                        height: 22,
+                      ),
                       Padding(
-                        padding: const EdgeInsets.only(left: 35,right: 35),
+                        padding: const EdgeInsets.only(left: 35, right: 35),
                         child: Container(
                           width: double.infinity,
                           height: 40,
                           alignment: Alignment.center,
                           decoration: BoxDecoration(
-                              borderRadius: const BorderRadius.all(Radius.circular(4)),
+                              borderRadius:
+                                  const BorderRadius.all(Radius.circular(4)),
                               boxShadow: [
                                 BoxShadow(
                                     color: Color(0xff587CA7).withOpacity(0.31),
                                     blurRadius: 22,
                                     spreadRadius: 0,
-                                    offset: Offset(6,6,)),
+                                    offset: Offset(
+                                      6,
+                                      6,
+                                    )),
                                 BoxShadow(
                                     color: Color(0xffFFFFFF),
                                     blurRadius: 20,
                                     spreadRadius: 0,
-                                    offset: Offset(-4,-4)
-                                )
+                                    offset: Offset(-4, -4))
                               ],
                               gradient: LinearGradient(
                                   begin: Alignment.topCenter,
@@ -491,12 +517,13 @@ class _QuranState extends State<Quran> {
                                     ConstColors.primaryColor,
                                   ])),
                           child: Padding(
-                            padding: const EdgeInsets.only(left: 1,right: 1),
+                            padding: const EdgeInsets.only(left: 1, right: 1),
                             child: Container(
                               width: double.infinity,
                               height: 38,
                               decoration: const BoxDecoration(
-                                borderRadius: BorderRadius.all(Radius.circular(3)),
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(3)),
                                 color: Colors.white,
                               ),
                               alignment: Alignment.center,
@@ -512,23 +539,32 @@ class _QuranState extends State<Quran> {
                                       onChanged: (value) {
                                         setState(() {
                                           print("selected value $value");
-                                          defaultvalue2= value!;
+                                          defaultvalue2 = value!;
                                         });
                                       },
                                       items: [
                                         DropdownMenuItem(
                                           child: Padding(
-                                            padding: const EdgeInsets.only(left: 10),
-                                            child: Text("Al Fathihah",style: AppTextTheme.hintTxt,),
+                                            padding:
+                                                const EdgeInsets.only(left: 10),
+                                            child: Text(
+                                              "Al Fathihah",
+                                              style: AppTextTheme.hintTxt,
+                                            ),
                                           ),
                                           value: "",
                                         ),
                                         ...dropDownlistData2
-                                            .map<DropdownMenuItem<String>>((data) {
+                                            .map<DropdownMenuItem<String>>(
+                                                (data) {
                                           return DropdownMenuItem<String>(
                                               child: Padding(
-                                                padding: const EdgeInsets.only(left: 10),
-                                                child: Text(data['title'],style: AppTextTheme.hintTxt,),
+                                                padding: const EdgeInsets.only(
+                                                    left: 10),
+                                                child: Text(
+                                                  data['title'],
+                                                  style: AppTextTheme.hintTxt,
+                                                ),
                                               ),
                                               value: data['value']);
                                         }).toList(),
@@ -539,27 +575,32 @@ class _QuranState extends State<Quran> {
                           ),
                         ),
                       ),
-                      SizedBox(height: 22,),
+                      SizedBox(
+                        height: 22,
+                      ),
                       Padding(
-                        padding: const EdgeInsets.only(left: 35,right: 35),
+                        padding: const EdgeInsets.only(left: 35, right: 35),
                         child: Container(
                           width: double.infinity,
                           height: 40,
                           alignment: Alignment.center,
                           decoration: BoxDecoration(
-                              borderRadius: const BorderRadius.all(Radius.circular(4)),
+                              borderRadius:
+                                  const BorderRadius.all(Radius.circular(4)),
                               boxShadow: [
                                 BoxShadow(
                                     color: Color(0xff587CA7).withOpacity(0.31),
                                     blurRadius: 22,
                                     spreadRadius: 0,
-                                    offset: Offset(6,6,)),
+                                    offset: Offset(
+                                      6,
+                                      6,
+                                    )),
                                 BoxShadow(
                                     color: Color(0xffFFFFFF),
                                     blurRadius: 20,
                                     spreadRadius: 0,
-                                    offset: Offset(-4,-4)
-                                )
+                                    offset: Offset(-4, -4))
                               ],
                               gradient: LinearGradient(
                                   begin: Alignment.topCenter,
@@ -569,12 +610,13 @@ class _QuranState extends State<Quran> {
                                     ConstColors.primaryColor,
                                   ])),
                           child: Padding(
-                            padding: const EdgeInsets.only(left: 1,right: 1),
+                            padding: const EdgeInsets.only(left: 1, right: 1),
                             child: Container(
                               width: double.infinity,
                               height: 38,
                               decoration: const BoxDecoration(
-                                borderRadius: BorderRadius.all(Radius.circular(3)),
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(3)),
                                 color: Colors.white,
                               ),
                               alignment: Alignment.center,
@@ -596,17 +638,26 @@ class _QuranState extends State<Quran> {
                                       items: [
                                         DropdownMenuItem(
                                           child: Padding(
-                                            padding: const EdgeInsets.only(left: 10),
-                                            child: Text("Al Imran",style: AppTextTheme.hintTxt,),
+                                            padding:
+                                                const EdgeInsets.only(left: 10),
+                                            child: Text(
+                                              "Al Imran",
+                                              style: AppTextTheme.hintTxt,
+                                            ),
                                           ),
                                           value: "",
                                         ),
                                         ...dropDownlistData3
-                                            .map<DropdownMenuItem<String>>((data) {
+                                            .map<DropdownMenuItem<String>>(
+                                                (data) {
                                           return DropdownMenuItem<String>(
                                               child: Padding(
-                                                padding: const EdgeInsets.only(left: 10),
-                                                child: Text(data['title'],style: AppTextTheme.hintTxt,),
+                                                padding: const EdgeInsets.only(
+                                                    left: 10),
+                                                child: Text(
+                                                  data['title'],
+                                                  style: AppTextTheme.hintTxt,
+                                                ),
                                               ),
                                               value: data['value']);
                                         }).toList(),
@@ -617,31 +668,38 @@ class _QuranState extends State<Quran> {
                           ),
                         ),
                       ),
-                      SizedBox(height: 20,),
+                      SizedBox(
+                        height: 20,
+                      ),
                       GestureDetector(
                         // onTap: (){
                         //   Navigator.push(context, MaterialPageRoute(builder: (context)=>DailyReflection()));
                         // },
                         child: Padding(
-                          padding: const EdgeInsets.only(left: 75,right: 75,top: 10),
+                          padding: const EdgeInsets.only(
+                              left: 75, right: 75, top: 10),
                           child: Container(
                             width: double.infinity,
                             height: 40,
                             alignment: Alignment.center,
                             decoration: BoxDecoration(
-                                borderRadius: const BorderRadius.all(Radius.circular(10)),
+                                borderRadius:
+                                    const BorderRadius.all(Radius.circular(10)),
                                 boxShadow: [
                                   BoxShadow(
-                                      color: Color(0xff587CA7).withOpacity(0.31),
+                                      color:
+                                          Color(0xff587CA7).withOpacity(0.31),
                                       blurRadius: 22,
                                       spreadRadius: 0,
-                                      offset: Offset(6,6,)),
+                                      offset: Offset(
+                                        6,
+                                        6,
+                                      )),
                                   BoxShadow(
                                       color: Color(0xffFFFFFF),
                                       blurRadius: 20,
                                       spreadRadius: 0,
-                                      offset: Offset(-4,-4)
-                                  )
+                                      offset: Offset(-4, -4))
                                 ],
                                 gradient: LinearGradient(
                                     begin: Alignment.topCenter,
@@ -651,18 +709,24 @@ class _QuranState extends State<Quran> {
                                       ConstColors.primaryColor,
                                     ])),
                             child: Padding(
-                              padding: const EdgeInsets.only(left: 1,right: 1),
+                              padding: const EdgeInsets.only(left: 1, right: 1),
                               child: Container(
                                 width: double.infinity,
                                 height: 38,
                                 decoration: const BoxDecoration(
-                                  borderRadius: BorderRadius.all(Radius.circular(9)),
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(9)),
                                   color: Colors.white,
                                 ),
                                 alignment: Alignment.center,
-                                child:  Text('Submit',style: TextStyle(
-                                    fontFamily: 'Trial',
-                                    fontSize: 17,fontWeight: FontWeight.w400,color:ConstColors.secondary),),
+                                child: Text(
+                                  'Submit',
+                                  style: TextStyle(
+                                      fontFamily: 'Trial',
+                                      fontSize: 17,
+                                      fontWeight: FontWeight.w400,
+                                      color: ConstColors.secondary),
+                                ),
                               ),
                             ),
                           ),
@@ -673,349 +737,610 @@ class _QuranState extends State<Quran> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.only(left: 25,right: 25,top: 35),
+                padding: const EdgeInsets.only(left: 25, right: 25, top: 35),
                 child: Container(
                   height: 350,
                   width: double.infinity,
                   decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(10),
-                      border: Border.all(color: Color(0xff3290FF),width: 2),
+                      border: Border.all(color: Color(0xff3290FF), width: 2),
                       boxShadow: [
                         BoxShadow(
                             color: Color(0xff000000).withOpacity(0.10),
-                            offset: Offset(0,2),
+                            offset: Offset(0, 2),
                             blurRadius: 2,
                             spreadRadius: 4)
-                      ]
-                  ),
+                      ]),
                   child: SingleChildScrollView(
-                    child: DataTable(
-                        horizontalMargin:7,
-                        columnSpacing: 12,
-                        columns:[
-                          DataColumn(
-                              label: Text("Date",style: TextStyle(
+                    child: FittedBox(
+                      child: DataTable(
+                          horizontalMargin: 7,
+                          columnSpacing: 12,
+                          columns: [
+                            DataColumn(
+                                label: Text(
+                              "Date",
+                              style: TextStyle(
                                   fontFamily: 'Trial',
-                                  fontSize: 13,fontWeight: FontWeight.w600,color: ConstColors.primaryColor),)),
-                          DataColumn(
-                              label: Text("From Surah",style: TextStyle(
-                                  fontFamily: 'Trial',
-                                  fontSize: 13,fontWeight: FontWeight.w600,color: ConstColors.primaryColor),)),
-                          DataColumn(
-                              label: Padding(
-                                padding: const EdgeInsets.only(left: 0),
-                                child: Text("To Surah",style: TextStyle(
+                                  fontSize: 13,
+                                  fontWeight: FontWeight.w600,
+                                  color: ConstColors.primaryColor),
+                            )),
+                            DataColumn(
+                                label: FittedBox(
+                              child: Text(
+                                "From Surah",
+                                softWrap: true,
+                                style: TextStyle(
                                     fontFamily: 'Trial',
-                                    fontSize: 13,fontWeight: FontWeight.w600,color: ConstColors.primaryColor),),
+                                    fontSize: 13,
+                                    fontWeight: FontWeight.w600,
+                                    color: ConstColors.primaryColor),
+                              ),
+                            )),
+                            DataColumn(
+                                label: Padding(
+                              padding: const EdgeInsets.only(left: 0),
+                              child: Text(
+                                "To Surah",
+                                style: TextStyle(
+                                    fontFamily: 'Trial',
+                                    fontSize: 13,
+                                    fontWeight: FontWeight.w600,
+                                    color: ConstColors.primaryColor),
+                              ),
+                            )),
+                            DataColumn(
+                                label: Padding(
+                              padding: const EdgeInsets.only(left: 0),
+                              child: Text(
+                                "Actions",
+                                style: TextStyle(
+                                    fontFamily: 'Trial',
+                                    fontSize: 13,
+                                    fontWeight: FontWeight.w600,
+                                    color: ConstColors.primaryColor),
+                              ),
+                            )),
+                          ],
+                          rows: [
+                            DataRow(cells: [
+                              DataCell(Text(
+                                "23-09-22",
+                                style: TextStyle(
+                                    fontFamily: 'Trial',
+                                    fontSize: 12,
+                                    fontWeight: FontWeight.w600),
                               )),
-                          DataColumn(
-                              label: Padding(
-                                padding: const EdgeInsets.only(left: 0),
-                                child: Text("Actions",style: TextStyle(
+                              DataCell(Text(
+                                "Al-Fatihah",
+                                style: TextStyle(
                                     fontFamily: 'Trial',
-                                    fontSize: 13,fontWeight: FontWeight.w600,color: ConstColors.primaryColor),),
+                                    fontSize: 12,
+                                    fontWeight: FontWeight.w400,
+                                    color: Color(0xff707683)),
                               )),
-
-                        ],
-                        rows: [
-                          DataRow(cells: [
-                            DataCell(Text("23-09-22",style: TextStyle(
-                                fontFamily: 'Trial',
-                                fontSize: 12,fontWeight: FontWeight.w600),)),
-                            DataCell(Text("Al-Fatihah",style: TextStyle(
-                                fontFamily: 'Trial',
-                                fontSize: 12,fontWeight: FontWeight.w400,color: Color(0xff707683)),)),
-                            DataCell(
-                                Text("Al-Imran",style: TextStyle(
-                                    fontFamily: 'Trial',
-                                    fontSize: 12,fontWeight: FontWeight.w400,color: Color(0xff707683)
-                            ),),),
-                            DataCell(
-                              Row(
+                              DataCell(
+                                Text(
+                                  "Al-Imran",
+                                  style: TextStyle(
+                                      fontFamily: 'Trial',
+                                      fontSize: 12,
+                                      fontWeight: FontWeight.w400,
+                                      color: Color(0xff707683)),
+                                ),
+                              ),
+                              DataCell(Row(
                                 children: [
-                                  FaIcon(FontAwesomeIcons.edit,color: ConstColors.secondary,size: 15,),
-                                  SizedBox(width: 20,),
-                                  FaIcon(FontAwesomeIcons.trashCan,color: Color(0xffFE0000),size: 15,),
+                                  FaIcon(
+                                    FontAwesomeIcons.edit,
+                                    color: ConstColors.secondary,
+                                    size: 15,
+                                  ),
+                                  SizedBox(
+                                    width: 20,
+                                  ),
+                                  FaIcon(
+                                    FontAwesomeIcons.trashCan,
+                                    color: Color(0xffFE0000),
+                                    size: 15,
+                                  ),
                                 ],
-                              )
-                            )
-
-
+                              ))
+                            ]),
+                            DataRow(cells: [
+                              DataCell(Text(
+                                "23-09-22",
+                                style: TextStyle(
+                                    fontFamily: 'Trial',
+                                    fontSize: 12,
+                                    fontWeight: FontWeight.w600),
+                              )),
+                              DataCell(Text(
+                                "Al-Fatihah",
+                                style: TextStyle(
+                                    fontFamily: 'Trial',
+                                    fontSize: 12,
+                                    fontWeight: FontWeight.w400,
+                                    color: Color(0xff707683)),
+                              )),
+                              DataCell(
+                                Text(
+                                  "Al-Imran",
+                                  style: TextStyle(
+                                      fontFamily: 'Trial',
+                                      fontSize: 12,
+                                      fontWeight: FontWeight.w400,
+                                      color: Color(0xff707683)),
+                                ),
+                              ),
+                              DataCell(Row(
+                                children: [
+                                  FaIcon(
+                                    FontAwesomeIcons.edit,
+                                    color: ConstColors.secondary,
+                                    size: 15,
+                                  ),
+                                  SizedBox(
+                                    width: 20,
+                                  ),
+                                  FaIcon(
+                                    FontAwesomeIcons.trashCan,
+                                    color: Color(0xffFE0000),
+                                    size: 15,
+                                  ),
+                                ],
+                              ))
+                            ]),
+                            DataRow(cells: [
+                              DataCell(Text(
+                                "23-09-22",
+                                style: TextStyle(
+                                    fontFamily: 'Trial',
+                                    fontSize: 12,
+                                    fontWeight: FontWeight.w600),
+                              )),
+                              DataCell(Text(
+                                "Al-Fatihah",
+                                style: TextStyle(
+                                    fontFamily: 'Trial',
+                                    fontSize: 12,
+                                    fontWeight: FontWeight.w400,
+                                    color: Color(0xff707683)),
+                              )),
+                              DataCell(
+                                Text(
+                                  "Al-Imran",
+                                  style: TextStyle(
+                                      fontFamily: 'Trial',
+                                      fontSize: 12,
+                                      fontWeight: FontWeight.w400,
+                                      color: Color(0xff707683)),
+                                ),
+                              ),
+                              DataCell(Row(
+                                children: [
+                                  FaIcon(
+                                    FontAwesomeIcons.edit,
+                                    color: ConstColors.secondary,
+                                    size: 15,
+                                  ),
+                                  SizedBox(
+                                    width: 20,
+                                  ),
+                                  FaIcon(
+                                    FontAwesomeIcons.trashCan,
+                                    color: Color(0xffFE0000),
+                                    size: 15,
+                                  ),
+                                ],
+                              ))
+                            ]),
+                            DataRow(cells: [
+                              DataCell(Text(
+                                "23-09-22",
+                                style: TextStyle(
+                                    fontFamily: 'Trial',
+                                    fontSize: 12,
+                                    fontWeight: FontWeight.w600),
+                              )),
+                              DataCell(Text(
+                                "Al-Fatihah",
+                                style: TextStyle(
+                                    fontFamily: 'Trial',
+                                    fontSize: 12,
+                                    fontWeight: FontWeight.w400,
+                                    color: Color(0xff707683)),
+                              )),
+                              DataCell(
+                                Text(
+                                  "Al-Imran",
+                                  style: TextStyle(
+                                      fontFamily: 'Trial',
+                                      fontSize: 12,
+                                      fontWeight: FontWeight.w400,
+                                      color: Color(0xff707683)),
+                                ),
+                              ),
+                              DataCell(Row(
+                                children: [
+                                  FaIcon(
+                                    FontAwesomeIcons.edit,
+                                    color: ConstColors.secondary,
+                                    size: 15,
+                                  ),
+                                  SizedBox(
+                                    width: 20,
+                                  ),
+                                  FaIcon(
+                                    FontAwesomeIcons.trashCan,
+                                    color: Color(0xffFE0000),
+                                    size: 15,
+                                  ),
+                                ],
+                              ))
+                            ]),
+                            DataRow(cells: [
+                              DataCell(Text(
+                                "23-09-22",
+                                style: TextStyle(
+                                    fontFamily: 'Trial',
+                                    fontSize: 12,
+                                    fontWeight: FontWeight.w600),
+                              )),
+                              DataCell(Text(
+                                "Al-Fatihah",
+                                style: TextStyle(
+                                    fontFamily: 'Trial',
+                                    fontSize: 12,
+                                    fontWeight: FontWeight.w400,
+                                    color: Color(0xff707683)),
+                              )),
+                              DataCell(
+                                Text(
+                                  "Al-Imran",
+                                  style: TextStyle(
+                                      fontFamily: 'Trial',
+                                      fontSize: 12,
+                                      fontWeight: FontWeight.w400,
+                                      color: Color(0xff707683)),
+                                ),
+                              ),
+                              DataCell(Row(
+                                children: [
+                                  FaIcon(
+                                    FontAwesomeIcons.edit,
+                                    color: ConstColors.secondary,
+                                    size: 15,
+                                  ),
+                                  SizedBox(
+                                    width: 20,
+                                  ),
+                                  FaIcon(
+                                    FontAwesomeIcons.trashCan,
+                                    color: Color(0xffFE0000),
+                                    size: 15,
+                                  ),
+                                ],
+                              ))
+                            ]),
+                            DataRow(cells: [
+                              DataCell(Text(
+                                "23-09-22",
+                                style: TextStyle(
+                                    fontFamily: 'Trial',
+                                    fontSize: 12,
+                                    fontWeight: FontWeight.w600),
+                              )),
+                              DataCell(Text(
+                                "Al-Fatihah",
+                                style: TextStyle(
+                                    fontFamily: 'Trial',
+                                    fontSize: 12,
+                                    fontWeight: FontWeight.w400,
+                                    color: Color(0xff707683)),
+                              )),
+                              DataCell(
+                                Text(
+                                  "Al-Imran",
+                                  style: TextStyle(
+                                      fontFamily: 'Trial',
+                                      fontSize: 12,
+                                      fontWeight: FontWeight.w400,
+                                      color: Color(0xff707683)),
+                                ),
+                              ),
+                              DataCell(Row(
+                                children: [
+                                  FaIcon(
+                                    FontAwesomeIcons.edit,
+                                    color: ConstColors.secondary,
+                                    size: 15,
+                                  ),
+                                  SizedBox(
+                                    width: 20,
+                                  ),
+                                  FaIcon(
+                                    FontAwesomeIcons.trashCan,
+                                    color: Color(0xffFE0000),
+                                    size: 15,
+                                  ),
+                                ],
+                              ))
+                            ]),
+                            DataRow(cells: [
+                              DataCell(Text(
+                                "23-09-22",
+                                style: TextStyle(
+                                    fontFamily: 'Trial',
+                                    fontSize: 12,
+                                    fontWeight: FontWeight.w600),
+                              )),
+                              DataCell(Text(
+                                "Al-Fatihah",
+                                style: TextStyle(
+                                    fontFamily: 'Trial',
+                                    fontSize: 12,
+                                    fontWeight: FontWeight.w400,
+                                    color: Color(0xff707683)),
+                              )),
+                              DataCell(
+                                Text(
+                                  "Al-Imran",
+                                  style: TextStyle(
+                                      fontFamily: 'Trial',
+                                      fontSize: 12,
+                                      fontWeight: FontWeight.w400,
+                                      color: Color(0xff707683)),
+                                ),
+                              ),
+                              DataCell(Row(
+                                children: [
+                                  FaIcon(
+                                    FontAwesomeIcons.edit,
+                                    color: ConstColors.secondary,
+                                    size: 15,
+                                  ),
+                                  SizedBox(
+                                    width: 20,
+                                  ),
+                                  FaIcon(
+                                    FontAwesomeIcons.trashCan,
+                                    color: Color(0xffFE0000),
+                                    size: 15,
+                                  ),
+                                ],
+                              ))
+                            ]),
+                            DataRow(cells: [
+                              DataCell(Text(
+                                "23-09-22",
+                                style: TextStyle(
+                                    fontFamily: 'Trial',
+                                    fontSize: 12,
+                                    fontWeight: FontWeight.w600),
+                              )),
+                              DataCell(Text(
+                                "Al-Fatihah",
+                                style: TextStyle(
+                                    fontFamily: 'Trial',
+                                    fontSize: 12,
+                                    fontWeight: FontWeight.w400,
+                                    color: Color(0xff707683)),
+                              )),
+                              DataCell(
+                                Text(
+                                  "Al-Imran",
+                                  style: TextStyle(
+                                      fontFamily: 'Trial',
+                                      fontSize: 12,
+                                      fontWeight: FontWeight.w400,
+                                      color: Color(0xff707683)),
+                                ),
+                              ),
+                              DataCell(Row(
+                                children: [
+                                  FaIcon(
+                                    FontAwesomeIcons.edit,
+                                    color: ConstColors.secondary,
+                                    size: 15,
+                                  ),
+                                  SizedBox(
+                                    width: 20,
+                                  ),
+                                  FaIcon(
+                                    FontAwesomeIcons.trashCan,
+                                    color: Color(0xffFE0000),
+                                    size: 15,
+                                  ),
+                                ],
+                              ))
+                            ]),
+                            DataRow(cells: [
+                              DataCell(Text(
+                                "23-09-22",
+                                style: TextStyle(
+                                    fontFamily: 'Trial',
+                                    fontSize: 12,
+                                    fontWeight: FontWeight.w600),
+                              )),
+                              DataCell(Text(
+                                "Al-Fatihah",
+                                style: TextStyle(
+                                    fontFamily: 'Trial',
+                                    fontSize: 12,
+                                    fontWeight: FontWeight.w400,
+                                    color: Color(0xff707683)),
+                              )),
+                              DataCell(
+                                Text(
+                                  "Al-Imran",
+                                  style: TextStyle(
+                                      fontFamily: 'Trial',
+                                      fontSize: 12,
+                                      fontWeight: FontWeight.w400,
+                                      color: Color(0xff707683)),
+                                ),
+                              ),
+                              DataCell(Row(
+                                children: [
+                                  FaIcon(
+                                    FontAwesomeIcons.edit,
+                                    color: ConstColors.secondary,
+                                    size: 15,
+                                  ),
+                                  SizedBox(
+                                    width: 20,
+                                  ),
+                                  FaIcon(
+                                    FontAwesomeIcons.trashCan,
+                                    color: Color(0xffFE0000),
+                                    size: 15,
+                                  ),
+                                ],
+                              ))
+                            ]),
+                            DataRow(cells: [
+                              DataCell(Text(
+                                "23-09-22",
+                                style: TextStyle(
+                                    fontFamily: 'Trial',
+                                    fontSize: 12,
+                                    fontWeight: FontWeight.w600),
+                              )),
+                              DataCell(Text(
+                                "Al-Fatihah",
+                                style: TextStyle(
+                                    fontFamily: 'Trial',
+                                    fontSize: 12,
+                                    fontWeight: FontWeight.w400,
+                                    color: Color(0xff707683)),
+                              )),
+                              DataCell(
+                                Text(
+                                  "Al-Imran",
+                                  style: TextStyle(
+                                      fontFamily: 'Trial',
+                                      fontSize: 12,
+                                      fontWeight: FontWeight.w400,
+                                      color: Color(0xff707683)),
+                                ),
+                              ),
+                              DataCell(Row(
+                                children: [
+                                  FaIcon(
+                                    FontAwesomeIcons.edit,
+                                    color: ConstColors.secondary,
+                                    size: 15,
+                                  ),
+                                  SizedBox(
+                                    width: 20,
+                                  ),
+                                  FaIcon(
+                                    FontAwesomeIcons.trashCan,
+                                    color: Color(0xffFE0000),
+                                    size: 15,
+                                  ),
+                                ],
+                              ))
+                            ]),
+                            DataRow(cells: [
+                              DataCell(Text(
+                                "23-09-22",
+                                style: TextStyle(
+                                    fontFamily: 'Trial',
+                                    fontSize: 12,
+                                    fontWeight: FontWeight.w600),
+                              )),
+                              DataCell(Text(
+                                "Al-Fatihah",
+                                style: TextStyle(
+                                    fontFamily: 'Trial',
+                                    fontSize: 12,
+                                    fontWeight: FontWeight.w400,
+                                    color: Color(0xff707683)),
+                              )),
+                              DataCell(
+                                Text(
+                                  "Al-Imran",
+                                  style: TextStyle(
+                                      fontFamily: 'Trial',
+                                      fontSize: 12,
+                                      fontWeight: FontWeight.w400,
+                                      color: Color(0xff707683)),
+                                ),
+                              ),
+                              DataCell(Row(
+                                children: [
+                                  FaIcon(
+                                    FontAwesomeIcons.edit,
+                                    color: ConstColors.secondary,
+                                    size: 15,
+                                  ),
+                                  SizedBox(
+                                    width: 20,
+                                  ),
+                                  FaIcon(
+                                    FontAwesomeIcons.trashCan,
+                                    color: Color(0xffFE0000),
+                                    size: 15,
+                                  ),
+                                ],
+                              ))
+                            ]),
+                            DataRow(cells: [
+                              DataCell(Text(
+                                "23-09-22",
+                                style: TextStyle(
+                                    fontFamily: 'Trial',
+                                    fontSize: 12,
+                                    fontWeight: FontWeight.w600),
+                              )),
+                              DataCell(Text(
+                                "Al-Fatihah",
+                                style: TextStyle(
+                                    fontFamily: 'Trial',
+                                    fontSize: 12,
+                                    fontWeight: FontWeight.w400,
+                                    color: Color(0xff707683)),
+                              )),
+                              DataCell(
+                                Text(
+                                  "Al-Imran",
+                                  style: TextStyle(
+                                      fontFamily: 'Trial',
+                                      fontSize: 12,
+                                      fontWeight: FontWeight.w400,
+                                      color: Color(0xff707683)),
+                                ),
+                              ),
+                              DataCell(Row(
+                                children: [
+                                  FaIcon(
+                                    FontAwesomeIcons.edit,
+                                    color: ConstColors.secondary,
+                                    size: 15,
+                                  ),
+                                  SizedBox(
+                                    width: 20,
+                                  ),
+                                  FaIcon(
+                                    FontAwesomeIcons.trashCan,
+                                    color: Color(0xffFE0000),
+                                    size: 15,
+                                  ),
+                                ],
+                              ))
+                            ]),
                           ]),
-                          DataRow(cells: [
-                            DataCell(Text("23-09-22",style: TextStyle(
-                                fontFamily: 'Trial',
-                                fontSize: 12,fontWeight: FontWeight.w600),)),
-                            DataCell(Text("Al-Fatihah",style: TextStyle(
-                                fontFamily: 'Trial',
-                                fontSize: 12,fontWeight: FontWeight.w400,color: Color(0xff707683)),)),
-                            DataCell(
-                              Text("Al-Imran",style: TextStyle(
-                                  fontFamily: 'Trial',
-                                  fontSize: 12,fontWeight: FontWeight.w400,color: Color(0xff707683)
-                              ),),),
-                            DataCell(
-                                Row(
-                                  children: [
-                                    FaIcon(FontAwesomeIcons.edit,color: ConstColors.secondary,size: 15,),
-                                    SizedBox(width: 20,),
-                                    FaIcon(FontAwesomeIcons.trashCan,color: Color(0xffFE0000),size: 15,),
-                                  ],
-                                )
-                            )
-
-
-                          ]),
-                          DataRow(cells: [
-                            DataCell(Text("23-09-22",style: TextStyle(
-                                fontFamily: 'Trial',
-                                fontSize: 12,fontWeight: FontWeight.w600),)),
-                            DataCell(Text("Al-Fatihah",style: TextStyle(
-                                fontFamily: 'Trial',
-                                fontSize: 12,fontWeight: FontWeight.w400,color: Color(0xff707683)),)),
-                            DataCell(
-                              Text("Al-Imran",style: TextStyle(
-                                  fontFamily: 'Trial',
-                                  fontSize: 12,fontWeight: FontWeight.w400,color: Color(0xff707683)
-                              ),),),
-                            DataCell(
-                                Row(
-                                  children: [
-                                    FaIcon(FontAwesomeIcons.edit,color: ConstColors.secondary,size: 15,),
-                                    SizedBox(width: 20,),
-                                    FaIcon(FontAwesomeIcons.trashCan,color: Color(0xffFE0000),size: 15,),
-                                  ],
-                                )
-                            )
-
-
-                          ]),
-                          DataRow(cells: [
-                            DataCell(Text("23-09-22",style: TextStyle(
-                                fontFamily: 'Trial',
-                                fontSize: 12,fontWeight: FontWeight.w600),)),
-                            DataCell(Text("Al-Fatihah",style: TextStyle(
-                                fontFamily: 'Trial',
-                                fontSize: 12,fontWeight: FontWeight.w400,color: Color(0xff707683)),)),
-                            DataCell(
-                              Text("Al-Imran",style: TextStyle(
-                                  fontFamily: 'Trial',
-                                  fontSize: 12,fontWeight: FontWeight.w400,color: Color(0xff707683)
-                              ),),),
-                            DataCell(
-                                Row(
-                                  children: [
-                                    FaIcon(FontAwesomeIcons.edit,color: ConstColors.secondary,size: 15,),
-                                    SizedBox(width: 20,),
-                                    FaIcon(FontAwesomeIcons.trashCan,color: Color(0xffFE0000),size: 15,),
-                                  ],
-                                )
-                            )
-
-
-                          ]),
-                          DataRow(cells: [
-                            DataCell(Text("23-09-22",style: TextStyle(
-                                fontFamily: 'Trial',
-                                fontSize: 12,fontWeight: FontWeight.w600),)),
-                            DataCell(Text("Al-Fatihah",style: TextStyle(
-                                fontFamily: 'Trial',
-                                fontSize: 12,fontWeight: FontWeight.w400,color: Color(0xff707683)),)),
-                            DataCell(
-                              Text("Al-Imran",style: TextStyle(
-                                  fontFamily: 'Trial',
-                                  fontSize: 12,fontWeight: FontWeight.w400,color: Color(0xff707683)
-                              ),),),
-                            DataCell(
-                                Row(
-                                  children: [
-                                    FaIcon(FontAwesomeIcons.edit,color: ConstColors.secondary,size: 15,),
-                                    SizedBox(width: 20,),
-                                    FaIcon(FontAwesomeIcons.trashCan,color: Color(0xffFE0000),size: 15,),
-                                  ],
-                                )
-                            )
-
-
-                          ]),
-                          DataRow(cells: [
-                            DataCell(Text("23-09-22",style: TextStyle(
-                                fontFamily: 'Trial',
-                                fontSize: 12,fontWeight: FontWeight.w600),)),
-                            DataCell(Text("Al-Fatihah",style: TextStyle(
-                                fontFamily: 'Trial',
-                                fontSize: 12,fontWeight: FontWeight.w400,color: Color(0xff707683)),)),
-                            DataCell(
-                              Text("Al-Imran",style: TextStyle(
-                                  fontFamily: 'Trial',
-                                  fontSize: 12,fontWeight: FontWeight.w400,color: Color(0xff707683)
-                              ),),),
-                            DataCell(
-                                Row(
-                                  children: [
-                                    FaIcon(FontAwesomeIcons.edit,color: ConstColors.secondary,size: 15,),
-                                    SizedBox(width: 20,),
-                                    FaIcon(FontAwesomeIcons.trashCan,color: Color(0xffFE0000),size: 15,),
-                                  ],
-                                )
-                            )
-
-
-                          ]),
-                          DataRow(cells: [
-                            DataCell(Text("23-09-22",style: TextStyle(
-                                fontFamily: 'Trial',
-                                fontSize: 12,fontWeight: FontWeight.w600),)),
-                            DataCell(Text("Al-Fatihah",style: TextStyle(
-                                fontFamily: 'Trial',
-                                fontSize: 12,fontWeight: FontWeight.w400,color: Color(0xff707683)),)),
-                            DataCell(
-                              Text("Al-Imran",style: TextStyle(
-                                  fontFamily: 'Trial',
-                                  fontSize: 12,fontWeight: FontWeight.w400,color: Color(0xff707683)
-                              ),),),
-                            DataCell(
-                                Row(
-                                  children: [
-                                    FaIcon(FontAwesomeIcons.edit,color: ConstColors.secondary,size: 15,),
-                                    SizedBox(width: 20,),
-                                    FaIcon(FontAwesomeIcons.trashCan,color: Color(0xffFE0000),size: 15,),
-                                  ],
-                                )
-                            )
-
-
-                          ]),
-                          DataRow(cells: [
-                            DataCell(Text("23-09-22",style: TextStyle(
-                                fontFamily: 'Trial',
-                                fontSize: 12,fontWeight: FontWeight.w600),)),
-                            DataCell(Text("Al-Fatihah",style: TextStyle(
-                                fontFamily: 'Trial',
-                                fontSize: 12,fontWeight: FontWeight.w400,color: Color(0xff707683)),)),
-                            DataCell(
-                              Text("Al-Imran",style: TextStyle(
-                                  fontFamily: 'Trial',
-                                  fontSize: 12,fontWeight: FontWeight.w400,color: Color(0xff707683)
-                              ),),),
-                            DataCell(
-                                Row(
-                                  children: [
-                                    FaIcon(FontAwesomeIcons.edit,color: ConstColors.secondary,size: 15,),
-                                    SizedBox(width: 20,),
-                                    FaIcon(FontAwesomeIcons.trashCan,color: Color(0xffFE0000),size: 15,),
-                                  ],
-                                )
-                            )
-
-
-                          ]),
-                          DataRow(cells: [
-                            DataCell(Text("23-09-22",style: TextStyle(
-                                fontFamily: 'Trial',
-                                fontSize: 12,fontWeight: FontWeight.w600),)),
-                            DataCell(Text("Al-Fatihah",style: TextStyle(
-                                fontFamily: 'Trial',
-                                fontSize: 12,fontWeight: FontWeight.w400,color: Color(0xff707683)),)),
-                            DataCell(
-                              Text("Al-Imran",style: TextStyle(
-                                  fontFamily: 'Trial',
-                                  fontSize: 12,fontWeight: FontWeight.w400,color: Color(0xff707683)
-                              ),),),
-                            DataCell(
-                                Row(
-                                  children: [
-                                    FaIcon(FontAwesomeIcons.edit,color: ConstColors.secondary,size: 15,),
-                                    SizedBox(width: 20,),
-                                    FaIcon(FontAwesomeIcons.trashCan,color: Color(0xffFE0000),size: 15,),
-                                  ],
-                                )
-                            )
-
-
-                          ]),
-                          DataRow(cells: [
-                            DataCell(Text("23-09-22",style: TextStyle(
-                                fontFamily: 'Trial',
-                                fontSize: 12,fontWeight: FontWeight.w600),)),
-                            DataCell(Text("Al-Fatihah",style: TextStyle(
-                                fontFamily: 'Trial',
-                                fontSize: 12,fontWeight: FontWeight.w400,color: Color(0xff707683)),)),
-                            DataCell(
-                              Text("Al-Imran",style: TextStyle(
-                                  fontFamily: 'Trial',
-                                  fontSize: 12,fontWeight: FontWeight.w400,color: Color(0xff707683)
-                              ),),),
-                            DataCell(
-                                Row(
-                                  children: [
-                                    FaIcon(FontAwesomeIcons.edit,color: ConstColors.secondary,size: 15,),
-                                    SizedBox(width: 20,),
-                                    FaIcon(FontAwesomeIcons.trashCan,color: Color(0xffFE0000),size: 15,),
-                                  ],
-                                )
-                            )
-
-
-                          ]),
-                          DataRow(cells: [
-                            DataCell(Text("23-09-22",style: TextStyle(
-                                fontFamily: 'Trial',
-                                fontSize: 12,fontWeight: FontWeight.w600),)),
-                            DataCell(Text("Al-Fatihah",style: TextStyle(
-                                fontFamily: 'Trial',
-                                fontSize: 12,fontWeight: FontWeight.w400,color: Color(0xff707683)),)),
-                            DataCell(
-                              Text("Al-Imran",style: TextStyle(
-                                  fontFamily: 'Trial',
-                                  fontSize: 12,fontWeight: FontWeight.w400,color: Color(0xff707683)
-                              ),),),
-                            DataCell(
-                                Row(
-                                  children: [
-                                    FaIcon(FontAwesomeIcons.edit,color: ConstColors.secondary,size: 15,),
-                                    SizedBox(width: 20,),
-                                    FaIcon(FontAwesomeIcons.trashCan,color: Color(0xffFE0000),size: 15,),
-                                  ],
-                                )
-                            )
-
-
-                          ]),
-                          DataRow(cells: [
-                            DataCell(Text("23-09-22",style: TextStyle(
-                                fontFamily: 'Trial',
-                                fontSize: 12,fontWeight: FontWeight.w600),)),
-                            DataCell(Text("Al-Fatihah",style: TextStyle(
-                                fontFamily: 'Trial',
-                                fontSize: 12,fontWeight: FontWeight.w400,color: Color(0xff707683)),)),
-                            DataCell(
-                              Text("Al-Imran",style: TextStyle(
-                                  fontFamily: 'Trial',
-                                  fontSize: 12,fontWeight: FontWeight.w400,color: Color(0xff707683)
-                              ),),),
-                            DataCell(
-                                Row(
-                                  children: [
-                                    FaIcon(FontAwesomeIcons.edit,color: ConstColors.secondary,size: 15,),
-                                    SizedBox(width: 20,),
-                                    FaIcon(FontAwesomeIcons.trashCan,color: Color(0xffFE0000),size: 15,),
-                                  ],
-                                )
-                            )
-
-
-                          ]),
-
-
-
-
-                        ]),
+                    ),
                   ),
                 ),
               ),
-              SizedBox(height: 20,),
+              SizedBox(
+                height: 20,
+              ),
             ],
           ),
         ),

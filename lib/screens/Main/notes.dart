@@ -249,92 +249,94 @@ class _NotesState extends State<Notes> {
           ]),
           child: Padding(
             padding: const EdgeInsets.only(top: 0),
-            child: Row(
-              children: [
-                SizedBox(
-                  width: 20,
-                ),
-                GestureDetector(
-                  onTap: () {
-                    scaffoldKey.currentState?.openDrawer();
-                  },
-                  child: Padding(
-                    padding: const EdgeInsets.only(top: 25),
-                    child: Container(
-                        height: 30,
-                        width: 30,
-                        decoration: BoxDecoration(
-                            shape: BoxShape.circle, color: Colors.white),
-                        child: Center(
-                            child: FaIcon(
-                          FontAwesomeIcons.bars,
-                          size: 18,
-                          color: ConstColors.secondary,
-                        ))),
+            child: FittedBox(
+              child: Row(
+                children: [
+                  SizedBox(
+                    width: 20,
                   ),
-                ),
-                SizedBox(
-                  width: 20,
-                ),
-                SingleChildScrollView(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      SizedBox(
-                        height: 35,
-                      ),
-                      Text(
-                        "Welcome, ",
-                        style: TextStyle(
-                            fontSize: 13,
-                            fontFamily: 'Trial',
-                            fontWeight: FontWeight.w600,
-                            color: Colors.white),
-                      ),
-                      Text(
-                        "User Name",
-                        style: TextStyle(
-                            fontFamily: 'CodeNext-Trial',
-                            fontSize: 18,
-                            fontWeight: FontWeight.w600,
-                            color: Colors.white),
-                      ),
-                    ],
+                  GestureDetector(
+                    onTap: () {
+                      scaffoldKey.currentState?.openDrawer();
+                    },
+                    child: Padding(
+                      padding: const EdgeInsets.only(top: 25),
+                      child: Container(
+                          height: 30,
+                          width: 30,
+                          decoration: BoxDecoration(
+                              shape: BoxShape.circle, color: Colors.white),
+                          child: Center(
+                              child: FaIcon(
+                            FontAwesomeIcons.bars,
+                            size: 18,
+                            color: ConstColors.secondary,
+                          ))),
+                    ),
                   ),
-                ),
-                SizedBox(
-                  width: 50,
-                ),
-                SingleChildScrollView(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      SizedBox(
-                        height: 35,
-                      ),
-                      Text(
-                        "29, Sep, 2022",
-                        style: TextStyle(
-                            fontSize: 13,
-                            fontFamily: 'Trial',
-                            fontWeight: FontWeight.w600,
-                            color: Colors.white),
-                      ),
-                      SizedBox(
-                        height: 5,
-                      ),
-                      Text(
-                        "Hijri : Shaban 23",
-                        style: TextStyle(
-                            fontSize: 14,
-                            fontFamily: 'Trial',
-                            fontWeight: FontWeight.w600,
-                            color: Colors.white),
-                      ),
-                    ],
+                  SizedBox(
+                    width: 20,
                   ),
-                ),
-              ],
+                  SingleChildScrollView(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        SizedBox(
+                          height: 35,
+                        ),
+                        Text(
+                          "Welcome, ",
+                          style: TextStyle(
+                              fontSize: 13,
+                              fontFamily: 'Trial',
+                              fontWeight: FontWeight.w600,
+                              color: Colors.white),
+                        ),
+                        Text(
+                          "User Name",
+                          style: TextStyle(
+                              fontFamily: 'CodeNext-Trial',
+                              fontSize: 18,
+                              fontWeight: FontWeight.w600,
+                              color: Colors.white),
+                        ),
+                      ],
+                    ),
+                  ),
+                  SizedBox(
+                    width: 50,
+                  ),
+                  SingleChildScrollView(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        SizedBox(
+                          height: 35,
+                        ),
+                        Text(
+                          "29, Sep, 2022",
+                          style: TextStyle(
+                              fontSize: 13,
+                              fontFamily: 'Trial',
+                              fontWeight: FontWeight.w600,
+                              color: Colors.white),
+                        ),
+                        SizedBox(
+                          height: 5,
+                        ),
+                        Text(
+                          "Hijri : Shaban 23",
+                          style: TextStyle(
+                              fontSize: 14,
+                              fontFamily: 'Trial',
+                              fontWeight: FontWeight.w600,
+                              color: Colors.white),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
         ),
@@ -559,54 +561,56 @@ class _NotesState extends State<Notes> {
                         color: Colors.white,
                       ),
                       alignment: Alignment.center,
-                      child: Column(
-                        children: [
-                          SizedBox(
-                            height: 12,
-                          ),
-                          Row(
-                            children: [
-                              SizedBox(
-                                width: 8,
-                              ),
-                              Text(
-                                "Added : 29/09/2022 ",
-                                style: GoogleFonts.poppins(
-                                    fontWeight: FontWeight.w500,
-                                    fontSize: 15,
-                                    color: ConstColors.secondary),
-                              ),
-                              Spacer(),
-                              FaIcon(
-                                FontAwesomeIcons.edit,
-                                color: ConstColors.secondary,
-                                size: 15,
-                              ),
-                              SizedBox(
-                                width: 20,
-                              ),
-                              FaIcon(
-                                FontAwesomeIcons.trashCan,
-                                color: Color(0xffFE0000),
-                                size: 15,
-                              ),
-                              SizedBox(
-                                width: 10,
-                              ),
-                            ],
-                          ),
-                          SizedBox(
-                            height: 5,
-                          ),
-                          Text(
-                            "Lorem Ipsum is simply dummy text of the printing and \ntypesetting industry. Lorem Ipsum has been the.",
-                            style: GoogleFonts.poppins(
-                                fontSize: 12,
-                                fontWeight: FontWeight.w400,
-                                color: ConstColors.primaryColor,
-                                letterSpacing: -0.8),
-                          )
-                        ],
+                      child: SingleChildScrollView(
+                        child: Column(
+                          children: [
+                            SizedBox(
+                              height: 12,
+                            ),
+                            Row(
+                              children: [
+                                SizedBox(
+                                  width: 8,
+                                ),
+                                Text(
+                                  "Added : 29/09/2022 ",
+                                  style: GoogleFonts.poppins(
+                                      fontWeight: FontWeight.w500,
+                                      fontSize: 15,
+                                      color: ConstColors.secondary),
+                                ),
+                                Spacer(),
+                                FaIcon(
+                                  FontAwesomeIcons.edit,
+                                  color: ConstColors.secondary,
+                                  size: 15,
+                                ),
+                                SizedBox(
+                                  width: 20,
+                                ),
+                                FaIcon(
+                                  FontAwesomeIcons.trashCan,
+                                  color: Color(0xffFE0000),
+                                  size: 15,
+                                ),
+                                SizedBox(
+                                  width: 10,
+                                ),
+                              ],
+                            ),
+                            SizedBox(
+                              height: 5,
+                            ),
+                            Text(
+                              "Lorem Ipsum is simply dummy text of the printing and \ntypesetting industry. Lorem Ipsum has been the.",
+                              style: GoogleFonts.poppins(
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.w400,
+                                  color: ConstColors.primaryColor,
+                                  letterSpacing: -0.8),
+                            )
+                          ],
+                        ),
                       ),
                     ),
                   ),
@@ -655,54 +659,56 @@ class _NotesState extends State<Notes> {
                         color: Colors.white,
                       ),
                       alignment: Alignment.center,
-                      child: Column(
-                        children: [
-                          SizedBox(
-                            height: 12,
-                          ),
-                          Row(
-                            children: [
-                              SizedBox(
-                                width: 8,
-                              ),
-                              Text(
-                                "Added : 29/09/2022 ",
-                                style: GoogleFonts.poppins(
-                                    fontWeight: FontWeight.w500,
-                                    fontSize: 15,
-                                    color: ConstColors.secondary),
-                              ),
-                              Spacer(),
-                              FaIcon(
-                                FontAwesomeIcons.edit,
-                                color: ConstColors.secondary,
-                                size: 15,
-                              ),
-                              SizedBox(
-                                width: 20,
-                              ),
-                              FaIcon(
-                                FontAwesomeIcons.trashCan,
-                                color: Color(0xffFE0000),
-                                size: 15,
-                              ),
-                              SizedBox(
-                                width: 10,
-                              ),
-                            ],
-                          ),
-                          SizedBox(
-                            height: 5,
-                          ),
-                          Text(
-                            "Lorem Ipsum is simply dummy text of the printing and \ntypesetting industry. Lorem Ipsum has been the.",
-                            style: GoogleFonts.poppins(
-                                fontSize: 12,
-                                fontWeight: FontWeight.w400,
-                                color: ConstColors.primaryColor,
-                                letterSpacing: -0.8),
-                          )
-                        ],
+                      child: SingleChildScrollView(
+                        child: Column(
+                          children: [
+                            SizedBox(
+                              height: 12,
+                            ),
+                            Row(
+                              children: [
+                                SizedBox(
+                                  width: 8,
+                                ),
+                                Text(
+                                  "Added : 29/09/2022 ",
+                                  style: GoogleFonts.poppins(
+                                      fontWeight: FontWeight.w500,
+                                      fontSize: 15,
+                                      color: ConstColors.secondary),
+                                ),
+                                Spacer(),
+                                FaIcon(
+                                  FontAwesomeIcons.edit,
+                                  color: ConstColors.secondary,
+                                  size: 15,
+                                ),
+                                SizedBox(
+                                  width: 20,
+                                ),
+                                FaIcon(
+                                  FontAwesomeIcons.trashCan,
+                                  color: Color(0xffFE0000),
+                                  size: 15,
+                                ),
+                                SizedBox(
+                                  width: 10,
+                                ),
+                              ],
+                            ),
+                            SizedBox(
+                              height: 5,
+                            ),
+                            Text(
+                              "Lorem Ipsum is simply dummy text of the printing and \ntypesetting industry. Lorem Ipsum has been the.",
+                              style: GoogleFonts.poppins(
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.w400,
+                                  color: ConstColors.primaryColor,
+                                  letterSpacing: -0.8),
+                            )
+                          ],
+                        ),
                       ),
                     ),
                   ),
@@ -751,54 +757,56 @@ class _NotesState extends State<Notes> {
                         color: Colors.white,
                       ),
                       alignment: Alignment.center,
-                      child: Column(
-                        children: [
-                          SizedBox(
-                            height: 12,
-                          ),
-                          Row(
-                            children: [
-                              SizedBox(
-                                width: 8,
-                              ),
-                              Text(
-                                "Added : 29/09/2022 ",
-                                style: GoogleFonts.poppins(
-                                    fontWeight: FontWeight.w500,
-                                    fontSize: 15,
-                                    color: ConstColors.secondary),
-                              ),
-                              Spacer(),
-                              FaIcon(
-                                FontAwesomeIcons.edit,
-                                color: ConstColors.secondary,
-                                size: 15,
-                              ),
-                              SizedBox(
-                                width: 20,
-                              ),
-                              FaIcon(
-                                FontAwesomeIcons.trashCan,
-                                color: Color(0xffFE0000),
-                                size: 15,
-                              ),
-                              SizedBox(
-                                width: 10,
-                              ),
-                            ],
-                          ),
-                          SizedBox(
-                            height: 5,
-                          ),
-                          Text(
-                            "Lorem Ipsum is simply dummy text of the printing and \ntypesetting industry. Lorem Ipsum has been the.",
-                            style: GoogleFonts.poppins(
-                                fontSize: 12,
-                                fontWeight: FontWeight.w400,
-                                color: ConstColors.primaryColor,
-                                letterSpacing: -0.8),
-                          )
-                        ],
+                      child: SingleChildScrollView(
+                        child: Column(
+                          children: [
+                            SizedBox(
+                              height: 12,
+                            ),
+                            Row(
+                              children: [
+                                SizedBox(
+                                  width: 8,
+                                ),
+                                Text(
+                                  "Added : 29/09/2022 ",
+                                  style: GoogleFonts.poppins(
+                                      fontWeight: FontWeight.w500,
+                                      fontSize: 15,
+                                      color: ConstColors.secondary),
+                                ),
+                                Spacer(),
+                                FaIcon(
+                                  FontAwesomeIcons.edit,
+                                  color: ConstColors.secondary,
+                                  size: 15,
+                                ),
+                                SizedBox(
+                                  width: 20,
+                                ),
+                                FaIcon(
+                                  FontAwesomeIcons.trashCan,
+                                  color: Color(0xffFE0000),
+                                  size: 15,
+                                ),
+                                SizedBox(
+                                  width: 10,
+                                ),
+                              ],
+                            ),
+                            SizedBox(
+                              height: 5,
+                            ),
+                            Text(
+                              "Lorem Ipsum is simply dummy text of the printing and \ntypesetting industry. Lorem Ipsum has been the.",
+                              style: GoogleFonts.poppins(
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.w400,
+                                  color: ConstColors.primaryColor,
+                                  letterSpacing: -0.8),
+                            )
+                          ],
+                        ),
                       ),
                     ),
                   ),
@@ -847,54 +855,56 @@ class _NotesState extends State<Notes> {
                         color: Colors.white,
                       ),
                       alignment: Alignment.center,
-                      child: Column(
-                        children: [
-                          SizedBox(
-                            height: 12,
-                          ),
-                          Row(
-                            children: [
-                              SizedBox(
-                                width: 8,
-                              ),
-                              Text(
-                                "Added : 29/09/2022 ",
-                                style: GoogleFonts.poppins(
-                                    fontWeight: FontWeight.w500,
-                                    fontSize: 15,
-                                    color: ConstColors.secondary),
-                              ),
-                              Spacer(),
-                              FaIcon(
-                                FontAwesomeIcons.edit,
-                                color: ConstColors.secondary,
-                                size: 15,
-                              ),
-                              SizedBox(
-                                width: 20,
-                              ),
-                              FaIcon(
-                                FontAwesomeIcons.trashCan,
-                                color: Color(0xffFE0000),
-                                size: 15,
-                              ),
-                              SizedBox(
-                                width: 10,
-                              ),
-                            ],
-                          ),
-                          SizedBox(
-                            height: 5,
-                          ),
-                          Text(
-                            "Lorem Ipsum is simply dummy text of the printing and \ntypesetting industry. Lorem Ipsum has been the.",
-                            style: GoogleFonts.poppins(
-                                fontSize: 12,
-                                fontWeight: FontWeight.w400,
-                                color: ConstColors.primaryColor,
-                                letterSpacing: -0.8),
-                          )
-                        ],
+                      child: SingleChildScrollView(
+                        child: Column(
+                          children: [
+                            SizedBox(
+                              height: 12,
+                            ),
+                            Row(
+                              children: [
+                                SizedBox(
+                                  width: 8,
+                                ),
+                                Text(
+                                  "Added : 29/09/2022 ",
+                                  style: GoogleFonts.poppins(
+                                      fontWeight: FontWeight.w500,
+                                      fontSize: 15,
+                                      color: ConstColors.secondary),
+                                ),
+                                Spacer(),
+                                FaIcon(
+                                  FontAwesomeIcons.edit,
+                                  color: ConstColors.secondary,
+                                  size: 15,
+                                ),
+                                SizedBox(
+                                  width: 20,
+                                ),
+                                FaIcon(
+                                  FontAwesomeIcons.trashCan,
+                                  color: Color(0xffFE0000),
+                                  size: 15,
+                                ),
+                                SizedBox(
+                                  width: 10,
+                                ),
+                              ],
+                            ),
+                            SizedBox(
+                              height: 5,
+                            ),
+                            Text(
+                              "Lorem Ipsum is simply dummy text of the printing and \ntypesetting industry. Lorem Ipsum has been the.",
+                              style: GoogleFonts.poppins(
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.w400,
+                                  color: ConstColors.primaryColor,
+                                  letterSpacing: -0.8),
+                            )
+                          ],
+                        ),
                       ),
                     ),
                   ),
@@ -943,54 +953,56 @@ class _NotesState extends State<Notes> {
                         color: Colors.white,
                       ),
                       alignment: Alignment.center,
-                      child: Column(
-                        children: [
-                          SizedBox(
-                            height: 12,
-                          ),
-                          Row(
-                            children: [
-                              SizedBox(
-                                width: 8,
-                              ),
-                              Text(
-                                "Added : 29/09/2022 ",
-                                style: GoogleFonts.poppins(
-                                    fontWeight: FontWeight.w500,
-                                    fontSize: 15,
-                                    color: ConstColors.secondary),
-                              ),
-                              Spacer(),
-                              FaIcon(
-                                FontAwesomeIcons.edit,
-                                color: ConstColors.secondary,
-                                size: 15,
-                              ),
-                              SizedBox(
-                                width: 20,
-                              ),
-                              FaIcon(
-                                FontAwesomeIcons.trashCan,
-                                color: Color(0xffFE0000),
-                                size: 15,
-                              ),
-                              SizedBox(
-                                width: 10,
-                              ),
-                            ],
-                          ),
-                          SizedBox(
-                            height: 5,
-                          ),
-                          Text(
-                            "Lorem Ipsum is simply dummy text of the printing and \ntypesetting industry. Lorem Ipsum has been the.",
-                            style: GoogleFonts.poppins(
-                                fontSize: 12,
-                                fontWeight: FontWeight.w400,
-                                color: ConstColors.primaryColor,
-                                letterSpacing: -0.8),
-                          )
-                        ],
+                      child: SingleChildScrollView(
+                        child: Column(
+                          children: [
+                            SizedBox(
+                              height: 12,
+                            ),
+                            Row(
+                              children: [
+                                SizedBox(
+                                  width: 8,
+                                ),
+                                Text(
+                                  "Added : 29/09/2022 ",
+                                  style: GoogleFonts.poppins(
+                                      fontWeight: FontWeight.w500,
+                                      fontSize: 15,
+                                      color: ConstColors.secondary),
+                                ),
+                                Spacer(),
+                                FaIcon(
+                                  FontAwesomeIcons.edit,
+                                  color: ConstColors.secondary,
+                                  size: 15,
+                                ),
+                                SizedBox(
+                                  width: 20,
+                                ),
+                                FaIcon(
+                                  FontAwesomeIcons.trashCan,
+                                  color: Color(0xffFE0000),
+                                  size: 15,
+                                ),
+                                SizedBox(
+                                  width: 10,
+                                ),
+                              ],
+                            ),
+                            SizedBox(
+                              height: 5,
+                            ),
+                            Text(
+                              "Lorem Ipsum is simply dummy text of the printing and \ntypesetting industry. Lorem Ipsum has been the.",
+                              style: GoogleFonts.poppins(
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.w400,
+                                  color: ConstColors.primaryColor,
+                                  letterSpacing: -0.8),
+                            )
+                          ],
+                        ),
                       ),
                     ),
                   ),

@@ -8,15 +8,20 @@ import '../DrawerScreens/Home.dart';
 import '../DrawerScreens/account.dart';
 import '../DrawerScreens/activity_dashboard.dart';
 import 'Home2.dart';
+
 class Activity extends StatefulWidget {
   const Activity({Key? key}) : super(key: key);
 
   @override
   State<Activity> createState() => _ActivityState();
 }
-enum Data { yes, no, }
-enum Val {  hijri,eng }
 
+enum Data {
+  yes,
+  no,
+}
+
+enum Val { hijri, eng }
 
 class _ActivityState extends State<Activity> {
   TextEditingController _description = TextEditingController();
@@ -24,9 +29,9 @@ class _ActivityState extends State<Activity> {
   TextEditingController _title = TextEditingController();
   TextEditingController _subcatogary = TextEditingController();
   TextEditingController _time = TextEditingController();
-  Data? _data ;
+  Data? _data;
   var scaffoldKey = GlobalKey<ScaffoldState>();
-  Val? _val ;
+  Val? _val;
   String defaultvalue = "";
   String defaultvalue2 = "";
   String defaultvalue3 = "";
@@ -94,7 +99,7 @@ class _ActivityState extends State<Activity> {
                                 boxShadow: [
                                   BoxShadow(
                                       color:
-                                      Color(0xffBBC3CE).withOpacity(0.60),
+                                          Color(0xffBBC3CE).withOpacity(0.60),
                                       blurRadius: 12,
                                       spreadRadius: 0,
                                       offset: Offset(
@@ -103,7 +108,7 @@ class _ActivityState extends State<Activity> {
                                       )),
                                   BoxShadow(
                                       color:
-                                      Color(0xffFDFFFF).withOpacity(0.80),
+                                          Color(0xffFDFFFF).withOpacity(0.80),
                                       blurRadius: 12,
                                       spreadRadius: 0,
                                       offset: Offset(-4, -4))
@@ -133,7 +138,8 @@ class _ActivityState extends State<Activity> {
                                   style: TextStyle(
                                       fontFamily: 'Trial',
                                       fontWeight: FontWeight.w500,
-                                      fontSize: 16, color: Colors.white),
+                                      fontSize: 16,
+                                      color: Colors.white),
                                 ),
                                 // Text(
                                 //   "View Profile",
@@ -165,10 +171,7 @@ class _ActivityState extends State<Activity> {
                   ),
                   title: Text(
                     "Home",
-                    style: TextStyle(
-                        fontSize: 16,
-                        fontFamily: 'Trial'
-                    ),
+                    style: TextStyle(fontSize: 16, fontFamily: 'Trial'),
                   ),
                 ),
               ),
@@ -227,10 +230,7 @@ class _ActivityState extends State<Activity> {
                   ),
                   title: Text(
                     "Activity Dashboard",
-                    style: TextStyle(
-                        fontSize: 16,
-                        fontFamily: 'Trial'
-                    ),
+                    style: TextStyle(fontSize: 16, fontFamily: 'Trial'),
                   ),
                 ),
               ),
@@ -261,7 +261,8 @@ class _ActivityState extends State<Activity> {
                     "Version 1.0.0",
                     style: TextStyle(
                         fontFamily: 'Trial',
-                        fontSize: 10, color: ConstColors.primaryColor),
+                        fontSize: 10,
+                        color: ConstColors.primaryColor),
                   )
                 ],
               ),
@@ -274,7 +275,7 @@ class _ActivityState extends State<Activity> {
         child: Container(
           height: 114,
           decoration:
-          BoxDecoration(color: ConstColors.primaryColor, boxShadow: [
+              BoxDecoration(color: ConstColors.primaryColor, boxShadow: [
             BoxShadow(
                 color: Color(0xff000000).withOpacity(0.10),
                 blurRadius: 10,
@@ -283,88 +284,90 @@ class _ActivityState extends State<Activity> {
           ]),
           child: Padding(
             padding: const EdgeInsets.only(top: 0),
-            child: Row(
-              children: [
-                SizedBox(
-                  width: 20,
-                ),
-                GestureDetector(
-                  onTap: () {
-                    scaffoldKey.currentState?.openDrawer();
-                  },
-                  child: Padding(
-                    padding: const EdgeInsets.only(top: 25),
-                    child: Container(
-                        height: 30,
-                        width: 30,
-                        decoration: BoxDecoration(
-                            shape: BoxShape.circle, color: Colors.white),
-                        child: Center(
-                            child: FaIcon(
-                              FontAwesomeIcons.bars,
-                              size: 18,
-                              color: ConstColors.secondary,
-                            ))),
+            child: FittedBox(
+              child: Row(
+                children: [
+                  SizedBox(
+                    width: 20,
                   ),
-                ),
-                SizedBox(
-                  width: 20,
-                ),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    SizedBox(
-                      height: 35,
+                  GestureDetector(
+                    onTap: () {
+                      scaffoldKey.currentState?.openDrawer();
+                    },
+                    child: Padding(
+                      padding: const EdgeInsets.only(top: 25),
+                      child: Container(
+                          height: 30,
+                          width: 30,
+                          decoration: BoxDecoration(
+                              shape: BoxShape.circle, color: Colors.white),
+                          child: Center(
+                              child: FaIcon(
+                            FontAwesomeIcons.bars,
+                            size: 18,
+                            color: ConstColors.secondary,
+                          ))),
                     ),
-                    Text(
-                      "Welcome, ",
-                      style: TextStyle(
-                          fontSize: 13,
-                          fontFamily: 'Trial',
-                          fontWeight: FontWeight.w600,
-                          color: Colors.white),
-                    ),
-                    Text(
-                      "User Name",
-                      style: TextStyle(
-                          fontFamily: 'CodeNext-Trial',
-                          fontSize: 18,
-                          fontWeight: FontWeight.w600,
-                          color: Colors.white),
-                    ),
-                  ],
-                ),
-                SizedBox(
-                  width: 50,
-                ),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    SizedBox(
-                      height: 35,
-                    ),
-                    Text(
-                      "29, Sep, 2022",
-                      style: TextStyle(
-                          fontSize: 13,
-                          fontFamily: 'Trial',
-                          fontWeight: FontWeight.w600,
-                          color: Colors.white),
-                    ),
-                    SizedBox(
-                      height: 5,
-                    ),
-                    Text(
-                      "Hijri : Shaban 23",
-                      style: TextStyle(
-                          fontSize: 14,
-                          fontFamily: 'Trial',
-                          fontWeight: FontWeight.w600,
-                          color: Colors.white),
-                    ),
-                  ],
-                ),
-              ],
+                  ),
+                  SizedBox(
+                    width: 20,
+                  ),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      SizedBox(
+                        height: 35,
+                      ),
+                      Text(
+                        "Welcome, ",
+                        style: TextStyle(
+                            fontSize: 13,
+                            fontFamily: 'Trial',
+                            fontWeight: FontWeight.w600,
+                            color: Colors.white),
+                      ),
+                      Text(
+                        "User Name",
+                        style: TextStyle(
+                            fontFamily: 'CodeNext-Trial',
+                            fontSize: 18,
+                            fontWeight: FontWeight.w600,
+                            color: Colors.white),
+                      ),
+                    ],
+                  ),
+                  SizedBox(
+                    width: 50,
+                  ),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      SizedBox(
+                        height: 35,
+                      ),
+                      Text(
+                        "29, Sep, 2022",
+                        style: TextStyle(
+                            fontSize: 13,
+                            fontFamily: 'Trial',
+                            fontWeight: FontWeight.w600,
+                            color: Colors.white),
+                      ),
+                      SizedBox(
+                        height: 5,
+                      ),
+                      Text(
+                        "Hijri : Shaban 23",
+                        style: TextStyle(
+                            fontSize: 14,
+                            fontFamily: 'Trial',
+                            fontWeight: FontWeight.w600,
+                            color: Colors.white),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
             ),
           ),
         ),
@@ -377,18 +380,32 @@ class _ActivityState extends State<Activity> {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              SizedBox(height: 28,),
-              Text('Add Activity',style: AppTextTheme.titles,),
-              SizedBox(height: 29,),
+              SizedBox(
+                height: 28,
+              ),
+              Text(
+                'Add Activity',
+                style: AppTextTheme.titles,
+              ),
+              SizedBox(
+                height: 29,
+              ),
               Row(
                 children: [
-                  SizedBox(width: 36,),
-                  Text("Title",style: AppTextTheme.labels,),
+                  SizedBox(
+                    width: 36,
+                  ),
+                  Text(
+                    "Title",
+                    style: AppTextTheme.labels,
+                  ),
                 ],
               ),
-              SizedBox(height: 10,),
+              SizedBox(
+                height: 10,
+              ),
               Padding(
-                padding: const EdgeInsets.only(left: 35,right: 35),
+                padding: const EdgeInsets.only(left: 35, right: 35),
                 child: Container(
                   width: double.infinity,
                   height: 40,
@@ -400,13 +417,15 @@ class _ActivityState extends State<Activity> {
                             color: Color(0xff587CA7).withOpacity(0.31),
                             blurRadius: 22,
                             spreadRadius: 0,
-                            offset: Offset(6,6,)),
+                            offset: Offset(
+                              6,
+                              6,
+                            )),
                         BoxShadow(
                             color: Color(0xffFFFFFF),
                             blurRadius: 20,
                             spreadRadius: 0,
-                            offset: Offset(-4,-4)
-                        )
+                            offset: Offset(-4, -4))
                       ],
                       gradient: LinearGradient(
                           begin: Alignment.topCenter,
@@ -416,7 +435,7 @@ class _ActivityState extends State<Activity> {
                             ConstColors.primaryColor,
                           ])),
                   child: Padding(
-                    padding: const EdgeInsets.only(left: 1,right: 1),
+                    padding: const EdgeInsets.only(left: 1, right: 1),
                     child: Container(
                       width: double.infinity,
                       height: 38,
@@ -425,14 +444,14 @@ class _ActivityState extends State<Activity> {
                         color: Colors.white,
                       ),
                       alignment: Alignment.center,
-                      child:  TextFormField(
+                      child: TextFormField(
                         controller: _title,
                         cursorColor: Colors.black54,
                         autovalidateMode: AutovalidateMode.onUserInteraction,
                         decoration: InputDecoration(
                           hintText: "Title",
                           hintStyle: AppTextTheme.hintTxt,
-                          contentPadding: EdgeInsets.only(bottom: 10,left: 10),
+                          contentPadding: EdgeInsets.only(bottom: 10, left: 10),
                           border: InputBorder.none,
                         ),
                         // validator: (vaL) {
@@ -443,16 +462,25 @@ class _ActivityState extends State<Activity> {
                   ),
                 ),
               ),
-              SizedBox(height: 20,),
+              SizedBox(
+                height: 20,
+              ),
               Row(
                 children: [
-                  SizedBox(width: 36,),
-                  Text("Description",style: AppTextTheme.labels,)
+                  SizedBox(
+                    width: 36,
+                  ),
+                  Text(
+                    "Description",
+                    style: AppTextTheme.labels,
+                  )
                 ],
               ),
-              SizedBox(height: 10,),
+              SizedBox(
+                height: 10,
+              ),
               Padding(
-                padding: const EdgeInsets.only(left: 35,right: 35),
+                padding: const EdgeInsets.only(left: 35, right: 35),
                 child: Container(
                   width: double.infinity,
                   height: 133,
@@ -464,13 +492,15 @@ class _ActivityState extends State<Activity> {
                             color: Color(0xff587CA7).withOpacity(0.31),
                             blurRadius: 22,
                             spreadRadius: 0,
-                            offset: Offset(6,6,)),
+                            offset: Offset(
+                              6,
+                              6,
+                            )),
                         BoxShadow(
                             color: Color(0xffFFFFFF),
                             blurRadius: 20,
                             spreadRadius: 0,
-                            offset: Offset(-4,-4)
-                        )
+                            offset: Offset(-4, -4))
                       ],
                       gradient: LinearGradient(
                           begin: Alignment.topCenter,
@@ -480,7 +510,7 @@ class _ActivityState extends State<Activity> {
                             ConstColors.primaryColor,
                           ])),
                   child: Padding(
-                    padding: const EdgeInsets.only(left: 1,right: 1),
+                    padding: const EdgeInsets.only(left: 1, right: 1),
                     child: Container(
                       width: double.infinity,
                       height: 131,
@@ -489,14 +519,14 @@ class _ActivityState extends State<Activity> {
                         color: Colors.white,
                       ),
                       alignment: Alignment.center,
-                      child:  TextFormField(
+                      child: TextFormField(
                         controller: _description,
                         cursorColor: Colors.black54,
                         autovalidateMode: AutovalidateMode.onUserInteraction,
                         decoration: InputDecoration(
                           hintText: "Description",
                           hintStyle: AppTextTheme.hintTxt,
-                          contentPadding: EdgeInsets.only(bottom: 90,left: 10),
+                          contentPadding: EdgeInsets.only(bottom: 90, left: 10),
                           border: InputBorder.none,
                         ),
                         // validator: (vaL) {
@@ -507,16 +537,25 @@ class _ActivityState extends State<Activity> {
                   ),
                 ),
               ),
-              SizedBox(height: 20,),
+              SizedBox(
+                height: 20,
+              ),
               Row(
                 children: [
-                  SizedBox(width: 36,),
-                  Text("Category",style: AppTextTheme.labels,)
+                  SizedBox(
+                    width: 36,
+                  ),
+                  Text(
+                    "Category",
+                    style: AppTextTheme.labels,
+                  )
                 ],
               ),
-SizedBox(height: 10,),
+              SizedBox(
+                height: 10,
+              ),
               Padding(
-                padding: const EdgeInsets.only(left: 35,right: 35),
+                padding: const EdgeInsets.only(left: 35, right: 35),
                 child: Container(
                   width: double.infinity,
                   height: 40,
@@ -528,13 +567,15 @@ SizedBox(height: 10,),
                             color: Color(0xff587CA7).withOpacity(0.31),
                             blurRadius: 22,
                             spreadRadius: 0,
-                            offset: Offset(6,6,)),
+                            offset: Offset(
+                              6,
+                              6,
+                            )),
                         BoxShadow(
                             color: Color(0xffFFFFFF),
                             blurRadius: 20,
                             spreadRadius: 0,
-                            offset: Offset(-4,-4)
-                        )
+                            offset: Offset(-4, -4))
                       ],
                       gradient: LinearGradient(
                           begin: Alignment.topCenter,
@@ -544,7 +585,7 @@ SizedBox(height: 10,),
                             ConstColors.primaryColor,
                           ])),
                   child: Padding(
-                    padding: const EdgeInsets.only(left: 1,right: 1),
+                    padding: const EdgeInsets.only(left: 1, right: 1),
                     child: Container(
                       width: double.infinity,
                       height: 38,
@@ -553,7 +594,7 @@ SizedBox(height: 10,),
                         color: Colors.white,
                       ),
                       alignment: Alignment.center,
-                      child:  DropdownButtonHideUnderline(
+                      child: DropdownButtonHideUnderline(
                         child: Padding(
                           padding: const EdgeInsets.only(right: 10),
                           child: DropdownButton<String>(
@@ -572,7 +613,10 @@ SizedBox(height: 10,),
                                 DropdownMenuItem(
                                   child: Padding(
                                     padding: const EdgeInsets.only(left: 10),
-                                    child: Text("Category",style: AppTextTheme.hintTxt,),
+                                    child: Text(
+                                      "Category",
+                                      style: AppTextTheme.hintTxt,
+                                    ),
                                   ),
                                   value: "",
                                 ),
@@ -580,8 +624,12 @@ SizedBox(height: 10,),
                                     .map<DropdownMenuItem<String>>((data) {
                                   return DropdownMenuItem<String>(
                                       child: Padding(
-                                        padding: const EdgeInsets.only(left: 10),
-                                        child: Text(data['title'],style: AppTextTheme.hintTxt,),
+                                        padding:
+                                            const EdgeInsets.only(left: 10),
+                                        child: Text(
+                                          data['title'],
+                                          style: AppTextTheme.hintTxt,
+                                        ),
                                       ),
                                       value: data['value']);
                                 }).toList(),
@@ -592,15 +640,25 @@ SizedBox(height: 10,),
                   ),
                 ),
               ),
-              SizedBox(height: 20,),
+              SizedBox(
+                height: 20,
+              ),
               Row(
                 children: [
-                  SizedBox(width: 36,),
-                  Text("Sub Category",style: AppTextTheme.labels,)
+                  SizedBox(
+                    width: 36,
+                  ),
+                  Text(
+                    "Sub Category",
+                    style: AppTextTheme.labels,
+                  )
                 ],
               ),
-              SizedBox(height: 10,),              Padding(
-                padding: const EdgeInsets.only(left: 35,right: 35),
+              SizedBox(
+                height: 10,
+              ),
+              Padding(
+                padding: const EdgeInsets.only(left: 35, right: 35),
                 child: Container(
                   width: double.infinity,
                   height: 40,
@@ -612,13 +670,15 @@ SizedBox(height: 10,),
                             color: Color(0xff587CA7).withOpacity(0.31),
                             blurRadius: 22,
                             spreadRadius: 0,
-                            offset: Offset(6,6,)),
+                            offset: Offset(
+                              6,
+                              6,
+                            )),
                         BoxShadow(
                             color: Color(0xffFFFFFF),
                             blurRadius: 20,
                             spreadRadius: 0,
-                            offset: Offset(-4,-4)
-                        )
+                            offset: Offset(-4, -4))
                       ],
                       gradient: LinearGradient(
                           begin: Alignment.topCenter,
@@ -628,7 +688,7 @@ SizedBox(height: 10,),
                             ConstColors.primaryColor,
                           ])),
                   child: Padding(
-                    padding: const EdgeInsets.only(left: 1,right: 1),
+                    padding: const EdgeInsets.only(left: 1, right: 1),
                     child: Container(
                       width: double.infinity,
                       height: 38,
@@ -637,7 +697,7 @@ SizedBox(height: 10,),
                         color: Colors.white,
                       ),
                       alignment: Alignment.center,
-                      child:  DropdownButtonHideUnderline(
+                      child: DropdownButtonHideUnderline(
                         child: Padding(
                           padding: const EdgeInsets.only(right: 10),
                           child: DropdownButton<String>(
@@ -656,7 +716,10 @@ SizedBox(height: 10,),
                                 DropdownMenuItem(
                                   child: Padding(
                                     padding: const EdgeInsets.only(left: 10),
-                                    child: Text("Sub Category",style: AppTextTheme.hintTxt,),
+                                    child: Text(
+                                      "Sub Category",
+                                      style: AppTextTheme.hintTxt,
+                                    ),
                                   ),
                                   value: "",
                                 ),
@@ -664,8 +727,12 @@ SizedBox(height: 10,),
                                     .map<DropdownMenuItem<String>>((data) {
                                   return DropdownMenuItem<String>(
                                       child: Padding(
-                                        padding: const EdgeInsets.only(left: 10),
-                                        child: Text(data['title'],style: AppTextTheme.hintTxt,),
+                                        padding:
+                                            const EdgeInsets.only(left: 10),
+                                        child: Text(
+                                          data['title'],
+                                          style: AppTextTheme.hintTxt,
+                                        ),
                                       ),
                                       value: data['value']);
                                 }).toList(),
@@ -676,19 +743,25 @@ SizedBox(height: 10,),
                   ),
                 ),
               ),
-              SizedBox(height: 20,),
+              SizedBox(
+                height: 20,
+              ),
               Row(
                 children: [
-                  SizedBox(width: 36,),
-                  Text("Status",style: AppTextTheme.labels,)
+                  SizedBox(
+                    width: 36,
+                  ),
+                  Text(
+                    "Status",
+                    style: AppTextTheme.labels,
+                  )
                 ],
               ),
-              SizedBox(height: 10,),
-
-
-
+              SizedBox(
+                height: 10,
+              ),
               Padding(
-                padding: const EdgeInsets.only(left: 35,right: 35),
+                padding: const EdgeInsets.only(left: 35, right: 35),
                 child: Container(
                   width: double.infinity,
                   height: 40,
@@ -700,13 +773,15 @@ SizedBox(height: 10,),
                             color: Color(0xff587CA7).withOpacity(0.31),
                             blurRadius: 22,
                             spreadRadius: 0,
-                            offset: Offset(6,6,)),
+                            offset: Offset(
+                              6,
+                              6,
+                            )),
                         BoxShadow(
                             color: Color(0xffFFFFFF),
                             blurRadius: 20,
                             spreadRadius: 0,
-                            offset: Offset(-4,-4)
-                        )
+                            offset: Offset(-4, -4))
                       ],
                       gradient: LinearGradient(
                           begin: Alignment.topCenter,
@@ -716,7 +791,7 @@ SizedBox(height: 10,),
                             ConstColors.primaryColor,
                           ])),
                   child: Padding(
-                    padding: const EdgeInsets.only(left: 1,right: 1),
+                    padding: const EdgeInsets.only(left: 1, right: 1),
                     child: Container(
                       width: double.infinity,
                       height: 38,
@@ -725,7 +800,7 @@ SizedBox(height: 10,),
                         color: Colors.white,
                       ),
                       alignment: Alignment.center,
-                      child:   DropdownButtonHideUnderline(
+                      child: DropdownButtonHideUnderline(
                         child: Padding(
                           padding: const EdgeInsets.only(right: 10),
                           child: DropdownButton<String>(
@@ -744,7 +819,10 @@ SizedBox(height: 10,),
                                 DropdownMenuItem(
                                   child: Padding(
                                     padding: const EdgeInsets.only(left: 10),
-                                    child: Text("Status",style: AppTextTheme.hintTxt,),
+                                    child: Text(
+                                      "Status",
+                                      style: AppTextTheme.hintTxt,
+                                    ),
                                   ),
                                   value: "",
                                 ),
@@ -752,8 +830,12 @@ SizedBox(height: 10,),
                                     .map<DropdownMenuItem<String>>((data) {
                                   return DropdownMenuItem<String>(
                                       child: Padding(
-                                        padding: const EdgeInsets.only(left: 10),
-                                        child: Text(data['title'],style: AppTextTheme.hintTxt,),
+                                        padding:
+                                            const EdgeInsets.only(left: 10),
+                                        child: Text(
+                                          data['title'],
+                                          style: AppTextTheme.hintTxt,
+                                        ),
                                       ),
                                       value: data['value']);
                                 }).toList(),
@@ -764,15 +846,25 @@ SizedBox(height: 10,),
                   ),
                 ),
               ),
-              SizedBox(height: 20,),
+              SizedBox(
+                height: 20,
+              ),
               Row(
                 children: [
-                  SizedBox(width: 36,),
-                  Text("Move It To",style: AppTextTheme.labels,)
+                  SizedBox(
+                    width: 36,
+                  ),
+                  Text(
+                    "Move It To",
+                    style: AppTextTheme.labels,
+                  )
                 ],
               ),
-              SizedBox(height: 10,),              Padding(
-                padding: const EdgeInsets.only(left: 35,right: 35),
+              SizedBox(
+                height: 10,
+              ),
+              Padding(
+                padding: const EdgeInsets.only(left: 35, right: 35),
                 child: Container(
                   width: double.infinity,
                   height: 40,
@@ -784,13 +876,15 @@ SizedBox(height: 10,),
                             color: Color(0xff587CA7).withOpacity(0.31),
                             blurRadius: 22,
                             spreadRadius: 0,
-                            offset: Offset(6,6,)),
+                            offset: Offset(
+                              6,
+                              6,
+                            )),
                         BoxShadow(
                             color: Color(0xffFFFFFF),
                             blurRadius: 20,
                             spreadRadius: 0,
-                            offset: Offset(-4,-4)
-                        )
+                            offset: Offset(-4, -4))
                       ],
                       gradient: LinearGradient(
                           begin: Alignment.topCenter,
@@ -800,7 +894,7 @@ SizedBox(height: 10,),
                             ConstColors.primaryColor,
                           ])),
                   child: Padding(
-                    padding: const EdgeInsets.only(left: 1,right: 1),
+                    padding: const EdgeInsets.only(left: 1, right: 1),
                     child: Container(
                       width: double.infinity,
                       height: 38,
@@ -809,7 +903,7 @@ SizedBox(height: 10,),
                         color: Colors.white,
                       ),
                       alignment: Alignment.center,
-                      child:  DropdownButtonHideUnderline(
+                      child: DropdownButtonHideUnderline(
                         child: Padding(
                           padding: const EdgeInsets.only(right: 10),
                           child: DropdownButton<String>(
@@ -828,7 +922,10 @@ SizedBox(height: 10,),
                                 DropdownMenuItem(
                                   child: Padding(
                                     padding: const EdgeInsets.only(left: 10),
-                                    child: Text("Move It To",style: AppTextTheme.hintTxt,),
+                                    child: Text(
+                                      "Move It To",
+                                      style: AppTextTheme.hintTxt,
+                                    ),
                                   ),
                                   value: "",
                                 ),
@@ -836,8 +933,12 @@ SizedBox(height: 10,),
                                     .map<DropdownMenuItem<String>>((data) {
                                   return DropdownMenuItem<String>(
                                       child: Padding(
-                                        padding: const EdgeInsets.only(left: 10),
-                                        child: Text(data['title'],style: AppTextTheme.hintTxt,),
+                                        padding:
+                                            const EdgeInsets.only(left: 10),
+                                        child: Text(
+                                          data['title'],
+                                          style: AppTextTheme.hintTxt,
+                                        ),
                                       ),
                                       value: data['value']);
                                 }).toList(),
@@ -848,15 +949,25 @@ SizedBox(height: 10,),
                   ),
                 ),
               ),
-              SizedBox(height: 20,),
+              SizedBox(
+                height: 20,
+              ),
               Row(
                 children: [
-                  SizedBox(width: 36,),
-                  Text("Activity Type",style: AppTextTheme.labels,)
+                  SizedBox(
+                    width: 36,
+                  ),
+                  Text(
+                    "Activity Type",
+                    style: AppTextTheme.labels,
+                  )
                 ],
               ),
-              SizedBox(height: 10,),                   Padding(
-                padding: const EdgeInsets.only(left: 35,right: 35),
+              SizedBox(
+                height: 10,
+              ),
+              Padding(
+                padding: const EdgeInsets.only(left: 35, right: 35),
                 child: Container(
                   width: double.infinity,
                   height: 40,
@@ -868,13 +979,15 @@ SizedBox(height: 10,),
                             color: Color(0xff587CA7).withOpacity(0.31),
                             blurRadius: 22,
                             spreadRadius: 0,
-                            offset: Offset(6,6,)),
+                            offset: Offset(
+                              6,
+                              6,
+                            )),
                         BoxShadow(
                             color: Color(0xffFFFFFF),
                             blurRadius: 20,
                             spreadRadius: 0,
-                            offset: Offset(-4,-4)
-                        )
+                            offset: Offset(-4, -4))
                       ],
                       gradient: LinearGradient(
                           begin: Alignment.topCenter,
@@ -884,7 +997,7 @@ SizedBox(height: 10,),
                             ConstColors.primaryColor,
                           ])),
                   child: Padding(
-                    padding: const EdgeInsets.only(left: 1,right: 1),
+                    padding: const EdgeInsets.only(left: 1, right: 1),
                     child: Container(
                       width: double.infinity,
                       height: 38,
@@ -893,7 +1006,7 @@ SizedBox(height: 10,),
                         color: Colors.white,
                       ),
                       alignment: Alignment.center,
-                      child:   DropdownButtonHideUnderline(
+                      child: DropdownButtonHideUnderline(
                         child: Padding(
                           padding: const EdgeInsets.only(right: 10),
                           child: DropdownButton<String>(
@@ -912,7 +1025,10 @@ SizedBox(height: 10,),
                                 DropdownMenuItem(
                                   child: Padding(
                                     padding: const EdgeInsets.only(left: 10),
-                                    child: Text("Activity Type",style: AppTextTheme.hintTxt,),
+                                    child: Text(
+                                      "Activity Type",
+                                      style: AppTextTheme.hintTxt,
+                                    ),
                                   ),
                                   value: "",
                                 ),
@@ -920,8 +1036,12 @@ SizedBox(height: 10,),
                                     .map<DropdownMenuItem<String>>((data) {
                                   return DropdownMenuItem<String>(
                                       child: Padding(
-                                        padding: const EdgeInsets.only(left: 10),
-                                        child: Text(data['title'],style: AppTextTheme.hintTxt,),
+                                        padding:
+                                            const EdgeInsets.only(left: 10),
+                                        child: Text(
+                                          data['title'],
+                                          style: AppTextTheme.hintTxt,
+                                        ),
                                       ),
                                       value: data['value']);
                                 }).toList(),
@@ -932,92 +1052,124 @@ SizedBox(height: 10,),
                   ),
                 ),
               ),
-              SizedBox(height: 20,),
+              SizedBox(
+                height: 20,
+              ),
               Row(
+                mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  SizedBox(width: 46,),
-                  Text("Reminder",style: AppTextTheme.labels,),
-                  SizedBox(width: 66,),
-
+                  SizedBox(
+                    width: 46,
+                  ),
+                  Text(
+                    "Reminder",
+                    style: AppTextTheme.labels,
+                  ),
+                  // SizedBox(
+                  //   width: 66,
+                  // ),
                   Radio(
                       value: Data.yes,
                       activeColor: ConstColors.primaryColor,
                       groupValue: _data,
-                      onChanged: (value){
+                      onChanged: (value) {
                         setState(() {
                           _data = value;
                         });
-                      }
+                      }),
+                  Text(
+                    "Yes",
+                    style: GoogleFonts.poppins(
+                        fontSize: 13, fontWeight: FontWeight.w300),
                   ),
-                  Text("Yes",style: GoogleFonts.poppins(fontSize: 13,fontWeight: FontWeight.w300),),
                   Radio(
                       value: Data.no,
                       activeColor: ConstColors.primaryColor,
                       groupValue: _data,
-                      onChanged: (value){
+                      onChanged: (value) {
                         setState(() {
                           _data = value;
                         });
-                      }
+                      }),
+                  Text(
+                    "No",
+                    style: GoogleFonts.poppins(
+                        fontSize: 13, fontWeight: FontWeight.w300),
                   ),
-                  Text("No",style: GoogleFonts.poppins(fontSize: 13,fontWeight: FontWeight.w300),),
-
                 ],
               ),
+              // SizedBox(
+              //   width: 50,
+              // ),
               Row(
                 children: [
-                  SizedBox(width: 46,),
-                  Text("Calender",style: AppTextTheme.labels,),
-                  SizedBox(width: 70,),
-
+                  SizedBox(
+                    width: 46,
+                  ),
+                  Text(
+                    "Calender",
+                    style: AppTextTheme.labels,
+                  ),
+                  // SizedBox(
+                  //   width: 70,
+                  // ),
                   Radio(
                       value: Val.eng,
                       activeColor: ConstColors.primaryColor,
                       groupValue: _val,
-                      onChanged: (value){
+                      onChanged: (value) {
                         setState(() {
                           _val = value;
                         });
-                      }
+                      }),
+                  Text(
+                    "Eng",
+                    style: GoogleFonts.poppins(
+                        fontSize: 13, fontWeight: FontWeight.w300),
                   ),
-                  Text("Eng",style: GoogleFonts.poppins(fontSize: 13,fontWeight: FontWeight.w300),),
                   Radio(
                       value: Val.hijri,
                       activeColor: ConstColors.primaryColor,
                       groupValue: _val,
-                      onChanged: (value){
+                      onChanged: (value) {
                         setState(() {
                           _val = value;
                         });
-                      }
+                      }),
+                  Text(
+                    "Hijri",
+                    style: GoogleFonts.poppins(
+                        fontSize: 13, fontWeight: FontWeight.w300),
                   ),
-                  Text("Hijri",style: GoogleFonts.poppins(fontSize: 13,fontWeight: FontWeight.w300),),
                 ],
               ),
               GestureDetector(
-                  // onTap: (){
-                  //   Navigator.push(context, MaterialPageRoute(builder: (context)=>DailyReflection()));
-                  // },
+                // onTap: (){
+                //   Navigator.push(context, MaterialPageRoute(builder: (context)=>DailyReflection()));
+                // },
                 child: Padding(
-                  padding: const EdgeInsets.only(left: 75,right: 75,top: 40),
+                  padding: const EdgeInsets.only(left: 75, right: 75, top: 40),
                   child: Container(
                     width: double.infinity,
                     height: 40,
                     alignment: Alignment.center,
                     decoration: BoxDecoration(
-                        borderRadius: const BorderRadius.all(Radius.circular(10)),
+                        borderRadius:
+                            const BorderRadius.all(Radius.circular(10)),
                         boxShadow: [
                           BoxShadow(
                               color: Color(0xff587CA7).withOpacity(0.31),
                               blurRadius: 22,
                               spreadRadius: 0,
-                              offset: Offset(6,6,)),
+                              offset: Offset(
+                                6,
+                                6,
+                              )),
                           BoxShadow(
                               color: Color(0xffFFFFFF),
                               blurRadius: 20,
                               spreadRadius: 0,
-                              offset: Offset(-4,-4)
-                          )
+                              offset: Offset(-4, -4))
                         ],
                         gradient: LinearGradient(
                             begin: Alignment.topCenter,
@@ -1027,7 +1179,7 @@ SizedBox(height: 10,),
                               ConstColors.primaryColor,
                             ])),
                     child: Padding(
-                      padding: const EdgeInsets.only(left: 1,right: 1),
+                      padding: const EdgeInsets.only(left: 1, right: 1),
                       child: Container(
                         width: double.infinity,
                         height: 38,
@@ -1036,16 +1188,22 @@ SizedBox(height: 10,),
                           color: Colors.white,
                         ),
                         alignment: Alignment.center,
-                        child:  Text('Add New',style: TextStyle(
-                            fontFamily: 'Trial',
-                            fontSize: 17,fontWeight: FontWeight.w400,color:ConstColors.secondary),),
+                        child: Text(
+                          'Add New',
+                          style: TextStyle(
+                              fontFamily: 'Trial',
+                              fontSize: 17,
+                              fontWeight: FontWeight.w400,
+                              color: ConstColors.secondary),
+                        ),
                       ),
                     ),
                   ),
                 ),
               ),
-              SizedBox(height: 29,),
-
+              SizedBox(
+                height: 29,
+              ),
             ],
           ),
         ),

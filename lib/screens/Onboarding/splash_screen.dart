@@ -29,34 +29,38 @@ class _SplashScreenState extends State<SplashScreen> {
         height: double.infinity,
         width: double.infinity,
         color: ConstColors.background,
-        child: Column(
-          children: [
-            SizedBox(
-              height: MediaQuery.of(context).size.height / 3,
-            ),
-            Container(
-              height: 213,
-              width: 212,
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(46),
-                  boxShadow: [
-                    BoxShadow(
-                        color: Color(0xff000000).withOpacity(0.15),
-                        blurRadius: 20,
-                        spreadRadius: 0,
-                        offset: Offset(0, 0)),
-                  ]),
-              child: Image.asset('assets/images/applogo.png'),
-            ),
-            SizedBox(
-              height: MediaQuery.of(context).size.height / 3.6,
-            ),
-            Text(
-              "Powered By Google Inc",
-              style: TextStyle(
-                  fontFamily: 'Trial', fontSize: 16, color: Color(0xff828282)),
-            )
-          ],
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              SizedBox(
+                height: MediaQuery.of(context).size.height / 3,
+              ),
+              Container(
+                height: 213,
+                width: 212,
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(46),
+                    boxShadow: [
+                      BoxShadow(
+                          color: Color(0xff000000).withOpacity(0.15),
+                          blurRadius: 20,
+                          spreadRadius: 0,
+                          offset: Offset(0, 0)),
+                    ]),
+                child: Image.asset('assets/images/applogo.png'),
+              ),
+              SizedBox(
+                height: MediaQuery.of(context).size.height / 3.6,
+              ),
+              Text(
+                "Powered By Google Inc",
+                style: TextStyle(
+                    fontFamily: 'Trial',
+                    fontSize: 16,
+                    color: Color(0xff828282)),
+              )
+            ],
+          ),
         ),
       ),
     );

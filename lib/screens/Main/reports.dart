@@ -246,92 +246,94 @@ class _ReportsState extends State<Reports> {
           ]),
           child: Padding(
             padding: const EdgeInsets.only(top: 0),
-            child: Row(
-              children: [
-                SizedBox(
-                  width: 20,
-                ),
-                GestureDetector(
-                  onTap: () {
-                    scaffoldKey.currentState?.openDrawer();
-                  },
-                  child: Padding(
-                    padding: const EdgeInsets.only(top: 25),
-                    child: Container(
-                        height: 30,
-                        width: 30,
-                        decoration: BoxDecoration(
-                            shape: BoxShape.circle, color: Colors.white),
-                        child: Center(
-                            child: FaIcon(
-                          FontAwesomeIcons.bars,
-                          size: 18,
-                          color: ConstColors.secondary,
-                        ))),
+            child: FittedBox(
+              child: Row(
+                children: [
+                  SizedBox(
+                    width: 20,
                   ),
-                ),
-                SizedBox(
-                  width: 20,
-                ),
-                SingleChildScrollView(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      SizedBox(
-                        height: 35,
-                      ),
-                      Text(
-                        "Welcome, ",
-                        style: TextStyle(
-                            fontSize: 13,
-                            fontFamily: 'Trial',
-                            fontWeight: FontWeight.w600,
-                            color: Colors.white),
-                      ),
-                      Text(
-                        "User Name",
-                        style: TextStyle(
-                            fontFamily: 'CodeNext-Trial',
-                            fontSize: 18,
-                            fontWeight: FontWeight.w600,
-                            color: Colors.white),
-                      ),
-                    ],
+                  GestureDetector(
+                    onTap: () {
+                      scaffoldKey.currentState?.openDrawer();
+                    },
+                    child: Padding(
+                      padding: const EdgeInsets.only(top: 25),
+                      child: Container(
+                          height: 30,
+                          width: 30,
+                          decoration: BoxDecoration(
+                              shape: BoxShape.circle, color: Colors.white),
+                          child: Center(
+                              child: FaIcon(
+                            FontAwesomeIcons.bars,
+                            size: 18,
+                            color: ConstColors.secondary,
+                          ))),
+                    ),
                   ),
-                ),
-                SizedBox(
-                  width: 50,
-                ),
-                SingleChildScrollView(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      SizedBox(
-                        height: 35,
-                      ),
-                      Text(
-                        "29, Sep, 2022",
-                        style: TextStyle(
-                            fontSize: 13,
-                            fontFamily: 'Trial',
-                            fontWeight: FontWeight.w600,
-                            color: Colors.white),
-                      ),
-                      SizedBox(
-                        height: 5,
-                      ),
-                      Text(
-                        "Hijri : Shaban 23",
-                        style: TextStyle(
-                            fontSize: 14,
-                            fontFamily: 'Trial',
-                            fontWeight: FontWeight.w600,
-                            color: Colors.white),
-                      ),
-                    ],
+                  SizedBox(
+                    width: 20,
                   ),
-                ),
-              ],
+                  SingleChildScrollView(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        SizedBox(
+                          height: 35,
+                        ),
+                        Text(
+                          "Welcome, ",
+                          style: TextStyle(
+                              fontSize: 13,
+                              fontFamily: 'Trial',
+                              fontWeight: FontWeight.w600,
+                              color: Colors.white),
+                        ),
+                        Text(
+                          "User Name",
+                          style: TextStyle(
+                              fontFamily: 'CodeNext-Trial',
+                              fontSize: 18,
+                              fontWeight: FontWeight.w600,
+                              color: Colors.white),
+                        ),
+                      ],
+                    ),
+                  ),
+                  SizedBox(
+                    width: 50,
+                  ),
+                  SingleChildScrollView(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        SizedBox(
+                          height: 35,
+                        ),
+                        Text(
+                          "29, Sep, 2022",
+                          style: TextStyle(
+                              fontSize: 13,
+                              fontFamily: 'Trial',
+                              fontWeight: FontWeight.w600,
+                              color: Colors.white),
+                        ),
+                        SizedBox(
+                          height: 5,
+                        ),
+                        Text(
+                          "Hijri : Shaban 23",
+                          style: TextStyle(
+                              fontSize: 14,
+                              fontFamily: 'Trial',
+                              fontWeight: FontWeight.w600,
+                              color: Colors.white),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
         ),
@@ -354,438 +356,458 @@ class _ReportsState extends State<Reports> {
               SizedBox(
                 height: 30,
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  Container(
-                    height: 100,
-                    width: 163,
-                    alignment: Alignment.center,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(20),
-                      gradient: LinearGradient(
-                          begin: Alignment.topCenter,
-                          end: Alignment.bottomCenter,
-                          colors: [
-                            ConstColors.secondary,
-                            ConstColors.primaryColor,
-                          ]),
-                      boxShadow: [
-                        BoxShadow(
-                            color: Color(0xffFFFFFF).withOpacity(0.72),
-                            blurRadius: 10,
-                            spreadRadius: 0,
-                            offset: Offset(
-                              3,
-                              3,
-                            )),
-                        BoxShadow(
-                            color: Color(0xff032B47).withOpacity(0.24),
-                            blurRadius: 40,
-                            spreadRadius: 0,
-                            offset: Offset(0, 20))
-                      ],
-                    ),
-                    child: Container(
-                      height: 98,
-                      width: 161,
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(19),
-                      ),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text(
-                            "Prayers",
-                            style: TextStyle(
-                                fontFamily: 'Trial',
-                                fontSize: 17,
-                                fontWeight: FontWeight.w500,
-                                color: ConstColors.primaryColor),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                  Container(
-                    height: 100,
-                    width: 163,
-                    alignment: Alignment.center,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(20),
-                      gradient: LinearGradient(
-                          begin: Alignment.topCenter,
-                          end: Alignment.bottomCenter,
-                          colors: [
-                            ConstColors.secondary,
-                            ConstColors.primaryColor,
-                          ]),
-                      boxShadow: [
-                        BoxShadow(
-                            color: Color(0xffFFFFFF).withOpacity(0.72),
-                            blurRadius: 10,
-                            spreadRadius: 0,
-                            offset: Offset(
-                              3,
-                              3,
-                            )),
-                        BoxShadow(
-                            color: Color(0xff032B47).withOpacity(0.24),
-                            blurRadius: 40,
-                            spreadRadius: 0,
-                            offset: Offset(0, 20))
-                      ],
-                    ),
-                    child: Container(
-                        height: 98,
-                        width: 161,
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: FittedBox(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Container(
+                        height: 100,
+                        width: 163,
+                        alignment: Alignment.center,
                         decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(19),
-                        ),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Text(
-                              "Fasting",
-                              style: TextStyle(
-                                  fontFamily: 'Trial',
-                                  fontSize: 17,
-                                  fontWeight: FontWeight.w500,
-                                  color: ConstColors.primaryColor),
-                            ),
+                          borderRadius: BorderRadius.circular(20),
+                          gradient: LinearGradient(
+                              begin: Alignment.topCenter,
+                              end: Alignment.bottomCenter,
+                              colors: [
+                                ConstColors.secondary,
+                                ConstColors.primaryColor,
+                              ]),
+                          boxShadow: [
+                            BoxShadow(
+                                color: Color(0xffFFFFFF).withOpacity(0.72),
+                                blurRadius: 10,
+                                spreadRadius: 0,
+                                offset: Offset(
+                                  3,
+                                  3,
+                                )),
+                            BoxShadow(
+                                color: Color(0xff032B47).withOpacity(0.24),
+                                blurRadius: 40,
+                                spreadRadius: 0,
+                                offset: Offset(0, 20))
                           ],
-                        )),
+                        ),
+                        child: Container(
+                          height: 98,
+                          width: 161,
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(19),
+                          ),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(
+                                "Prayers",
+                                style: TextStyle(
+                                    fontFamily: 'Trial',
+                                    fontSize: 17,
+                                    fontWeight: FontWeight.w500,
+                                    color: ConstColors.primaryColor),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                      Container(
+                        height: 100,
+                        width: 163,
+                        alignment: Alignment.center,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20),
+                          gradient: LinearGradient(
+                              begin: Alignment.topCenter,
+                              end: Alignment.bottomCenter,
+                              colors: [
+                                ConstColors.secondary,
+                                ConstColors.primaryColor,
+                              ]),
+                          boxShadow: [
+                            BoxShadow(
+                                color: Color(0xffFFFFFF).withOpacity(0.72),
+                                blurRadius: 10,
+                                spreadRadius: 0,
+                                offset: Offset(
+                                  3,
+                                  3,
+                                )),
+                            BoxShadow(
+                                color: Color(0xff032B47).withOpacity(0.24),
+                                blurRadius: 40,
+                                spreadRadius: 0,
+                                offset: Offset(0, 20))
+                          ],
+                        ),
+                        child: Container(
+                            height: 98,
+                            width: 161,
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(19),
+                            ),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text(
+                                  "Fasting",
+                                  style: TextStyle(
+                                      fontFamily: 'Trial',
+                                      fontSize: 17,
+                                      fontWeight: FontWeight.w500,
+                                      color: ConstColors.primaryColor),
+                                ),
+                              ],
+                            )),
+                      ),
+                    ],
                   ),
-                ],
+                ),
               ),
               SizedBox(
                 height: 18,
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  Container(
-                    height: 100,
-                    width: 163,
-                    alignment: Alignment.center,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(20),
-                      gradient: LinearGradient(
-                          begin: Alignment.topCenter,
-                          end: Alignment.bottomCenter,
-                          colors: [
-                            ConstColors.secondary,
-                            ConstColors.primaryColor,
-                          ]),
-                      boxShadow: [
-                        BoxShadow(
-                            color: Color(0xffFFFFFF).withOpacity(0.72),
-                            blurRadius: 10,
-                            spreadRadius: 0,
-                            offset: Offset(
-                              3,
-                              3,
-                            )),
-                        BoxShadow(
-                            color: Color(0xff032B47).withOpacity(0.24),
-                            blurRadius: 40,
-                            spreadRadius: 0,
-                            offset: Offset(0, 20))
-                      ],
-                    ),
-                    child: Container(
-                      height: 98,
-                      width: 161,
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(19),
-                      ),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text(
-                            "Quran & Moon",
-                            style: TextStyle(
-                                fontFamily: 'Book',
-                                fontSize: 17,
-                                fontWeight: FontWeight.w500,
-                                color: ConstColors.primaryColor),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                  Container(
-                    height: 100,
-                    width: 163,
-                    alignment: Alignment.center,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(20),
-                      gradient: LinearGradient(
-                          begin: Alignment.topCenter,
-                          end: Alignment.bottomCenter,
-                          colors: [
-                            ConstColors.secondary,
-                            ConstColors.primaryColor,
-                          ]),
-                      boxShadow: [
-                        BoxShadow(
-                            color: Color(0xffFFFFFF).withOpacity(0.72),
-                            blurRadius: 10,
-                            spreadRadius: 0,
-                            offset: Offset(
-                              3,
-                              3,
-                            )),
-                        BoxShadow(
-                            color: Color(0xff032B47).withOpacity(0.24),
-                            blurRadius: 40,
-                            spreadRadius: 0,
-                            offset: Offset(0, 20))
-                      ],
-                    ),
-                    child: Container(
-                        height: 98,
-                        width: 161,
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: FittedBox(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Container(
+                        height: 100,
+                        width: 163,
+                        alignment: Alignment.center,
                         decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(19),
-                        ),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Text(
-                              "Travel",
-                              style: TextStyle(
-                                  fontFamily: 'Trial',
-                                  fontSize: 17,
-                                  fontWeight: FontWeight.w500,
-                                  color: ConstColors.primaryColor),
-                            ),
+                          borderRadius: BorderRadius.circular(20),
+                          gradient: LinearGradient(
+                              begin: Alignment.topCenter,
+                              end: Alignment.bottomCenter,
+                              colors: [
+                                ConstColors.secondary,
+                                ConstColors.primaryColor,
+                              ]),
+                          boxShadow: [
+                            BoxShadow(
+                                color: Color(0xffFFFFFF).withOpacity(0.72),
+                                blurRadius: 10,
+                                spreadRadius: 0,
+                                offset: Offset(
+                                  3,
+                                  3,
+                                )),
+                            BoxShadow(
+                                color: Color(0xff032B47).withOpacity(0.24),
+                                blurRadius: 40,
+                                spreadRadius: 0,
+                                offset: Offset(0, 20))
                           ],
-                        )),
+                        ),
+                        child: Container(
+                          height: 98,
+                          width: 161,
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(19),
+                          ),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(
+                                "Quran & Moon",
+                                style: TextStyle(
+                                    fontFamily: 'Book',
+                                    fontSize: 17,
+                                    fontWeight: FontWeight.w500,
+                                    color: ConstColors.primaryColor),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                      Container(
+                        height: 100,
+                        width: 163,
+                        alignment: Alignment.center,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20),
+                          gradient: LinearGradient(
+                              begin: Alignment.topCenter,
+                              end: Alignment.bottomCenter,
+                              colors: [
+                                ConstColors.secondary,
+                                ConstColors.primaryColor,
+                              ]),
+                          boxShadow: [
+                            BoxShadow(
+                                color: Color(0xffFFFFFF).withOpacity(0.72),
+                                blurRadius: 10,
+                                spreadRadius: 0,
+                                offset: Offset(
+                                  3,
+                                  3,
+                                )),
+                            BoxShadow(
+                                color: Color(0xff032B47).withOpacity(0.24),
+                                blurRadius: 40,
+                                spreadRadius: 0,
+                                offset: Offset(0, 20))
+                          ],
+                        ),
+                        child: Container(
+                            height: 98,
+                            width: 161,
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(19),
+                            ),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text(
+                                  "Travel",
+                                  style: TextStyle(
+                                      fontFamily: 'Trial',
+                                      fontSize: 17,
+                                      fontWeight: FontWeight.w500,
+                                      color: ConstColors.primaryColor),
+                                ),
+                              ],
+                            )),
+                      ),
+                    ],
                   ),
-                ],
+                ),
               ),
               SizedBox(
                 height: 18,
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  Container(
-                    height: 100,
-                    width: 163,
-                    alignment: Alignment.center,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(20),
-                      gradient: LinearGradient(
-                          begin: Alignment.topCenter,
-                          end: Alignment.bottomCenter,
-                          colors: [
-                            ConstColors.secondary,
-                            ConstColors.primaryColor,
-                          ]),
-                      boxShadow: [
-                        BoxShadow(
-                            color: Color(0xffFFFFFF).withOpacity(0.72),
-                            blurRadius: 10,
-                            spreadRadius: 0,
-                            offset: Offset(
-                              3,
-                              3,
-                            )),
-                        BoxShadow(
-                            color: Color(0xff032B47).withOpacity(0.24),
-                            blurRadius: 40,
-                            spreadRadius: 0,
-                            offset: Offset(0, 20))
-                      ],
-                    ),
-                    child: Container(
-                      height: 98,
-                      width: 161,
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(19),
-                      ),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text(
-                            "To Do",
-                            style: TextStyle(
-                                fontFamily: 'Trial',
-                                fontSize: 17,
-                                fontWeight: FontWeight.w500,
-                                color: ConstColors.primaryColor),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                  Container(
-                    height: 100,
-                    width: 163,
-                    alignment: Alignment.center,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(20),
-                      gradient: LinearGradient(
-                          begin: Alignment.topCenter,
-                          end: Alignment.bottomCenter,
-                          colors: [
-                            ConstColors.secondary,
-                            ConstColors.primaryColor,
-                          ]),
-                      boxShadow: [
-                        BoxShadow(
-                            color: Color(0xffFFFFFF).withOpacity(0.72),
-                            blurRadius: 10,
-                            spreadRadius: 0,
-                            offset: Offset(
-                              3,
-                              3,
-                            )),
-                        BoxShadow(
-                            color: Color(0xff032B47).withOpacity(0.24),
-                            blurRadius: 40,
-                            spreadRadius: 0,
-                            offset: Offset(0, 20))
-                      ],
-                    ),
-                    child: Container(
-                        height: 98,
-                        width: 161,
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: FittedBox(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Container(
+                        height: 100,
+                        width: 163,
+                        alignment: Alignment.center,
                         decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(19),
-                        ),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Text(
-                              "Morning\nRoutines",
-                              style: TextStyle(
-                                  fontFamily: 'Trial',
-                                  fontSize: 17,
-                                  fontWeight: FontWeight.w500,
-                                  color: ConstColors.primaryColor),
-                            ),
+                          borderRadius: BorderRadius.circular(20),
+                          gradient: LinearGradient(
+                              begin: Alignment.topCenter,
+                              end: Alignment.bottomCenter,
+                              colors: [
+                                ConstColors.secondary,
+                                ConstColors.primaryColor,
+                              ]),
+                          boxShadow: [
+                            BoxShadow(
+                                color: Color(0xffFFFFFF).withOpacity(0.72),
+                                blurRadius: 10,
+                                spreadRadius: 0,
+                                offset: Offset(
+                                  3,
+                                  3,
+                                )),
+                            BoxShadow(
+                                color: Color(0xff032B47).withOpacity(0.24),
+                                blurRadius: 40,
+                                spreadRadius: 0,
+                                offset: Offset(0, 20))
                           ],
-                        )),
+                        ),
+                        child: Container(
+                          height: 98,
+                          width: 161,
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(19),
+                          ),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(
+                                "To Do",
+                                style: TextStyle(
+                                    fontFamily: 'Trial',
+                                    fontSize: 17,
+                                    fontWeight: FontWeight.w500,
+                                    color: ConstColors.primaryColor),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                      Container(
+                        height: 100,
+                        width: 163,
+                        alignment: Alignment.center,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20),
+                          gradient: LinearGradient(
+                              begin: Alignment.topCenter,
+                              end: Alignment.bottomCenter,
+                              colors: [
+                                ConstColors.secondary,
+                                ConstColors.primaryColor,
+                              ]),
+                          boxShadow: [
+                            BoxShadow(
+                                color: Color(0xffFFFFFF).withOpacity(0.72),
+                                blurRadius: 10,
+                                spreadRadius: 0,
+                                offset: Offset(
+                                  3,
+                                  3,
+                                )),
+                            BoxShadow(
+                                color: Color(0xff032B47).withOpacity(0.24),
+                                blurRadius: 40,
+                                spreadRadius: 0,
+                                offset: Offset(0, 20))
+                          ],
+                        ),
+                        child: Container(
+                            height: 98,
+                            width: 161,
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(19),
+                            ),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text(
+                                  "Morning\nRoutines",
+                                  style: TextStyle(
+                                      fontFamily: 'Trial',
+                                      fontSize: 17,
+                                      fontWeight: FontWeight.w500,
+                                      color: ConstColors.primaryColor),
+                                ),
+                              ],
+                            )),
+                      ),
+                    ],
                   ),
-                ],
+                ),
               ),
               SizedBox(
                 height: 18,
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  Container(
-                    height: 100,
-                    width: 163,
-                    alignment: Alignment.center,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(20),
-                      gradient: LinearGradient(
-                          begin: Alignment.topCenter,
-                          end: Alignment.bottomCenter,
-                          colors: [
-                            ConstColors.secondary,
-                            ConstColors.primaryColor,
-                          ]),
-                      boxShadow: [
-                        BoxShadow(
-                            color: Color(0xffFFFFFF).withOpacity(0.72),
-                            blurRadius: 10,
-                            spreadRadius: 0,
-                            offset: Offset(
-                              3,
-                              3,
-                            )),
-                        BoxShadow(
-                            color: Color(0xff032B47).withOpacity(0.24),
-                            blurRadius: 40,
-                            spreadRadius: 0,
-                            offset: Offset(0, 20))
-                      ],
-                    ),
-                    child: Container(
-                      height: 98,
-                      width: 161,
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(19),
-                      ),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text(
-                            "Daily Reflections",
-                            style: TextStyle(
-                                fontFamily: 'Book',
-                                fontSize: 17,
-                                fontWeight: FontWeight.w500,
-                                color: ConstColors.primaryColor),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                  Container(
-                    height: 100,
-                    width: 163,
-                    alignment: Alignment.center,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(20),
-                      gradient: LinearGradient(
-                          begin: Alignment.topCenter,
-                          end: Alignment.bottomCenter,
-                          colors: [
-                            ConstColors.secondary,
-                            ConstColors.primaryColor,
-                          ]),
-                      boxShadow: [
-                        BoxShadow(
-                            color: Color(0xffFFFFFF).withOpacity(0.72),
-                            blurRadius: 10,
-                            spreadRadius: 0,
-                            offset: Offset(
-                              3,
-                              3,
-                            )),
-                        BoxShadow(
-                            color: Color(0xff032B47).withOpacity(0.24),
-                            blurRadius: 40,
-                            spreadRadius: 0,
-                            offset: Offset(0, 20))
-                      ],
-                    ),
-                    child: Container(
-                        height: 98,
-                        width: 161,
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: FittedBox(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Container(
+                        height: 100,
+                        width: 163,
+                        alignment: Alignment.center,
                         decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(19),
-                        ),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Text(
-                              "Ideas",
-                              style: TextStyle(
-                                  fontFamily: 'Trial',
-                                  fontSize: 17,
-                                  fontWeight: FontWeight.w500,
-                                  color: ConstColors.primaryColor),
-                            ),
+                          borderRadius: BorderRadius.circular(20),
+                          gradient: LinearGradient(
+                              begin: Alignment.topCenter,
+                              end: Alignment.bottomCenter,
+                              colors: [
+                                ConstColors.secondary,
+                                ConstColors.primaryColor,
+                              ]),
+                          boxShadow: [
+                            BoxShadow(
+                                color: Color(0xffFFFFFF).withOpacity(0.72),
+                                blurRadius: 10,
+                                spreadRadius: 0,
+                                offset: Offset(
+                                  3,
+                                  3,
+                                )),
+                            BoxShadow(
+                                color: Color(0xff032B47).withOpacity(0.24),
+                                blurRadius: 40,
+                                spreadRadius: 0,
+                                offset: Offset(0, 20))
                           ],
-                        )),
+                        ),
+                        child: Container(
+                          height: 98,
+                          width: 161,
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(19),
+                          ),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(
+                                "Daily Reflections",
+                                style: TextStyle(
+                                    fontFamily: 'Book',
+                                    fontSize: 17,
+                                    fontWeight: FontWeight.w500,
+                                    color: ConstColors.primaryColor),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                      Container(
+                        height: 100,
+                        width: 163,
+                        alignment: Alignment.center,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20),
+                          gradient: LinearGradient(
+                              begin: Alignment.topCenter,
+                              end: Alignment.bottomCenter,
+                              colors: [
+                                ConstColors.secondary,
+                                ConstColors.primaryColor,
+                              ]),
+                          boxShadow: [
+                            BoxShadow(
+                                color: Color(0xffFFFFFF).withOpacity(0.72),
+                                blurRadius: 10,
+                                spreadRadius: 0,
+                                offset: Offset(
+                                  3,
+                                  3,
+                                )),
+                            BoxShadow(
+                                color: Color(0xff032B47).withOpacity(0.24),
+                                blurRadius: 40,
+                                spreadRadius: 0,
+                                offset: Offset(0, 20))
+                          ],
+                        ),
+                        child: Container(
+                            height: 98,
+                            width: 161,
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(19),
+                            ),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text(
+                                  "Ideas",
+                                  style: TextStyle(
+                                      fontFamily: 'Trial',
+                                      fontSize: 17,
+                                      fontWeight: FontWeight.w500,
+                                      color: ConstColors.primaryColor),
+                                ),
+                              ],
+                            )),
+                      ),
+                    ],
                   ),
-                ],
+                ),
               ),
               SizedBox(
                 height: 40,
@@ -915,13 +937,16 @@ class _ReportsState extends State<Reports> {
                               ConstColors.primaryColor,
                             ])),
                     child: FittedBox(
-                      child: Text(
-                        'Download PDF',
-                        style: TextStyle(
-                            fontSize: 17,
-                            fontFamily: 'Trial',
-                            fontWeight: FontWeight.w400,
-                            color: Colors.white),
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Text(
+                          'Download PDF',
+                          style: TextStyle(
+                              fontSize: 17,
+                              fontFamily: 'Trial',
+                              fontWeight: FontWeight.w400,
+                              color: Colors.white),
+                        ),
                       ),
                     ),
                   ),

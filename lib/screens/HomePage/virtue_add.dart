@@ -247,92 +247,94 @@ class _VirtueAddState extends State<VirtueAdd> {
           ]),
           child: Padding(
             padding: const EdgeInsets.only(top: 0),
-            child: Row(
-              children: [
-                SizedBox(
-                  width: 20,
-                ),
-                GestureDetector(
-                  onTap: () {
-                    scaffoldKey.currentState?.openDrawer();
-                  },
-                  child: Padding(
-                    padding: const EdgeInsets.only(top: 25),
-                    child: Container(
-                        height: 30,
-                        width: 30,
-                        decoration: BoxDecoration(
-                            shape: BoxShape.circle, color: Colors.white),
-                        child: Center(
-                            child: FaIcon(
-                          FontAwesomeIcons.bars,
-                          size: 18,
-                          color: ConstColors.secondary,
-                        ))),
+            child: FittedBox(
+              child: Row(
+                children: [
+                  SizedBox(
+                    width: 20,
                   ),
-                ),
-                SizedBox(
-                  width: 20,
-                ),
-                SingleChildScrollView(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      SizedBox(
-                        height: 35,
-                      ),
-                      Text(
-                        "Welcome, ",
-                        style: TextStyle(
-                            fontSize: 13,
-                            fontFamily: 'Trial',
-                            fontWeight: FontWeight.w600,
-                            color: Colors.white),
-                      ),
-                      Text(
-                        "User Name",
-                        style: TextStyle(
-                            fontFamily: 'CodeNext-Trial',
-                            fontSize: 18,
-                            fontWeight: FontWeight.w600,
-                            color: Colors.white),
-                      ),
-                    ],
+                  GestureDetector(
+                    onTap: () {
+                      scaffoldKey.currentState?.openDrawer();
+                    },
+                    child: Padding(
+                      padding: const EdgeInsets.only(top: 25),
+                      child: Container(
+                          height: 30,
+                          width: 30,
+                          decoration: BoxDecoration(
+                              shape: BoxShape.circle, color: Colors.white),
+                          child: Center(
+                              child: FaIcon(
+                            FontAwesomeIcons.bars,
+                            size: 18,
+                            color: ConstColors.secondary,
+                          ))),
+                    ),
                   ),
-                ),
-                SizedBox(
-                  width: 50,
-                ),
-                SingleChildScrollView(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      SizedBox(
-                        height: 35,
-                      ),
-                      Text(
-                        "29, Sep, 2022",
-                        style: TextStyle(
-                            fontSize: 13,
-                            fontFamily: 'Trial',
-                            fontWeight: FontWeight.w600,
-                            color: Colors.white),
-                      ),
-                      SizedBox(
-                        height: 5,
-                      ),
-                      Text(
-                        "Hijri : Shaban 23",
-                        style: TextStyle(
-                            fontSize: 14,
-                            fontFamily: 'Trial',
-                            fontWeight: FontWeight.w600,
-                            color: Colors.white),
-                      ),
-                    ],
+                  SizedBox(
+                    width: 20,
                   ),
-                ),
-              ],
+                  SingleChildScrollView(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        SizedBox(
+                          height: 35,
+                        ),
+                        Text(
+                          "Welcome, ",
+                          style: TextStyle(
+                              fontSize: 13,
+                              fontFamily: 'Trial',
+                              fontWeight: FontWeight.w600,
+                              color: Colors.white),
+                        ),
+                        Text(
+                          "User Name",
+                          style: TextStyle(
+                              fontFamily: 'CodeNext-Trial',
+                              fontSize: 18,
+                              fontWeight: FontWeight.w600,
+                              color: Colors.white),
+                        ),
+                      ],
+                    ),
+                  ),
+                  SizedBox(
+                    width: 50,
+                  ),
+                  SingleChildScrollView(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        SizedBox(
+                          height: 35,
+                        ),
+                        Text(
+                          "29, Sep, 2022",
+                          style: TextStyle(
+                              fontSize: 13,
+                              fontFamily: 'Trial',
+                              fontWeight: FontWeight.w600,
+                              color: Colors.white),
+                        ),
+                        SizedBox(
+                          height: 5,
+                        ),
+                        Text(
+                          "Hijri : Shaban 23",
+                          style: TextStyle(
+                              fontSize: 14,
+                              fontFamily: 'Trial',
+                              fontWeight: FontWeight.w600,
+                              color: Colors.white),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
         ),
@@ -440,8 +442,8 @@ class _VirtueAddState extends State<VirtueAdd> {
               Padding(
                 padding: const EdgeInsets.only(left: 100, right: 100),
                 child: GestureDetector(
-                  onTap: ()async{
-                    if(_title.text.isEmpty){
+                  onTap: () async {
+                    if (_title.text.isEmpty) {
                       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                         content: Container(
                           height: 60,
@@ -488,11 +490,11 @@ class _VirtueAddState extends State<VirtueAdd> {
                             right: 20,
                             left: 20),
                       ));
-                    }else{
-                      try{
+                    } else {
+                      try {
                         await Users.addH_Habits(Title: getTitle);
                         _title.clear();
-                      }catch(e){
+                      } catch (e) {
                         print(e);
                       }
                     }
@@ -557,19 +559,25 @@ class _VirtueAddState extends State<VirtueAdd> {
                 height: 40,
               ),
               StreamBuilder<QuerySnapshot>(
-                  stream: FirebaseFirestore.instance.collection('users').doc(FirebaseAuth.instance.currentUser!.uid).collection('Healthy Habits').snapshots(),
-                  builder: (context,snapshot){
-                    if(snapshot.connectionState == ConnectionState.waiting){
+                  stream: FirebaseFirestore.instance
+                      .collection('users')
+                      .doc(FirebaseAuth.instance.currentUser!.uid)
+                      .collection('Healthy Habits')
+                      .snapshots(),
+                  builder: (context, snapshot) {
+                    if (snapshot.connectionState == ConnectionState.waiting) {
                       return CupertinoActivityIndicator();
-                    }else if(snapshot.data!.docs.isNotEmpty){
-                      return Padding(padding: EdgeInsets.only(left: 25, right: 25, top: 0),
-                        child:Container(
+                    } else if (snapshot.data!.docs.isNotEmpty) {
+                      return Padding(
+                        padding: EdgeInsets.only(left: 25, right: 25, top: 0),
+                        child: Container(
                           height: 350,
                           width: double.infinity,
                           decoration: BoxDecoration(
                               color: Colors.white,
                               borderRadius: BorderRadius.circular(10),
-                              border: Border.all(color: Color(0xff3290FF), width: 2),
+                              border: Border.all(
+                                  color: Color(0xff3290FF), width: 2),
                               boxShadow: [
                                 BoxShadow(
                                     color: Color(0xff000000).withOpacity(0.10),
@@ -584,38 +592,39 @@ class _VirtueAddState extends State<VirtueAdd> {
                                 columns: [
                                   DataColumn(
                                       label: Text(
-                                        "Title",
-                                        style: TextStyle(
-                                            fontFamily: 'Trial',
-                                            fontSize: 13,
-                                            fontWeight: FontWeight.w600,
-                                            color: ConstColors.primaryColor),
-                                      )),
+                                    "Title",
+                                    style: TextStyle(
+                                        fontFamily: 'Trial',
+                                        fontSize: 13,
+                                        fontWeight: FontWeight.w600,
+                                        color: ConstColors.primaryColor),
+                                  )),
                                   DataColumn(
                                       label: Text(
-                                        "Actions",
-                                        style: TextStyle(
-                                            fontFamily: 'Trial',
-                                            fontSize: 13,
-                                            fontWeight: FontWeight.w600,
-                                            color: ConstColors.primaryColor),
-                                      )),
+                                    "Actions",
+                                    style: TextStyle(
+                                        fontFamily: 'Trial',
+                                        fontSize: 13,
+                                        fontWeight: FontWeight.w600,
+                                        color: ConstColors.primaryColor),
+                                  )),
                                 ],
-                                rows:_buildList(context, snapshot.data!.docs)
-                            ),
+                                rows: _buildList(context, snapshot.data!.docs)),
                           ),
                         ),
                       );
-                    }else {
+                    } else {
                       return Padding(
-                        padding: const EdgeInsets.only(left: 25, right: 25, top: 0),
+                        padding:
+                            const EdgeInsets.only(left: 25, right: 25, top: 0),
                         child: Container(
                           height: 350,
                           width: double.infinity,
                           decoration: BoxDecoration(
                               color: Colors.white,
                               borderRadius: BorderRadius.circular(10),
-                              border: Border.all(color: Color(0xff3290FF), width: 2),
+                              border: Border.all(
+                                  color: Color(0xff3290FF), width: 2),
                               boxShadow: [
                                 BoxShadow(
                                     color: Color(0xff000000).withOpacity(0.10),
@@ -630,22 +639,22 @@ class _VirtueAddState extends State<VirtueAdd> {
                                 columns: [
                                   DataColumn(
                                       label: Text(
-                                        "Title",
-                                        style: TextStyle(
-                                            fontFamily: 'Trial',
-                                            fontSize: 13,
-                                            fontWeight: FontWeight.w600,
-                                            color: ConstColors.primaryColor),
-                                      )),
+                                    "Title",
+                                    style: TextStyle(
+                                        fontFamily: 'Trial',
+                                        fontSize: 13,
+                                        fontWeight: FontWeight.w600,
+                                        color: ConstColors.primaryColor),
+                                  )),
                                   DataColumn(
                                       label: Text(
-                                        "Actions",
-                                        style: TextStyle(
-                                            fontFamily: 'Trial',
-                                            fontSize: 13,
-                                            fontWeight: FontWeight.w600,
-                                            color: ConstColors.primaryColor),
-                                      )),
+                                    "Actions",
+                                    style: TextStyle(
+                                        fontFamily: 'Trial',
+                                        fontSize: 13,
+                                        fontWeight: FontWeight.w600,
+                                        color: ConstColors.primaryColor),
+                                  )),
                                 ],
                                 rows: [
                                   DataRow(cells: [
@@ -1000,8 +1009,7 @@ class _VirtueAddState extends State<VirtueAdd> {
                           ),
                         ),
                       );
-
-                  }
+                    }
                   }),
               SizedBox(
                 height: 30,
@@ -1013,6 +1021,7 @@ class _VirtueAddState extends State<VirtueAdd> {
     );
   }
 }
+
 List<DataRow> _buildList(
     BuildContext context, List<DocumentSnapshot> snapshot) {
   return snapshot.map((data) => _buildListItem(context, data)).toList();
@@ -1020,19 +1029,16 @@ List<DataRow> _buildList(
 
 DataRow _buildListItem(BuildContext context, DocumentSnapshot data) {
   // final Users = users.fromSnapshot(data);
-  return  DataRow(cells: [
+  return DataRow(cells: [
     DataCell(Text(
       data['title'],
       style: TextStyle(
-          fontFamily: 'Book',
-          fontSize: 12,
-          fontWeight: FontWeight.w600),
+          fontFamily: 'Book', fontSize: 12, fontWeight: FontWeight.w600),
     )),
-    DataCell(
-        Padding(
-          padding: const EdgeInsets.only(left: 5),
-          child: Row(
-      children: [
+    DataCell(Padding(
+      padding: const EdgeInsets.only(left: 5),
+      child: Row(
+        children: [
           GestureDetector(
             // onTap: (){
             //   Navigator.push(context, MaterialPageRoute(builder: (context)=>EditMRoutine(
@@ -1050,8 +1056,8 @@ DataRow _buildListItem(BuildContext context, DocumentSnapshot data) {
             width: 20,
           ),
           GestureDetector(
-            onTap: ()async{
-              await Users.deleteH_Haabits(docId:data.id );
+            onTap: () async {
+              await Users.deleteH_Haabits(docId: data.id);
             },
             child: FaIcon(
               FontAwesomeIcons.trashCan,
@@ -1059,8 +1065,8 @@ DataRow _buildListItem(BuildContext context, DocumentSnapshot data) {
               size: 15,
             ),
           ),
-      ],
-    ),
-        ))
+        ],
+      ),
+    ))
   ]);
 }

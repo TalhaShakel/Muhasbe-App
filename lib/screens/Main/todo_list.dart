@@ -38,73 +38,75 @@ class _TodoListState extends State<TodoList> {
                     ),
                     child: Padding(
                       padding: const EdgeInsets.only(top: 0),
-                      child: Row(
-                        children: [
-                          SizedBox(
-                            width: 25,
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.only(top: 37),
-                            child: Container(
-                              height: 52,
-                              width: 52,
-                              decoration: BoxDecoration(
-                                shape: BoxShape.circle,
-                                color: Colors.white,
-                                boxShadow: [
-                                  BoxShadow(
-                                      color:
-                                          Color(0xffBBC3CE).withOpacity(0.60),
-                                      blurRadius: 12,
-                                      spreadRadius: 0,
-                                      offset: Offset(
-                                        4,
-                                        4,
-                                      )),
-                                  BoxShadow(
-                                      color:
-                                          Color(0xffFDFFFF).withOpacity(0.80),
-                                      blurRadius: 12,
-                                      spreadRadius: 0,
-                                      offset: Offset(-4, -4))
+                      child: FittedBox(
+                        child: Row(
+                          children: [
+                            SizedBox(
+                              width: 25,
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(top: 37),
+                              child: Container(
+                                height: 52,
+                                width: 52,
+                                decoration: BoxDecoration(
+                                  shape: BoxShape.circle,
+                                  color: Colors.white,
+                                  boxShadow: [
+                                    BoxShadow(
+                                        color:
+                                            Color(0xffBBC3CE).withOpacity(0.60),
+                                        blurRadius: 12,
+                                        spreadRadius: 0,
+                                        offset: Offset(
+                                          4,
+                                          4,
+                                        )),
+                                    BoxShadow(
+                                        color:
+                                            Color(0xffFDFFFF).withOpacity(0.80),
+                                        blurRadius: 12,
+                                        spreadRadius: 0,
+                                        offset: Offset(-4, -4))
+                                  ],
+                                ),
+                                child: Center(
+                                  child: FaIcon(
+                                    FontAwesomeIcons.user,
+                                    color: ConstColors.primaryColor,
+                                  ),
+                                ),
+                              ),
+                            ),
+                            SizedBox(
+                              width: 20,
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(top: 20),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  SizedBox(
+                                    height: 55,
+                                  ),
+                                  Text(
+                                    "Shahid Saeed",
+                                    style: TextStyle(
+                                        fontFamily: 'Trial',
+                                        fontWeight: FontWeight.w500,
+                                        fontSize: 16,
+                                        color: Colors.white),
+                                  ),
+                                  // Text(
+                                  //   "View Profile",
+                                  //   style: TextStyle(
+                                  //       color: Colors.white, fontSize: 10),
+                                  // )
                                 ],
                               ),
-                              child: Center(
-                                child: FaIcon(
-                                  FontAwesomeIcons.user,
-                                  color: ConstColors.primaryColor,
-                                ),
-                              ),
-                            ),
-                          ),
-                          SizedBox(
-                            width: 20,
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.only(top: 20),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                SizedBox(
-                                  height: 55,
-                                ),
-                                Text(
-                                  "Shahid Saeed",
-                                  style: TextStyle(
-                                      fontFamily: 'Trial',
-                                      fontWeight: FontWeight.w500,
-                                      fontSize: 16,
-                                      color: Colors.white),
-                                ),
-                                // Text(
-                                //   "View Profile",
-                                //   style: TextStyle(
-                                //       color: Colors.white, fontSize: 10),
-                                // )
-                              ],
-                            ),
-                          )
-                        ],
+                            )
+                          ],
+                        ),
                       ),
                     ),
                   ),
@@ -239,92 +241,98 @@ class _TodoListState extends State<TodoList> {
           ]),
           child: Padding(
             padding: const EdgeInsets.only(top: 0),
-            child: Row(
-              children: [
-                SizedBox(
-                  width: 20,
-                ),
-                GestureDetector(
-                  onTap: () {
-                    scaffoldKey.currentState?.openDrawer();
-                  },
-                  child: Padding(
-                    padding: const EdgeInsets.only(top: 25),
-                    child: Container(
-                        height: 30,
-                        width: 30,
-                        decoration: BoxDecoration(
-                            shape: BoxShape.circle, color: Colors.white),
-                        child: Center(
-                            child: FaIcon(
-                          FontAwesomeIcons.bars,
-                          size: 18,
-                          color: ConstColors.secondary,
-                        ))),
+            child: FittedBox(
+              child: Row(
+                children: [
+                  SizedBox(
+                    width: 20,
                   ),
-                ),
-                SizedBox(
-                  width: 20,
-                ),
-                SingleChildScrollView(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      SizedBox(
-                        height: 35,
-                      ),
-                      Text(
-                        "Welcome, ",
-                        style: TextStyle(
-                            fontSize: 13,
-                            fontFamily: 'Trial',
-                            fontWeight: FontWeight.w600,
-                            color: Colors.white),
-                      ),
-                      Text(
-                        "User Name",
-                        style: TextStyle(
-                            fontFamily: 'CodeNext-Trial',
-                            fontSize: 18,
-                            fontWeight: FontWeight.w600,
-                            color: Colors.white),
-                      ),
-                    ],
+                  GestureDetector(
+                    onTap: () {
+                      scaffoldKey.currentState?.openDrawer();
+                    },
+                    child: Padding(
+                      padding: const EdgeInsets.only(top: 25),
+                      child: Container(
+                          height: 30,
+                          width: 30,
+                          decoration: BoxDecoration(
+                              shape: BoxShape.circle, color: Colors.white),
+                          child: Center(
+                              child: FaIcon(
+                            FontAwesomeIcons.bars,
+                            size: 18,
+                            color: ConstColors.secondary,
+                          ))),
+                    ),
                   ),
-                ),
-                SizedBox(
-                  width: 50,
-                ),
-                SingleChildScrollView(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      SizedBox(
-                        height: 35,
-                      ),
-                      Text(
-                        "29, Sep, 2022",
-                        style: TextStyle(
-                            fontSize: 13,
-                            fontFamily: 'Trial',
-                            fontWeight: FontWeight.w600,
-                            color: Colors.white),
-                      ),
-                      SizedBox(
-                        height: 5,
-                      ),
-                      Text(
-                        "Hijri : Shaban 23",
-                        style: TextStyle(
-                            fontSize: 14,
-                            fontFamily: 'Trial',
-                            fontWeight: FontWeight.w600,
-                            color: Colors.white),
-                      ),
-                    ],
+                  SizedBox(
+                    width: 20,
                   ),
-                ),
-              ],
+                  SingleChildScrollView(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        SizedBox(
+                          height: 35,
+                        ),
+                        Text(
+                          "Welcome, ",
+                          style: TextStyle(
+                              fontSize: 13,
+                              fontFamily: 'Trial',
+                              fontWeight: FontWeight.w600,
+                              color: Colors.white),
+                        ),
+                        Text(
+                          "User Name",
+                          style: TextStyle(
+                              fontFamily: 'CodeNext-Trial',
+                              fontSize: 18,
+                              fontWeight: FontWeight.w600,
+                              color: Colors.white),
+                        ),
+                      ],
+                    ),
+                  ),
+                  SizedBox(
+                    width: 50,
+                  ),
+                  SingleChildScrollView(
+                    child: FittedBox(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          SizedBox(
+                            height: 35,
+                          ),
+                          Text(
+                            "29, Sep, 2022",
+                            style: TextStyle(
+                                fontSize: 13,
+                                fontFamily: 'Trial',
+                                fontWeight: FontWeight.w600,
+                                color: Colors.white),
+                          ),
+                          SizedBox(
+                            height: 5,
+                          ),
+                          FittedBox(
+                            child: Text(
+                              "Hijri : Shaban 23",
+                              style: TextStyle(
+                                  fontSize: 14,
+                                  fontFamily: 'Trial',
+                                  fontWeight: FontWeight.w600,
+                                  color: Colors.white),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
         ),
@@ -1121,30 +1129,29 @@ class _TodoListState extends State<TodoList> {
                               ConstColors.secondary,
                               ConstColors.primaryColor,
                             ])),
-                    child: Padding(
-                      padding: const EdgeInsets.only(left: 1, right: 1),
-                      child: Container(
-                        width: double.infinity,
-                        height: 46,
-                        decoration: const BoxDecoration(
-                          borderRadius: BorderRadius.all(Radius.circular(9)),
-                          color: Colors.white,
-                        ),
-                        alignment: Alignment.center,
+                    child: Container(
+                      width: double.infinity,
+                      height: 46,
+                      decoration: const BoxDecoration(
+                        borderRadius: BorderRadius.all(Radius.circular(9)),
+                        color: Colors.white,
+                      ),
+                      alignment: Alignment.center,
+                      child: FittedBox(
                         child: Row(
                           children: [
-                            SizedBox(
-                              width: 16,
-                            ),
                             Text(
                               "Order Lunch Form Restaurant",
+                              softWrap: true,
                               style: TextStyle(
                                   fontFamily: 'Trial',
                                   fontWeight: FontWeight.w600,
                                   fontSize: 12,
                                   color: ConstColors.secondary),
                             ),
-                            Spacer(),
+                            SizedBox(
+                              width: 20,
+                            ),
                             FaIcon(
                               FontAwesomeIcons.edit,
                               color: ConstColors.secondary,
@@ -1159,7 +1166,7 @@ class _TodoListState extends State<TodoList> {
                               size: 15,
                             ),
                             SizedBox(
-                              width: 15,
+                              width: 20,
                             ),
                           ],
                         ),
