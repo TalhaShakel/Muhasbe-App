@@ -30,7 +30,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       debugShowCheckedModeBanner: false,
-      home: Quran(),
+      home: SplashScreen(),
       builder: InAppNotifications.init(),
     );
   }
