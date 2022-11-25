@@ -409,17 +409,16 @@ class _AccountState extends State<Account> {
                 height: 30,
               ),
               StreamBuilder<QuerySnapshot>(
-                  stream:  FirebaseFirestore.instance
+                  stream: FirebaseFirestore.instance
                       .collection('users')
                       .doc(FirebaseAuth.instance.currentUser!.uid)
                       .collection('image')
                       .orderBy('userImage', descending: true)
                       .snapshots(),
-                  builder:(context, AsyncSnapshot<QuerySnapshot> snapshot){
-                    if(snapshot.connectionState == ConnectionState.waiting){
+                  builder: (context, AsyncSnapshot<QuerySnapshot> snapshot) {
+                    if (snapshot.connectionState == ConnectionState.waiting) {
                       return CupertinoActivityIndicator();
-                    }
-                   else if(snapshot.data!.docs.isNotEmpty) {
+                    } else if (snapshot.data!.docs.isNotEmpty) {
                       return Padding(
                         padding: const EdgeInsets.only(left: 110),
                         child: Container(
@@ -465,13 +464,14 @@ class _AccountState extends State<Account> {
                                           padding: const EdgeInsets.only(
                                               left: 0, right: 0),
                                           child: Container(
-                                              height: 133,
-                                              width: 133,
-                                              child: CircleAvatar(
-                                                  backgroundColor: Colors.white,
-                                                  backgroundImage:NetworkImage(
-                                                      snapshot.data!.docs[index]
-                                                      ['userImage']),),
+                                            height: 133,
+                                            width: 133,
+                                            child: CircleAvatar(
+                                              backgroundColor: Colors.white,
+                                              backgroundImage: NetworkImage(
+                                                  snapshot.data!.docs[index]
+                                                      ['userImage']),
+                                            ),
                                           ),
                                         ),
                                       ),
@@ -504,13 +504,11 @@ class _AccountState extends State<Account> {
                               }),
                         ),
                       );
-                    }
-                    else{
+                    } else {
                       return Stack(
                         children: [
                           Padding(
-                            padding: const EdgeInsets.only(
-                                left: 0, right: 0),
+                            padding: const EdgeInsets.only(left: 0, right: 0),
                             child: Container(
                               width: 135,
                               height: 135,
@@ -519,8 +517,8 @@ class _AccountState extends State<Account> {
                                   shape: BoxShape.circle,
                                   boxShadow: [
                                     BoxShadow(
-                                        color: Color(0xff587CA7)
-                                            .withOpacity(0.31),
+                                        color:
+                                            Color(0xff587CA7).withOpacity(0.31),
                                         blurRadius: 22,
                                         spreadRadius: 0,
                                         offset: Offset(
@@ -541,41 +539,38 @@ class _AccountState extends State<Account> {
                                         ConstColors.primaryColor,
                                       ])),
                               child: Padding(
-                                padding: const EdgeInsets.only(
-                                    left: 0, right: 0),
+                                padding:
+                                    const EdgeInsets.only(left: 0, right: 0),
                                 child: Container(
                                     height: 133,
                                     width: 133,
                                     child: CircleAvatar(
                                         backgroundColor: Colors.white,
-                                        backgroundImage: imagefile ==
-                                            null
+                                        backgroundImage: imagefile == null
                                             ? AssetImage(
-                                            'assets/images/user1.png')
-                                            : Image.file(imagefile!)
-                                            .image)
+                                                'assets/images/user1.png')
+                                            : Image.file(imagefile!).image)
 
-                                  // child: Container(
-                                  //     width: 133,
-                                  //     height: 133,
-                                  //     decoration: const BoxDecoration(
-                                  //       shape: BoxShape.circle,
-                                  //       color: Colors.white,
-                                  //     ),
-                                  //     alignment: Alignment.center,
-                                  //     child:  FaIcon(
-                                  //       FontAwesomeIcons.user,
-                                  //       color: ConstColors.primaryColor,
-                                  //       size: 60,
-                                  //     ),
-                                  // ),
-                                ),
+                                    // child: Container(
+                                    //     width: 133,
+                                    //     height: 133,
+                                    //     decoration: const BoxDecoration(
+                                    //       shape: BoxShape.circle,
+                                    //       color: Colors.white,
+                                    //     ),
+                                    //     alignment: Alignment.center,
+                                    //     child:  FaIcon(
+                                    //       FontAwesomeIcons.user,
+                                    //       color: ConstColors.primaryColor,
+                                    //       size: 60,
+                                    //     ),
+                                    // ),
+                                    ),
                               ),
                             ),
                           ),
                           Padding(
-                            padding: const EdgeInsets.only(
-                                top: 95, left: 95),
+                            padding: const EdgeInsets.only(top: 95, left: 95),
                             child: GestureDetector(
                               onTap: () async {
                                 pickimage();
@@ -617,8 +612,7 @@ class _AccountState extends State<Account> {
                         ],
                       );
                     }
-        }
-        ),
+                  }),
               Row(
                 children: [
                   SizedBox(
@@ -1097,161 +1091,213 @@ class _AccountState extends State<Account> {
                     } catch (e) {
                       print(e);
                     }
-                  }
-                  else if(_email.text.isEmpty){
-                    ScaffoldMessenger.of(context).showSnackBar(
-                        SnackBar(
-                          content:Container(
-                            height: 60,
-                            decoration: BoxDecoration(
-                              color: ConstColors.background.withOpacity(0.50),
-                              border: Border.all(color: ConstColors.primaryColor),
-                              borderRadius: BorderRadius.circular(10),
-                            ),
-                            child: Padding(
-                              padding: const EdgeInsets.only(left: 10),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  SizedBox(height: 10,),
-                                  Text("Error",style: TextStyle(color: ConstColors.primaryColor,fontFamily: 'Bold',fontWeight: FontWeight.w700
-                                  ),),
-                                  SizedBox(height: 5,),
-                                  Text("Email should not be empty",style: TextStyle(color: ConstColors.primaryColor,fontFamily: 'Book',fontWeight: FontWeight.w500
-                                  ),),
-                                ],
+                  } else if (_email.text.isEmpty) {
+                    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                      content: Container(
+                        height: 60,
+                        decoration: BoxDecoration(
+                          color: ConstColors.background.withOpacity(0.50),
+                          border: Border.all(color: ConstColors.primaryColor),
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsets.only(left: 10),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              SizedBox(
+                                height: 10,
                               ),
-                            ),
-                          ),
-                          backgroundColor: Colors.transparent,
-                          elevation: 0,
-                          behavior: SnackBarBehavior.floating,
-                          duration: Duration(seconds: 2),
-                          margin:  EdgeInsets.only(
-                              bottom: MediaQuery.of(context).size.height - 130,
-                              right: 20,
-                              left: 20),
-                        )
-                    );
-                  }else if(_password.text.isEmpty){
-                    ScaffoldMessenger.of(context).showSnackBar(
-                        SnackBar(content:Container(
-                          height: 60,
-                          decoration: BoxDecoration(
-                            color: ConstColors.background.withOpacity(0.50),
-                            border: Border.all(color: ConstColors.primaryColor),
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                          child: Padding(
-                            padding: const EdgeInsets.only(left: 10),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                SizedBox(height: 10,),
-                                Text("Error",style: TextStyle(color: ConstColors.primaryColor,fontFamily: 'Bold',fontWeight: FontWeight.w700
-                                ),),
-                                SizedBox(height: 5,),
-                                Text("Password should not be empty",style: TextStyle(color: ConstColors.primaryColor,fontFamily: 'Book',fontWeight: FontWeight.w500
-                                ),),
-                              ],
-                            ),
+                              Text(
+                                "Error",
+                                style: TextStyle(
+                                    color: ConstColors.primaryColor,
+                                    fontFamily: 'Bold',
+                                    fontWeight: FontWeight.w700),
+                              ),
+                              SizedBox(
+                                height: 5,
+                              ),
+                              Text(
+                                "Email should not be empty",
+                                style: TextStyle(
+                                    color: ConstColors.primaryColor,
+                                    fontFamily: 'Book',
+                                    fontWeight: FontWeight.w500),
+                              ),
+                            ],
                           ),
                         ),
-                          backgroundColor: Colors.transparent,
-                          elevation: 0,
-                          behavior: SnackBarBehavior.floating,
-                          duration: Duration(seconds: 2),
-                          margin:  EdgeInsets.only(
-                              bottom: MediaQuery.of(context).size.height - 130,
-                              right: 20,
-                              left: 20),
-                        )
-                    );
-                  }else if(_name.text.isEmpty){
-                    ScaffoldMessenger.of(context).showSnackBar(
-                        SnackBar(content:Container(
-                          height: 60,
-                          decoration: BoxDecoration(
-                            color: ConstColors.background.withOpacity(0.50),
-                            border: Border.all(color: ConstColors.primaryColor),
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                          child: Padding(
-                            padding: const EdgeInsets.only(left: 10),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                SizedBox(height: 10,),
-                                Text("Error",style: TextStyle(color: ConstColors.primaryColor,fontFamily: 'Bold',fontWeight: FontWeight.w700
-                                ),),
-                                SizedBox(height: 5,),
-                                Text("Name should not be empty",style: TextStyle(color: ConstColors.primaryColor,fontFamily: 'Book',fontWeight: FontWeight.w500
-                                ),),
-                              ],
-                            ),
+                      ),
+                      backgroundColor: Colors.transparent,
+                      elevation: 0,
+                      behavior: SnackBarBehavior.floating,
+                      duration: Duration(seconds: 2),
+                      margin: EdgeInsets.only(
+                          bottom: MediaQuery.of(context).size.height - 130,
+                          right: 20,
+                          left: 20),
+                    ));
+                  } else if (_password.text.isEmpty) {
+                    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                      content: Container(
+                        height: 60,
+                        decoration: BoxDecoration(
+                          color: ConstColors.background.withOpacity(0.50),
+                          border: Border.all(color: ConstColors.primaryColor),
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsets.only(left: 10),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              SizedBox(
+                                height: 10,
+                              ),
+                              Text(
+                                "Error",
+                                style: TextStyle(
+                                    color: ConstColors.primaryColor,
+                                    fontFamily: 'Bold',
+                                    fontWeight: FontWeight.w700),
+                              ),
+                              SizedBox(
+                                height: 5,
+                              ),
+                              Text(
+                                "Password should not be empty",
+                                style: TextStyle(
+                                    color: ConstColors.primaryColor,
+                                    fontFamily: 'Book',
+                                    fontWeight: FontWeight.w500),
+                              ),
+                            ],
                           ),
                         ),
-                          backgroundColor: Colors.transparent,
-                          elevation: 0,
-                          behavior: SnackBarBehavior.floating,
-                          duration: Duration(seconds: 2),
-                          margin:  EdgeInsets.only(
-                              bottom: MediaQuery.of(context).size.height - 130,
-                              right: 20,
-                              left: 20),
-                        )
-                    );
-                  }else if(countryValue.isEmpty){
-                    ScaffoldMessenger.of(context).showSnackBar(
-                        SnackBar(content:Container(
-                          height: 60,
-                          decoration: BoxDecoration(
-                            color: ConstColors.background.withOpacity(0.50),
-                            border: Border.all(color: ConstColors.primaryColor),
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                          child: Padding(
-                            padding: const EdgeInsets.only(left: 10),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                SizedBox(height: 10,),
-                                Text("Error",style: TextStyle(color: ConstColors.primaryColor,fontFamily: 'Bold',fontWeight: FontWeight.w700
-                                ),),
-                                SizedBox(height: 5,),
-                                Text("Please select a Time Zone ",style: TextStyle(color: ConstColors.primaryColor,fontFamily: 'Book',fontWeight: FontWeight.w500
-                                ),),
-                              ],
-                            ),
+                      ),
+                      backgroundColor: Colors.transparent,
+                      elevation: 0,
+                      behavior: SnackBarBehavior.floating,
+                      duration: Duration(seconds: 2),
+                      margin: EdgeInsets.only(
+                          bottom: MediaQuery.of(context).size.height - 130,
+                          right: 20,
+                          left: 20),
+                    ));
+                  } else if (_name.text.isEmpty) {
+                    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                      content: Container(
+                        height: 60,
+                        decoration: BoxDecoration(
+                          color: ConstColors.background.withOpacity(0.50),
+                          border: Border.all(color: ConstColors.primaryColor),
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsets.only(left: 10),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              SizedBox(
+                                height: 10,
+                              ),
+                              Text(
+                                "Error",
+                                style: TextStyle(
+                                    color: ConstColors.primaryColor,
+                                    fontFamily: 'Bold',
+                                    fontWeight: FontWeight.w700),
+                              ),
+                              SizedBox(
+                                height: 5,
+                              ),
+                              Text(
+                                "Name should not be empty",
+                                style: TextStyle(
+                                    color: ConstColors.primaryColor,
+                                    fontFamily: 'Book',
+                                    fontWeight: FontWeight.w500),
+                              ),
+                            ],
                           ),
                         ),
-                          backgroundColor: Colors.transparent,
-                          elevation: 0,
-                          behavior: SnackBarBehavior.floating,
-                          duration: Duration(seconds: 2),
-                          margin:  EdgeInsets.only(
-                              bottom: MediaQuery.of(context).size.height - 130,
-                              right: 20,
-                              left: 20),
-                        )
-                    );
-                  }
-                  else{
-                    try{
-                      await FirebaseAuth.instance.currentUser!.updateEmail(_email.text);
-                      await FirebaseAuth.instance.currentUser!.updatePassword(_password.text);
-                      await FirebaseFirestore.instance.collection('users').doc(FirebaseAuth.instance.currentUser!.uid).update({
+                      ),
+                      backgroundColor: Colors.transparent,
+                      elevation: 0,
+                      behavior: SnackBarBehavior.floating,
+                      duration: Duration(seconds: 2),
+                      margin: EdgeInsets.only(
+                          bottom: MediaQuery.of(context).size.height - 130,
+                          right: 20,
+                          left: 20),
+                    ));
+                  } else if (countryValue.isEmpty) {
+                    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                      content: Container(
+                        height: 60,
+                        decoration: BoxDecoration(
+                          color: ConstColors.background.withOpacity(0.50),
+                          border: Border.all(color: ConstColors.primaryColor),
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsets.only(left: 10),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              SizedBox(
+                                height: 10,
+                              ),
+                              Text(
+                                "Error",
+                                style: TextStyle(
+                                    color: ConstColors.primaryColor,
+                                    fontFamily: 'Bold',
+                                    fontWeight: FontWeight.w700),
+                              ),
+                              SizedBox(
+                                height: 5,
+                              ),
+                              Text(
+                                "Please select a Time Zone ",
+                                style: TextStyle(
+                                    color: ConstColors.primaryColor,
+                                    fontFamily: 'Book',
+                                    fontWeight: FontWeight.w500),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                      backgroundColor: Colors.transparent,
+                      elevation: 0,
+                      behavior: SnackBarBehavior.floating,
+                      duration: Duration(seconds: 2),
+                      margin: EdgeInsets.only(
+                          bottom: MediaQuery.of(context).size.height - 130,
+                          right: 20,
+                          left: 20),
+                    ));
+                  } else {
+                    try {
+                      await FirebaseAuth.instance.currentUser!
+                          .updateEmail(_email.text);
+                      await FirebaseAuth.instance.currentUser!
+                          .updatePassword(_password.text);
+                      await FirebaseFirestore.instance
+                          .collection('users')
+                          .doc(FirebaseAuth.instance.currentUser!.uid)
+                          .update({
                         "password": _password.text,
                         "email": _email.text,
                         "name": _name.text,
                         "time": countryValue.toString(),
                       });
-                    }
-                    catch(e){
+                    } catch (e) {
                       print(e);
                     }
                   }
-
                 },
                 // onTap: (){
                 //   Navigator.push(context, MaterialPageRoute(builder: (context)=>EditAccount()));
