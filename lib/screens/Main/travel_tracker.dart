@@ -11,7 +11,7 @@ import '../DrawerScreens/Home.dart';
 import '../DrawerScreens/account.dart';
 import '../DrawerScreens/activity_dashboard.dart';
 import 'Home2.dart';
-import 'activity.dart';
+import 'package:country_picker/country_picker.dart';
 
 class TravelTracker extends StatefulWidget {
   const TravelTracker({Key? key}) : super(key: key);
@@ -454,6 +454,14 @@ class _TravelTrackerState extends State<TravelTracker> {
                       SizedBox(
                         height: 40,
                       ),
+
+                      // showCountryPicker(
+                      //   context: context,
+                      //   onSelect: (Country country) {
+                      //     print('Select country: ${country.displayName}');
+                      //   },
+                      // ),
+
                       Padding(
                         padding: const EdgeInsets.only(left: 30, right: 30),
                         child: Container(
@@ -497,6 +505,7 @@ class _TravelTrackerState extends State<TravelTracker> {
                                 color: Colors.white,
                               ),
                               child: CSCPicker(
+                                // defaultCountry: ,
                                 onCountryChanged: (value) {
                                   setState(() {
                                     countryValue = value;
@@ -504,7 +513,12 @@ class _TravelTrackerState extends State<TravelTracker> {
                                 },
                                 showStates: false,
                                 showCities: false,
-                                countryDropdownLabel: "Country:  $countryValue",
+                                // currentCountry: "India",
+                                // currentState: "Pakistan",
+                                flagState: CountryFlag.ENABLE,
+                                countryDropdownLabel: countryValue == ""
+                                    ? "Country"
+                                    : countryValue,
                                 selectedItemStyle: AppTextTheme.hintTxt,
                                 dropdownHeadingStyle: AppTextTheme.labels,
                                 dropdownItemStyle: AppTextTheme.labels,

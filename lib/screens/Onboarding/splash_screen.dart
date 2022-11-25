@@ -1,8 +1,10 @@
 import 'dart:async';
 
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:muhasebe_app/Components/ConstColors.dart';
+import 'package:muhasebe_app/screens/Main/Home2.dart';
 
 import 'login_scree.dart';
 
@@ -18,8 +20,12 @@ class _SplashScreenState extends State<SplashScreen> {
     super.initState();
     Timer(
         Duration(seconds: 3),
-        () =>  Navigator.pushReplacement(
-            context, MaterialPageRoute(builder: (context) => LoginScreen())));
+        () => Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(
+                builder: (context) => FirebaseAuth.instance.currentUser == null
+                    ? LoginScreen()
+                    : Home2())));
   }
 
   @override

@@ -2,7 +2,9 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hijri/hijri_calendar.dart';
 import 'package:intl/intl.dart';
@@ -30,6 +32,18 @@ class Home2 extends StatefulWidget {
 }
 
 class _Home2State extends State<Home2> {
+  Widget cancelButton = TextButton(
+    child: Text("Yes"),
+    onPressed: () {
+      SystemNavigator.pop();
+    },
+  );
+  Widget continueButton = TextButton(
+    child: Text("No"),
+    onPressed: () {
+      Get.back();
+    },
+  );
   var _format = HijriCalendar.now();
   var scaffoldKey = GlobalKey<ScaffoldState>();
   @override
@@ -42,7 +56,35 @@ class _Home2State extends State<Home2> {
         builder: (context, AsyncSnapshot<DocumentSnapshot> snapshot) {
           if (snapshot.hasData) {
             return WillPopScope(
-              onWillPop: () async => false,
+              onWillPop: () async {
+                final val = await
+                    // showDialog<bool>(
+                    //   context: context,
+                    //   builder: (BuildContext context) {
+                    //     return AlertDialog(
+                    //       title: Text("Confirm Exit"),
+                    //       content: Text("Are you sure you want to exit?"),
+                    //       actions: [
+                    //         cancelButton,
+                    //         continueButton,
+                    //       ],
+                    //     );
+                    //   },
+                    // );
+                    Get.dialog(AlertDialog(
+                  title: Text("Confirm Exit"),
+                  content: Text("Are you sure you want to exit?"),
+                  actions: [
+                    cancelButton,
+                    continueButton,
+                  ],
+                ));
+                if (val != null) {
+                  return Future.value(val);
+                } else {
+                  return Future.value(false);
+                }
+              },
               child: Scaffold(
                 key: scaffoldKey,
                 drawer: Drawer(
