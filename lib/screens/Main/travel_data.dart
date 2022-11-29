@@ -11,6 +11,7 @@ import '../DrawerScreens/account.dart';
 import '../DrawerScreens/activity_dashboard.dart';
 import 'Home2.dart';
 import 'activity.dart';
+
 class TravelData extends StatefulWidget {
   const TravelData({Key? key}) : super(key: key);
 
@@ -33,7 +34,6 @@ class _TravelDataState extends State<TravelData> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
       key: scaffoldKey,
       drawer: Drawer(
           width: 270,
@@ -68,7 +68,7 @@ class _TravelDataState extends State<TravelData> {
                                 boxShadow: [
                                   BoxShadow(
                                       color:
-                                      Color(0xffBBC3CE).withOpacity(0.60),
+                                          Color(0xffBBC3CE).withOpacity(0.60),
                                       blurRadius: 12,
                                       spreadRadius: 0,
                                       offset: Offset(
@@ -77,7 +77,7 @@ class _TravelDataState extends State<TravelData> {
                                       )),
                                   BoxShadow(
                                       color:
-                                      Color(0xffFDFFFF).withOpacity(0.80),
+                                          Color(0xffFDFFFF).withOpacity(0.80),
                                       blurRadius: 12,
                                       spreadRadius: 0,
                                       offset: Offset(-4, -4))
@@ -107,7 +107,8 @@ class _TravelDataState extends State<TravelData> {
                                   style: TextStyle(
                                       fontFamily: 'Trial',
                                       fontWeight: FontWeight.w500,
-                                      fontSize: 16, color: Colors.white),
+                                      fontSize: 16,
+                                      color: Colors.white),
                                 ),
                                 // Text(
                                 //   "View Profile",
@@ -139,10 +140,7 @@ class _TravelDataState extends State<TravelData> {
                   ),
                   title: Text(
                     "Home",
-                    style: TextStyle(
-                        fontSize: 16,
-                        fontFamily: 'Trial'
-                    ),
+                    style: TextStyle(fontSize: 16, fontFamily: 'Trial'),
                   ),
                 ),
               ),
@@ -201,10 +199,7 @@ class _TravelDataState extends State<TravelData> {
                   ),
                   title: Text(
                     "Activity Dashboard",
-                    style: TextStyle(
-                        fontSize: 16,
-                        fontFamily: 'Trial'
-                    ),
+                    style: TextStyle(fontSize: 16, fontFamily: 'Trial'),
                   ),
                 ),
               ),
@@ -235,7 +230,8 @@ class _TravelDataState extends State<TravelData> {
                     "Version 1.0.0",
                     style: TextStyle(
                         fontFamily: 'Trial',
-                        fontSize: 10, color: ConstColors.primaryColor),
+                        fontSize: 10,
+                        color: ConstColors.primaryColor),
                   )
                 ],
               ),
@@ -248,7 +244,7 @@ class _TravelDataState extends State<TravelData> {
         child: Container(
           height: 114,
           decoration:
-          BoxDecoration(color: ConstColors.primaryColor, boxShadow: [
+              BoxDecoration(color: ConstColors.primaryColor, boxShadow: [
             BoxShadow(
                 color: Color(0xff000000).withOpacity(0.10),
                 blurRadius: 10,
@@ -257,88 +253,90 @@ class _TravelDataState extends State<TravelData> {
           ]),
           child: Padding(
             padding: const EdgeInsets.only(top: 0),
-            child: Row(
-              children: [
-                SizedBox(
-                  width: 20,
-                ),
-                GestureDetector(
-                  onTap: () {
-                    scaffoldKey.currentState?.openDrawer();
-                  },
-                  child: Padding(
-                    padding: const EdgeInsets.only(top: 25),
-                    child: Container(
-                        height: 30,
-                        width: 30,
-                        decoration: BoxDecoration(
-                            shape: BoxShape.circle, color: Colors.white),
-                        child: Center(
-                            child: FaIcon(
-                              FontAwesomeIcons.bars,
-                              size: 18,
-                              color: ConstColors.secondary,
-                            ))),
+            child: FittedBox(
+              child: Row(
+                children: [
+                  SizedBox(
+                    width: 20,
                   ),
-                ),
-                SizedBox(
-                  width: 20,
-                ),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    SizedBox(
-                      height: 35,
+                  GestureDetector(
+                    onTap: () {
+                      scaffoldKey.currentState?.openDrawer();
+                    },
+                    child: Padding(
+                      padding: const EdgeInsets.only(top: 25),
+                      child: Container(
+                          height: 30,
+                          width: 30,
+                          decoration: BoxDecoration(
+                              shape: BoxShape.circle, color: Colors.white),
+                          child: Center(
+                              child: FaIcon(
+                            FontAwesomeIcons.bars,
+                            size: 18,
+                            color: ConstColors.secondary,
+                          ))),
                     ),
-                    Text(
-                      "Welcome, ",
-                      style: TextStyle(
-                          fontSize: 13,
-                          fontFamily: 'Trial',
-                          fontWeight: FontWeight.w600,
-                          color: Colors.white),
-                    ),
-                    Text(
-                      "User Name",
-                      style: TextStyle(
-                          fontFamily: 'CodeNext-Trial',
-                          fontSize: 18,
-                          fontWeight: FontWeight.w600,
-                          color: Colors.white),
-                    ),
-                  ],
-                ),
-                SizedBox(
-                  width: 50,
-                ),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    SizedBox(
-                      height: 35,
-                    ),
-                    Text(
-                      "29, Sep, 2022",
-                      style: TextStyle(
-                          fontSize: 13,
-                          fontFamily: 'Trial',
-                          fontWeight: FontWeight.w600,
-                          color: Colors.white),
-                    ),
-                    SizedBox(
-                      height: 5,
-                    ),
-                    Text(
-                      "Hijri : Shaban 23",
-                      style: TextStyle(
-                          fontSize: 14,
-                          fontFamily: 'Trial',
-                          fontWeight: FontWeight.w600,
-                          color: Colors.white),
-                    ),
-                  ],
-                ),
-              ],
+                  ),
+                  SizedBox(
+                    width: 20,
+                  ),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      SizedBox(
+                        height: 35,
+                      ),
+                      Text(
+                        "Welcome, ",
+                        style: TextStyle(
+                            fontSize: 13,
+                            fontFamily: 'Trial',
+                            fontWeight: FontWeight.w600,
+                            color: Colors.white),
+                      ),
+                      Text(
+                        "User Name",
+                        style: TextStyle(
+                            fontFamily: 'CodeNext-Trial',
+                            fontSize: 18,
+                            fontWeight: FontWeight.w600,
+                            color: Colors.white),
+                      ),
+                    ],
+                  ),
+                  SizedBox(
+                    width: 50,
+                  ),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      SizedBox(
+                        height: 35,
+                      ),
+                      Text(
+                        "29, Sep, 2022",
+                        style: TextStyle(
+                            fontSize: 13,
+                            fontFamily: 'Trial',
+                            fontWeight: FontWeight.w600,
+                            color: Colors.white),
+                      ),
+                      SizedBox(
+                        height: 5,
+                      ),
+                      Text(
+                        "Hijri : Shaban 23",
+                        style: TextStyle(
+                            fontSize: 14,
+                            fontFamily: 'Trial',
+                            fontWeight: FontWeight.w600,
+                            color: Colors.white),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
             ),
           ),
         ),
@@ -351,13 +349,26 @@ class _TravelDataState extends State<TravelData> {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              SizedBox(height: 30,),
-              Text("Travel Data",style: AppTextTheme.titles,),
-              SizedBox(height: 4,),
-              Text("Enter Your Travel Data",style: TextStyle(
-                  fontFamily: 'Trial',
-                  fontSize: 12,color: Color(0xff828282)),),
-              SizedBox(height: 30,),
+              SizedBox(
+                height: 30,
+              ),
+              Text(
+                "Travel Data",
+                style: AppTextTheme.titles,
+              ),
+              SizedBox(
+                height: 4,
+              ),
+              Text(
+                "Enter Your Travel Data",
+                style: TextStyle(
+                    fontFamily: 'Trial',
+                    fontSize: 12,
+                    color: Color(0xff828282)),
+              ),
+              SizedBox(
+                height: 30,
+              ),
               Padding(
                 padding: const EdgeInsets.only(left: 35, right: 35),
                 child: Container(
@@ -406,7 +417,8 @@ class _TravelDataState extends State<TravelData> {
                         },
                         showStates: false,
                         showCities: false,
-                        countryDropdownLabel: "Country:  $countryValue",selectedItemStyle: AppTextTheme.hintTxt,
+                        countryDropdownLabel: "Country:  $countryValue",
+                        selectedItemStyle: AppTextTheme.hintTxt,
                         dropdownHeadingStyle: AppTextTheme.labels,
                         dropdownItemStyle: AppTextTheme.labels,
                       ),
@@ -449,9 +461,11 @@ class _TravelDataState extends State<TravelData> {
                   ),
                 ),
               ),
-              SizedBox(height: 22,),
+              SizedBox(
+                height: 22,
+              ),
               Padding(
-                padding: const EdgeInsets.only(left: 35,right: 35),
+                padding: const EdgeInsets.only(left: 35, right: 35),
                 child: Container(
                   width: double.infinity,
                   height: 40,
@@ -463,13 +477,15 @@ class _TravelDataState extends State<TravelData> {
                             color: Color(0xff587CA7).withOpacity(0.31),
                             blurRadius: 22,
                             spreadRadius: 0,
-                            offset: Offset(6,6,)),
+                            offset: Offset(
+                              6,
+                              6,
+                            )),
                         BoxShadow(
                             color: Color(0xffFFFFFF),
                             blurRadius: 20,
                             spreadRadius: 0,
-                            offset: Offset(-4,-4)
-                        )
+                            offset: Offset(-4, -4))
                       ],
                       gradient: LinearGradient(
                           begin: Alignment.topCenter,
@@ -479,7 +495,7 @@ class _TravelDataState extends State<TravelData> {
                             ConstColors.primaryColor,
                           ])),
                   child: Padding(
-                    padding: const EdgeInsets.only(left: 1,right: 1),
+                    padding: const EdgeInsets.only(left: 1, right: 1),
                     child: Container(
                       width: double.infinity,
                       height: 38,
@@ -488,22 +504,27 @@ class _TravelDataState extends State<TravelData> {
                         color: Colors.white,
                       ),
                       alignment: Alignment.center,
-                      child: Row(
-                          children :[
-                            SizedBox(width: 15,),
-                            Text("Start Date: 29 / 09 / 2023",style:TextStyle(
-                                fontFamily: 'Book',
-                                fontSize: 13,color: Color(0xff8B9EB0)) ,)
-                          ]
-
-                      ),
+                      child: Row(children: [
+                        SizedBox(
+                          width: 15,
+                        ),
+                        Text(
+                          "Start Date: 29 / 09 / 2023",
+                          style: TextStyle(
+                              fontFamily: 'Book',
+                              fontSize: 13,
+                              color: Color(0xff8B9EB0)),
+                        )
+                      ]),
                     ),
                   ),
                 ),
               ),
-              SizedBox(height: 22,),
+              SizedBox(
+                height: 22,
+              ),
               Padding(
-                padding: const EdgeInsets.only(left: 35,right: 35),
+                padding: const EdgeInsets.only(left: 35, right: 35),
                 child: Container(
                   width: double.infinity,
                   height: 40,
@@ -515,13 +536,15 @@ class _TravelDataState extends State<TravelData> {
                             color: Color(0xff587CA7).withOpacity(0.31),
                             blurRadius: 22,
                             spreadRadius: 0,
-                            offset: Offset(6,6,)),
+                            offset: Offset(
+                              6,
+                              6,
+                            )),
                         BoxShadow(
                             color: Color(0xffFFFFFF),
                             blurRadius: 20,
                             spreadRadius: 0,
-                            offset: Offset(-4,-4)
-                        )
+                            offset: Offset(-4, -4))
                       ],
                       gradient: LinearGradient(
                           begin: Alignment.topCenter,
@@ -531,7 +554,7 @@ class _TravelDataState extends State<TravelData> {
                             ConstColors.primaryColor,
                           ])),
                   child: Padding(
-                    padding: const EdgeInsets.only(left: 1,right: 1),
+                    padding: const EdgeInsets.only(left: 1, right: 1),
                     child: Container(
                       width: double.infinity,
                       height: 38,
@@ -540,22 +563,27 @@ class _TravelDataState extends State<TravelData> {
                         color: Colors.white,
                       ),
                       alignment: Alignment.center,
-                      child: Row(
-                          children :[
-                            SizedBox(width: 15,),
-                            Text("End Date: 29 / 09 / 2023",style:TextStyle(
-                                fontFamily: 'Book',
-                                fontSize: 13,color: Color(0xff8B9EB0)) ,)
-                          ]
-
-                      ),
+                      child: Row(children: [
+                        SizedBox(
+                          width: 15,
+                        ),
+                        Text(
+                          "End Date: 29 / 09 / 2023",
+                          style: TextStyle(
+                              fontFamily: 'Book',
+                              fontSize: 13,
+                              color: Color(0xff8B9EB0)),
+                        )
+                      ]),
                     ),
                   ),
                 ),
               ),
-              SizedBox(height: 22,),
+              SizedBox(
+                height: 22,
+              ),
               Padding(
-                padding: const EdgeInsets.only(left: 35,right: 35),
+                padding: const EdgeInsets.only(left: 35, right: 35),
                 child: Container(
                   width: double.infinity,
                   height: 105,
@@ -567,13 +595,15 @@ class _TravelDataState extends State<TravelData> {
                             color: Color(0xff587CA7).withOpacity(0.31),
                             blurRadius: 22,
                             spreadRadius: 0,
-                            offset: Offset(6,6,)),
+                            offset: Offset(
+                              6,
+                              6,
+                            )),
                         BoxShadow(
                             color: Color(0xffFFFFFF),
                             blurRadius: 20,
                             spreadRadius: 0,
-                            offset: Offset(-4,-4)
-                        )
+                            offset: Offset(-4, -4))
                       ],
                       gradient: LinearGradient(
                           begin: Alignment.topCenter,
@@ -583,7 +613,7 @@ class _TravelDataState extends State<TravelData> {
                             ConstColors.primaryColor,
                           ])),
                   child: Padding(
-                    padding: const EdgeInsets.only(left: 1,right: 1),
+                    padding: const EdgeInsets.only(left: 1, right: 1),
                     child: Container(
                       width: double.infinity,
                       height: 103,
@@ -596,31 +626,51 @@ class _TravelDataState extends State<TravelData> {
                         padding: const EdgeInsets.only(left: 15),
                         child: Column(
                           children: [
-                            SizedBox(height: 10,),
+                            SizedBox(
+                              height: 10,
+                            ),
                             Row(
                               children: [
-                                Text("Business Related Visit To India",style:TextStyle(
-                                    fontFamily: 'Trial',
-                                    fontSize: 13,color: Color(0xff8B9EB0)),),
+                                Text(
+                                  "Business Related Visit To India",
+                                  style: TextStyle(
+                                      fontFamily: 'Trial',
+                                      fontSize: 13,
+                                      color: Color(0xff8B9EB0)),
+                                ),
                               ],
                             ),
-                            SizedBox(height: 10,),
+                            SizedBox(
+                              height: 10,
+                            ),
                             Row(
                               children: [
-                                Text("Business Related Visit To India",style:TextStyle(
-                                    fontFamily: 'Trial',
-                                    fontSize: 13,color: Color(0xff8B9EB0)),),
+                                Text(
+                                  "Business Related Visit To India",
+                                  style: TextStyle(
+                                      fontFamily: 'Trial',
+                                      fontSize: 13,
+                                      color: Color(0xff8B9EB0)),
+                                ),
                               ],
                             ),
-                            SizedBox(height: 10,),
+                            SizedBox(
+                              height: 10,
+                            ),
                             Row(
                               children: [
-                                Text("Business Related Visit To India",style:TextStyle(
-                                    fontFamily: 'Trial',
-                                    fontSize: 13,color: Color(0xff8B9EB0)),),
+                                Text(
+                                  "Business Related Visit To India",
+                                  style: TextStyle(
+                                      fontFamily: 'Trial',
+                                      fontSize: 13,
+                                      color: Color(0xff8B9EB0)),
+                                ),
                               ],
                             ),
-                            SizedBox(height: 10,),
+                            SizedBox(
+                              height: 10,
+                            ),
                           ],
                         ),
                       ),
@@ -628,31 +678,36 @@ class _TravelDataState extends State<TravelData> {
                   ),
                 ),
               ),
-              SizedBox(height: 30,),
+              SizedBox(
+                height: 30,
+              ),
               GestureDetector(
                 // onTap: (){
                 //   Navigator.push(context, MaterialPageRoute(builder: (context)=>TravelTracker()));
                 // },
                 child: Padding(
-                  padding: const EdgeInsets.only(left: 35,right: 35),
+                  padding: const EdgeInsets.only(left: 35, right: 35),
                   child: Container(
                     width: double.infinity,
                     height: 40,
                     alignment: Alignment.center,
                     decoration: BoxDecoration(
-                        borderRadius: const BorderRadius.all(Radius.circular(4)),
+                        borderRadius:
+                            const BorderRadius.all(Radius.circular(4)),
                         boxShadow: [
                           BoxShadow(
                               color: Color(0xff587CA7).withOpacity(0.31),
                               blurRadius: 22,
                               spreadRadius: 0,
-                              offset: Offset(6,6,)),
+                              offset: Offset(
+                                6,
+                                6,
+                              )),
                           BoxShadow(
                               color: Color(0xffFFFFFF),
                               blurRadius: 20,
                               spreadRadius: 0,
-                              offset: Offset(-4,-4)
-                          )
+                              offset: Offset(-4, -4))
                         ],
                         gradient: LinearGradient(
                             begin: Alignment.topCenter,
@@ -662,7 +717,7 @@ class _TravelDataState extends State<TravelData> {
                               ConstColors.primaryColor,
                             ])),
                     child: Padding(
-                      padding: const EdgeInsets.only(left: 1,right: 1),
+                      padding: const EdgeInsets.only(left: 1, right: 1),
                       child: Container(
                         width: double.infinity,
                         height: 38,
@@ -671,39 +726,50 @@ class _TravelDataState extends State<TravelData> {
                           color: Colors.white,
                         ),
                         alignment: Alignment.center,
-                        child:  Text('7 Days',style: TextStyle(
-                            fontFamily: 'Trial',
-                            fontSize: 17,fontWeight: FontWeight.w400,color:ConstColors.secondary),),
+                        child: Text(
+                          '7 Days',
+                          style: TextStyle(
+                              fontFamily: 'Trial',
+                              fontSize: 17,
+                              fontWeight: FontWeight.w400,
+                              color: ConstColors.secondary),
+                        ),
                       ),
                     ),
                   ),
                 ),
               ),
-              SizedBox(height: 40,),
+              SizedBox(
+                height: 40,
+              ),
               GestureDetector(
-                onTap: (){
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=>Reports()));
+                onTap: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => Reports()));
                 },
                 child: Padding(
-                  padding: const EdgeInsets.only(left: 90,right: 90),
+                  padding: const EdgeInsets.only(left: 90, right: 90),
                   child: Container(
                     width: double.infinity,
                     height: 40,
                     alignment: Alignment.center,
                     decoration: BoxDecoration(
-                        borderRadius: const BorderRadius.all(Radius.circular(10)),
+                        borderRadius:
+                            const BorderRadius.all(Radius.circular(10)),
                         boxShadow: [
                           BoxShadow(
                               color: Color(0xff587CA7).withOpacity(0.31),
                               blurRadius: 22,
                               spreadRadius: 0,
-                              offset: Offset(6,6,)),
+                              offset: Offset(
+                                6,
+                                6,
+                              )),
                           BoxShadow(
                               color: Color(0xffFFFFFF),
                               blurRadius: 20,
                               spreadRadius: 0,
-                              offset: Offset(-4,-4)
-                          )
+                              offset: Offset(-4, -4))
                         ],
                         gradient: LinearGradient(
                             begin: Alignment.topCenter,
@@ -712,37 +778,47 @@ class _TravelDataState extends State<TravelData> {
                               ConstColors.secondary,
                               ConstColors.primaryColor,
                             ])),
-                    child: Text('Save For Later',style: TextStyle(
-                        fontFamily: 'Trial',
-                        fontSize: 17,fontWeight: FontWeight.w400,color:Colors.white),),
+                    child: Text(
+                      'Save For Later',
+                      style: TextStyle(
+                          fontFamily: 'Trial',
+                          fontSize: 17,
+                          fontWeight: FontWeight.w400,
+                          color: Colors.white),
+                    ),
                   ),
                 ),
               ),
-              SizedBox(height: 30,),
+              SizedBox(
+                height: 30,
+              ),
               GestureDetector(
                 // onTap: (){
                 //   Navigator.push(context, MaterialPageRoute(builder: (context)=>Reports()));
                 // },
                 child: Padding(
-                  padding: const EdgeInsets.only(left: 130,right: 130),
+                  padding: const EdgeInsets.only(left: 130, right: 130),
                   child: Container(
                     width: double.infinity,
                     height: 40,
                     alignment: Alignment.center,
                     decoration: BoxDecoration(
-                        borderRadius: const BorderRadius.all(Radius.circular(10)),
+                        borderRadius:
+                            const BorderRadius.all(Radius.circular(10)),
                         boxShadow: [
                           BoxShadow(
                               color: Color(0xff587CA7).withOpacity(0.31),
                               blurRadius: 22,
                               spreadRadius: 0,
-                              offset: Offset(6,6,)),
+                              offset: Offset(
+                                6,
+                                6,
+                              )),
                           BoxShadow(
                               color: Color(0xffFFFFFF),
                               blurRadius: 20,
                               spreadRadius: 0,
-                              offset: Offset(-4,-4)
-                          )
+                              offset: Offset(-4, -4))
                         ],
                         gradient: LinearGradient(
                             begin: Alignment.topCenter,
@@ -752,7 +828,7 @@ class _TravelDataState extends State<TravelData> {
                               ConstColors.primaryColor,
                             ])),
                     child: Padding(
-                      padding: const EdgeInsets.only(left: 1,right: 1),
+                      padding: const EdgeInsets.only(left: 1, right: 1),
                       child: Container(
                         width: double.infinity,
                         height: 38,
@@ -761,14 +837,22 @@ class _TravelDataState extends State<TravelData> {
                           color: Colors.white,
                         ),
                         alignment: Alignment.center,
-                        child: const Text('Save',style: TextStyle(fontSize: 17,color:Color(0xff3290FF),fontWeight: FontWeight.w400,),),
+                        child: const Text(
+                          'Save',
+                          style: TextStyle(
+                            fontSize: 17,
+                            color: Color(0xff3290FF),
+                            fontWeight: FontWeight.w400,
+                          ),
+                        ),
                       ),
                     ),
                   ),
                 ),
               ),
-              SizedBox(height: 30,),
-
+              SizedBox(
+                height: 30,
+              ),
             ],
           ),
         ),

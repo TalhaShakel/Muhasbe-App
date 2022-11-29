@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../../Components/ConstColors.dart';
 import '../../Components/text_theme.dart';
@@ -270,92 +271,94 @@ class _FastingState extends State<Fasting> {
           ]),
           child: Padding(
             padding: const EdgeInsets.only(top: 0),
-            child: Row(
-              children: [
-                SizedBox(
-                  width: 20,
-                ),
-                GestureDetector(
-                  onTap: () {
-                    scaffoldKey.currentState?.openDrawer();
-                  },
-                  child: Padding(
-                    padding: const EdgeInsets.only(top: 25),
-                    child: Container(
-                        height: 30,
-                        width: 30,
-                        decoration: BoxDecoration(
-                            shape: BoxShape.circle, color: Colors.white),
-                        child: Center(
-                            child: FaIcon(
-                          FontAwesomeIcons.bars,
-                          size: 18,
-                          color: ConstColors.secondary,
-                        ))),
+            child: FittedBox(
+              child: Row(
+                children: [
+                  SizedBox(
+                    width: 20,
                   ),
-                ),
-                SizedBox(
-                  width: 20,
-                ),
-                SingleChildScrollView(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      SizedBox(
-                        height: 35,
-                      ),
-                      Text(
-                        "Welcome, ",
-                        style: TextStyle(
-                            fontSize: 13,
-                            fontFamily: 'Trial',
-                            fontWeight: FontWeight.w600,
-                            color: Colors.white),
-                      ),
-                      Text(
-                        "User Name",
-                        style: TextStyle(
-                            fontFamily: 'CodeNext-Trial',
-                            fontSize: 18,
-                            fontWeight: FontWeight.w600,
-                            color: Colors.white),
-                      ),
-                    ],
+                  GestureDetector(
+                    onTap: () {
+                      scaffoldKey.currentState?.openDrawer();
+                    },
+                    child: Padding(
+                      padding: const EdgeInsets.only(top: 25),
+                      child: Container(
+                          height: 30,
+                          width: 30,
+                          decoration: BoxDecoration(
+                              shape: BoxShape.circle, color: Colors.white),
+                          child: Center(
+                              child: FaIcon(
+                            FontAwesomeIcons.bars,
+                            size: 18,
+                            color: ConstColors.secondary,
+                          ))),
+                    ),
                   ),
-                ),
-                SizedBox(
-                  width: 50,
-                ),
-                SingleChildScrollView(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      SizedBox(
-                        height: 35,
-                      ),
-                      Text(
-                        "29, Sep, 2022",
-                        style: TextStyle(
-                            fontSize: 13,
-                            fontFamily: 'Trial',
-                            fontWeight: FontWeight.w600,
-                            color: Colors.white),
-                      ),
-                      SizedBox(
-                        height: 5,
-                      ),
-                      Text(
-                        "Hijri : Shaban 23",
-                        style: TextStyle(
-                            fontSize: 14,
-                            fontFamily: 'Trial',
-                            fontWeight: FontWeight.w600,
-                            color: Colors.white),
-                      ),
-                    ],
+                  SizedBox(
+                    width: 20,
                   ),
-                ),
-              ],
+                  SingleChildScrollView(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        SizedBox(
+                          height: 35,
+                        ),
+                        Text(
+                          "Welcome, ",
+                          style: TextStyle(
+                              fontSize: 13,
+                              fontFamily: 'Trial',
+                              fontWeight: FontWeight.w600,
+                              color: Colors.white),
+                        ),
+                        Text(
+                          "User Name",
+                          style: TextStyle(
+                              fontFamily: 'CodeNext-Trial',
+                              fontSize: 18,
+                              fontWeight: FontWeight.w600,
+                              color: Colors.white),
+                        ),
+                      ],
+                    ),
+                  ),
+                  SizedBox(
+                    width: 50,
+                  ),
+                  SingleChildScrollView(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        SizedBox(
+                          height: 35,
+                        ),
+                        Text(
+                          "29, Sep, 2022",
+                          style: TextStyle(
+                              fontSize: 13,
+                              fontFamily: 'Trial',
+                              fontWeight: FontWeight.w600,
+                              color: Colors.white),
+                        ),
+                        SizedBox(
+                          height: 5,
+                        ),
+                        Text(
+                          "Hijri : Shaban 23",
+                          style: TextStyle(
+                              fontSize: 14,
+                              fontFamily: 'Trial',
+                              fontWeight: FontWeight.w600,
+                              color: Colors.white),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
         ),
@@ -985,56 +988,52 @@ class _FastingState extends State<Fasting> {
                 // onTap: (){
                 //   Navigator.push(context, MaterialPageRoute(builder: (context)=>Activity()));
                 // },
-                child: Padding(
-                  padding: const EdgeInsets.only(left: 121, right: 121),
-                  child: Container(
-                    width: double.infinity,
-                    height: 40,
-                    alignment: Alignment.center,
-                    decoration: BoxDecoration(
-                        borderRadius:
-                            const BorderRadius.all(Radius.circular(10)),
-                        boxShadow: [
-                          BoxShadow(
-                              color: Color(0xff587CA7).withOpacity(0.31),
-                              blurRadius: 22,
-                              spreadRadius: 0,
-                              offset: Offset(
-                                6,
-                                6,
-                              )),
-                          BoxShadow(
-                              color: Color(0xffFFFFFF),
-                              blurRadius: 20,
-                              spreadRadius: 0,
-                              offset: Offset(-4, -4))
-                        ],
-                        gradient: LinearGradient(
-                            begin: Alignment.topCenter,
-                            end: Alignment.bottomCenter,
-                            colors: [
-                              ConstColors.secondary,
-                              ConstColors.primaryColor,
-                            ])),
-                    child: Padding(
-                      padding: const EdgeInsets.only(left: 1, right: 1),
-                      child: Container(
-                        width: double.infinity,
-                        height: 38,
-                        decoration: const BoxDecoration(
-                          borderRadius: BorderRadius.all(Radius.circular(9)),
-                          color: Colors.white,
-                        ),
-                        alignment: Alignment.center,
-                        child: FittedBox(
-                          child: Text(
-                            'Calculate',
-                            style: TextStyle(
-                                fontFamily: 'Trial',
-                                fontSize: 17,
-                                fontWeight: FontWeight.w400,
-                                color: ConstColors.secondary),
-                          ),
+                child: Container(
+                  width: 148.w,
+                  height: 40.h,
+                  alignment: Alignment.center,
+                  decoration: BoxDecoration(
+                      borderRadius: const BorderRadius.all(Radius.circular(10)),
+                      boxShadow: [
+                        BoxShadow(
+                            color: Color(0xff587CA7).withOpacity(0.31),
+                            blurRadius: 22,
+                            spreadRadius: 0,
+                            offset: Offset(
+                              6,
+                              6,
+                            )),
+                        BoxShadow(
+                            color: Color(0xffFFFFFF),
+                            blurRadius: 20,
+                            spreadRadius: 0,
+                            offset: Offset(-4, -4))
+                      ],
+                      gradient: LinearGradient(
+                          begin: Alignment.topCenter,
+                          end: Alignment.bottomCenter,
+                          colors: [
+                            ConstColors.secondary,
+                            ConstColors.primaryColor,
+                          ])),
+                  child: Padding(
+                    padding: const EdgeInsets.only(left: 1, right: 1),
+                    child: Container(
+                      width: double.infinity,
+                      height: 38,
+                      decoration: const BoxDecoration(
+                        borderRadius: BorderRadius.all(Radius.circular(9)),
+                        color: Colors.white,
+                      ),
+                      alignment: Alignment.center,
+                      child: FittedBox(
+                        child: Text(
+                          'Calculate',
+                          style: TextStyle(
+                              fontFamily: 'Trial',
+                              fontSize: 17.sp,
+                              fontWeight: FontWeight.w400,
+                              color: ConstColors.secondary),
                         ),
                       ),
                     ),
@@ -1075,46 +1074,42 @@ class _FastingState extends State<Fasting> {
                       MaterialPageRoute(
                           builder: (context) => FatingReminder()));
                 },
-                child: Padding(
-                  padding: const EdgeInsets.only(left: 110, right: 110),
-                  child: Container(
-                    width: double.infinity,
-                    height: 40,
-                    alignment: Alignment.center,
-                    decoration: BoxDecoration(
-                        borderRadius:
-                            const BorderRadius.all(Radius.circular(10)),
-                        boxShadow: [
-                          BoxShadow(
-                              color: Color(0xff587CA7).withOpacity(0.31),
-                              blurRadius: 22,
-                              spreadRadius: 0,
-                              offset: Offset(
-                                6,
-                                6,
-                              )),
-                          BoxShadow(
-                              color: Color(0xffFFFFFF),
-                              blurRadius: 20,
-                              spreadRadius: 0,
-                              offset: Offset(-4, -4))
-                        ],
-                        gradient: LinearGradient(
-                            begin: Alignment.topCenter,
-                            end: Alignment.bottomCenter,
-                            colors: [
-                              ConstColors.secondary,
-                              ConstColors.primaryColor,
-                            ])),
-                    child: FittedBox(
-                      child: Text(
-                        'Edit Settings',
-                        style: TextStyle(
-                            fontFamily: 'Trial',
-                            fontSize: 17,
-                            fontWeight: FontWeight.w400,
-                            color: Colors.white),
-                      ),
+                child: Container(
+                  width: 148.w,
+                  height: 40.h,
+                  alignment: Alignment.center,
+                  decoration: BoxDecoration(
+                      borderRadius: const BorderRadius.all(Radius.circular(10)),
+                      boxShadow: [
+                        BoxShadow(
+                            color: Color(0xff587CA7).withOpacity(0.31),
+                            blurRadius: 22,
+                            spreadRadius: 0,
+                            offset: Offset(
+                              6,
+                              6,
+                            )),
+                        BoxShadow(
+                            color: Color(0xffFFFFFF),
+                            blurRadius: 20,
+                            spreadRadius: 0,
+                            offset: Offset(-4, -4))
+                      ],
+                      gradient: LinearGradient(
+                          begin: Alignment.topCenter,
+                          end: Alignment.bottomCenter,
+                          colors: [
+                            ConstColors.secondary,
+                            ConstColors.primaryColor,
+                          ])),
+                  child: FittedBox(
+                    child: Text(
+                      'Edit Settings',
+                      style: TextStyle(
+                          fontFamily: 'Trial',
+                          fontSize: 17.sp,
+                          fontWeight: FontWeight.w400,
+                          color: Colors.white),
                     ),
                   ),
                 ),

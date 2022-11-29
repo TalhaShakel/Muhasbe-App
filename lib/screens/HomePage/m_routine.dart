@@ -1,8 +1,11 @@
+import 'dart:math';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:muhasebe_app/Components/text_theme.dart';
@@ -34,7 +37,6 @@ class _RoutineState extends State<Routine> {
     {"title": "On Hold", "value": "3"},
   ];
   String defaultvalue = "";
-
 
   @override
   Widget build(BuildContext context) {
@@ -244,7 +246,7 @@ class _RoutineState extends State<Routine> {
           )),
       appBar: PreferredSize(
         child: Container(
-          height: 114,
+          height: 114.h,
           decoration:
               BoxDecoration(color: ConstColors.primaryColor, boxShadow: [
             BoxShadow(
@@ -254,93 +256,96 @@ class _RoutineState extends State<Routine> {
                 offset: Offset(5, 5))
           ]),
           child: Padding(
-            padding: const EdgeInsets.only(top: 0),
-            child: Row(
-              children: [
-                SizedBox(
-                  width: 20,
-                ),
-                GestureDetector(
-                  onTap: () {
-                    scaffoldKey.currentState?.openDrawer();
-                  },
-                  child: Padding(
-                    padding: const EdgeInsets.only(top: 25),
-                    child: Container(
-                        height: 30,
-                        width: 30,
-                        decoration: BoxDecoration(
-                            shape: BoxShape.circle, color: Colors.white),
-                        child: Center(
-                            child: FaIcon(
-                          FontAwesomeIcons.bars,
-                          size: 18,
-                          color: ConstColors.secondary,
-                        ))),
+            padding: EdgeInsets.only(top: 0.h),
+            child: FittedBox(
+              child: Row(
+                children: [
+                  SizedBox(
+                    width: 20.w,
                   ),
-                ),
-                SizedBox(
-                  width: 20,
-                ),
-                SingleChildScrollView(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      SizedBox(
-                        height: 35,
-                      ),
-                      Text(
-                        "Welcome, ",
-                        style: TextStyle(
-                            fontSize: 13,
-                            fontFamily: 'Trial',
-                            fontWeight: FontWeight.w600,
-                            color: Colors.white),
-                      ),
-                      Text(
-                        "User Name",
-                        style: TextStyle(
-                            fontFamily: 'CodeNext-Trial',
-                            fontSize: 18,
-                            fontWeight: FontWeight.w600,
-                            color: Colors.white),
-                      ),
-                    ],
+                  GestureDetector(
+                    onTap: () {
+                      scaffoldKey.currentState?.openDrawer();
+                    },
+                    child: Padding(
+                      padding: EdgeInsets.only(top: 25.h),
+                      child: Container(
+                          height: 30,
+                          width: 30,
+                          decoration: BoxDecoration(
+                              shape: BoxShape.circle, color: Colors.white),
+                          child: Center(
+                              child: FaIcon(
+                            FontAwesomeIcons.bars,
+                            size: 18,
+                            color: ConstColors.secondary,
+                          ))),
+                    ),
                   ),
-                ),
-                SizedBox(
-                  width: 50,
-                ),
-                SingleChildScrollView(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      SizedBox(
-                        height: 35,
-                      ),
-                      Text(
-                        "29, Sep, 2022",
-                        style: TextStyle(
-                            fontSize: 13,
-                            fontFamily: 'Trial',
-                            fontWeight: FontWeight.w600,
-                            color: Colors.white),
-                      ),
-                      SizedBox(
-                        height: 5,
-                      ),
-                      Text(
-                        "Hijri : Shaban 23",
-                        style: TextStyle(
-                            fontSize: 14,
-                            fontFamily: 'Trial',
-                            fontWeight: FontWeight.w600,
-                            color: Colors.white),
-                      ),
-                    ],
+                  SizedBox(
+                    width: 20,
                   ),
-                ),
-              ],
+                  SingleChildScrollView(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        SizedBox(
+                          height: 35,
+                        ),
+                        Text(
+                          "Welcome, ",
+                          style: TextStyle(
+                              fontSize: 13,
+                              fontFamily: 'Trial',
+                              fontWeight: FontWeight.w600,
+                              color: Colors.white),
+                        ),
+                        Text(
+                          "User Name",
+                          style: TextStyle(
+                              fontFamily: 'CodeNext-Trial',
+                              fontSize: 18,
+                              fontWeight: FontWeight.w600,
+                              color: Colors.white),
+                        ),
+                      ],
+                    ),
+                  ),
+                  SizedBox(
+                    width: 50,
+                  ),
+                  SingleChildScrollView(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        SizedBox(
+                          height: 35,
+                        ),
+                        Text(
+                          "29, Sep, 2022",
+                          style: TextStyle(
+                              fontSize: 13.sp,
+                              fontFamily: 'Trial',
+                              fontWeight: FontWeight.w600,
+                              color: Colors.white),
+                        ),
+                        SizedBox(
+                          height: 5,
+                        ),
+                        Text(
+                          "Hijri : Shaban 23",
+                          softWrap: true,
+                          style: TextStyle(
+                              fontSize: 14.sp,
+                              fontFamily: 'Trial',
+                              fontWeight: FontWeight.w600,
+                              color: Colors.white),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
         ),
@@ -361,77 +366,26 @@ class _RoutineState extends State<Routine> {
                 style: AppTextTheme.titles,
               ),
               StreamBuilder<QuerySnapshot>(
-                  stream: FirebaseFirestore.instance.collection('users').doc(FirebaseAuth.instance.currentUser!.uid).collection('Morning Routine').snapshots(),
-                  builder: (context,snapshot){
-                    if(snapshot.connectionState == ConnectionState.waiting){
+                  stream: FirebaseFirestore.instance
+                      .collection('users')
+                      .doc(FirebaseAuth.instance.currentUser!.uid)
+                      .collection('Morning Routine')
+                      .snapshots(),
+                  builder: (context, snapshot) {
+                    if (snapshot.connectionState == ConnectionState.waiting) {
                       return CupertinoActivityIndicator();
-                    }else if(snapshot.data!.docs.isNotEmpty){
-                      return Padding(padding: EdgeInsets.only(left: 25, right: 25, top: 30),
-                      child:Container(
-                        height: 350,
-                        width: double.infinity,
-                        decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(10),
-                            border: Border.all(color: Color(0xff3290FF), width: 2),
-                            boxShadow: [
-                              BoxShadow(
-                                  color: Color(0xff000000).withOpacity(0.10),
-                                  offset: Offset(0, 2),
-                                  blurRadius: 2,
-                                  spreadRadius: 4)
-                            ]),
-                        child: SingleChildScrollView(
-                          child: DataTable(
-                              horizontalMargin: 10,
-                              columnSpacing: 35,
-
-                              // headingRowColor:
-                              // MaterialStateColor.resolveWith((states) => Colors.blue),
-                              columns: [
-                                DataColumn(
-                                    label: Text(
-                                      "Title",
-                                      style: TextStyle(
-                                          fontFamily: 'Trial',
-                                          fontSize: 13,
-                                          fontWeight: FontWeight.w600,
-                                          color: ConstColors.primaryColor),
-                                    )),
-                                DataColumn(
-                                    label: Text(
-                                      "Status",
-                                      style: TextStyle(
-                                          fontFamily: 'Trial',
-                                          fontSize: 13,
-                                          fontWeight: FontWeight.w600,
-                                          color: ConstColors.primaryColor),
-                                    )),
-                                DataColumn(
-                                    label: Text(
-                                      "Actions",
-                                      style: TextStyle(
-                                          fontFamily: 'Trial',
-                                          fontSize: 13,
-                                          fontWeight: FontWeight.w600,
-                                          color: ConstColors.primaryColor),
-                                    )),
-                              ],
-                              rows:_buildList(context, snapshot.data!.docs)
-                          ),
-                        ),
-                      ),
-                      );
-                    }else {
+                    } else if (snapshot.data!.docs.isNotEmpty) {
                       return Padding(
-                        padding: const EdgeInsets.only(left: 25, right: 25, top: 30),
+                        padding:
+                            EdgeInsets.only(left: 25.w, right: 25.w, top: 30.h),
                         child: Container(
                           height: 350,
                           width: double.infinity,
                           decoration: BoxDecoration(
                               color: Colors.white,
                               borderRadius: BorderRadius.circular(10),
-                              border: Border.all(color: Color(0xff3290FF), width: 2),
+                              border: Border.all(
+                                  color: Color(0xff3290FF), width: 2),
                               boxShadow: [
                                 BoxShadow(
                                     color: Color(0xff000000).withOpacity(0.10),
@@ -440,360 +394,423 @@ class _RoutineState extends State<Routine> {
                                     spreadRadius: 4)
                               ]),
                           child: SingleChildScrollView(
-                            child: DataTable(horizontalMargin: 10, columnSpacing: 40,
+                            child: DataTable(
+                                horizontalMargin: 10,
+                                columnSpacing: 35,
 
                                 // headingRowColor:
                                 // MaterialStateColor.resolveWith((states) => Colors.blue),
                                 columns: [
                                   DataColumn(
                                       label: Text(
-                                        "Title",
-                                        style: TextStyle(
-                                            fontFamily: 'Trial',
-                                            fontSize: 13,
-                                            fontWeight: FontWeight.w600,
-                                            color: ConstColors.primaryColor),
-                                      )),
+                                    "Title",
+                                    style: TextStyle(
+                                        fontFamily: 'Trial',
+                                        fontSize: 13,
+                                        fontWeight: FontWeight.w600,
+                                        color: ConstColors.primaryColor),
+                                  )),
                                   DataColumn(
                                       label: Text(
-                                        "Status",
-                                        style: TextStyle(
-                                            fontFamily: 'Trial',
-                                            fontSize: 13,
-                                            fontWeight: FontWeight.w600,
-                                            color: ConstColors.primaryColor),
-                                      )),
+                                    "Status",
+                                    style: TextStyle(
+                                        fontFamily: 'Trial',
+                                        fontSize: 13,
+                                        fontWeight: FontWeight.w600,
+                                        color: ConstColors.primaryColor),
+                                  )),
                                   DataColumn(
                                       label: Text(
-                                        "Actions",
-                                        style: TextStyle(
-                                            fontFamily: 'Trial',
-                                            fontSize: 13,
-                                            fontWeight: FontWeight.w600,
-                                            color: ConstColors.primaryColor),
-                                      )),
-                                ], rows: [
-                                  DataRow(cells: [
-                                    DataCell(Text(
-                                      "Title Name",
-                                      style: TextStyle(
-                                          fontFamily: 'Trial',
-                                          fontSize: 12,
-                                          fontWeight: FontWeight.w600),
-                                    )),
-                                    DataCell(
-                                      DropDown(),
-                                    ),
-                                    DataCell(Row(
-                                      children: [
-                                        FaIcon(
-                                          FontAwesomeIcons.edit,
-                                          color: ConstColors.secondary,
-                                          size: 15,
-                                        ),
-                                        SizedBox(
-                                          width: 20,
-                                        ),
-                                        FaIcon(
-                                          FontAwesomeIcons.trashCan,
-                                          color: Color(0xffFE0000),
-                                          size: 15,
-                                        ),
-                                      ],
-                                    ))
-                                  ]),
-                                  DataRow(cells: [
-                                    DataCell(Text(
-                                      "Title Name",
-                                      style: TextStyle(
-                                          fontFamily: 'Trial',
-                                          fontSize: 12,
-                                          fontWeight: FontWeight.w600),
-                                    )),
-                                    DataCell(
-                                      DropDown(),
-                                    ),
-                                    DataCell(Row(
-                                      children: [
-                                        FaIcon(
-                                          FontAwesomeIcons.edit,
-                                          color: ConstColors.secondary,
-                                          size: 15,
-                                        ),
-                                        SizedBox(
-                                          width: 20,
-                                        ),
-                                        FaIcon(
-                                          FontAwesomeIcons.trashCan,
-                                          color: Color(0xffFE0000),
-                                          size: 15,
-                                        ),
-                                      ],
-                                    ))
-                                  ]),
-                                  DataRow(cells: [
-                                    DataCell(Text(
-                                      "Title Name",
-                                      style: TextStyle(
-                                          fontFamily: 'Trial',
-                                          fontSize: 12,
-                                          fontWeight: FontWeight.w600),
-                                    )),
-                                    DataCell(
-                                      DropDown(),
-                                    ),
-                                    DataCell(Row(
-                                      children: [
-                                        FaIcon(
-                                          FontAwesomeIcons.edit,
-                                          color: ConstColors.secondary,
-                                          size: 15,
-                                        ),
-                                        SizedBox(
-                                          width: 20,
-                                        ),
-                                        FaIcon(
-                                          FontAwesomeIcons.trashCan,
-                                          color: Color(0xffFE0000),
-                                          size: 15,
-                                        ),
-                                      ],
-                                    ))
-                                  ]),
-                                  DataRow(cells: [
-                                    DataCell(Text(
-                                      "Title Name",
-                                      style: TextStyle(
-                                          fontFamily: 'Trial',
-                                          fontSize: 12,
-                                          fontWeight: FontWeight.w600),
-                                    )),
-                                    DataCell(
-                                      DropDown(),
-                                    ),
-                                    DataCell(Row(
-                                      children: [
-                                        FaIcon(
-                                          FontAwesomeIcons.edit,
-                                          color: ConstColors.secondary,
-                                          size: 15,
-                                        ),
-                                        SizedBox(
-                                          width: 20,
-                                        ),
-                                        FaIcon(
-                                          FontAwesomeIcons.trashCan,
-                                          color: Color(0xffFE0000),
-                                          size: 15,
-                                        ),
-                                      ],
-                                    ))
-                                  ]),
-                                  DataRow(cells: [
-                                    DataCell(Text(
-                                      "Title Name",
-                                      style: TextStyle(
-                                          fontFamily: 'Trial',
-                                          fontSize: 12,
-                                          fontWeight: FontWeight.w600),
-                                    )),
-                                    DataCell(
-                                      DropDown(),
-                                    ),
-                                    DataCell(Row(
-                                      children: [
-                                        FaIcon(
-                                          FontAwesomeIcons.edit,
-                                          color: ConstColors.secondary,
-                                          size: 15,
-                                        ),
-                                        SizedBox(
-                                          width: 20,
-                                        ),
-                                        FaIcon(
-                                          FontAwesomeIcons.trashCan,
-                                          color: Color(0xffFE0000),
-                                          size: 15,
-                                        ),
-                                      ],
-                                    ))
-                                  ]),
-                                  DataRow(cells: [
-                                    DataCell(Text(
-                                      "Title Name",
-                                      style: TextStyle(
-                                          fontFamily: 'Trial',
-                                          fontSize: 12,
-                                          fontWeight: FontWeight.w600),
-                                    )),
-                                    DataCell(
-                                      DropDown(),
-                                    ),
-                                    DataCell(Row(
-                                      children: [
-                                        FaIcon(
-                                          FontAwesomeIcons.edit,
-                                          color: ConstColors.secondary,
-                                          size: 15,
-                                        ),
-                                        SizedBox(
-                                          width: 20,
-                                        ),
-                                        FaIcon(
-                                          FontAwesomeIcons.trashCan,
-                                          color: Color(0xffFE0000),
-                                          size: 15,
-                                        ),
-                                      ],
-                                    ))
-                                  ]),
-                                  DataRow(cells: [
-                                    DataCell(Text(
-                                      "Title Name",
-                                      style: TextStyle(
-                                          fontFamily: 'Trial',
-                                          fontSize: 12,
-                                          fontWeight: FontWeight.w600),
-                                    )),
-                                    DataCell(
-                                      DropDown(),
-                                    ),
-                                    DataCell(Row(
-                                      children: [
-                                        FaIcon(
-                                          FontAwesomeIcons.edit,
-                                          color: ConstColors.secondary,
-                                          size: 15,
-                                        ),
-                                        SizedBox(
-                                          width: 20,
-                                        ),
-                                        FaIcon(
-                                          FontAwesomeIcons.trashCan,
-                                          color: Color(0xffFE0000),
-                                          size: 15,
-                                        ),
-                                      ],
-                                    ))
-                                  ]),
-                                  DataRow(cells: [
-                                    DataCell(Text(
-                                      "Title Name",
-                                      style: TextStyle(
-                                          fontFamily: 'Trial',
-                                          fontSize: 12,
-                                          fontWeight: FontWeight.w600),
-                                    )),
-                                    DataCell(
-                                      DropDown(),
-                                    ),
-                                    DataCell(Row(
-                                      children: [
-                                        FaIcon(
-                                          FontAwesomeIcons.edit,
-                                          color: ConstColors.secondary,
-                                          size: 15,
-                                        ),
-                                        SizedBox(
-                                          width: 20,
-                                        ),
-                                        FaIcon(
-                                          FontAwesomeIcons.trashCan,
-                                          color: Color(0xffFE0000),
-                                          size: 15,
-                                        ),
-                                      ],
-                                    ))
-                                  ]),
-                                  DataRow(cells: [
-                                    DataCell(Text(
-                                      "Title Name",
-                                      style: TextStyle(
-                                          fontFamily: 'Trial',
-                                          fontSize: 12,
-                                          fontWeight: FontWeight.w600),
-                                    )),
-                                    DataCell(
-                                      DropDown(),
-                                    ),
-                                    DataCell(Row(
-                                      children: [
-                                        FaIcon(
-                                          FontAwesomeIcons.edit,
-                                          color: ConstColors.secondary,
-                                          size: 15,
-                                        ),
-                                        SizedBox(
-                                          width: 20,
-                                        ),
-                                        FaIcon(
-                                          FontAwesomeIcons.trashCan,
-                                          color: Color(0xffFE0000),
-                                          size: 15,
-                                        ),
-                                      ],
-                                    ))
-                                  ]),
-                                  DataRow(cells: [
-                                    DataCell(Text(
-                                      "Title Name",
-                                      style: TextStyle(
-                                          fontFamily: 'Trial',
-                                          fontSize: 12,
-                                          fontWeight: FontWeight.w600),
-                                    )),
-                                    DataCell(
-                                      DropDown(),
-                                    ),
-                                    DataCell(Row(
-                                      children: [
-                                        FaIcon(
-                                          FontAwesomeIcons.edit,
-                                          color: ConstColors.secondary,
-                                          size: 15,
-                                        ),
-                                        SizedBox(
-                                          width: 20,
-                                        ),
-                                        FaIcon(
-                                          FontAwesomeIcons.trashCan,
-                                          color: Color(0xffFE0000),
-                                          size: 15,
-                                        ),
-                                      ],
-                                    ))
-                                  ]),
-                                  DataRow(cells: [
-                                    DataCell(Text(
-                                      "Title Name",
-                                      style: TextStyle(
-                                          fontFamily: 'Trial',
-                                          fontSize: 12,
-                                          fontWeight: FontWeight.w600),
-                                    )),
-                                    DataCell(
-                                      DropDown(),
-                                    ),
-                                    DataCell(Row(
-                                      children: [
-                                        FaIcon(
-                                          FontAwesomeIcons.edit,
-                                          color: ConstColors.secondary,
-                                          size: 15,
-                                        ),
-                                        SizedBox(
-                                          width: 20,
-                                        ),
-                                        FaIcon(
-                                          FontAwesomeIcons.trashCan,
-                                          color: Color(0xffFE0000),
-                                          size: 15,
-                                        ),
-                                      ],
-                                    ))
-                                  ]),
+                                    "Actions",
+                                    style: TextStyle(
+                                        fontFamily: 'Trial',
+                                        fontSize: 13,
+                                        fontWeight: FontWeight.w600,
+                                        color: ConstColors.primaryColor),
+                                  )),
+                                ],
+                                rows: _buildList(context, snapshot.data!.docs)),
+                          ),
+                        ),
+                      );
+                    } else {
+                      return Padding(
+                        padding:
+                            EdgeInsets.only(left: 25.w, right: 25.w, top: 30.h),
+                        child: Container(
+                          height: 350,
+                          width: double.infinity,
+                          decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(10),
+                              border: Border.all(
+                                  color: Color(0xff3290FF), width: 2),
+                              boxShadow: [
+                                BoxShadow(
+                                    color: Color(0xff000000).withOpacity(0.10),
+                                    offset: Offset(0, 2),
+                                    blurRadius: 2,
+                                    spreadRadius: 4)
+                              ]),
+                          child: SingleChildScrollView(
+                            child: DataTable(
+                                horizontalMargin: 10.w,
+                                columnSpacing: 40.h,
 
-
+                                // headingRowColor:
+                                // MaterialStateColor.resolveWith((states) => Colors.blue),
+                                columns: [
+                                  DataColumn(
+                                      label: Text(
+                                    "Title",
+                                    style: TextStyle(
+                                        fontFamily: 'Trial',
+                                        fontSize: 13,
+                                        fontWeight: FontWeight.w600,
+                                        color: ConstColors.primaryColor),
+                                  )),
+                                  DataColumn(
+                                      label: Text(
+                                    "Status",
+                                    style: TextStyle(
+                                        fontFamily: 'Trial',
+                                        fontSize: 13,
+                                        fontWeight: FontWeight.w600,
+                                        color: ConstColors.primaryColor),
+                                  )),
+                                  DataColumn(
+                                      label: Text(
+                                    "Actions",
+                                    style: TextStyle(
+                                        fontFamily: 'Trial',
+                                        fontSize: 13,
+                                        fontWeight: FontWeight.w600,
+                                        color: ConstColors.primaryColor),
+                                  )),
+                                ],
+                                rows: [
+                                  DataRow(cells: [
+                                    DataCell(Text(
+                                      "Title Name",
+                                      style: TextStyle(
+                                          fontFamily: 'Trial',
+                                          fontSize: 12,
+                                          fontWeight: FontWeight.w600),
+                                    )),
+                                    DataCell(
+                                      DropDown(),
+                                    ),
+                                    DataCell(Row(
+                                      children: [
+                                        FaIcon(
+                                          FontAwesomeIcons.edit,
+                                          color: ConstColors.secondary,
+                                          size: 15,
+                                        ),
+                                        SizedBox(
+                                          width: 20,
+                                        ),
+                                        FaIcon(
+                                          FontAwesomeIcons.trashCan,
+                                          color: Color(0xffFE0000),
+                                          size: 15,
+                                        ),
+                                        SizedBox(
+                                          width: sqrt1_2,
+                                        )
+                                      ],
+                                    ))
+                                  ]),
+                                  DataRow(cells: [
+                                    DataCell(Text(
+                                      "Title Name",
+                                      style: TextStyle(
+                                          fontFamily: 'Trial',
+                                          fontSize: 12,
+                                          fontWeight: FontWeight.w600),
+                                    )),
+                                    DataCell(
+                                      DropDown(),
+                                    ),
+                                    DataCell(Row(
+                                      children: [
+                                        FaIcon(
+                                          FontAwesomeIcons.edit,
+                                          color: ConstColors.secondary,
+                                          size: 15,
+                                        ),
+                                        SizedBox(
+                                          width: 20,
+                                        ),
+                                        FaIcon(
+                                          FontAwesomeIcons.trashCan,
+                                          color: Color(0xffFE0000),
+                                          size: 15,
+                                        ),
+                                      ],
+                                    ))
+                                  ]),
+                                  DataRow(cells: [
+                                    DataCell(Text(
+                                      "Title Name",
+                                      style: TextStyle(
+                                          fontFamily: 'Trial',
+                                          fontSize: 12,
+                                          fontWeight: FontWeight.w600),
+                                    )),
+                                    DataCell(
+                                      DropDown(),
+                                    ),
+                                    DataCell(Row(
+                                      children: [
+                                        FaIcon(
+                                          FontAwesomeIcons.edit,
+                                          color: ConstColors.secondary,
+                                          size: 15,
+                                        ),
+                                        SizedBox(
+                                          width: 20,
+                                        ),
+                                        FaIcon(
+                                          FontAwesomeIcons.trashCan,
+                                          color: Color(0xffFE0000),
+                                          size: 15,
+                                        ),
+                                      ],
+                                    ))
+                                  ]),
+                                  DataRow(cells: [
+                                    DataCell(Text(
+                                      "Title Name",
+                                      style: TextStyle(
+                                          fontFamily: 'Trial',
+                                          fontSize: 12,
+                                          fontWeight: FontWeight.w600),
+                                    )),
+                                    DataCell(
+                                      DropDown(),
+                                    ),
+                                    DataCell(Row(
+                                      children: [
+                                        FaIcon(
+                                          FontAwesomeIcons.edit,
+                                          color: ConstColors.secondary,
+                                          size: 15,
+                                        ),
+                                        SizedBox(
+                                          width: 20,
+                                        ),
+                                        FaIcon(
+                                          FontAwesomeIcons.trashCan,
+                                          color: Color(0xffFE0000),
+                                          size: 15,
+                                        ),
+                                      ],
+                                    ))
+                                  ]),
+                                  DataRow(cells: [
+                                    DataCell(Text(
+                                      "Title Name",
+                                      style: TextStyle(
+                                          fontFamily: 'Trial',
+                                          fontSize: 12,
+                                          fontWeight: FontWeight.w600),
+                                    )),
+                                    DataCell(
+                                      DropDown(),
+                                    ),
+                                    DataCell(Row(
+                                      children: [
+                                        FaIcon(
+                                          FontAwesomeIcons.edit,
+                                          color: ConstColors.secondary,
+                                          size: 15,
+                                        ),
+                                        SizedBox(
+                                          width: 20,
+                                        ),
+                                        FaIcon(
+                                          FontAwesomeIcons.trashCan,
+                                          color: Color(0xffFE0000),
+                                          size: 15,
+                                        ),
+                                      ],
+                                    ))
+                                  ]),
+                                  DataRow(cells: [
+                                    DataCell(Text(
+                                      "Title Name",
+                                      style: TextStyle(
+                                          fontFamily: 'Trial',
+                                          fontSize: 12,
+                                          fontWeight: FontWeight.w600),
+                                    )),
+                                    DataCell(
+                                      DropDown(),
+                                    ),
+                                    DataCell(Row(
+                                      children: [
+                                        FaIcon(
+                                          FontAwesomeIcons.edit,
+                                          color: ConstColors.secondary,
+                                          size: 15,
+                                        ),
+                                        SizedBox(
+                                          width: 20,
+                                        ),
+                                        FaIcon(
+                                          FontAwesomeIcons.trashCan,
+                                          color: Color(0xffFE0000),
+                                          size: 15,
+                                        ),
+                                      ],
+                                    ))
+                                  ]),
+                                  DataRow(cells: [
+                                    DataCell(Text(
+                                      "Title Name",
+                                      style: TextStyle(
+                                          fontFamily: 'Trial',
+                                          fontSize: 12,
+                                          fontWeight: FontWeight.w600),
+                                    )),
+                                    DataCell(
+                                      DropDown(),
+                                    ),
+                                    DataCell(Row(
+                                      children: [
+                                        FaIcon(
+                                          FontAwesomeIcons.edit,
+                                          color: ConstColors.secondary,
+                                          size: 15,
+                                        ),
+                                        SizedBox(
+                                          width: 20,
+                                        ),
+                                        FaIcon(
+                                          FontAwesomeIcons.trashCan,
+                                          color: Color(0xffFE0000),
+                                          size: 15,
+                                        ),
+                                      ],
+                                    ))
+                                  ]),
+                                  DataRow(cells: [
+                                    DataCell(Text(
+                                      "Title Name",
+                                      style: TextStyle(
+                                          fontFamily: 'Trial',
+                                          fontSize: 12,
+                                          fontWeight: FontWeight.w600),
+                                    )),
+                                    DataCell(
+                                      DropDown(),
+                                    ),
+                                    DataCell(Row(
+                                      children: [
+                                        FaIcon(
+                                          FontAwesomeIcons.edit,
+                                          color: ConstColors.secondary,
+                                          size: 15,
+                                        ),
+                                        SizedBox(
+                                          width: 20,
+                                        ),
+                                        FaIcon(
+                                          FontAwesomeIcons.trashCan,
+                                          color: Color(0xffFE0000),
+                                          size: 15,
+                                        ),
+                                      ],
+                                    ))
+                                  ]),
+                                  DataRow(cells: [
+                                    DataCell(Text(
+                                      "Title Name",
+                                      style: TextStyle(
+                                          fontFamily: 'Trial',
+                                          fontSize: 12,
+                                          fontWeight: FontWeight.w600),
+                                    )),
+                                    DataCell(
+                                      DropDown(),
+                                    ),
+                                    DataCell(Row(
+                                      children: [
+                                        FaIcon(
+                                          FontAwesomeIcons.edit,
+                                          color: ConstColors.secondary,
+                                          size: 15,
+                                        ),
+                                        SizedBox(
+                                          width: 20,
+                                        ),
+                                        FaIcon(
+                                          FontAwesomeIcons.trashCan,
+                                          color: Color(0xffFE0000),
+                                          size: 15,
+                                        ),
+                                      ],
+                                    ))
+                                  ]),
+                                  DataRow(cells: [
+                                    DataCell(Text(
+                                      "Title Name",
+                                      style: TextStyle(
+                                          fontFamily: 'Trial',
+                                          fontSize: 12,
+                                          fontWeight: FontWeight.w600),
+                                    )),
+                                    DataCell(
+                                      DropDown(),
+                                    ),
+                                    DataCell(Row(
+                                      children: [
+                                        FaIcon(
+                                          FontAwesomeIcons.edit,
+                                          color: ConstColors.secondary,
+                                          size: 15,
+                                        ),
+                                        SizedBox(
+                                          width: 20,
+                                        ),
+                                        FaIcon(
+                                          FontAwesomeIcons.trashCan,
+                                          color: Color(0xffFE0000),
+                                          size: 15,
+                                        ),
+                                      ],
+                                    ))
+                                  ]),
+                                  DataRow(cells: [
+                                    DataCell(Text(
+                                      "Title Name",
+                                      style: TextStyle(
+                                          fontFamily: 'Trial',
+                                          fontSize: 12,
+                                          fontWeight: FontWeight.w600),
+                                    )),
+                                    DataCell(
+                                      DropDown(),
+                                    ),
+                                    DataCell(Row(
+                                      children: [
+                                        FaIcon(
+                                          FontAwesomeIcons.edit,
+                                          color: ConstColors.secondary,
+                                          size: 15,
+                                        ),
+                                        SizedBox(
+                                          width: 20,
+                                        ),
+                                        FaIcon(
+                                          FontAwesomeIcons.trashCan,
+                                          color: Color(0xffFE0000),
+                                          size: 15,
+                                        ),
+                                      ],
+                                    ))
+                                  ]),
                                 ]),
                           ),
                         ),
@@ -915,14 +932,15 @@ class _RoutineState extends State<Routine> {
                   child: Padding(
                     padding: const EdgeInsets.only(left: 1, right: 1),
                     child: GestureDetector(
-                      onTap: ()async{
-                        if(_title.text.isEmpty){
+                      onTap: () async {
+                        if (_title.text.isEmpty) {
                           ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                             content: Container(
                               height: 60,
                               decoration: BoxDecoration(
                                 color: ConstColors.background.withOpacity(0.70),
-                                border: Border.all(color: ConstColors.primaryColor),
+                                border:
+                                    Border.all(color: ConstColors.primaryColor),
                                 borderRadius: BorderRadius.circular(10),
                               ),
                               child: Padding(
@@ -959,15 +977,16 @@ class _RoutineState extends State<Routine> {
                             behavior: SnackBarBehavior.floating,
                             duration: Duration(seconds: 2),
                             margin: EdgeInsets.only(
-                                bottom: MediaQuery.of(context).size.height - 190,
+                                bottom:
+                                    MediaQuery.of(context).size.height - 190,
                                 right: 20,
                                 left: 20),
                           ));
-                        }else{
-                          try{
+                        } else {
+                          try {
                             await Users.addM_routine(Title: getTitle);
                             _title.clear();
-                          }catch(e){
+                          } catch (e) {
                             print(e);
                           }
                         }
@@ -1003,6 +1022,7 @@ class _RoutineState extends State<Routine> {
     );
   }
 }
+
 class DropDown extends StatefulWidget {
   const DropDown({Key? key}) : super(key: key);
 
@@ -1023,11 +1043,11 @@ class _DropDownState extends State<DropDown> {
       width: 90,
       decoration: BoxDecoration(
           color: Colors.white,
-          border: Border.all(color:Color(0xff3290FF),width: 1),
+          border: Border.all(color: Color(0xff3290FF), width: 1),
           borderRadius: BorderRadius.circular(30)),
       child: DropdownButtonHideUnderline(
         child: DropdownButton<String>(
-          iconSize: 15,
+            iconSize: 15,
             iconDisabledColor: Colors.black,
             iconEnabledColor: Colors.black,
             isExpanded: true,
@@ -1042,35 +1062,33 @@ class _DropDownState extends State<DropDown> {
             items: [
               DropdownMenuItem(
                 child: Padding(
-                  padding:
-                  const EdgeInsets.only(left: 5),
+                  padding: const EdgeInsets.only(left: 5),
                   child: Text(
                     "Done",
                     style: TextStyle(
                         fontFamily: 'Trial',
                         fontSize: 12,
                         color: Colors.black,
-                        fontWeight: FontWeight.w400),),
+                        fontWeight: FontWeight.w400),
+                  ),
                 ),
                 value: "",
               ),
-              ...dropDownlistData
-                  .map<DropdownMenuItem<String>>(
-                      (data) {
-                    return DropdownMenuItem<String>(
-                        child: Padding(
-                          padding: const EdgeInsets.only(
-                              left: 5),
-                          child: Text(
-                            data['title'],
-                            style: TextStyle(
-                                fontFamily: 'Trial',
-                                fontSize: 12,
-                                color: Colors.black,
-                                fontWeight: FontWeight.w400),                                  ),
-                        ),
-                        value: data['value']);
-                  }).toList(),
+              ...dropDownlistData.map<DropdownMenuItem<String>>((data) {
+                return DropdownMenuItem<String>(
+                    child: Padding(
+                      padding: const EdgeInsets.only(left: 5),
+                      child: Text(
+                        data['title'],
+                        style: TextStyle(
+                            fontFamily: 'Trial',
+                            fontSize: 12,
+                            color: Colors.black,
+                            fontWeight: FontWeight.w400),
+                      ),
+                    ),
+                    value: data['value']);
+              }).toList(),
             ]),
       ),
     );
@@ -1084,13 +1102,11 @@ List<DataRow> _buildList(
 
 DataRow _buildListItem(BuildContext context, DocumentSnapshot data) {
   // final Users = users.fromSnapshot(data);
-  return  DataRow(cells: [
+  return DataRow(cells: [
     DataCell(Text(
       data['title'],
       style: TextStyle(
-          fontFamily: 'Book',
-          fontSize: 12,
-          fontWeight: FontWeight.w600),
+          fontFamily: 'Book', fontSize: 12, fontWeight: FontWeight.w600),
     )),
     DataCell(
       DropDown(),
@@ -1098,12 +1114,15 @@ DataRow _buildListItem(BuildContext context, DocumentSnapshot data) {
     DataCell(Row(
       children: [
         GestureDetector(
-        onTap: (){
-    Navigator.push(context, MaterialPageRoute(builder: (context)=>EditMRoutine(
-      currentTitle:data['title'],
-      currentId:data.id,
-    )));
-    },
+          onTap: () {
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => EditMRoutine(
+                          currentTitle: data['title'],
+                          currentId: data.id,
+                        )));
+          },
           child: FaIcon(
             FontAwesomeIcons.edit,
             color: ConstColors.secondary,
@@ -1114,15 +1133,15 @@ DataRow _buildListItem(BuildContext context, DocumentSnapshot data) {
           width: 20,
         ),
         GestureDetector(
-          onTap: ()async{
-            await Users.deleteM_routine(docId:data.id );
+          onTap: () async {
+            await Users.deleteM_routine(docId: data.id);
           },
-            child: FaIcon(
-              FontAwesomeIcons.trashCan,
-              color: Color(0xffFE0000),
-              size: 15,
-            ),
+          child: FaIcon(
+            FontAwesomeIcons.trashCan,
+            color: Color(0xffFE0000),
+            size: 15,
           ),
+        ),
       ],
     ))
   ]);

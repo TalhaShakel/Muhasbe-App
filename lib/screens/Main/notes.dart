@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:muhasebe_app/Components/text_theme.dart';
@@ -399,7 +400,7 @@ class _NotesState extends State<Notes> {
                       'Add Notes',
                       style: TextStyle(
                           fontFamily: 'Trial',
-                          fontSize: 17,
+                          fontSize: 17.sp,
                           fontWeight: FontWeight.w400,
                           color: Colors.white),
                     ),
@@ -604,7 +605,7 @@ class _NotesState extends State<Notes> {
                             Text(
                               "Lorem Ipsum is simply dummy text of the printing and \ntypesetting industry. Lorem Ipsum has been the.",
                               style: GoogleFonts.poppins(
-                                  fontSize: 12,
+                                  fontSize: 12.sp,
                                   fontWeight: FontWeight.w400,
                                   color: ConstColors.primaryColor,
                                   letterSpacing: -0.8),
@@ -702,7 +703,7 @@ class _NotesState extends State<Notes> {
                             Text(
                               "Lorem Ipsum is simply dummy text of the printing and \ntypesetting industry. Lorem Ipsum has been the.",
                               style: GoogleFonts.poppins(
-                                  fontSize: 12,
+                                  fontSize: 12.sp,
                                   fontWeight: FontWeight.w400,
                                   color: ConstColors.primaryColor,
                                   letterSpacing: -0.8),
@@ -800,7 +801,7 @@ class _NotesState extends State<Notes> {
                             Text(
                               "Lorem Ipsum is simply dummy text of the printing and \ntypesetting industry. Lorem Ipsum has been the.",
                               style: GoogleFonts.poppins(
-                                  fontSize: 12,
+                                  fontSize: 12.sp,
                                   fontWeight: FontWeight.w400,
                                   color: ConstColors.primaryColor,
                                   letterSpacing: -0.8),
@@ -898,7 +899,7 @@ class _NotesState extends State<Notes> {
                             Text(
                               "Lorem Ipsum is simply dummy text of the printing and \ntypesetting industry. Lorem Ipsum has been the.",
                               style: GoogleFonts.poppins(
-                                  fontSize: 12,
+                                  fontSize: 12.sp,
                                   fontWeight: FontWeight.w400,
                                   color: ConstColors.primaryColor,
                                   letterSpacing: -0.8),
@@ -996,7 +997,7 @@ class _NotesState extends State<Notes> {
                             Text(
                               "Lorem Ipsum is simply dummy text of the printing and \ntypesetting industry. Lorem Ipsum has been the.",
                               style: GoogleFonts.poppins(
-                                  fontSize: 12,
+                                  fontSize: 12.sp,
                                   fontWeight: FontWeight.w400,
                                   color: ConstColors.primaryColor,
                                   letterSpacing: -0.8),

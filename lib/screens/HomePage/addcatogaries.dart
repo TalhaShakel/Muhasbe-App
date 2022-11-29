@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:muhasebe_app/Components/users.dart';
 import 'package:muhasebe_app/screens/HomePage/edit_categories.dart';
@@ -991,7 +992,7 @@ class _AddCatogariesState extends State<AddCatogaries> {
                                         "Lorem Ipsum is simply dummy text of the printing and \ntypesetting industry. Lorem Ipsum has been the.",
                                         style: TextStyle(
                                             fontFamily: 'Trial',
-                                            fontSize: 11,
+                                            fontSize: 11.sp,
                                             fontWeight: FontWeight.w400,
                                             color: ConstColors.primaryColor,
                                             letterSpacing: -0.4),
@@ -1093,7 +1094,7 @@ class _AddCatogariesState extends State<AddCatogaries> {
                                         "Lorem Ipsum is simply dummy text of the printing and \ntypesetting industry. Lorem Ipsum has been the.",
                                         style: TextStyle(
                                             fontFamily: 'Trial',
-                                            fontSize: 11,
+                                            fontSize: 11.sp,
                                             fontWeight: FontWeight.w400,
                                             color: ConstColors.primaryColor,
                                             letterSpacing: -0.4),

@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:muhasebe_app/Components/ConstColors.dart';
 import 'package:muhasebe_app/screens/HomePage/virtue_add.dart';
@@ -343,332 +344,408 @@ class _HomeState extends State<Home> {
         width: double.infinity,
         color: ConstColors.background,
         child: SingleChildScrollView(
-          child: Column(
-            children: [
-              SizedBox(
-                height: 27,
-              ),
-              Row(
-                children: [
-                  SizedBox(
-                    width: 28,
-                  ),
-                  Text(
-                    "Personalize",
-                    style: TextStyle(
-                        fontFamily: 'Trial',
-                        fontSize: 18,
-                        fontWeight: FontWeight.w600),
-                  ),
-                ],
-              ),
-              Row(
-                children: [
-                  SizedBox(
-                    width: 28,
-                  ),
-                  Text(
-                    "Let Your App Know Your Preferences",
-                    style: TextStyle(
-                        fontFamily: 'Trial',
-                        fontSize: 12,
-                        fontWeight: FontWeight.w500),
-                  ),
-                ],
-              ),
-              SizedBox(
-                height: 35,
-              ),
-              StreamBuilder<QuerySnapshot>(
-                  stream: FirebaseFirestore.instance
-                      .collection('users')
-                      .doc(FirebaseAuth.instance.currentUser!.uid)
-                      .collection('image')
-                      .orderBy('userImage', descending: true)
-                      .snapshots(),
-                  builder: (context, AsyncSnapshot<QuerySnapshot> snapshot) {
-                    if (snapshot.connectionState == ConnectionState.waiting) {
-                      return CupertinoActivityIndicator();
-                    } else if (snapshot.data!.docs.isNotEmpty) {
-                      return Padding(
-                        padding: const EdgeInsets.only(left: 110),
-                        child: Container(
-                          height: 150,
-                          child: ListView.builder(
-                              itemCount: 1,
-                              itemBuilder: (context, index) {
-                                return Stack(
-                                  children: [
-                                    Padding(
-                                      padding: const EdgeInsets.only(
-                                          left: 0, right: 0),
-                                      child: Container(
-                                        width: 140,
-                                        height: 140,
-                                        alignment: Alignment.center,
-                                        decoration: BoxDecoration(
-                                            shape: BoxShape.circle,
-                                            boxShadow: [
-                                              BoxShadow(
-                                                  color: Color(0xff587CA7)
-                                                      .withOpacity(0.31),
-                                                  blurRadius: 22,
-                                                  spreadRadius: 0,
-                                                  offset: Offset(
-                                                    6,
-                                                    6,
-                                                  )),
-                                              BoxShadow(
-                                                  color: Color(0xffFFFFFF),
-                                                  blurRadius: 20,
-                                                  spreadRadius: 0,
-                                                  offset: Offset(-4, -4))
-                                            ],
-                                            gradient: LinearGradient(
-                                                begin: Alignment.topCenter,
-                                                end: Alignment.bottomCenter,
-                                                colors: [
-                                                  ConstColors.secondary,
-                                                  ConstColors.primaryColor,
-                                                ])),
-                                        child: Padding(
-                                          padding: const EdgeInsets.only(
-                                              left: 0, right: 0),
-                                          child: Container(
-                                            width: 138,
-                                            height: 138,
-                                            decoration: const BoxDecoration(
+          child: Padding(
+            padding: EdgeInsets.symmetric(horizontal: 16.w),
+            child: Column(
+              children: [
+                SizedBox(
+                  height: 27,
+                ),
+                Row(
+                  children: [
+                    SizedBox(
+                      width: 28,
+                    ),
+                    Text(
+                      "Personalize",
+                      style: TextStyle(
+                          fontFamily: 'Trial',
+                          fontSize: 18,
+                          fontWeight: FontWeight.w600),
+                    ),
+                  ],
+                ),
+                Row(
+                  children: [
+                    SizedBox(
+                      width: 28,
+                    ),
+                    Text(
+                      "Let Your App Know Your Preferences",
+                      style: TextStyle(
+                          fontFamily: 'Trial',
+                          fontSize: 12,
+                          fontWeight: FontWeight.w500),
+                    ),
+                  ],
+                ),
+                SizedBox(
+                  height: 35,
+                ),
+                StreamBuilder<QuerySnapshot>(
+                    stream: FirebaseFirestore.instance
+                        .collection('users')
+                        .doc(FirebaseAuth.instance.currentUser!.uid)
+                        .collection('image')
+                        .orderBy('userImage', descending: true)
+                        .snapshots(),
+                    builder: (context, AsyncSnapshot<QuerySnapshot> snapshot) {
+                      if (snapshot.connectionState == ConnectionState.waiting) {
+                        return CupertinoActivityIndicator();
+                      } else if (snapshot.data!.docs.isNotEmpty) {
+                        return Padding(
+                          padding: const EdgeInsets.only(left: 110),
+                          child: Container(
+                            height: 150,
+                            child: ListView.builder(
+                                itemCount: 1,
+                                itemBuilder: (context, index) {
+                                  return Stack(
+                                    children: [
+                                      Padding(
+                                        padding: const EdgeInsets.only(
+                                            left: 0, right: 0),
+                                        child: Container(
+                                          width: 140,
+                                          height: 140,
+                                          alignment: Alignment.center,
+                                          decoration: BoxDecoration(
                                               shape: BoxShape.circle,
-                                              color: Colors.white,
-                                            ),
-                                            alignment: Alignment.center,
+                                              boxShadow: [
+                                                BoxShadow(
+                                                    color: Color(0xff587CA7)
+                                                        .withOpacity(0.31),
+                                                    blurRadius: 22,
+                                                    spreadRadius: 0,
+                                                    offset: Offset(
+                                                      6,
+                                                      6,
+                                                    )),
+                                                BoxShadow(
+                                                    color: Color(0xffFFFFFF),
+                                                    blurRadius: 20,
+                                                    spreadRadius: 0,
+                                                    offset: Offset(-4, -4))
+                                              ],
+                                              gradient: LinearGradient(
+                                                  begin: Alignment.topCenter,
+                                                  end: Alignment.bottomCenter,
+                                                  colors: [
+                                                    ConstColors.secondary,
+                                                    ConstColors.primaryColor,
+                                                  ])),
+                                          child: Padding(
+                                            padding: const EdgeInsets.only(
+                                                left: 0, right: 0),
                                             child: Container(
-                                              height: 140,
-                                              width: 140,
-                                              child: CircleAvatar(
-                                                  backgroundImage: NetworkImage(
-                                                      snapshot.data!.docs[index]
-                                                          ['userImage'])),
+                                              width: 138,
+                                              height: 138,
+                                              decoration: const BoxDecoration(
+                                                shape: BoxShape.circle,
+                                                color: Colors.white,
+                                              ),
+                                              alignment: Alignment.center,
+                                              child: Container(
+                                                height: 140,
+                                                width: 140,
+                                                child: CircleAvatar(
+                                                    backgroundImage:
+                                                        NetworkImage(snapshot
+                                                                .data!
+                                                                .docs[index]
+                                                            ['userImage'])),
+                                              ),
+                                              // child: FaIcon(
+                                              //   FontAwesomeIcons.user,
+                                              //   color: ConstColors.primaryColor,
+                                              //   size: 70,
+                                              // )),
                                             ),
-                                            // child: FaIcon(
-                                            //   FontAwesomeIcons.user,
-                                            //   color: ConstColors.primaryColor,
-                                            //   size: 70,
-                                            // )),
                                           ),
                                         ),
                                       ),
-                                    ),
-                                  ],
-                                );
-                              }),
-                        ),
-                      );
-                    } else {
-                      return Container(
-                        width: 148,
-                        height: 148,
-                        alignment: Alignment.center,
-                        decoration: BoxDecoration(
-                            shape: BoxShape.circle,
-                            boxShadow: [
-                              BoxShadow(
-                                  color: Color(0xff587CA7).withOpacity(0.31),
-                                  blurRadius: 22,
-                                  spreadRadius: 0,
-                                  offset: Offset(
-                                    6,
-                                    6,
-                                  )),
-                              BoxShadow(
-                                  color: Color(0xffFFFFFF),
-                                  blurRadius: 20,
-                                  spreadRadius: 0,
-                                  offset: Offset(-4, -4))
-                            ],
+                                    ],
+                                  );
+                                }),
+                          ),
+                        );
+                      } else {
+                        return Container(
+                          width: 148,
+                          height: 148,
+                          alignment: Alignment.center,
+                          decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              boxShadow: [
+                                BoxShadow(
+                                    color: Color(0xff587CA7).withOpacity(0.31),
+                                    blurRadius: 22,
+                                    spreadRadius: 0,
+                                    offset: Offset(
+                                      6,
+                                      6,
+                                    )),
+                                BoxShadow(
+                                    color: Color(0xffFFFFFF),
+                                    blurRadius: 20,
+                                    spreadRadius: 0,
+                                    offset: Offset(-4, -4))
+                              ],
+                              gradient: LinearGradient(
+                                  begin: Alignment.topCenter,
+                                  end: Alignment.bottomCenter,
+                                  colors: [
+                                    ConstColors.secondary,
+                                    ConstColors.primaryColor,
+                                  ])),
+                          child: Padding(
+                            padding: const EdgeInsets.only(left: 0, right: 0),
+                            child: Container(
+                              width: 146,
+                              height: 146,
+                              decoration: const BoxDecoration(
+                                shape: BoxShape.circle,
+                                color: Colors.white,
+                              ),
+                              alignment: Alignment.center,
+                              child: Container(
+                                  height: 140,
+                                  width: 140,
+                                  child:
+                                      Image.asset('assets/images/user1.png')),
+                            ),
+                            // child: FaIcon(
+                            //   FontAwesomeIcons.user,
+                            //   color: ConstColors.primaryColor,
+                            //   size: 70,
+                            // )),
+                          ),
+                        );
+                      }
+                    }),
+                SizedBox(
+                  height: 30,
+                ),
+                FittedBox(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.push(context,
+                              MaterialPageRoute(builder: (context) => Goals()));
+                        },
+                        child: Container(
+                          height: 100,
+                          width: 163,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(20),
                             gradient: LinearGradient(
                                 begin: Alignment.topCenter,
                                 end: Alignment.bottomCenter,
                                 colors: [
                                   ConstColors.secondary,
                                   ConstColors.primaryColor,
-                                ])),
-                        child: Padding(
-                          padding: const EdgeInsets.only(left: 0, right: 0),
+                                ]),
+                            boxShadow: [
+                              BoxShadow(
+                                  color: Color(0xffFFFFFF).withOpacity(0.72),
+                                  blurRadius: 10,
+                                  spreadRadius: 0,
+                                  offset: Offset(
+                                    3,
+                                    3,
+                                  )),
+                              BoxShadow(
+                                  color: Color(0xff032B47).withOpacity(0.24),
+                                  blurRadius: 40,
+                                  spreadRadius: 0,
+                                  offset: Offset(0, 20))
+                            ],
+                          ),
+                          child: Column(
+                            children: [
+                              SizedBox(
+                                height: 32,
+                              ),
+                              Text(
+                                "Goals",
+                                style: TextStyle(
+                                    fontSize: 17,
+                                    fontFamily: 'Trial',
+                                    fontWeight: FontWeight.w500,
+                                    color: Colors.white),
+                              ),
+                              Padding(
+                                padding:
+                                    const EdgeInsets.only(left: 120, top: 20),
+                                child: FaIcon(
+                                  FontAwesomeIcons.arrowRight,
+                                  color: Colors.white,
+                                  size: 18,
+                                ),
+                              )
+                            ],
+                          ),
+                        ),
+                      ),
+                      SizedBox(
+                        width: 12.w,
+                      ),
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => AddCatogaries()));
+                        },
+                        child: Container(
+                          height: 100,
+                          width: 163,
+                          alignment: Alignment.center,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(20),
+                            gradient: LinearGradient(
+                                begin: Alignment.topCenter,
+                                end: Alignment.bottomCenter,
+                                colors: [
+                                  ConstColors.secondary,
+                                  ConstColors.primaryColor,
+                                ]),
+                            boxShadow: [
+                              BoxShadow(
+                                  color: Color(0xffFFFFFF).withOpacity(0.72),
+                                  blurRadius: 10,
+                                  spreadRadius: 0,
+                                  offset: Offset(
+                                    3,
+                                    3,
+                                  )),
+                              BoxShadow(
+                                  color: Color(0xff032B47).withOpacity(0.24),
+                                  blurRadius: 40,
+                                  spreadRadius: 0,
+                                  offset: Offset(0, 20))
+                            ],
+                          ),
                           child: Container(
-                            width: 146,
-                            height: 146,
-                            decoration: const BoxDecoration(
-                              shape: BoxShape.circle,
+                            height: 98,
+                            width: 161,
+                            decoration: BoxDecoration(
                               color: Colors.white,
+                              borderRadius: BorderRadius.circular(19),
                             ),
-                            alignment: Alignment.center,
-                            child: Container(
-                                height: 140,
-                                width: 140,
-                                child: Image.asset('assets/images/user1.png')),
+                            child: Column(
+                              children: [
+                                SizedBox(
+                                  height: 30,
+                                ),
+                                Text(
+                                  "Categories",
+                                  style: TextStyle(
+                                      fontSize: 17,
+                                      fontFamily: 'Trial',
+                                      fontWeight: FontWeight.w500,
+                                      color: ConstColors.primaryColor),
+                                ),
+                                Padding(
+                                  padding:
+                                      const EdgeInsets.only(left: 120, top: 20),
+                                  child: FaIcon(
+                                    FontAwesomeIcons.arrowRight,
+                                    color: ConstColors.secondary,
+                                    size: 18,
+                                  ),
+                                )
+                              ],
+                            ),
                           ),
-                          // child: FaIcon(
-                          //   FontAwesomeIcons.user,
-                          //   color: ConstColors.primaryColor,
-                          //   size: 70,
-                          // )),
-                        ),
-                      );
-                    }
-                  }),
-              SizedBox(
-                height: 30,
-              ),
-              FittedBox(
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    GestureDetector(
-                      onTap: () {
-                        Navigator.push(context,
-                            MaterialPageRoute(builder: (context) => Goals()));
-                      },
-                      child: Container(
-                        height: 100,
-                        width: 163,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(20),
-                          gradient: LinearGradient(
-                              begin: Alignment.topCenter,
-                              end: Alignment.bottomCenter,
-                              colors: [
-                                ConstColors.secondary,
-                                ConstColors.primaryColor,
-                              ]),
-                          boxShadow: [
-                            BoxShadow(
-                                color: Color(0xffFFFFFF).withOpacity(0.72),
-                                blurRadius: 10,
-                                spreadRadius: 0,
-                                offset: Offset(
-                                  3,
-                                  3,
-                                )),
-                            BoxShadow(
-                                color: Color(0xff032B47).withOpacity(0.24),
-                                blurRadius: 40,
-                                spreadRadius: 0,
-                                offset: Offset(0, 20))
-                          ],
-                        ),
-                        child: Column(
-                          children: [
-                            SizedBox(
-                              height: 32,
-                            ),
-                            Text(
-                              "Goals",
-                              style: TextStyle(
-                                  fontSize: 17,
-                                  fontFamily: 'Trial',
-                                  fontWeight: FontWeight.w500,
-                                  color: Colors.white),
-                            ),
-                            Padding(
-                              padding:
-                                  const EdgeInsets.only(left: 120, top: 20),
-                              child: FaIcon(
-                                FontAwesomeIcons.arrowRight,
-                                color: Colors.white,
-                                size: 18,
-                              ),
-                            )
-                          ],
                         ),
                       ),
-                    ),
-                    GestureDetector(
-                      onTap: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => AddCatogaries()));
-                      },
-                      child: Container(
-                        height: 100,
-                        width: 163,
-                        alignment: Alignment.center,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(20),
-                          gradient: LinearGradient(
-                              begin: Alignment.topCenter,
-                              end: Alignment.bottomCenter,
-                              colors: [
-                                ConstColors.secondary,
-                                ConstColors.primaryColor,
-                              ]),
-                          boxShadow: [
-                            BoxShadow(
-                                color: Color(0xffFFFFFF).withOpacity(0.72),
-                                blurRadius: 10,
-                                spreadRadius: 0,
-                                offset: Offset(
-                                  3,
-                                  3,
-                                )),
-                            BoxShadow(
-                                color: Color(0xff032B47).withOpacity(0.24),
-                                blurRadius: 40,
-                                spreadRadius: 0,
-                                offset: Offset(0, 20))
-                          ],
-                        ),
+                    ],
+                  ),
+                ),
+                SizedBox(
+                  height: 21,
+                ),
+                FittedBox(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => Routine()));
+                        },
                         child: Container(
-                          height: 98,
-                          width: 161,
+                          height: 100,
+                          width: 163,
+                          alignment: Alignment.center,
                           decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(19),
-                          ),
-                          child: Column(
-                            children: [
-                              SizedBox(
-                                height: 30,
-                              ),
-                              Text(
-                                "Categories",
-                                style: TextStyle(
-                                    fontSize: 17,
-                                    fontFamily: 'Trial',
-                                    fontWeight: FontWeight.w500,
-                                    color: ConstColors.primaryColor),
-                              ),
-                              Padding(
-                                padding:
-                                    const EdgeInsets.only(left: 120, top: 20),
-                                child: FaIcon(
-                                  FontAwesomeIcons.arrowRight,
-                                  color: ConstColors.secondary,
-                                  size: 18,
-                                ),
-                              )
+                            borderRadius: BorderRadius.circular(20),
+                            gradient: LinearGradient(
+                                begin: Alignment.topCenter,
+                                end: Alignment.bottomCenter,
+                                colors: [
+                                  ConstColors.secondary,
+                                  ConstColors.primaryColor,
+                                ]),
+                            boxShadow: [
+                              BoxShadow(
+                                  color: Color(0xffFFFFFF).withOpacity(0.72),
+                                  blurRadius: 10,
+                                  spreadRadius: 0,
+                                  offset: Offset(
+                                    3,
+                                    3,
+                                  )),
+                              BoxShadow(
+                                  color: Color(0xff032B47).withOpacity(0.24),
+                                  blurRadius: 40,
+                                  spreadRadius: 0,
+                                  offset: Offset(0, 20))
                             ],
                           ),
+                          child: Container(
+                            height: 98,
+                            width: 161,
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(19),
+                            ),
+                            child: Column(
+                              children: [
+                                SizedBox(
+                                  height: 25,
+                                ),
+                                Text(
+                                  "Morning \nRoutines",
+                                  style: TextStyle(
+                                      fontSize: 17,
+                                      fontFamily: 'Trial',
+                                      fontWeight: FontWeight.w500,
+                                      color: ConstColors.primaryColor),
+                                ),
+                                Padding(
+                                  padding:
+                                      const EdgeInsets.only(left: 120, top: 3),
+                                  child: FaIcon(
+                                    FontAwesomeIcons.arrowRight,
+                                    color: ConstColors.secondary,
+                                    size: 18,
+                                  ),
+                                )
+                              ],
+                            ),
+                          ),
                         ),
                       ),
-                    ),
-                  ],
-                ),
-              ),
-              SizedBox(
-                height: 21,
-              ),
-              FittedBox(
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    GestureDetector(
-                      onTap: () {
-                        Navigator.push(context,
-                            MaterialPageRoute(builder: (context) => Routine()));
-                      },
-                      child: Container(
+                      SizedBox(
+                        width: 12.w,
+                      ),
+                      Container(
                         height: 100,
                         width: 163,
                         alignment: Alignment.center,
@@ -697,352 +774,293 @@ class _HomeState extends State<Home> {
                                 offset: Offset(0, 20))
                           ],
                         ),
-                        child: Container(
-                          height: 98,
-                          width: 161,
-                          decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(19),
-                          ),
-                          child: Column(
-                            children: [
-                              SizedBox(
-                                height: 25,
-                              ),
-                              Text(
-                                "Morning \nRoutines",
-                                style: TextStyle(
-                                    fontSize: 17,
-                                    fontFamily: 'Trial',
-                                    fontWeight: FontWeight.w500,
-                                    color: ConstColors.primaryColor),
-                              ),
-                              Padding(
-                                padding:
-                                    const EdgeInsets.only(left: 120, top: 3),
-                                child: FaIcon(
-                                  FontAwesomeIcons.arrowRight,
-                                  color: ConstColors.secondary,
-                                  size: 18,
+                        child: GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => DailyReflection()));
+                          },
+                          child: Container(
+                            height: 98,
+                            width: 161,
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(19),
+                            ),
+                            child: Column(
+                              children: [
+                                SizedBox(
+                                  height: 32,
                                 ),
-                              )
-                            ],
+                                Text(
+                                  "      Daily \nReflections",
+                                  style: TextStyle(
+                                      fontSize: 17,
+                                      fontFamily: 'Book',
+                                      fontWeight: FontWeight.w500,
+                                      color: ConstColors.primaryColor),
+                                ),
+                                Padding(
+                                  padding:
+                                      const EdgeInsets.only(left: 120, top: 3),
+                                  child: FaIcon(
+                                    FontAwesomeIcons.arrowRight,
+                                    color: ConstColors.secondary,
+                                    size: 18,
+                                  ),
+                                )
+                              ],
+                            ),
                           ),
                         ),
                       ),
-                    ),
-                    Container(
-                      height: 100,
-                      width: 163,
-                      alignment: Alignment.center,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20),
-                        gradient: LinearGradient(
-                            begin: Alignment.topCenter,
-                            end: Alignment.bottomCenter,
-                            colors: [
-                              ConstColors.secondary,
-                              ConstColors.primaryColor,
-                            ]),
-                        boxShadow: [
-                          BoxShadow(
-                              color: Color(0xffFFFFFF).withOpacity(0.72),
-                              blurRadius: 10,
-                              spreadRadius: 0,
-                              offset: Offset(
-                                3,
-                                3,
-                              )),
-                          BoxShadow(
-                              color: Color(0xff032B47).withOpacity(0.24),
-                              blurRadius: 40,
-                              spreadRadius: 0,
-                              offset: Offset(0, 20))
-                        ],
-                      ),
-                      child: GestureDetector(
-                        onTap: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => DailyReflection()));
-                        },
-                        child: Container(
-                          height: 98,
-                          width: 161,
-                          decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(19),
-                          ),
-                          child: Column(
-                            children: [
-                              SizedBox(
-                                height: 32,
-                              ),
-                              Text(
-                                "      Daily \nReflections",
-                                style: TextStyle(
-                                    fontSize: 17,
-                                    fontFamily: 'Book',
-                                    fontWeight: FontWeight.w500,
-                                    color: ConstColors.primaryColor),
-                              ),
-                              Padding(
-                                padding:
-                                    const EdgeInsets.only(left: 120, top: 3),
-                                child: FaIcon(
-                                  FontAwesomeIcons.arrowRight,
-                                  color: ConstColors.secondary,
-                                  size: 18,
-                                ),
-                              )
-                            ],
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
-              ),
-              SizedBox(
-                height: 21,
-              ),
-              FittedBox(
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    Container(
-                      height: 100,
-                      width: 163,
-                      alignment: Alignment.center,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20),
-                        gradient: LinearGradient(
-                            begin: Alignment.topCenter,
-                            end: Alignment.bottomCenter,
-                            colors: [
-                              ConstColors.secondary,
-                              ConstColors.primaryColor,
-                            ]),
-                        boxShadow: [
-                          BoxShadow(
-                              color: Color(0xffFFFFFF).withOpacity(0.72),
-                              blurRadius: 10,
-                              spreadRadius: 0,
-                              offset: Offset(
-                                3,
-                                3,
-                              )),
-                          BoxShadow(
-                              color: Color(0xff032B47).withOpacity(0.24),
-                              blurRadius: 40,
-                              spreadRadius: 0,
-                              offset: Offset(0, 20))
-                        ],
-                      ),
-                      child: GestureDetector(
-                        onTap: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => VirtueAdd()));
-                        },
-                        child: Container(
-                          height: 98,
-                          width: 161,
-                          decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(19),
-                          ),
-                          child: Column(
-                            children: [
-                              SizedBox(
-                                height: 32,
-                              ),
-                              Text(
-                                "Healthy Habits",
-                                style: TextStyle(
-                                    fontSize: 17,
-                                    fontFamily: 'Trial',
-                                    fontWeight: FontWeight.w500,
-                                    color: ConstColors.primaryColor),
-                              ),
-                              Padding(
-                                padding:
-                                    const EdgeInsets.only(left: 120, top: 20),
-                                child: FaIcon(
-                                  FontAwesomeIcons.arrowRight,
-                                  color: ConstColors.secondary,
-                                  size: 18,
-                                ),
-                              )
-                            ],
-                          ),
-                        ),
-                      ),
-                    ),
-                    Container(
-                      height: 100,
-                      width: 163,
-                      alignment: Alignment.center,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20),
-                        gradient: LinearGradient(
-                            begin: Alignment.topCenter,
-                            end: Alignment.bottomCenter,
-                            colors: [
-                              ConstColors.secondary,
-                              ConstColors.primaryColor,
-                            ]),
-                        boxShadow: [
-                          BoxShadow(
-                              color: Color(0xffFFFFFF).withOpacity(0.72),
-                              blurRadius: 10,
-                              spreadRadius: 0,
-                              offset: Offset(
-                                3,
-                                3,
-                              )),
-                          BoxShadow(
-                              color: Color(0xff032B47).withOpacity(0.24),
-                              blurRadius: 40,
-                              spreadRadius: 0,
-                              offset: Offset(0, 20))
-                        ],
-                      ),
-                      child: GestureDetector(
-                        onTap: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => VisesDelete()));
-                        },
-                        child: Container(
-                          height: 98,
-                          width: 161,
-                          decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(19),
-                          ),
-                          child: Column(
-                            children: [
-                              SizedBox(
-                                height: 35,
-                              ),
-                              Text(
-                                "Affirmation",
-                                style: TextStyle(
-                                    fontSize: 17,
-                                    fontFamily: 'Book',
-                                    fontWeight: FontWeight.w500,
-                                    color: ConstColors.primaryColor),
-                              ),
-                              Padding(
-                                padding:
-                                    const EdgeInsets.only(left: 120, top: 20),
-                                child: FaIcon(
-                                  FontAwesomeIcons.arrowRight,
-                                  color: ConstColors.secondary,
-                                  size: 18,
-                                ),
-                              )
-                            ],
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
+                SizedBox(
+                  height: 21,
                 ),
-              ),
-              SizedBox(
-                height: 21,
-              ),
-              // StreamBuilder<QuerySnapshot>(
-              //     stream: FirebaseFirestore.instance
-              //         .collection('home tabs')
-              //         .snapshots(),
-              //     builder: (context, AsyncSnapshot<QuerySnapshot> snapshot) {
-              //       return Padding(
-              //         padding: const EdgeInsets.only(left: 12, right: 12),
-              //         child: Container(
-              //           height: 700,
-              //           child: GridView.builder(
-              //               gridDelegate:
-              //                   SliverGridDelegateWithFixedCrossAxisCount(
-              //                       crossAxisSpacing: 12,
-              //                       childAspectRatio: 1.6,
-              //                       mainAxisSpacing: 15,
-              //                       crossAxisCount: 2),
-              //               itemCount: snapshot.data!.docs.length,
-              //               itemBuilder: (context, index) {
-              //                 return GestureDetector(
-              //                   onTap: (){
-              //                     setState(() {
-              //                       selectedindex = index;
-              //                     });
-              //                   },
-              //                   child: Container(
-              //                     height: 98,
-              //                     width: 161,
-              //                     decoration: BoxDecoration(
-              //                         gradient: LinearGradient(
-              //                         begin: Alignment.topCenter,
-              //                         end: Alignment.bottomCenter,
-              //                         colors: [
-              //                           selectedindex==index?ConstColors.secondary:Colors.white,
-              //                           selectedindex==index?ConstColors.primaryColor:Colors.white,
-              //                         ]),
-              //                         borderRadius: BorderRadius.circular(19),
-              //                         boxShadow: [
-              //                           BoxShadow(
-              //                               color: Color(0xffFFFFFF)
-              //                                   .withOpacity(0.72),
-              //                               blurRadius: 10,
-              //                               spreadRadius: 0,
-              //                               offset: Offset(
-              //                                 3,
-              //                                 3,
-              //                               )),
-              //                           BoxShadow(
-              //                               color: Color(0xff032B47)
-              //                                   .withOpacity(0.24),
-              //                               blurRadius: 40,
-              //                               spreadRadius: 0,
-              //                               offset: Offset(0, 20))
-              //                         ],
-              //                         border: Border.all(
-              //                             color: ConstColors.primaryColor)),
-              //                     child: Column(
-              //                       children: [
-              //                         SizedBox(
-              //                           height: 35,
-              //                         ),
-              //                         Text(
-              //                           snapshot.data!.docs[index]['name'],
-              //                           style: TextStyle(
-              //                               fontSize: 17,
-              //                               fontFamily: 'Book',
-              //                               fontWeight: FontWeight.w500,
-              //                               color: selectedindex==index?Colors.white:ConstColors.primaryColor),
-              //                         ),
-              //                         Padding(
-              //                           padding: const EdgeInsets.only(
-              //                               left: 120, top: 20),
-              //                           child: FaIcon(
-              //                             FontAwesomeIcons.arrowRight,
-              //                             color: selectedindex==index?Colors.white:ConstColors.secondary,
-              //                             size: 18,
-              //                           ),
-              //                         )
-              //                       ],
-              //                     ),
-              //                   ),
-              //                 );
-              //               }),
-              //         ),
-              //       );
-              //     })
-            ],
+                FittedBox(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Container(
+                        height: 100,
+                        width: 163,
+                        alignment: Alignment.center,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20),
+                          gradient: LinearGradient(
+                              begin: Alignment.topCenter,
+                              end: Alignment.bottomCenter,
+                              colors: [
+                                ConstColors.secondary,
+                                ConstColors.primaryColor,
+                              ]),
+                          boxShadow: [
+                            BoxShadow(
+                                color: Color(0xffFFFFFF).withOpacity(0.72),
+                                blurRadius: 10,
+                                spreadRadius: 0,
+                                offset: Offset(
+                                  3,
+                                  3,
+                                )),
+                            BoxShadow(
+                                color: Color(0xff032B47).withOpacity(0.24),
+                                blurRadius: 40,
+                                spreadRadius: 0,
+                                offset: Offset(0, 20))
+                          ],
+                        ),
+                        child: GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => VirtueAdd()));
+                          },
+                          child: Container(
+                            height: 98,
+                            width: 161,
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(19),
+                            ),
+                            child: Column(
+                              children: [
+                                SizedBox(
+                                  height: 32,
+                                ),
+                                Text(
+                                  "Healthy Habits",
+                                  style: TextStyle(
+                                      fontSize: 17,
+                                      fontFamily: 'Trial',
+                                      fontWeight: FontWeight.w500,
+                                      color: ConstColors.primaryColor),
+                                ),
+                                Padding(
+                                  padding:
+                                      const EdgeInsets.only(left: 120, top: 20),
+                                  child: FaIcon(
+                                    FontAwesomeIcons.arrowRight,
+                                    color: ConstColors.secondary,
+                                    size: 18,
+                                  ),
+                                )
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                      SizedBox(
+                        width: 12.w,
+                      ),
+                      Container(
+                        height: 100,
+                        width: 163,
+                        alignment: Alignment.center,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20),
+                          gradient: LinearGradient(
+                              begin: Alignment.topCenter,
+                              end: Alignment.bottomCenter,
+                              colors: [
+                                ConstColors.secondary,
+                                ConstColors.primaryColor,
+                              ]),
+                          boxShadow: [
+                            BoxShadow(
+                                color: Color(0xffFFFFFF).withOpacity(0.72),
+                                blurRadius: 10,
+                                spreadRadius: 0,
+                                offset: Offset(
+                                  3,
+                                  3,
+                                )),
+                            BoxShadow(
+                                color: Color(0xff032B47).withOpacity(0.24),
+                                blurRadius: 40,
+                                spreadRadius: 0,
+                                offset: Offset(0, 20))
+                          ],
+                        ),
+                        child: GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => VisesDelete()));
+                          },
+                          child: Container(
+                            height: 98,
+                            width: 161,
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(19),
+                            ),
+                            child: Column(
+                              children: [
+                                SizedBox(
+                                  height: 35,
+                                ),
+                                Text(
+                                  "Affirmation",
+                                  style: TextStyle(
+                                      fontSize: 17,
+                                      fontFamily: 'Book',
+                                      fontWeight: FontWeight.w500,
+                                      color: ConstColors.primaryColor),
+                                ),
+                                Padding(
+                                  padding:
+                                      const EdgeInsets.only(left: 120, top: 20),
+                                  child: FaIcon(
+                                    FontAwesomeIcons.arrowRight,
+                                    color: ConstColors.secondary,
+                                    size: 18,
+                                  ),
+                                )
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                SizedBox(
+                  height: 21,
+                ),
+                // StreamBuilder<QuerySnapshot>(
+                //     stream: FirebaseFirestore.instance
+                //         .collection('home tabs')
+                //         .snapshots(),
+                //     builder: (context, AsyncSnapshot<QuerySnapshot> snapshot) {
+                //       return Padding(
+                //         padding: const EdgeInsets.only(left: 12, right: 12),
+                //         child: Container(
+                //           height: 700,
+                //           child: GridView.builder(
+                //               gridDelegate:
+                //                   SliverGridDelegateWithFixedCrossAxisCount(
+                //                       crossAxisSpacing: 12,
+                //                       childAspectRatio: 1.6,
+                //                       mainAxisSpacing: 15,
+                //                       crossAxisCount: 2),
+                //               itemCount: snapshot.data!.docs.length,
+                //               itemBuilder: (context, index) {
+                //                 return GestureDetector(
+                //                   onTap: (){
+                //                     setState(() {
+                //                       selectedindex = index;
+                //                     });
+                //                   },
+                //                   child: Container(
+                //                     height: 98,
+                //                     width: 161,
+                //                     decoration: BoxDecoration(
+                //                         gradient: LinearGradient(
+                //                         begin: Alignment.topCenter,
+                //                         end: Alignment.bottomCenter,
+                //                         colors: [
+                //                           selectedindex==index?ConstColors.secondary:Colors.white,
+                //                           selectedindex==index?ConstColors.primaryColor:Colors.white,
+                //                         ]),
+                //                         borderRadius: BorderRadius.circular(19),
+                //                         boxShadow: [
+                //                           BoxShadow(
+                //                               color: Color(0xffFFFFFF)
+                //                                   .withOpacity(0.72),
+                //                               blurRadius: 10,
+                //                               spreadRadius: 0,
+                //                               offset: Offset(
+                //                                 3,
+                //                                 3,
+                //                               )),
+                //                           BoxShadow(
+                //                               color: Color(0xff032B47)
+                //                                   .withOpacity(0.24),
+                //                               blurRadius: 40,
+                //                               spreadRadius: 0,
+                //                               offset: Offset(0, 20))
+                //                         ],
+                //                         border: Border.all(
+                //                             color: ConstColors.primaryColor)),
+                //                     child: Column(
+                //                       children: [
+                //                         SizedBox(
+                //                           height: 35,
+                //                         ),
+                //                         Text(
+                //                           snapshot.data!.docs[index]['name'],
+                //                           style: TextStyle(
+                //                               fontSize: 17,
+                //                               fontFamily: 'Book',
+                //                               fontWeight: FontWeight.w500,
+                //                               color: selectedindex==index?Colors.white:ConstColors.primaryColor),
+                //                         ),
+                //                         Padding(
+                //                           padding: const EdgeInsets.only(
+                //                               left: 120, top: 20),
+                //                           child: FaIcon(
+                //                             FontAwesomeIcons.arrowRight,
+                //                             color: selectedindex==index?Colors.white:ConstColors.secondary,
+                //                             size: 18,
+                //                           ),
+                //                         )
+                //                       ],
+                //                     ),
+                //                   ),
+                //                 );
+                //               }),
+                //         ),
+                //       );
+                //     })
+              ],
+            ),
           ),
         ),
       ),

@@ -1129,46 +1129,49 @@ class _TodoListState extends State<TodoList> {
                               ConstColors.secondary,
                               ConstColors.primaryColor,
                             ])),
-                    child: Container(
-                      width: double.infinity,
-                      height: 46,
-                      decoration: const BoxDecoration(
-                        borderRadius: BorderRadius.all(Radius.circular(9)),
-                        color: Colors.white,
-                      ),
-                      alignment: Alignment.center,
-                      child: FittedBox(
-                        child: Row(
-                          children: [
-                            Text(
-                              "Order Lunch Form Restaurant",
-                              softWrap: true,
-                              style: TextStyle(
-                                  fontFamily: 'Trial',
-                                  fontWeight: FontWeight.w600,
-                                  fontSize: 12,
-                                  color: ConstColors.secondary),
-                            ),
-                            SizedBox(
-                              width: 20,
-                            ),
-                            FaIcon(
-                              FontAwesomeIcons.edit,
-                              color: ConstColors.secondary,
-                              size: 15,
-                            ),
-                            SizedBox(
-                              width: 20,
-                            ),
-                            FaIcon(
-                              FontAwesomeIcons.trashCan,
-                              color: Color(0xffFE0000),
-                              size: 15,
-                            ),
-                            SizedBox(
-                              width: 20,
-                            ),
-                          ],
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 1.0),
+                      child: Container(
+                        width: double.infinity,
+                        height: 46,
+                        decoration: const BoxDecoration(
+                          borderRadius: BorderRadius.all(Radius.circular(9)),
+                          color: Colors.white,
+                        ),
+                        alignment: Alignment.center,
+                        child: FittedBox(
+                          child: Row(
+                            children: [
+                              Text(
+                                "Order Lunch Form Restaurant",
+                                softWrap: true,
+                                style: TextStyle(
+                                    fontFamily: 'Trial',
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: 12,
+                                    color: ConstColors.secondary),
+                              ),
+                              SizedBox(
+                                width: 20,
+                              ),
+                              FaIcon(
+                                FontAwesomeIcons.edit,
+                                color: ConstColors.secondary,
+                                size: 15,
+                              ),
+                              SizedBox(
+                                width: 20,
+                              ),
+                              FaIcon(
+                                FontAwesomeIcons.trashCan,
+                                color: Color(0xffFE0000),
+                                size: 15,
+                              ),
+                              SizedBox(
+                                width: 20,
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                     ),

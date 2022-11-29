@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:muhasebe_app/Components/text_theme.dart';
 import 'package:muhasebe_app/Components/users.dart';
@@ -248,92 +249,94 @@ class _GoalsState extends State<Goals> {
           ]),
           child: Padding(
             padding: const EdgeInsets.only(top: 0),
-            child: Row(
-              children: [
-                SizedBox(
-                  width: 20,
-                ),
-                GestureDetector(
-                  onTap: () {
-                    scaffoldKey.currentState?.openDrawer();
-                  },
-                  child: Padding(
-                    padding: const EdgeInsets.only(top: 25),
-                    child: Container(
-                        height: 30,
-                        width: 30,
-                        decoration: BoxDecoration(
-                            shape: BoxShape.circle, color: Colors.white),
-                        child: Center(
-                            child: FaIcon(
-                          FontAwesomeIcons.bars,
-                          size: 18,
-                          color: ConstColors.secondary,
-                        ))),
+            child: FittedBox(
+              child: Row(
+                children: [
+                  SizedBox(
+                    width: 20,
                   ),
-                ),
-                SizedBox(
-                  width: 20,
-                ),
-                SingleChildScrollView(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      SizedBox(
-                        height: 35,
-                      ),
-                      Text(
-                        "Welcome, ",
-                        style: TextStyle(
-                            fontSize: 13,
-                            fontFamily: 'Trial',
-                            fontWeight: FontWeight.w600,
-                            color: Colors.white),
-                      ),
-                      Text(
-                        "User Name",
-                        style: TextStyle(
-                            fontFamily: 'CodeNext-Trial',
-                            fontSize: 18,
-                            fontWeight: FontWeight.w600,
-                            color: Colors.white),
-                      ),
-                    ],
+                  GestureDetector(
+                    onTap: () {
+                      scaffoldKey.currentState?.openDrawer();
+                    },
+                    child: Padding(
+                      padding: const EdgeInsets.only(top: 25),
+                      child: Container(
+                          height: 30,
+                          width: 30,
+                          decoration: BoxDecoration(
+                              shape: BoxShape.circle, color: Colors.white),
+                          child: Center(
+                              child: FaIcon(
+                            FontAwesomeIcons.bars,
+                            size: 18,
+                            color: ConstColors.secondary,
+                          ))),
+                    ),
                   ),
-                ),
-                SizedBox(
-                  width: 50,
-                ),
-                SingleChildScrollView(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      SizedBox(
-                        height: 35,
-                      ),
-                      Text(
-                        "29, Sep, 2022",
-                        style: TextStyle(
-                            fontSize: 13,
-                            fontFamily: 'Trial',
-                            fontWeight: FontWeight.w600,
-                            color: Colors.white),
-                      ),
-                      SizedBox(
-                        height: 5,
-                      ),
-                      Text(
-                        "Hijri : Shaban 23",
-                        style: TextStyle(
-                            fontSize: 14,
-                            fontFamily: 'Trial',
-                            fontWeight: FontWeight.w600,
-                            color: Colors.white),
-                      ),
-                    ],
+                  SizedBox(
+                    width: 20,
                   ),
-                ),
-              ],
+                  SingleChildScrollView(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        SizedBox(
+                          height: 35,
+                        ),
+                        Text(
+                          "Welcome, ",
+                          style: TextStyle(
+                              fontSize: 13,
+                              fontFamily: 'Trial',
+                              fontWeight: FontWeight.w600,
+                              color: Colors.white),
+                        ),
+                        Text(
+                          "User Name",
+                          style: TextStyle(
+                              fontFamily: 'CodeNext-Trial',
+                              fontSize: 18,
+                              fontWeight: FontWeight.w600,
+                              color: Colors.white),
+                        ),
+                      ],
+                    ),
+                  ),
+                  SizedBox(
+                    width: 50,
+                  ),
+                  SingleChildScrollView(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        SizedBox(
+                          height: 35,
+                        ),
+                        Text(
+                          "29, Sep, 2022",
+                          style: TextStyle(
+                              fontSize: 13,
+                              fontFamily: 'Trial',
+                              fontWeight: FontWeight.w600,
+                              color: Colors.white),
+                        ),
+                        SizedBox(
+                          height: 5,
+                        ),
+                        Text(
+                          "Hijri : Shaban 23",
+                          style: TextStyle(
+                              fontSize: 14,
+                              fontFamily: 'Trial',
+                              fontWeight: FontWeight.w600,
+                              color: Colors.white),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
         ),
@@ -737,10 +740,9 @@ class _GoalsState extends State<Goals> {
               StreamBuilder(
                   stream: Users.readGoals(),
                   builder: (context, snapshot) {
-                    if(snapshot.connectionState == ConnectionState.waiting){
+                    if (snapshot.connectionState == ConnectionState.waiting) {
                       return CupertinoActivityIndicator();
-                    }
-                   else if (snapshot.data!.docs.isNotEmpty) {
+                    } else if (snapshot.data!.docs.isNotEmpty) {
                       return Padding(
                         padding: const EdgeInsets.only(bottom: 0),
                         child: Container(
@@ -755,7 +757,9 @@ class _GoalsState extends State<Goals> {
                               String description = noteinfo['description'];
                               return Column(
                                 children: [
-                                  SizedBox(height: 20,),
+                                  SizedBox(
+                                    height: 20,
+                                  ),
                                   Padding(
                                     padding: const EdgeInsets.only(
                                         left: 25, right: 25, top: 0, bottom: 0),
@@ -790,14 +794,14 @@ class _GoalsState extends State<Goals> {
                                                 ConstColors.primaryColor,
                                               ])),
                                       child: Padding(
-                                        padding:
-                                            const EdgeInsets.only(left: 1, right: 1),
+                                        padding: const EdgeInsets.only(
+                                            left: 1, right: 1),
                                         child: Container(
                                           width: double.infinity,
                                           height: 91,
                                           decoration: const BoxDecoration(
-                                            borderRadius:
-                                                BorderRadius.all(Radius.circular(9)),
+                                            borderRadius: BorderRadius.all(
+                                                Radius.circular(9)),
                                             color: Colors.white,
                                           ),
                                           alignment: Alignment.center,
@@ -815,22 +819,33 @@ class _GoalsState extends State<Goals> {
                                                     title,
                                                     style: TextStyle(
                                                         fontFamily: 'Book',
-                                                        fontWeight: FontWeight.w600,
+                                                        fontWeight:
+                                                            FontWeight.w600,
                                                         fontSize: 16,
-                                                        color: ConstColors.secondary),
+                                                        color: ConstColors
+                                                            .secondary),
                                                   ),
                                                   Spacer(),
                                                   GestureDetector(
-                                                    onTap:(){
-                                Navigator.push(context, MaterialPageRoute(builder: (context)=>EditGoals(
-                                  currenttitle:title,
-                                  currentDescription:description,
-                                  currentId:docId,
-                                )));
-                              },
+                                                    onTap: () {
+                                                      Navigator.push(
+                                                          context,
+                                                          MaterialPageRoute(
+                                                              builder:
+                                                                  (context) =>
+                                                                      EditGoals(
+                                                                        currenttitle:
+                                                                            title,
+                                                                        currentDescription:
+                                                                            description,
+                                                                        currentId:
+                                                                            docId,
+                                                                      )));
+                                                    },
                                                     child: FaIcon(
                                                       FontAwesomeIcons.edit,
-                                                      color: ConstColors.secondary,
+                                                      color:
+                                                          ConstColors.secondary,
                                                       size: 15,
                                                     ),
                                                   ),
@@ -838,9 +853,10 @@ class _GoalsState extends State<Goals> {
                                                     width: 20,
                                                   ),
                                                   GestureDetector(
-                                                    onTap:()async{
-                                                      await Users.deleteGoals(docId: docId);
-                              },
+                                                    onTap: () async {
+                                                      await Users.deleteGoals(
+                                                          docId: docId);
+                                                    },
                                                     child: FaIcon(
                                                       FontAwesomeIcons.trashCan,
                                                       color: Color(0xffFE0000),
@@ -864,8 +880,10 @@ class _GoalsState extends State<Goals> {
                                                   style: TextStyle(
                                                       fontFamily: 'Book',
                                                       fontSize: 11,
-                                                      fontWeight: FontWeight.w400,
-                                                      color: ConstColors.primaryColor,
+                                                      fontWeight:
+                                                          FontWeight.w400,
+                                                      color: ConstColors
+                                                          .primaryColor,
                                                       letterSpacing: -0.1),
                                                 ),
                                               )
@@ -884,7 +902,9 @@ class _GoalsState extends State<Goals> {
                     } else {
                       return Column(
                         children: [
-                          SizedBox(height: 20,),
+                          SizedBox(
+                            height: 20,
+                          ),
                           Padding(
                             padding: const EdgeInsets.only(left: 25, right: 25),
                             child: Container(
@@ -969,14 +989,19 @@ class _GoalsState extends State<Goals> {
                                       SizedBox(
                                         height: 5,
                                       ),
-                                      Text(
-                                        "Lorem Ipsum is simply dummy text of the printing and \ntypesetting industry. Lorem Ipsum has been the.",
-                                        style: TextStyle(
-                                            fontFamily: 'Trial',
-                                            fontSize: 11,
-                                            fontWeight: FontWeight.w400,
-                                            color: ConstColors.primaryColor,
-                                            letterSpacing: -0.4),
+                                      Padding(
+                                        padding: const EdgeInsets.all(8.0),
+                                        child: FittedBox(
+                                          child: Text(
+                                            "Lorem Ipsum is simply dummy text of the printing and \ntypesetting industry. Lorem Ipsum has been the.",
+                                            style: TextStyle(
+                                                fontFamily: 'Trial',
+                                                fontSize: 11.sp,
+                                                fontWeight: FontWeight.w400,
+                                                color: ConstColors.primaryColor,
+                                                letterSpacing: -0.4),
+                                          ),
+                                        ),
                                       )
                                     ],
                                   ),
@@ -1071,14 +1096,17 @@ class _GoalsState extends State<Goals> {
                                       SizedBox(
                                         height: 5,
                                       ),
-                                      Text(
-                                        "Lorem Ipsum is simply dummy text of the printing and \ntypesetting industry. Lorem Ipsum has been the.",
-                                        style: TextStyle(
-                                            fontFamily: 'Trial',
-                                            fontSize: 11,
-                                            fontWeight: FontWeight.w400,
-                                            color: ConstColors.primaryColor,
-                                            letterSpacing: -0.4),
+                                      Padding(
+                                        padding: const EdgeInsets.all(8.0),
+                                        child: Text(
+                                          "Lorem Ipsum is simply dummy text of the printing and \ntypesetting industry. Lorem Ipsum has been the.",
+                                          style: TextStyle(
+                                              fontFamily: 'Trial',
+                                              fontSize: 11.sp,
+                                              fontWeight: FontWeight.w400,
+                                              color: ConstColors.primaryColor,
+                                              letterSpacing: -0.4),
+                                        ),
                                       )
                                     ],
                                   ),
@@ -1093,7 +1121,9 @@ class _GoalsState extends State<Goals> {
                       );
                     }
                   }),
-              SizedBox(height: 20,),
+              SizedBox(
+                height: 20,
+              ),
               // SizedBox(
               //   height: 40,
               // ),

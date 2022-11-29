@@ -306,92 +306,94 @@ class _DailyReflectionState extends State<DailyReflection> {
           ]),
           child: Padding(
             padding: const EdgeInsets.only(top: 0),
-            child: Row(
-              children: [
-                SizedBox(
-                  width: 20,
-                ),
-                GestureDetector(
-                  onTap: () {
-                    scaffoldKey.currentState?.openDrawer();
-                  },
-                  child: Padding(
-                    padding: const EdgeInsets.only(top: 25),
-                    child: Container(
-                        height: 30,
-                        width: 30,
-                        decoration: BoxDecoration(
-                            shape: BoxShape.circle, color: Colors.white),
-                        child: Center(
-                            child: FaIcon(
-                          FontAwesomeIcons.bars,
-                          size: 18,
-                          color: ConstColors.secondary,
-                        ))),
+            child: FittedBox(
+              child: Row(
+                children: [
+                  SizedBox(
+                    width: 20,
                   ),
-                ),
-                SizedBox(
-                  width: 20,
-                ),
-                SingleChildScrollView(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      SizedBox(
-                        height: 35,
-                      ),
-                      Text(
-                        "Welcome, ",
-                        style: TextStyle(
-                            fontSize: 13,
-                            fontFamily: 'Trial',
-                            fontWeight: FontWeight.w600,
-                            color: Colors.white),
-                      ),
-                      Text(
-                        "User Name",
-                        style: TextStyle(
-                            fontFamily: 'CodeNext-Trial',
-                            fontSize: 18,
-                            fontWeight: FontWeight.w600,
-                            color: Colors.white),
-                      ),
-                    ],
+                  GestureDetector(
+                    onTap: () {
+                      scaffoldKey.currentState?.openDrawer();
+                    },
+                    child: Padding(
+                      padding: const EdgeInsets.only(top: 25),
+                      child: Container(
+                          height: 30,
+                          width: 30,
+                          decoration: BoxDecoration(
+                              shape: BoxShape.circle, color: Colors.white),
+                          child: Center(
+                              child: FaIcon(
+                            FontAwesomeIcons.bars,
+                            size: 18,
+                            color: ConstColors.secondary,
+                          ))),
+                    ),
                   ),
-                ),
-                SizedBox(
-                  width: 50,
-                ),
-                SingleChildScrollView(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      SizedBox(
-                        height: 35,
-                      ),
-                      Text(
-                        "29, Sep, 2022",
-                        style: TextStyle(
-                            fontSize: 13,
-                            fontFamily: 'Trial',
-                            fontWeight: FontWeight.w600,
-                            color: Colors.white),
-                      ),
-                      SizedBox(
-                        height: 5,
-                      ),
-                      Text(
-                        "Hijri : Shaban 23",
-                        style: TextStyle(
-                            fontSize: 14,
-                            fontFamily: 'Trial',
-                            fontWeight: FontWeight.w600,
-                            color: Colors.white),
-                      ),
-                    ],
+                  SizedBox(
+                    width: 20,
                   ),
-                ),
-              ],
+                  SingleChildScrollView(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        SizedBox(
+                          height: 35,
+                        ),
+                        Text(
+                          "Welcome, ",
+                          style: TextStyle(
+                              fontSize: 13,
+                              fontFamily: 'Trial',
+                              fontWeight: FontWeight.w600,
+                              color: Colors.white),
+                        ),
+                        Text(
+                          "User Name",
+                          style: TextStyle(
+                              fontFamily: 'CodeNext-Trial',
+                              fontSize: 18,
+                              fontWeight: FontWeight.w600,
+                              color: Colors.white),
+                        ),
+                      ],
+                    ),
+                  ),
+                  SizedBox(
+                    width: 50,
+                  ),
+                  SingleChildScrollView(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        SizedBox(
+                          height: 35,
+                        ),
+                        Text(
+                          "29, Sep, 2022",
+                          style: TextStyle(
+                              fontSize: 13,
+                              fontFamily: 'Trial',
+                              fontWeight: FontWeight.w600,
+                              color: Colors.white),
+                        ),
+                        SizedBox(
+                          height: 5,
+                        ),
+                        Text(
+                          "Hijri : Shaban 23",
+                          style: TextStyle(
+                              fontSize: 14,
+                              fontFamily: 'Trial',
+                              fontWeight: FontWeight.w600,
+                              color: Colors.white),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
         ),
@@ -620,7 +622,8 @@ class _DailyReflectionState extends State<DailyReflection> {
                       alignment: Alignment.center,
                       child: FittedBox(
                         child: Padding(
-                          padding: const EdgeInsets.only(right: 15,top: 8,bottom: 8),
+                          padding: const EdgeInsets.only(
+                              right: 15, top: 8, bottom: 8),
                           child: Column(
                             children: [
                               SizedBox(
@@ -825,7 +828,8 @@ class _DailyReflectionState extends State<DailyReflection> {
                       alignment: Alignment.center,
                       child: FittedBox(
                         child: Padding(
-                          padding: const EdgeInsets.only(right: 15,top: 8,bottom: 8),
+                          padding: const EdgeInsets.only(
+                              right: 15, top: 8, bottom: 8),
                           child: Column(
                             children: [
                               SizedBox(

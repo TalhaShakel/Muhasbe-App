@@ -3,6 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -418,150 +419,75 @@ class _Home2State extends State<Home2> {
                   color: ConstColors.background,
                   child: SingleChildScrollView(
                     child: FittedBox(
-                      child: Column(
-                        children: [
-                          SizedBox(
-                            height: 22,
-                          ),
-                          Padding(
-                            padding:
-                                const EdgeInsets.symmetric(horizontal: 8.0),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                              children: [
-                                GestureDetector(
-                                  onTap: () {
-                                    Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                            builder: (context) => Routine()));
-                                  },
-                                  child: Container(
-                                    height: 100,
-                                    width: 163,
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(20),
-                                      gradient: LinearGradient(
-                                          begin: Alignment.topCenter,
-                                          end: Alignment.bottomCenter,
-                                          colors: [
-                                            ConstColors.secondary,
-                                            ConstColors.primaryColor,
-                                          ]),
-                                      boxShadow: [
-                                        BoxShadow(
-                                            color: Color(0xffFFFFFF)
-                                                .withOpacity(0.72),
-                                            blurRadius: 10,
-                                            spreadRadius: 0,
-                                            offset: Offset(
-                                              3,
-                                              3,
-                                            )),
-                                        BoxShadow(
-                                            color: Color(0xff032B47)
-                                                .withOpacity(0.24),
-                                            blurRadius: 40,
-                                            spreadRadius: 0,
-                                            offset: Offset(0, 20))
-                                      ],
-                                    ),
-                                    child: Column(
-                                      children: [
-                                        SizedBox(
-                                          height: 32,
-                                        ),
-                                        Text(
-                                          "Morning Focus",
-                                          style: TextStyle(
-                                              fontSize: 17,
-                                              fontFamily: 'Trial',
-                                              fontWeight: FontWeight.w500,
-                                              color: Colors.white),
-                                        ),
-                                        Padding(
-                                          padding: const EdgeInsets.only(
-                                              left: 120, top: 20),
-                                          child: FaIcon(
-                                            FontAwesomeIcons.arrowRight,
-                                            color: Colors.white,
-                                            size: 18,
-                                          ),
-                                        )
-                                      ],
-                                    ),
-                                  ),
-                                ),
-                                // Vx
-                                SizedBox(
-                                  width: 10,
-                                ),
-                                Container(
-                                  height: 100,
-                                  width: 163,
-                                  alignment: Alignment.center,
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(20),
-                                    gradient: LinearGradient(
-                                        begin: Alignment.topCenter,
-                                        end: Alignment.bottomCenter,
-                                        colors: [
-                                          ConstColors.secondary,
-                                          ConstColors.primaryColor,
-                                        ]),
-                                    boxShadow: [
-                                      BoxShadow(
-                                          color: Color(0xffFFFFFF)
-                                              .withOpacity(0.72),
-                                          blurRadius: 10,
-                                          spreadRadius: 0,
-                                          offset: Offset(
-                                            3,
-                                            3,
-                                          )),
-                                      BoxShadow(
-                                          color: Color(0xff032B47)
-                                              .withOpacity(0.24),
-                                          blurRadius: 40,
-                                          spreadRadius: 0,
-                                          offset: Offset(0, 20))
-                                    ],
-                                  ),
-                                  child: GestureDetector(
+                      child: Padding(
+                        padding: EdgeInsets.symmetric(horizontal: 18.0.w),
+                        child: Column(
+                          children: [
+                            SizedBox(
+                              height: 22,
+                            ),
+                            Padding(
+                              padding: EdgeInsets.symmetric(horizontal: 8.0.w),
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceEvenly,
+                                children: [
+                                  GestureDetector(
                                     onTap: () {
                                       Navigator.push(
                                           context,
                                           MaterialPageRoute(
-                                              builder: (context) =>
-                                                  DailyReflection()));
+                                              builder: (context) => Routine()));
                                     },
                                     child: Container(
-                                      height: 98,
-                                      width: 161,
+                                      height: 100,
+                                      width: 163,
                                       decoration: BoxDecoration(
-                                        color: Colors.white,
-                                        borderRadius: BorderRadius.circular(19),
+                                        borderRadius: BorderRadius.circular(20),
+                                        gradient: LinearGradient(
+                                            begin: Alignment.topCenter,
+                                            end: Alignment.bottomCenter,
+                                            colors: [
+                                              ConstColors.secondary,
+                                              ConstColors.primaryColor,
+                                            ]),
+                                        boxShadow: [
+                                          BoxShadow(
+                                              color: Color(0xffFFFFFF)
+                                                  .withOpacity(0.72),
+                                              blurRadius: 10,
+                                              spreadRadius: 0,
+                                              offset: Offset(
+                                                3,
+                                                3,
+                                              )),
+                                          BoxShadow(
+                                              color: Color(0xff032B47)
+                                                  .withOpacity(0.24),
+                                              blurRadius: 40,
+                                              spreadRadius: 0,
+                                              offset: Offset(0, 20))
+                                        ],
                                       ),
                                       child: Column(
                                         children: [
                                           SizedBox(
-                                            height: 20,
+                                            height: 32,
                                           ),
                                           Text(
-                                            "       Daily \nRefelections",
+                                            "Morning Focus",
                                             style: TextStyle(
                                                 fontSize: 17,
                                                 fontFamily: 'Trial',
                                                 fontWeight: FontWeight.w500,
-                                                color:
-                                                    ConstColors.primaryColor),
+                                                color: Colors.white),
                                           ),
                                           Padding(
                                             padding: const EdgeInsets.only(
-                                                left: 120, top: 7),
+                                                left: 120, top: 20),
                                             child: FaIcon(
                                               FontAwesomeIcons.arrowRight,
-                                              color: ConstColors.secondary,
+                                              color: Colors.white,
                                               size: 18,
                                             ),
                                           )
@@ -569,104 +495,11 @@ class _Home2State extends State<Home2> {
                                       ),
                                     ),
                                   ),
-                                ),
-                              ],
-                            ),
-                          ),
-                          SizedBox(
-                            height: 21,
-                          ),
-                          Padding(
-                            padding:
-                                const EdgeInsets.symmetric(horizontal: 8.0),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                              children: [
-                                GestureDetector(
-                                  onTap: () {
-                                    Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                            builder: (context) => TodoList()));
-                                  },
-                                  child: Container(
-                                    height: 100,
-                                    width: 163,
-                                    alignment: Alignment.center,
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(20),
-                                      gradient: LinearGradient(
-                                          begin: Alignment.topCenter,
-                                          end: Alignment.bottomCenter,
-                                          colors: [
-                                            ConstColors.secondary,
-                                            ConstColors.primaryColor,
-                                          ]),
-                                      boxShadow: [
-                                        BoxShadow(
-                                            color: Color(0xffFFFFFF)
-                                                .withOpacity(0.72),
-                                            blurRadius: 10,
-                                            spreadRadius: 0,
-                                            offset: Offset(
-                                              3,
-                                              3,
-                                            )),
-                                        BoxShadow(
-                                            color: Color(0xff032B47)
-                                                .withOpacity(0.24),
-                                            blurRadius: 40,
-                                            spreadRadius: 0,
-                                            offset: Offset(0, 20))
-                                      ],
-                                    ),
-                                    child: Container(
-                                      height: 98,
-                                      width: 161,
-                                      decoration: BoxDecoration(
-                                        color: Colors.white,
-                                        borderRadius: BorderRadius.circular(19),
-                                      ),
-                                      child: Column(
-                                        children: [
-                                          SizedBox(
-                                            height: 33,
-                                          ),
-                                          Text(
-                                            "ToDo List",
-                                            style: TextStyle(
-                                                fontSize: 17,
-                                                fontFamily: 'Trial',
-                                                fontWeight: FontWeight.w500,
-                                                color:
-                                                    ConstColors.primaryColor),
-                                          ),
-                                          Padding(
-                                            padding: const EdgeInsets.only(
-                                                left: 120, top: 15),
-                                            child: FaIcon(
-                                              FontAwesomeIcons.arrowRight,
-                                              color: ConstColors.secondary,
-                                              size: 18,
-                                            ),
-                                          )
-                                        ],
-                                      ),
-                                    ),
+                                  // Vx
+                                  SizedBox(
+                                    width: 12.w,
                                   ),
-                                ),
-                                SizedBox(
-                                  width: 10,
-                                ),
-                                GestureDetector(
-                                  onTap: () {
-                                    Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                            builder: (context) =>
-                                                ActivityDashboard()));
-                                  },
-                                  child: Container(
+                                  Container(
                                     height: 100,
                                     width: 163,
                                     alignment: Alignment.center,
@@ -698,9 +531,13 @@ class _Home2State extends State<Home2> {
                                       ],
                                     ),
                                     child: GestureDetector(
-                                      // onTap: (){
-                                      //   Navigator.push(context, MaterialPageRoute(builder: (context)=>Activity()));
-                                      // },
+                                      onTap: () {
+                                        Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                                builder: (context) =>
+                                                    DailyReflection()));
+                                      },
                                       child: Container(
                                         height: 98,
                                         width: 161,
@@ -712,10 +549,98 @@ class _Home2State extends State<Home2> {
                                         child: Column(
                                           children: [
                                             SizedBox(
-                                              height: 32,
+                                              height: 20,
                                             ),
                                             Text(
-                                              "Activities",
+                                              "       Daily \nRefelections",
+                                              style: TextStyle(
+                                                  fontSize: 17,
+                                                  fontFamily: 'Trial',
+                                                  fontWeight: FontWeight.w500,
+                                                  color:
+                                                      ConstColors.primaryColor),
+                                            ),
+                                            Padding(
+                                              padding: const EdgeInsets.only(
+                                                  left: 120, top: 7),
+                                              child: FaIcon(
+                                                FontAwesomeIcons.arrowRight,
+                                                color: ConstColors.secondary,
+                                                size: 18,
+                                              ),
+                                            )
+                                          ],
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            SizedBox(
+                              height: 21,
+                            ),
+                            Padding(
+                              padding:
+                                  const EdgeInsets.symmetric(horizontal: 8.0),
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceEvenly,
+                                children: [
+                                  GestureDetector(
+                                    onTap: () {
+                                      Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (context) =>
+                                                  TodoList()));
+                                    },
+                                    child: Container(
+                                      height: 100,
+                                      width: 163,
+                                      alignment: Alignment.center,
+                                      decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(20),
+                                        gradient: LinearGradient(
+                                            begin: Alignment.topCenter,
+                                            end: Alignment.bottomCenter,
+                                            colors: [
+                                              ConstColors.secondary,
+                                              ConstColors.primaryColor,
+                                            ]),
+                                        boxShadow: [
+                                          BoxShadow(
+                                              color: Color(0xffFFFFFF)
+                                                  .withOpacity(0.72),
+                                              blurRadius: 10,
+                                              spreadRadius: 0,
+                                              offset: Offset(
+                                                3,
+                                                3,
+                                              )),
+                                          BoxShadow(
+                                              color: Color(0xff032B47)
+                                                  .withOpacity(0.24),
+                                              blurRadius: 40,
+                                              spreadRadius: 0,
+                                              offset: Offset(0, 20))
+                                        ],
+                                      ),
+                                      child: Container(
+                                        height: 98,
+                                        width: 161,
+                                        decoration: BoxDecoration(
+                                          color: Colors.white,
+                                          borderRadius:
+                                              BorderRadius.circular(19),
+                                        ),
+                                        child: Column(
+                                          children: [
+                                            SizedBox(
+                                              height: 33,
+                                            ),
+                                            Text(
+                                              "ToDo List",
                                               style: TextStyle(
                                                   fontSize: 17,
                                                   fontFamily: 'Trial',
@@ -737,27 +662,180 @@ class _Home2State extends State<Home2> {
                                       ),
                                     ),
                                   ),
-                                ),
-                              ],
+                                  SizedBox(
+                                    width: 12.w,
+                                  ),
+                                  GestureDetector(
+                                    onTap: () {
+                                      Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (context) =>
+                                                  ActivityDashboard()));
+                                    },
+                                    child: Container(
+                                      height: 100,
+                                      width: 163,
+                                      alignment: Alignment.center,
+                                      decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(20),
+                                        gradient: LinearGradient(
+                                            begin: Alignment.topCenter,
+                                            end: Alignment.bottomCenter,
+                                            colors: [
+                                              ConstColors.secondary,
+                                              ConstColors.primaryColor,
+                                            ]),
+                                        boxShadow: [
+                                          BoxShadow(
+                                              color: Color(0xffFFFFFF)
+                                                  .withOpacity(0.72),
+                                              blurRadius: 10,
+                                              spreadRadius: 0,
+                                              offset: Offset(
+                                                3,
+                                                3,
+                                              )),
+                                          BoxShadow(
+                                              color: Color(0xff032B47)
+                                                  .withOpacity(0.24),
+                                              blurRadius: 40,
+                                              spreadRadius: 0,
+                                              offset: Offset(0, 20))
+                                        ],
+                                      ),
+                                      child: GestureDetector(
+                                        // onTap: (){
+                                        //   Navigator.push(context, MaterialPageRoute(builder: (context)=>Activity()));
+                                        // },
+                                        child: Container(
+                                          height: 98,
+                                          width: 161,
+                                          decoration: BoxDecoration(
+                                            color: Colors.white,
+                                            borderRadius:
+                                                BorderRadius.circular(19),
+                                          ),
+                                          child: Column(
+                                            children: [
+                                              SizedBox(
+                                                height: 32,
+                                              ),
+                                              Text(
+                                                "Activities",
+                                                style: TextStyle(
+                                                    fontSize: 17,
+                                                    fontFamily: 'Trial',
+                                                    fontWeight: FontWeight.w500,
+                                                    color: ConstColors
+                                                        .primaryColor),
+                                              ),
+                                              Padding(
+                                                padding: const EdgeInsets.only(
+                                                    left: 120, top: 15),
+                                                child: FaIcon(
+                                                  FontAwesomeIcons.arrowRight,
+                                                  color: ConstColors.secondary,
+                                                  size: 18,
+                                                ),
+                                              )
+                                            ],
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
                             ),
-                          ),
-                          SizedBox(
-                            height: 21,
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                              children: [
-                                GestureDetector(
-                                  onTap: () {
-                                    Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                            builder: (context) =>
-                                                Prayer_Tracker()));
-                                  },
-                                  child: Container(
+                            SizedBox(
+                              height: 21,
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceEvenly,
+                                children: [
+                                  GestureDetector(
+                                    onTap: () {
+                                      Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (context) =>
+                                                  Prayer_Tracker()));
+                                    },
+                                    child: Container(
+                                      height: 100,
+                                      width: 163,
+                                      alignment: Alignment.center,
+                                      decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(20),
+                                        gradient: LinearGradient(
+                                            begin: Alignment.topCenter,
+                                            end: Alignment.bottomCenter,
+                                            colors: [
+                                              ConstColors.secondary,
+                                              ConstColors.primaryColor,
+                                            ]),
+                                        boxShadow: [
+                                          BoxShadow(
+                                              color: Color(0xffFFFFFF)
+                                                  .withOpacity(0.72),
+                                              blurRadius: 10,
+                                              spreadRadius: 0,
+                                              offset: Offset(
+                                                3,
+                                                3,
+                                              )),
+                                          BoxShadow(
+                                              color: Color(0xff032B47)
+                                                  .withOpacity(0.24),
+                                              blurRadius: 40,
+                                              spreadRadius: 0,
+                                              offset: Offset(0, 20))
+                                        ],
+                                      ),
+                                      child: Container(
+                                        height: 98,
+                                        width: 161,
+                                        decoration: BoxDecoration(
+                                          color: Colors.white,
+                                          borderRadius:
+                                              BorderRadius.circular(19),
+                                        ),
+                                        child: Column(
+                                          children: [
+                                            SizedBox(
+                                              height: 33,
+                                            ),
+                                            Text(
+                                              "Prayer Tracker",
+                                              style: TextStyle(
+                                                  fontSize: 17,
+                                                  fontFamily: 'Trial',
+                                                  fontWeight: FontWeight.w500,
+                                                  color:
+                                                      ConstColors.primaryColor),
+                                            ),
+                                            Padding(
+                                              padding: const EdgeInsets.only(
+                                                  left: 120, top: 15),
+                                              child: FaIcon(
+                                                FontAwesomeIcons.arrowRight,
+                                                color: ConstColors.secondary,
+                                                size: 18,
+                                              ),
+                                            )
+                                          ],
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    width: 12.w,
+                                  ),
+                                  Container(
                                     height: 100,
                                     width: 163,
                                     alignment: Alignment.center,
@@ -788,448 +866,389 @@ class _Home2State extends State<Home2> {
                                             offset: Offset(0, 20))
                                       ],
                                     ),
-                                    child: Container(
-                                      height: 98,
-                                      width: 161,
-                                      decoration: BoxDecoration(
-                                        color: Colors.white,
-                                        borderRadius: BorderRadius.circular(19),
-                                      ),
-                                      child: Column(
-                                        children: [
-                                          SizedBox(
-                                            height: 33,
-                                          ),
-                                          Text(
-                                            "Prayer Tracker",
-                                            style: TextStyle(
-                                                fontSize: 17,
-                                                fontFamily: 'Trial',
-                                                fontWeight: FontWeight.w500,
-                                                color:
-                                                    ConstColors.primaryColor),
-                                          ),
-                                          Padding(
-                                            padding: const EdgeInsets.only(
-                                                left: 120, top: 15),
-                                            child: FaIcon(
-                                              FontAwesomeIcons.arrowRight,
-                                              color: ConstColors.secondary,
-                                              size: 18,
+                                    child: GestureDetector(
+                                      onTap: () {
+                                        Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                                builder: (context) =>
+                                                    TravelTracker()));
+                                      },
+                                      child: Container(
+                                        height: 98,
+                                        width: 161,
+                                        decoration: BoxDecoration(
+                                          color: Colors.white,
+                                          borderRadius:
+                                              BorderRadius.circular(19),
+                                        ),
+                                        child: Column(
+                                          children: [
+                                            SizedBox(
+                                              height: 32,
                                             ),
-                                          )
-                                        ],
+                                            Text(
+                                              "Travel Tracker",
+                                              style: TextStyle(
+                                                  fontSize: 17,
+                                                  fontFamily: 'Trial',
+                                                  fontWeight: FontWeight.w500,
+                                                  color:
+                                                      ConstColors.primaryColor),
+                                            ),
+                                            Padding(
+                                              padding: const EdgeInsets.only(
+                                                  left: 120, top: 15),
+                                              child: FaIcon(
+                                                FontAwesomeIcons.arrowRight,
+                                                color: ConstColors.secondary,
+                                                size: 18,
+                                              ),
+                                            )
+                                          ],
+                                        ),
                                       ),
                                     ),
                                   ),
-                                ),
-                                SizedBox(
-                                  width: 10,
-                                ),
-                                Container(
-                                  height: 100,
-                                  width: 163,
-                                  alignment: Alignment.center,
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(20),
-                                    gradient: LinearGradient(
-                                        begin: Alignment.topCenter,
-                                        end: Alignment.bottomCenter,
-                                        colors: [
-                                          ConstColors.secondary,
-                                          ConstColors.primaryColor,
-                                        ]),
-                                    boxShadow: [
-                                      BoxShadow(
-                                          color: Color(0xffFFFFFF)
-                                              .withOpacity(0.72),
-                                          blurRadius: 10,
-                                          spreadRadius: 0,
-                                          offset: Offset(
-                                            3,
-                                            3,
-                                          )),
-                                      BoxShadow(
-                                          color: Color(0xff032B47)
-                                              .withOpacity(0.24),
-                                          blurRadius: 40,
-                                          spreadRadius: 0,
-                                          offset: Offset(0, 20))
-                                    ],
-                                  ),
-                                  child: GestureDetector(
-                                    onTap: () {
-                                      Navigator.push(
-                                          context,
-                                          MaterialPageRoute(
-                                              builder: (context) =>
-                                                  TravelTracker()));
-                                    },
-                                    child: Container(
-                                      height: 98,
-                                      width: 161,
-                                      decoration: BoxDecoration(
-                                        color: Colors.white,
-                                        borderRadius: BorderRadius.circular(19),
-                                      ),
-                                      child: Column(
-                                        children: [
-                                          SizedBox(
-                                            height: 32,
-                                          ),
-                                          Text(
-                                            "Travel Tracker",
-                                            style: TextStyle(
-                                                fontSize: 17,
-                                                fontFamily: 'Trial',
-                                                fontWeight: FontWeight.w500,
-                                                color:
-                                                    ConstColors.primaryColor),
-                                          ),
-                                          Padding(
-                                            padding: const EdgeInsets.only(
-                                                left: 120, top: 15),
-                                            child: FaIcon(
-                                              FontAwesomeIcons.arrowRight,
-                                              color: ConstColors.secondary,
-                                              size: 18,
-                                            ),
-                                          )
-                                        ],
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              ],
+                                ],
+                              ),
                             ),
-                          ),
-                          SizedBox(
-                            height: 21,
-                          ),
-                          Padding(
-                            padding:
-                                const EdgeInsets.symmetric(horizontal: 8.0),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                              children: [
-                                Container(
-                                  height: 100,
-                                  width: 163,
-                                  alignment: Alignment.center,
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(20),
-                                    gradient: LinearGradient(
-                                        begin: Alignment.topCenter,
-                                        end: Alignment.bottomCenter,
-                                        colors: [
-                                          ConstColors.secondary,
-                                          ConstColors.primaryColor,
-                                        ]),
-                                    boxShadow: [
-                                      BoxShadow(
-                                          color: Color(0xffFFFFFF)
-                                              .withOpacity(0.72),
-                                          blurRadius: 10,
-                                          spreadRadius: 0,
-                                          offset: Offset(
-                                            3,
-                                            3,
-                                          )),
-                                      BoxShadow(
-                                          color: Color(0xff032B47)
-                                              .withOpacity(0.24),
-                                          blurRadius: 40,
-                                          spreadRadius: 0,
-                                          offset: Offset(0, 20))
-                                    ],
-                                  ),
-                                  child: GestureDetector(
-                                    onTap: () {
-                                      Navigator.push(
-                                          context,
-                                          MaterialPageRoute(
-                                              builder: (context) => Fasting()));
-                                    },
-                                    child: Container(
-                                      height: 98,
-                                      width: 161,
-                                      decoration: BoxDecoration(
-                                        color: Colors.white,
-                                        borderRadius: BorderRadius.circular(19),
-                                      ),
-                                      child: Column(
-                                        children: [
-                                          SizedBox(
-                                            height: 33,
-                                          ),
-                                          Text(
-                                            "Fasting Tracker",
-                                            style: TextStyle(
-                                                fontSize: 17,
-                                                fontFamily: 'Trial',
-                                                fontWeight: FontWeight.w500,
-                                                color:
-                                                    ConstColors.primaryColor),
-                                          ),
-                                          Padding(
-                                            padding: const EdgeInsets.only(
-                                                left: 120, top: 15),
-                                            child: FaIcon(
-                                              FontAwesomeIcons.arrowRight,
-                                              color: ConstColors.secondary,
-                                              size: 18,
-                                            ),
-                                          )
-                                        ],
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                                SizedBox(
-                                  width: 10,
-                                ),
-                                Container(
-                                  height: 100,
-                                  width: 163,
-                                  alignment: Alignment.center,
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(20),
-                                    gradient: LinearGradient(
-                                        begin: Alignment.topCenter,
-                                        end: Alignment.bottomCenter,
-                                        colors: [
-                                          ConstColors.secondary,
-                                          ConstColors.primaryColor,
-                                        ]),
-                                    boxShadow: [
-                                      BoxShadow(
-                                          color: Color(0xffFFFFFF)
-                                              .withOpacity(0.72),
-                                          blurRadius: 10,
-                                          spreadRadius: 0,
-                                          offset: Offset(
-                                            3,
-                                            3,
-                                          )),
-                                      BoxShadow(
-                                          color: Color(0xff032B47)
-                                              .withOpacity(0.24),
-                                          blurRadius: 40,
-                                          spreadRadius: 0,
-                                          offset: Offset(0, 20))
-                                    ],
-                                  ),
-                                  child: GestureDetector(
-                                    onTap: () {
-                                      Navigator.push(
-                                          context,
-                                          MaterialPageRoute(
-                                              builder: (context) =>
-                                                  QuranMoon()));
-                                    },
-                                    child: Container(
-                                      height: 98,
-                                      width: 161,
-                                      decoration: BoxDecoration(
-                                        color: Colors.white,
-                                        borderRadius: BorderRadius.circular(19),
-                                      ),
-                                      child: Column(
-                                        children: [
-                                          SizedBox(
-                                            height: 35,
-                                          ),
-                                          Text(
-                                            "Quran & Moon",
-                                            style: TextStyle(
-                                                fontSize: 17,
-                                                fontFamily: 'Book',
-                                                fontWeight: FontWeight.w500,
-                                                color:
-                                                    ConstColors.primaryColor),
-                                          ),
-                                          Padding(
-                                            padding: const EdgeInsets.only(
-                                                left: 120, top: 15),
-                                            child: FaIcon(
-                                              FontAwesomeIcons.arrowRight,
-                                              color: ConstColors.secondary,
-                                              size: 18,
-                                            ),
-                                          )
-                                        ],
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              ],
+                            SizedBox(
+                              height: 21,
                             ),
-                          ),
-                          SizedBox(
-                            height: 21,
-                          ),
-                          Padding(
-                            padding:
-                                const EdgeInsets.symmetric(horizontal: 8.0),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                              children: [
-                                Container(
-                                  height: 100,
-                                  width: 163,
-                                  alignment: Alignment.center,
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(20),
-                                    gradient: LinearGradient(
-                                        begin: Alignment.topCenter,
-                                        end: Alignment.bottomCenter,
-                                        colors: [
-                                          ConstColors.secondary,
-                                          ConstColors.primaryColor,
-                                        ]),
-                                    boxShadow: [
-                                      BoxShadow(
-                                          color: Color(0xffFFFFFF)
-                                              .withOpacity(0.72),
-                                          blurRadius: 10,
-                                          spreadRadius: 0,
-                                          offset: Offset(
-                                            3,
-                                            3,
-                                          )),
-                                      BoxShadow(
-                                          color: Color(0xff032B47)
-                                              .withOpacity(0.24),
-                                          blurRadius: 40,
-                                          spreadRadius: 0,
-                                          offset: Offset(0, 20))
-                                    ],
-                                  ),
-                                  child: GestureDetector(
-                                    onTap: () {
-                                      Navigator.push(
-                                          context,
-                                          MaterialPageRoute(
-                                              builder: (context) => Notes()));
-                                    },
-                                    child: Container(
-                                      height: 98,
-                                      width: 161,
-                                      decoration: BoxDecoration(
-                                        color: Colors.white,
-                                        borderRadius: BorderRadius.circular(19),
-                                      ),
-                                      child: Column(
-                                        children: [
-                                          SizedBox(
-                                            height: 33,
-                                          ),
-                                          Text(
-                                            "Notes",
-                                            style: TextStyle(
-                                                fontSize: 17,
-                                                fontFamily: 'Trial',
-                                                fontWeight: FontWeight.w500,
-                                                color:
-                                                    ConstColors.primaryColor),
-                                          ),
-                                          Padding(
-                                            padding: const EdgeInsets.only(
-                                                left: 120, top: 15),
-                                            child: FaIcon(
-                                              FontAwesomeIcons.arrowRight,
-                                              color: ConstColors.secondary,
-                                              size: 18,
+                            Padding(
+                              padding:
+                                  const EdgeInsets.symmetric(horizontal: 8.0),
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceEvenly,
+                                children: [
+                                  Container(
+                                    height: 100,
+                                    width: 163,
+                                    alignment: Alignment.center,
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(20),
+                                      gradient: LinearGradient(
+                                          begin: Alignment.topCenter,
+                                          end: Alignment.bottomCenter,
+                                          colors: [
+                                            ConstColors.secondary,
+                                            ConstColors.primaryColor,
+                                          ]),
+                                      boxShadow: [
+                                        BoxShadow(
+                                            color: Color(0xffFFFFFF)
+                                                .withOpacity(0.72),
+                                            blurRadius: 10,
+                                            spreadRadius: 0,
+                                            offset: Offset(
+                                              3,
+                                              3,
+                                            )),
+                                        BoxShadow(
+                                            color: Color(0xff032B47)
+                                                .withOpacity(0.24),
+                                            blurRadius: 40,
+                                            spreadRadius: 0,
+                                            offset: Offset(0, 20))
+                                      ],
+                                    ),
+                                    child: GestureDetector(
+                                      onTap: () {
+                                        Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                                builder: (context) =>
+                                                    Fasting()));
+                                      },
+                                      child: Container(
+                                        height: 98,
+                                        width: 161,
+                                        decoration: BoxDecoration(
+                                          color: Colors.white,
+                                          borderRadius:
+                                              BorderRadius.circular(19),
+                                        ),
+                                        child: Column(
+                                          children: [
+                                            SizedBox(
+                                              height: 33,
                                             ),
-                                          )
-                                        ],
+                                            Text(
+                                              "Fasting Tracker",
+                                              style: TextStyle(
+                                                  fontSize: 17,
+                                                  fontFamily: 'Trial',
+                                                  fontWeight: FontWeight.w500,
+                                                  color:
+                                                      ConstColors.primaryColor),
+                                            ),
+                                            Padding(
+                                              padding: const EdgeInsets.only(
+                                                  left: 120, top: 15),
+                                              child: FaIcon(
+                                                FontAwesomeIcons.arrowRight,
+                                                color: ConstColors.secondary,
+                                                size: 18,
+                                              ),
+                                            )
+                                          ],
+                                        ),
                                       ),
                                     ),
                                   ),
-                                ),
-                                SizedBox(
-                                  width: 10,
-                                ),
-                                Container(
-                                  height: 100,
-                                  width: 163,
-                                  alignment: Alignment.center,
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(20),
-                                    gradient: LinearGradient(
-                                        begin: Alignment.topCenter,
-                                        end: Alignment.bottomCenter,
-                                        colors: [
-                                          ConstColors.secondary,
-                                          ConstColors.primaryColor,
-                                        ]),
-                                    boxShadow: [
-                                      BoxShadow(
-                                          color: Color(0xffFFFFFF)
-                                              .withOpacity(0.72),
-                                          blurRadius: 10,
-                                          spreadRadius: 0,
-                                          offset: Offset(
-                                            3,
-                                            3,
-                                          )),
-                                      BoxShadow(
-                                          color: Color(0xff032B47)
-                                              .withOpacity(0.24),
-                                          blurRadius: 40,
-                                          spreadRadius: 0,
-                                          offset: Offset(0, 20))
-                                    ],
+                                  SizedBox(
+                                    width: 12.w,
                                   ),
-                                  child: GestureDetector(
-                                    onTap: () {
-                                      Navigator.push(
-                                          context,
-                                          MaterialPageRoute(
-                                              builder: (context) => Reports()));
-                                    },
-                                    child: Container(
-                                      height: 98,
-                                      width: 161,
-                                      decoration: BoxDecoration(
-                                        color: Colors.white,
-                                        borderRadius: BorderRadius.circular(19),
-                                      ),
-                                      child: Column(
-                                        children: [
-                                          SizedBox(
-                                            height: 32,
-                                          ),
-                                          Text(
-                                            "Reports",
-                                            style: TextStyle(
-                                                fontSize: 17,
-                                                fontFamily: 'Trial',
-                                                fontWeight: FontWeight.w500,
-                                                color:
-                                                    ConstColors.primaryColor),
-                                          ),
-                                          Padding(
-                                            padding: const EdgeInsets.only(
-                                                left: 120, top: 15),
-                                            child: FaIcon(
-                                              FontAwesomeIcons.arrowRight,
-                                              color: ConstColors.secondary,
-                                              size: 18,
+                                  Container(
+                                    height: 100,
+                                    width: 163,
+                                    alignment: Alignment.center,
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(20),
+                                      gradient: LinearGradient(
+                                          begin: Alignment.topCenter,
+                                          end: Alignment.bottomCenter,
+                                          colors: [
+                                            ConstColors.secondary,
+                                            ConstColors.primaryColor,
+                                          ]),
+                                      boxShadow: [
+                                        BoxShadow(
+                                            color: Color(0xffFFFFFF)
+                                                .withOpacity(0.72),
+                                            blurRadius: 10,
+                                            spreadRadius: 0,
+                                            offset: Offset(
+                                              3,
+                                              3,
+                                            )),
+                                        BoxShadow(
+                                            color: Color(0xff032B47)
+                                                .withOpacity(0.24),
+                                            blurRadius: 40,
+                                            spreadRadius: 0,
+                                            offset: Offset(0, 20))
+                                      ],
+                                    ),
+                                    child: GestureDetector(
+                                      onTap: () {
+                                        Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                                builder: (context) =>
+                                                    QuranMoon()));
+                                      },
+                                      child: Container(
+                                        height: 98,
+                                        width: 161,
+                                        decoration: BoxDecoration(
+                                          color: Colors.white,
+                                          borderRadius:
+                                              BorderRadius.circular(19),
+                                        ),
+                                        child: Column(
+                                          children: [
+                                            SizedBox(
+                                              height: 35,
                                             ),
-                                          )
-                                        ],
+                                            Text(
+                                              "Quran & Moon",
+                                              style: TextStyle(
+                                                  fontSize: 17,
+                                                  fontFamily: 'Book',
+                                                  fontWeight: FontWeight.w500,
+                                                  color:
+                                                      ConstColors.primaryColor),
+                                            ),
+                                            Padding(
+                                              padding: const EdgeInsets.only(
+                                                  left: 120, top: 15),
+                                              child: FaIcon(
+                                                FontAwesomeIcons.arrowRight,
+                                                color: ConstColors.secondary,
+                                                size: 18,
+                                              ),
+                                            )
+                                          ],
+                                        ),
                                       ),
                                     ),
                                   ),
-                                ),
-                              ],
+                                ],
+                              ),
                             ),
-                          ),
-                          SizedBox(
-                            height: 40,
-                          ),
-                        ],
+                            SizedBox(
+                              height: 21,
+                            ),
+                            Padding(
+                              padding:
+                                  const EdgeInsets.symmetric(horizontal: 8.0),
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceEvenly,
+                                children: [
+                                  Container(
+                                    height: 100,
+                                    width: 163,
+                                    alignment: Alignment.center,
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(20),
+                                      gradient: LinearGradient(
+                                          begin: Alignment.topCenter,
+                                          end: Alignment.bottomCenter,
+                                          colors: [
+                                            ConstColors.secondary,
+                                            ConstColors.primaryColor,
+                                          ]),
+                                      boxShadow: [
+                                        BoxShadow(
+                                            color: Color(0xffFFFFFF)
+                                                .withOpacity(0.72),
+                                            blurRadius: 10,
+                                            spreadRadius: 0,
+                                            offset: Offset(
+                                              3,
+                                              3,
+                                            )),
+                                        BoxShadow(
+                                            color: Color(0xff032B47)
+                                                .withOpacity(0.24),
+                                            blurRadius: 40,
+                                            spreadRadius: 0,
+                                            offset: Offset(0, 20))
+                                      ],
+                                    ),
+                                    child: GestureDetector(
+                                      onTap: () {
+                                        Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                                builder: (context) => Notes()));
+                                      },
+                                      child: Container(
+                                        height: 98,
+                                        width: 161,
+                                        decoration: BoxDecoration(
+                                          color: Colors.white,
+                                          borderRadius:
+                                              BorderRadius.circular(19),
+                                        ),
+                                        child: Column(
+                                          children: [
+                                            SizedBox(
+                                              height: 33,
+                                            ),
+                                            Text(
+                                              "Notes",
+                                              style: TextStyle(
+                                                  fontSize: 17,
+                                                  fontFamily: 'Trial',
+                                                  fontWeight: FontWeight.w500,
+                                                  color:
+                                                      ConstColors.primaryColor),
+                                            ),
+                                            Padding(
+                                              padding: const EdgeInsets.only(
+                                                  left: 120, top: 15),
+                                              child: FaIcon(
+                                                FontAwesomeIcons.arrowRight,
+                                                color: ConstColors.secondary,
+                                                size: 18,
+                                              ),
+                                            )
+                                          ],
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    width: 12.w,
+                                  ),
+                                  Container(
+                                    height: 100,
+                                    width: 163,
+                                    alignment: Alignment.center,
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(20),
+                                      gradient: LinearGradient(
+                                          begin: Alignment.topCenter,
+                                          end: Alignment.bottomCenter,
+                                          colors: [
+                                            ConstColors.secondary,
+                                            ConstColors.primaryColor,
+                                          ]),
+                                      boxShadow: [
+                                        BoxShadow(
+                                            color: Color(0xffFFFFFF)
+                                                .withOpacity(0.72),
+                                            blurRadius: 10,
+                                            spreadRadius: 0,
+                                            offset: Offset(
+                                              3,
+                                              3,
+                                            )),
+                                        BoxShadow(
+                                            color: Color(0xff032B47)
+                                                .withOpacity(0.24),
+                                            blurRadius: 40,
+                                            spreadRadius: 0,
+                                            offset: Offset(0, 20))
+                                      ],
+                                    ),
+                                    child: GestureDetector(
+                                      onTap: () {
+                                        Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                                builder: (context) =>
+                                                    Reports()));
+                                      },
+                                      child: Container(
+                                        height: 98,
+                                        width: 161,
+                                        decoration: BoxDecoration(
+                                          color: Colors.white,
+                                          borderRadius:
+                                              BorderRadius.circular(19),
+                                        ),
+                                        child: Column(
+                                          children: [
+                                            SizedBox(
+                                              height: 32,
+                                            ),
+                                            Text(
+                                              "Reports",
+                                              style: TextStyle(
+                                                  fontSize: 17,
+                                                  fontFamily: 'Trial',
+                                                  fontWeight: FontWeight.w500,
+                                                  color:
+                                                      ConstColors.primaryColor),
+                                            ),
+                                            Padding(
+                                              padding: const EdgeInsets.only(
+                                                  left: 120, top: 15),
+                                              child: FaIcon(
+                                                FontAwesomeIcons.arrowRight,
+                                                color: ConstColors.secondary,
+                                                size: 18,
+                                              ),
+                                            )
+                                          ],
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            SizedBox(
+                              height: 40,
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                   ),

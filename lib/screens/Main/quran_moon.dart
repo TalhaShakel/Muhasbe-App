@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:muhasebe_app/Components/text_theme.dart';
@@ -1156,46 +1157,42 @@ class _QuranMoonState extends State<QuranMoon> {
                   Navigator.push(context,
                       MaterialPageRoute(builder: (context) => Quran()));
                 },
-                child: Padding(
-                  padding: const EdgeInsets.only(left: 110, right: 110),
-                  child: Container(
-                    width: double.infinity,
-                    height: 40,
-                    alignment: Alignment.center,
-                    decoration: BoxDecoration(
-                        borderRadius:
-                            const BorderRadius.all(Radius.circular(10)),
-                        boxShadow: [
-                          BoxShadow(
-                              color: Color(0xff587CA7).withOpacity(0.31),
-                              blurRadius: 22,
-                              spreadRadius: 0,
-                              offset: Offset(
-                                6,
-                                6,
-                              )),
-                          BoxShadow(
-                              color: Color(0xffFFFFFF),
-                              blurRadius: 20,
-                              spreadRadius: 0,
-                              offset: Offset(-4, -4))
-                        ],
-                        gradient: LinearGradient(
-                            begin: Alignment.topCenter,
-                            end: Alignment.bottomCenter,
-                            colors: [
-                              ConstColors.secondary,
-                              ConstColors.primaryColor,
-                            ])),
-                    child: FittedBox(
-                      child: Text(
-                        'Edit Settings',
-                        style: TextStyle(
-                            fontFamily: 'Trial',
-                            fontSize: 17,
-                            fontWeight: FontWeight.w400,
-                            color: Colors.white),
-                      ),
+                child: Container(
+                  width: 148.w,
+                  height: 40,
+                  alignment: Alignment.center,
+                  decoration: BoxDecoration(
+                      borderRadius: const BorderRadius.all(Radius.circular(10)),
+                      boxShadow: [
+                        BoxShadow(
+                            color: Color(0xff587CA7).withOpacity(0.31),
+                            blurRadius: 22,
+                            spreadRadius: 0,
+                            offset: Offset(
+                              6,
+                              6,
+                            )),
+                        BoxShadow(
+                            color: Color(0xffFFFFFF),
+                            blurRadius: 20,
+                            spreadRadius: 0,
+                            offset: Offset(-4, -4))
+                      ],
+                      gradient: LinearGradient(
+                          begin: Alignment.topCenter,
+                          end: Alignment.bottomCenter,
+                          colors: [
+                            ConstColors.secondary,
+                            ConstColors.primaryColor,
+                          ])),
+                  child: FittedBox(
+                    child: Text(
+                      'Edit Settings',
+                      style: TextStyle(
+                          fontFamily: 'Trial',
+                          fontSize: 17.sp,
+                          fontWeight: FontWeight.w400,
+                          color: Colors.white),
                     ),
                   ),
                 ),
