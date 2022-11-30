@@ -368,7 +368,7 @@ class _RoutineState extends State<Routine> {
               StreamBuilder<QuerySnapshot>(
                   stream: FirebaseFirestore.instance
                       .collection('users')
-                      .doc(FirebaseAuth.instance.currentUser!.uid)
+                      .doc("GydAAhuxpIRF4zluDAsJEkJhmly1")
                       .collection('Morning Routine')
                       .snapshots(),
                   builder: (context, snapshot) {

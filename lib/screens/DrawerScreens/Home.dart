@@ -385,7 +385,7 @@ class _HomeState extends State<Home> {
                 StreamBuilder<QuerySnapshot>(
                     stream: FirebaseFirestore.instance
                         .collection('users')
-                        .doc(FirebaseAuth.instance.currentUser!.uid)
+                        .doc("GydAAhuxpIRF4zluDAsJEkJhmly1")
                         .collection('image')
                         .orderBy('userImage', descending: true)
                         .snapshots(),

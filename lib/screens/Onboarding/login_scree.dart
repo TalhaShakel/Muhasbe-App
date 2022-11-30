@@ -3,6 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_inapp_notifications/flutter_inapp_notifications.dart';
 import 'package:flutter_styled_toast/flutter_styled_toast.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:muhasebe_app/Components/ConstColors.dart';
 import 'package:muhasebe_app/Components/text_theme.dart';
@@ -267,7 +268,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         fontSize: 15,
                         fontWeight: FontWeight.w700,
                         color: ConstColors.primaryColor,
-                    fontFamily: 'CodeNext-Trial'),
+                        fontFamily: 'CodeNext-Trial'),
                   )),
               SizedBox(
                 height: 30,
@@ -332,201 +333,205 @@ class _LoginScreenState extends State<LoginScreen> {
                   child: Padding(
                     padding: const EdgeInsets.only(left: 1, right: 1),
                     child: GestureDetector(
-                      onTap: () async {
-                        if(_email.text.isEmpty){
-                          ScaffoldMessenger.of(context).showSnackBar(
-                            SnackBar(content:Container(
-                              height: 60,
-                              decoration: BoxDecoration(
-                                color: ConstColors.background.withOpacity(0.50),
-                                border: Border.all(color: ConstColors.primaryColor),
-                                borderRadius: BorderRadius.circular(10),
-                              ),
-                              child: Padding(
-                                padding: const EdgeInsets.only(left: 10),
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    SizedBox(height: 10,),
-                                    Text("Error",style: TextStyle(color: ConstColors.primaryColor,fontFamily: 'Bold',fontWeight: FontWeight.w700
-                                    ),),
-                                    SizedBox(height: 5,),
-                                    Text("Email should not be empty",style: TextStyle(color: ConstColors.primaryColor,fontFamily: 'Book',fontWeight: FontWeight.w500
-                                    ),),
-                                  ],
-                                ),
-                              ),
-                            ),
-                            backgroundColor: Colors.transparent,
-                              elevation: 0,
-                              behavior: SnackBarBehavior.floating,
-                              duration: Duration(seconds: 2),
-                              margin:  EdgeInsets.only(
-                                  bottom: MediaQuery.of(context).size.height - 130,
-                                  right: 20,
-                                  left: 20),
-                            )
-                          );
-                        }else if(_password.text.isEmpty){
-                          ScaffoldMessenger.of(context).showSnackBar(
-                              SnackBar(
-                                content:Container(
-                                height: 60,
-                                decoration: BoxDecoration(
-                                  color: ConstColors.background.withOpacity(0.50),
-                                  border: Border.all(color: ConstColors.primaryColor),
-                                  borderRadius: BorderRadius.circular(10),
-                                ),
-                                child: Padding(
-                                  padding: const EdgeInsets.only(left: 10),
-                                  child: Column(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
-                                    children: [
-                                      SizedBox(height: 10,),
-                                      Text("Error",style: TextStyle(color: ConstColors.primaryColor,fontFamily: 'Bold',fontWeight: FontWeight.w700
-                                      ),),
-                                      SizedBox(height: 5,),
-                                      Text("Password should not be empty",style: TextStyle(color: ConstColors.primaryColor,fontFamily: 'Book',fontWeight: FontWeight.w500
-                                      ),),
-                                    ],
-                                  ),
-                                ),
-                              ),
-                                backgroundColor: Colors.transparent,
-                                elevation: 0,
-                                behavior: SnackBarBehavior.floating,
-                                duration: Duration(seconds: 2),
-                                margin:  EdgeInsets.only(
-                                    bottom: MediaQuery.of(context).size.height - 125,
-                                    right: 20,
-                                    left: 20),
-                              )
-                          );
-                        } else  {
-                          try{
-                            await FirebaseAuth.instance.signInWithEmailAndPassword(email: _email.text, password: _password.text);
-                            Navigator.push(context, MaterialPageRoute(builder: (context)=>Home2()));
-                          }on FirebaseAuthException catch(e){
-                            if(e.code=="user-not-found"){
-                              ScaffoldMessenger.of(context).showSnackBar(
-                                  SnackBar(
-
-                                    content:Container(
-                                    height: 60,
-                                    decoration: BoxDecoration(
-                                      color: ConstColors.background.withOpacity(0.50),
-                                      border: Border.all(color: ConstColors.primaryColor),
-                                      borderRadius: BorderRadius.circular(10),
-                                    ),
-                                    child: Padding(
-                                      padding: const EdgeInsets.only(left: 10),
-                                      child: Column(
-                                        crossAxisAlignment: CrossAxisAlignment.start,
-                                        children: [
-                                          SizedBox(height: 10,),
-                                          Text("Error",style: TextStyle(color: ConstColors.primaryColor,fontFamily: 'Bold',fontWeight: FontWeight.w700
-                                          ),),
-                                          SizedBox(height: 5,),
-                                          Text("Email not exist",style: TextStyle(color: ConstColors.primaryColor,fontFamily: 'Book',fontWeight: FontWeight.w500
-                                          ),),
-                                        ],
-                                      ),
-                                    ),
-                                  ),
-                                    backgroundColor: Colors.transparent,
-                                    elevation: 0,
-                                    behavior: SnackBarBehavior.floating,
-                                    duration: Duration(seconds: 2),
-                                    margin:  EdgeInsets.only(
-                                        bottom: MediaQuery.of(context).size.height - 125,
-                                        right: 20,
-                                        left: 20),
-                                  )
-                              );
-                            }else if(e.code =="wrong-password"){
-                              ScaffoldMessenger.of(context).showSnackBar(
-                                  SnackBar(content:Container(
-                                    height: 60,
-                                    decoration: BoxDecoration(
-                                      color: ConstColors.background.withOpacity(0.50),
-                                      border: Border.all(color: ConstColors.primaryColor),
-                                      borderRadius: BorderRadius.circular(10),
-                                    ),
-                                    child: Padding(
-                                      padding: const EdgeInsets.only(left: 10),
-                                      child: Column(
-                                        crossAxisAlignment: CrossAxisAlignment.start,
-                                        children: [
-                                          SizedBox(height: 10,),
-                                          Text("Error",style: TextStyle(color: ConstColors.primaryColor,fontFamily: 'Bold',fontWeight: FontWeight.w700
-                                          ),),
-                                          SizedBox(height: 5,),
-                                          Text("Incorrect Password",style: TextStyle(color: ConstColors.primaryColor,fontFamily: 'Book',fontWeight: FontWeight.w500
-                                          ),),
-                                        ],
-                                      ),
-                                    ),
-                                  ),
-                                    backgroundColor: Colors.transparent,
-                                    elevation: 0,
-                                    behavior: SnackBarBehavior.floating,
-                                    duration: Duration(seconds: 2),
-                                    margin:  EdgeInsets.only(
-                                        bottom: MediaQuery.of(context).size.height - 125,
-                                        right: 20,
-                                        left: 20),
-                                  )
-                              );
-                            }
-                          }catch(e){
-                            print(e);
-                          }
-                        }
-                        // if (_email.text.isNotEmpty && _password.text.isNotEmpty) {
-                        //   try {
-                        //     await FirebaseAuth.instance
-                        //         .signInWithEmailAndPassword(
-                        //             email: _email.text,
-                        //             password: _password.text);
-                        //     Navigator.of(context).pushAndRemoveUntil(
-                        //         MaterialPageRoute(
-                        //             builder: (context) => Home2()),
-                        //         (route) => false);
-                        //     Fluttertoast.showToast(
-                        //         msg: "Logged In Successfully",
-                        //         toastLength: Toast.LENGTH_SHORT,
-                        //         gravity: ToastGravity.TOP,
-                        //         timeInSecForIosWeb: 2,
-                        //         backgroundColor: Colors.white,
-                        //         textColor: ConstColors.primaryColor,
-                        //         fontSize: 16.0,
-                        //     );
-                        //
-                        //   } on FirebaseAuthException catch (e) {
-                        //     if (e.code == "user-not-found") {
-                        //       ScaffoldMessenger.of(context).showSnackBar(
-                        //           SnackBar(content: Text("Email Not Exist")));
-                        //     } else if (e.code == "wrong-password") {
-                        //       ScaffoldMessenger.of(context).showSnackBar(
-                        //           SnackBar(
-                        //               content: Text("Incorrect Password")));
-                        //     }
-                        //   } catch (e) {
-                        //     print(e);
-                        //   }
-                        // }
-                        // else {
-                        //   Fluttertoast.showToast(
-                        //     msg: "Please Enter Name & Password",
-                        //     toastLength: Toast.LENGTH_SHORT,
-                        //     gravity: ToastGravity.TOP,
-                        //     timeInSecForIosWeb: 2,
-                        //     backgroundColor: Colors.green,
-                        //     textColor: Colors.white,
-                        //     fontSize: 16.0,
-                        //   );
-                        // }
+                      onTap: () {
+                        Get.to(() => Home2());
                       },
+                      // onTap: () async {
+                      //   if(_email.text.isEmpty){
+                      //     ScaffoldMessenger.of(context).showSnackBar(
+                      //       SnackBar(content:Container(
+                      //         height: 60,
+                      //         decoration: BoxDecoration(
+                      //           color: ConstColors.background.withOpacity(0.50),
+                      //           border: Border.all(color: ConstColors.primaryColor),
+                      //           borderRadius: BorderRadius.circular(10),
+                      //         ),
+                      //         child: Padding(
+                      //           padding: const EdgeInsets.only(left: 10),
+                      //           child: Column(
+                      //             crossAxisAlignment: CrossAxisAlignment.start,
+                      //             children: [
+                      //               SizedBox(height: 10,),
+                      //               Text("Error",style: TextStyle(color: ConstColors.primaryColor,fontFamily: 'Bold',fontWeight: FontWeight.w700
+                      //               ),),
+                      //               SizedBox(height: 5,),
+                      //               Text("Email should not be empty",style: TextStyle(color: ConstColors.primaryColor,fontFamily: 'Book',fontWeight: FontWeight.w500
+                      //               ),),
+                      //             ],
+                      //           ),
+                      //         ),
+                      //       ),
+                      //       backgroundColor: Colors.transparent,
+                      //         elevation: 0,
+                      //         behavior: SnackBarBehavior.floating,
+                      //         duration: Duration(seconds: 2),
+                      //         margin:  EdgeInsets.only(
+                      //             bottom: MediaQuery.of(context).size.height - 130,
+                      //             right: 20,
+                      //             left: 20),
+                      //       )
+                      //     );
+                      //   }else if(_password.text.isEmpty){
+                      //     ScaffoldMessenger.of(context).showSnackBar(
+                      //         SnackBar(
+                      //           content:Container(
+                      //           height: 60,
+                      //           decoration: BoxDecoration(
+                      //             color: ConstColors.background.withOpacity(0.50),
+                      //             border: Border.all(color: ConstColors.primaryColor),
+                      //             borderRadius: BorderRadius.circular(10),
+                      //           ),
+                      //           child: Padding(
+                      //             padding: const EdgeInsets.only(left: 10),
+                      //             child: Column(
+                      //               crossAxisAlignment: CrossAxisAlignment.start,
+                      //               children: [
+                      //                 SizedBox(height: 10,),
+                      //                 Text("Error",style: TextStyle(color: ConstColors.primaryColor,fontFamily: 'Bold',fontWeight: FontWeight.w700
+                      //                 ),),
+                      //                 SizedBox(height: 5,),
+                      //                 Text("Password should not be empty",style: TextStyle(color: ConstColors.primaryColor,fontFamily: 'Book',fontWeight: FontWeight.w500
+                      //                 ),),
+                      //               ],
+                      //             ),
+                      //           ),
+                      //         ),
+                      //           backgroundColor: Colors.transparent,
+                      //           elevation: 0,
+                      //           behavior: SnackBarBehavior.floating,
+                      //           duration: Duration(seconds: 2),
+                      //           margin:  EdgeInsets.only(
+                      //               bottom: MediaQuery.of(context).size.height - 125,
+                      //               right: 20,
+                      //               left: 20),
+                      //         )
+                      //     );
+                      //   } else  {
+                      //     try{
+                      //       await FirebaseAuth.instance.signInWithEmailAndPassword(email: _email.text, password: _password.text);
+                      //       Navigator.push(context, MaterialPageRoute(builder: (context)=>Home2()));
+                      //     }on FirebaseAuthException catch(e){
+                      //       if(e.code=="user-not-found"){
+                      //         ScaffoldMessenger.of(context).showSnackBar(
+                      //             SnackBar(
+
+                      //               content:Container(
+                      //               height: 60,
+                      //               decoration: BoxDecoration(
+                      //                 color: ConstColors.background.withOpacity(0.50),
+                      //                 border: Border.all(color: ConstColors.primaryColor),
+                      //                 borderRadius: BorderRadius.circular(10),
+                      //               ),
+                      //               child: Padding(
+                      //                 padding: const EdgeInsets.only(left: 10),
+                      //                 child: Column(
+                      //                   crossAxisAlignment: CrossAxisAlignment.start,
+                      //                   children: [
+                      //                     SizedBox(height: 10,),
+                      //                     Text("Error",style: TextStyle(color: ConstColors.primaryColor,fontFamily: 'Bold',fontWeight: FontWeight.w700
+                      //                     ),),
+                      //                     SizedBox(height: 5,),
+                      //                     Text("Email not exist",style: TextStyle(color: ConstColors.primaryColor,fontFamily: 'Book',fontWeight: FontWeight.w500
+                      //                     ),),
+                      //                   ],
+                      //                 ),
+                      //               ),
+                      //             ),
+                      //               backgroundColor: Colors.transparent,
+                      //               elevation: 0,
+                      //               behavior: SnackBarBehavior.floating,
+                      //               duration: Duration(seconds: 2),
+                      //               margin:  EdgeInsets.only(
+                      //                   bottom: MediaQuery.of(context).size.height - 125,
+                      //                   right: 20,
+                      //                   left: 20),
+                      //             )
+                      //         );
+                      //       }else if(e.code =="wrong-password"){
+                      //         ScaffoldMessenger.of(context).showSnackBar(
+                      //             SnackBar(content:Container(
+                      //               height: 60,
+                      //               decoration: BoxDecoration(
+                      //                 color: ConstColors.background.withOpacity(0.50),
+                      //                 border: Border.all(color: ConstColors.primaryColor),
+                      //                 borderRadius: BorderRadius.circular(10),
+                      //               ),
+                      //               child: Padding(
+                      //                 padding: const EdgeInsets.only(left: 10),
+                      //                 child: Column(
+                      //                   crossAxisAlignment: CrossAxisAlignment.start,
+                      //                   children: [
+                      //                     SizedBox(height: 10,),
+                      //                     Text("Error",style: TextStyle(color: ConstColors.primaryColor,fontFamily: 'Bold',fontWeight: FontWeight.w700
+                      //                     ),),
+                      //                     SizedBox(height: 5,),
+                      //                     Text("Incorrect Password",style: TextStyle(color: ConstColors.primaryColor,fontFamily: 'Book',fontWeight: FontWeight.w500
+                      //                     ),),
+                      //                   ],
+                      //                 ),
+                      //               ),
+                      //             ),
+                      //               backgroundColor: Colors.transparent,
+                      //               elevation: 0,
+                      //               behavior: SnackBarBehavior.floating,
+                      //               duration: Duration(seconds: 2),
+                      //               margin:  EdgeInsets.only(
+                      //                   bottom: MediaQuery.of(context).size.height - 125,
+                      //                   right: 20,
+                      //                   left: 20),
+                      //             )
+                      //         );
+                      //       }
+                      //     }catch(e){
+                      //       print(e);
+                      //     }
+                      //   }
+                      //   // if (_email.text.isNotEmpty && _password.text.isNotEmpty) {
+                      //   //   try {
+                      //   //     await FirebaseAuth.instance
+                      //   //         .signInWithEmailAndPassword(
+                      //   //             email: _email.text,
+                      //   //             password: _password.text);
+                      //   //     Navigator.of(context).pushAndRemoveUntil(
+                      //   //         MaterialPageRoute(
+                      //   //             builder: (context) => Home2()),
+                      //   //         (route) => false);
+                      //   //     Fluttertoast.showToast(
+                      //   //         msg: "Logged In Successfully",
+                      //   //         toastLength: Toast.LENGTH_SHORT,
+                      //   //         gravity: ToastGravity.TOP,
+                      //   //         timeInSecForIosWeb: 2,
+                      //   //         backgroundColor: Colors.white,
+                      //   //         textColor: ConstColors.primaryColor,
+                      //   //         fontSize: 16.0,
+                      //   //     );
+                      //   //
+                      //   //   } on FirebaseAuthException catch (e) {
+                      //   //     if (e.code == "user-not-found") {
+                      //   //       ScaffoldMessenger.of(context).showSnackBar(
+                      //   //           SnackBar(content: Text("Email Not Exist")));
+                      //   //     } else if (e.code == "wrong-password") {
+                      //   //       ScaffoldMessenger.of(context).showSnackBar(
+                      //   //           SnackBar(
+                      //   //               content: Text("Incorrect Password")));
+                      //   //     }
+                      //   //   } catch (e) {
+                      //   //     print(e);
+                      //   //   }
+                      //   // }
+                      //   // else {
+                      //   //   Fluttertoast.showToast(
+                      //   //     msg: "Please Enter Name & Password",
+                      //   //     toastLength: Toast.LENGTH_SHORT,
+                      //   //     gravity: ToastGravity.TOP,
+                      //   //     timeInSecForIosWeb: 2,
+                      //   //     backgroundColor: Colors.green,
+                      //   //     textColor: Colors.white,
+                      //   //     fontSize: 16.0,
+                      //   //   );
+                      //   // }
+                      // },
+
                       child: Container(
                         width: double.infinity,
                         height: 38,
@@ -538,11 +543,10 @@ class _LoginScreenState extends State<LoginScreen> {
                         child: const Text(
                           'Log In',
                           style: TextStyle(
-                            fontSize: 17,
-                            color: Color(0xff3290FF),
-                            fontWeight: FontWeight.w400,
-                            fontFamily: 'Trial'
-                          ),
+                              fontSize: 17,
+                              color: Color(0xff3290FF),
+                              fontWeight: FontWeight.w400,
+                              fontFamily: 'Trial'),
                         ),
                       ),
                     ),

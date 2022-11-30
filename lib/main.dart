@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_inapp_notifications/flutter_inapp_notifications.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 import 'package:muhasebe_app/screens/DrawerScreens/Home.dart';
 import 'package:muhasebe_app/screens/Main/Home2.dart';
 import 'package:muhasebe_app/screens/Main/activity.dart';
@@ -30,7 +31,7 @@ class MyApp extends StatelessWidget {
         minTextAdapt: true,
         splitScreenMode: true,
         builder: (context, child) {
-          return MaterialApp(
+          return GetMaterialApp(
             title: 'Flutter Demo',
             theme: ThemeData(
               primarySwatch: Colors.blue,

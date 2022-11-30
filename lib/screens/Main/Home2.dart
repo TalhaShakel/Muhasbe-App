@@ -16,6 +16,7 @@ import 'package:muhasebe_app/screens/Main/quran_moon.dart';
 import 'package:muhasebe_app/screens/Main/reports.dart';
 import 'package:muhasebe_app/screens/Main/todo_list.dart';
 import 'package:muhasebe_app/screens/Main/travel_tracker.dart';
+import 'package:muhasebe_app/screens/Onboarding/login_scree.dart';
 
 import '../../Components/ConstColors.dart';
 import '../DrawerScreens/Home.dart';
@@ -52,7 +53,7 @@ class _Home2State extends State<Home2> {
     return StreamBuilder(
         stream: FirebaseFirestore.instance
             .collection('users')
-            .doc(FirebaseAuth.instance.currentUser!.uid)
+            .doc("GydAAhuxpIRF4zluDAsJEkJhmly1")
             .snapshots(),
         builder: (context, AsyncSnapshot<DocumentSnapshot> snapshot) {
           if (snapshot.hasData) {
@@ -266,18 +267,23 @@ class _Home2State extends State<Home2> {
                           ),
                         ),
                         Spacer(),
-                        ListTile(
-                          leading: FaIcon(
-                            FontAwesomeIcons.signOut,
-                            color: ConstColors.primaryColor,
-                          ),
-                          title: Text(
-                            'Sign Out',
-                            style: TextStyle(
-                                fontFamily: 'CodeNext-Trial',
-                                fontSize: 18,
-                                fontWeight: FontWeight.w700,
-                                color: ConstColors.primaryColor),
+                        GestureDetector(
+                          onTap: () {
+                            Get.to(() => LoginScreen());
+                          },
+                          child: ListTile(
+                            leading: FaIcon(
+                              FontAwesomeIcons.signOut,
+                              color: ConstColors.primaryColor,
+                            ),
+                            title: Text(
+                              'Sign Out',
+                              style: TextStyle(
+                                  fontFamily: 'CodeNext-Trial',
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.w700,
+                                  color: ConstColors.primaryColor),
+                            ),
                           ),
                         ),
                         SizedBox(

@@ -561,7 +561,7 @@ class _VirtueAddState extends State<VirtueAdd> {
               StreamBuilder<QuerySnapshot>(
                   stream: FirebaseFirestore.instance
                       .collection('users')
-                      .doc(FirebaseAuth.instance.currentUser!.uid)
+                      .doc("GydAAhuxpIRF4zluDAsJEkJhmly1")
                       .collection('Healthy Habits')
                       .snapshots(),
                   builder: (context, snapshot) {

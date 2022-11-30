@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:country_picker/country_picker.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:muhasebe_app/Components/ConstColors.dart';
 import 'package:muhasebe_app/screens/Main/Home2.dart';
@@ -47,10 +48,12 @@ class _SignUpScreenState extends State<SignUpScreen> {
       dropdownItemStyle: AppTextTheme.labels,
     );
   }
+
   void initState() {
     super.initState();
     cscpicker();
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -315,7 +318,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           hintStyle: AppTextTheme.hintTxt,
                           contentPadding: EdgeInsets.only(bottom: 10, left: 10),
                           border: InputBorder.none,
-
                         ),
                       ),
                     ),
@@ -564,283 +566,287 @@ class _SignUpScreenState extends State<SignUpScreen> {
               Padding(
                 padding: const EdgeInsets.only(left: 75, right: 75),
                 child: GestureDetector(
-                  onTap: () async {
-                    if(_email.text.isEmpty){
-                      ScaffoldMessenger.of(context).showSnackBar(
-                          SnackBar(
-                            content:Container(
-                            height: 60,
-                            decoration: BoxDecoration(
-                              color: ConstColors.background.withOpacity(0.50),
-                              border: Border.all(color: ConstColors.primaryColor),
-                              borderRadius: BorderRadius.circular(10),
-                            ),
-                            child: Padding(
-                              padding: const EdgeInsets.only(left: 10),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  SizedBox(height: 10,),
-                                  Text("Error",style: TextStyle(color: ConstColors.primaryColor,fontFamily: 'Bold',fontWeight: FontWeight.w700
-                                  ),),
-                                  SizedBox(height: 5,),
-                                  Text("Email should not be empty",style: TextStyle(color: ConstColors.primaryColor,fontFamily: 'Book',fontWeight: FontWeight.w500
-                                  ),),
-                                ],
-                              ),
-                            ),
-                          ),
-                            backgroundColor: Colors.transparent,
-                            elevation: 0,
-                            behavior: SnackBarBehavior.floating,
-                            duration: Duration(seconds: 2),
-                            margin:  EdgeInsets.only(
-                                bottom: MediaQuery.of(context).size.height - 130,
-                                right: 20,
-                                left: 20),
-                          )
-                      );
-                    }
-                    else if(_name.text.isEmpty){
-                      ScaffoldMessenger.of(context).showSnackBar(
-                          SnackBar(content:Container(
-                            height: 60,
-                            decoration: BoxDecoration(
-                              color: ConstColors.background.withOpacity(0.50),
-                              border: Border.all(color: ConstColors.primaryColor),
-                              borderRadius: BorderRadius.circular(10),
-                            ),
-                            child: Padding(
-                              padding: const EdgeInsets.only(left: 10),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  SizedBox(height: 10,),
-                                  Text("Error",style: TextStyle(color: ConstColors.primaryColor,fontFamily: 'Bold',fontWeight: FontWeight.w700
-                                  ),),
-                                  SizedBox(height: 5,),
-                                  Text("Name should not be empty",style: TextStyle(color: ConstColors.primaryColor,fontFamily: 'Book',fontWeight: FontWeight.w500
-                                  ),),
-                                ],
-                              ),
-                            ),
-                          ),
-                            backgroundColor: Colors.transparent,
-                            elevation: 0,
-                            behavior: SnackBarBehavior.floating,
-                            duration: Duration(seconds: 2),
-                            margin:  EdgeInsets.only(
-                                bottom: MediaQuery.of(context).size.height - 130,
-                                right: 20,
-                                left: 20),
-                          )
-                      );
-                    }
-                    else if(_password.text.isEmpty){
-                      ScaffoldMessenger.of(context).showSnackBar(
-                          SnackBar(content:Container(
-                            height: 60,
-                            decoration: BoxDecoration(
-                              color: ConstColors.background.withOpacity(0.50),
-                              border: Border.all(color: ConstColors.primaryColor),
-                              borderRadius: BorderRadius.circular(10),
-                            ),
-                            child: Padding(
-                              padding: const EdgeInsets.only(left: 10),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  SizedBox(height: 10,),
-                                  Text("Error",style: TextStyle(color: ConstColors.primaryColor,fontFamily: 'Bold',fontWeight: FontWeight.w700
-                                  ),),
-                                  SizedBox(height: 5,),
-                                  Text("Password should not be empty",style: TextStyle(color: ConstColors.primaryColor,fontFamily: 'Book',fontWeight: FontWeight.w500
-                                  ),),
-                                ],
-                              ),
-                            ),
-                          ),
-                            backgroundColor: Colors.transparent,
-                            elevation: 0,
-                            behavior: SnackBarBehavior.floating,
-                            duration: Duration(seconds: 2),
-                            margin:  EdgeInsets.only(
-                                bottom: MediaQuery.of(context).size.height - 130,
-                                right: 20,
-                                left: 20),
-                          )
-                      );
-                    }
-                    else if(countryValue.isEmpty){
-                      ScaffoldMessenger.of(context).showSnackBar(
-                          SnackBar(content:Container(
-                            height: 60,
-                            decoration: BoxDecoration(
-                              color: ConstColors.background.withOpacity(0.50),
-                              border: Border.all(color: ConstColors.primaryColor),
-                              borderRadius: BorderRadius.circular(10),
-                            ),
-                            child: Padding(
-                              padding: const EdgeInsets.only(left: 10),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  SizedBox(height: 10,),
-                                  Text("Error",style: TextStyle(color: ConstColors.primaryColor,fontFamily: 'Bold',fontWeight: FontWeight.w700
-                                  ),),
-                                  SizedBox(height: 5,),
-                                  Text("Please select a Time Zone ",style: TextStyle(color: ConstColors.primaryColor,fontFamily: 'Book',fontWeight: FontWeight.w500
-                                  ),),
-                                ],
-                              ),
-                            ),
-                          ),
-                            backgroundColor: Colors.transparent,
-                            elevation: 0,
-                            behavior: SnackBarBehavior.floating,
-                            duration: Duration(seconds: 2),
-                            margin:  EdgeInsets.only(
-                                bottom: MediaQuery.of(context).size.height - 130,
-                                right: 20,
-                                left: 20),
-                          )
-                      );
-                    }
-                   else if(_password.text.length < 6){
-                      ScaffoldMessenger.of(context).showSnackBar(
-                          SnackBar(content:Container(
-                            height: 60,
-                            decoration: BoxDecoration(
-                              color: ConstColors.background.withOpacity(0.50),
-                              border: Border.all(color: ConstColors.primaryColor),
-                              borderRadius: BorderRadius.circular(10),
-                            ),
-                            child: Padding(
-                              padding: const EdgeInsets.only(left: 10),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  SizedBox(height: 10,),
-                                  Text("Error",style: TextStyle(color: ConstColors.primaryColor,fontFamily: 'Bold',fontWeight: FontWeight.w700
-                                  ),),
-                                  SizedBox(height: 5,),
-                                  Text("Enter atleast six digits password",style: TextStyle(color: ConstColors.primaryColor,fontFamily: 'Book',fontWeight: FontWeight.w500
-                                  ),),
-                                ],
-                              ),
-                            ),
-                          ),
-                            backgroundColor: Colors.transparent,
-                            elevation: 0,
-                            behavior: SnackBarBehavior.floating,
-                            duration: Duration(seconds: 2),
-                            margin:  EdgeInsets.only(
-                                bottom: MediaQuery.of(context).size.height - 130,
-                                right: 20,
-                                left: 20),
-                          )
-                      );
-                    }
-                    else if (
-                    RegExp(
-                        r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$'
-                    ).hasMatch(_email.value.text)
-                    )
-                    {
-                      try{
-                        await FirebaseAuth.instance.createUserWithEmailAndPassword(email: _email.text, password: _password.text);
-                        if(FirebaseAuth.instance.currentUser!.uid.isNotEmpty){
-                          await FirebaseFirestore.instance
-                                      .collection("users")
-                                      .doc(FirebaseAuth.instance.currentUser!.uid)
-                                      .set({
-                                    "password": _password.text,
-                                    "email": _email.text,
-                                    "uid": FirebaseAuth.instance.currentUser!.uid,
-                                    "name": _name.text,
-                                    "time": countryValue.toString(),
-                                  });
-                          Navigator.pushReplacement(context,
-                                          MaterialPageRoute(builder: (context) => Home2()));
-                        }
-                      }on FirebaseAuthException catch(e){
-                    if (e.code == "email-already-in-use") {
-                      ScaffoldMessenger.of(context).showSnackBar(
-                          SnackBar(
-                            content:Container(
-                            height: 60,
-                            decoration: BoxDecoration(
-                              color: ConstColors.background.withOpacity(0.50),
-                              border: Border.all(color: ConstColors.primaryColor),
-                              borderRadius: BorderRadius.circular(10),
-                            ),
-                            child: Padding(
-                              padding: const EdgeInsets.only(left: 10),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  SizedBox(height: 10,),
-                                  Text("Error",style: TextStyle(color: ConstColors.primaryColor,fontFamily: 'Bold',fontWeight: FontWeight.w700
-                                  ),),
-                                  SizedBox(height: 5,),
-                                  Text("Email Already in use",style: TextStyle(color: ConstColors.primaryColor,fontFamily: 'Book',fontWeight: FontWeight.w500
-                                  ),),
-                                ],
-                              ),
-                            ),
-                          ),
-                            backgroundColor: Colors.transparent,
-                            elevation: 0,
-                            behavior: SnackBarBehavior.floating,
-                            duration: Duration(seconds: 2),
-                            margin:  EdgeInsets.only(
-                                bottom: MediaQuery.of(context).size.height - 130,
-                                right: 20,
-                                left: 20),
-                          )
-                      );
-                          }
-                      }catch (e) {
-                          print(e);
-                        }
-                    }
-                    else {
-                      ScaffoldMessenger.of(context).showSnackBar(
-                          SnackBar(
-                            content:Container(
-                              height: 60,
-                              decoration: BoxDecoration(
-                                color: ConstColors.background.withOpacity(0.50),
-                                border: Border.all(color: ConstColors.primaryColor),
-                                borderRadius: BorderRadius.circular(10),
-                              ),
-                              child: Padding(
-                                padding: const EdgeInsets.only(left: 10),
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    SizedBox(height: 10,),
-                                    Text("Error",style: TextStyle(color: ConstColors.primaryColor,fontFamily: 'Bold',fontWeight: FontWeight.w700
-                                    ),),
-                                    SizedBox(height: 5,),
-                                    Text("Enter the valid email",style: TextStyle(color: ConstColors.primaryColor,fontFamily: 'Book',fontWeight: FontWeight.w500
-                                    ),),
-                                  ],
-                                ),
-                              ),
-                            ),
-                            backgroundColor: Colors.transparent,
-                            elevation: 0,
-                            behavior: SnackBarBehavior.floating,
-                            duration: Duration(seconds: 2),
-                            margin:  EdgeInsets.only(
-                                bottom: MediaQuery.of(context).size.height - 130,
-                                right: 20,
-                                left: 20),
-                          )
-                      );
-                    }
+                  onTap: () {
+                    Get.to(() => LoginScreen());
                   },
+                  // onTap: () async {
+                  //   if(_email.text.isEmpty){
+                  //     ScaffoldMessenger.of(context).showSnackBar(
+                  //         SnackBar(
+                  //           content:Container(
+                  //           height: 60,
+                  //           decoration: BoxDecoration(
+                  //             color: ConstColors.background.withOpacity(0.50),
+                  //             border: Border.all(color: ConstColors.primaryColor),
+                  //             borderRadius: BorderRadius.circular(10),
+                  //           ),
+                  //           child: Padding(
+                  //             padding: const EdgeInsets.only(left: 10),
+                  //             child: Column(
+                  //               crossAxisAlignment: CrossAxisAlignment.start,
+                  //               children: [
+                  //                 SizedBox(height: 10,),
+                  //                 Text("Error",style: TextStyle(color: ConstColors.primaryColor,fontFamily: 'Bold',fontWeight: FontWeight.w700
+                  //                 ),),
+                  //                 SizedBox(height: 5,),
+                  //                 Text("Email should not be empty",style: TextStyle(color: ConstColors.primaryColor,fontFamily: 'Book',fontWeight: FontWeight.w500
+                  //                 ),),
+                  //               ],
+                  //             ),
+                  //           ),
+                  //         ),
+                  //           backgroundColor: Colors.transparent,
+                  //           elevation: 0,
+                  //           behavior: SnackBarBehavior.floating,
+                  //           duration: Duration(seconds: 2),
+                  //           margin:  EdgeInsets.only(
+                  //               bottom: MediaQuery.of(context).size.height - 130,
+                  //               right: 20,
+                  //               left: 20),
+                  //         )
+                  //     );
+                  //   }
+                  //   else if(_name.text.isEmpty){
+                  //     ScaffoldMessenger.of(context).showSnackBar(
+                  //         SnackBar(content:Container(
+                  //           height: 60,
+                  //           decoration: BoxDecoration(
+                  //             color: ConstColors.background.withOpacity(0.50),
+                  //             border: Border.all(color: ConstColors.primaryColor),
+                  //             borderRadius: BorderRadius.circular(10),
+                  //           ),
+                  //           child: Padding(
+                  //             padding: const EdgeInsets.only(left: 10),
+                  //             child: Column(
+                  //               crossAxisAlignment: CrossAxisAlignment.start,
+                  //               children: [
+                  //                 SizedBox(height: 10,),
+                  //                 Text("Error",style: TextStyle(color: ConstColors.primaryColor,fontFamily: 'Bold',fontWeight: FontWeight.w700
+                  //                 ),),
+                  //                 SizedBox(height: 5,),
+                  //                 Text("Name should not be empty",style: TextStyle(color: ConstColors.primaryColor,fontFamily: 'Book',fontWeight: FontWeight.w500
+                  //                 ),),
+                  //               ],
+                  //             ),
+                  //           ),
+                  //         ),
+                  //           backgroundColor: Colors.transparent,
+                  //           elevation: 0,
+                  //           behavior: SnackBarBehavior.floating,
+                  //           duration: Duration(seconds: 2),
+                  //           margin:  EdgeInsets.only(
+                  //               bottom: MediaQuery.of(context).size.height - 130,
+                  //               right: 20,
+                  //               left: 20),
+                  //         )
+                  //     );
+                  //   }
+                  //   else if(_password.text.isEmpty){
+                  //     ScaffoldMessenger.of(context).showSnackBar(
+                  //         SnackBar(content:Container(
+                  //           height: 60,
+                  //           decoration: BoxDecoration(
+                  //             color: ConstColors.background.withOpacity(0.50),
+                  //             border: Border.all(color: ConstColors.primaryColor),
+                  //             borderRadius: BorderRadius.circular(10),
+                  //           ),
+                  //           child: Padding(
+                  //             padding: const EdgeInsets.only(left: 10),
+                  //             child: Column(
+                  //               crossAxisAlignment: CrossAxisAlignment.start,
+                  //               children: [
+                  //                 SizedBox(height: 10,),
+                  //                 Text("Error",style: TextStyle(color: ConstColors.primaryColor,fontFamily: 'Bold',fontWeight: FontWeight.w700
+                  //                 ),),
+                  //                 SizedBox(height: 5,),
+                  //                 Text("Password should not be empty",style: TextStyle(color: ConstColors.primaryColor,fontFamily: 'Book',fontWeight: FontWeight.w500
+                  //                 ),),
+                  //               ],
+                  //             ),
+                  //           ),
+                  //         ),
+                  //           backgroundColor: Colors.transparent,
+                  //           elevation: 0,
+                  //           behavior: SnackBarBehavior.floating,
+                  //           duration: Duration(seconds: 2),
+                  //           margin:  EdgeInsets.only(
+                  //               bottom: MediaQuery.of(context).size.height - 130,
+                  //               right: 20,
+                  //               left: 20),
+                  //         )
+                  //     );
+                  //   }
+                  //   else if(countryValue.isEmpty){
+                  //     ScaffoldMessenger.of(context).showSnackBar(
+                  //         SnackBar(content:Container(
+                  //           height: 60,
+                  //           decoration: BoxDecoration(
+                  //             color: ConstColors.background.withOpacity(0.50),
+                  //             border: Border.all(color: ConstColors.primaryColor),
+                  //             borderRadius: BorderRadius.circular(10),
+                  //           ),
+                  //           child: Padding(
+                  //             padding: const EdgeInsets.only(left: 10),
+                  //             child: Column(
+                  //               crossAxisAlignment: CrossAxisAlignment.start,
+                  //               children: [
+                  //                 SizedBox(height: 10,),
+                  //                 Text("Error",style: TextStyle(color: ConstColors.primaryColor,fontFamily: 'Bold',fontWeight: FontWeight.w700
+                  //                 ),),
+                  //                 SizedBox(height: 5,),
+                  //                 Text("Please select a Time Zone ",style: TextStyle(color: ConstColors.primaryColor,fontFamily: 'Book',fontWeight: FontWeight.w500
+                  //                 ),),
+                  //               ],
+                  //             ),
+                  //           ),
+                  //         ),
+                  //           backgroundColor: Colors.transparent,
+                  //           elevation: 0,
+                  //           behavior: SnackBarBehavior.floating,
+                  //           duration: Duration(seconds: 2),
+                  //           margin:  EdgeInsets.only(
+                  //               bottom: MediaQuery.of(context).size.height - 130,
+                  //               right: 20,
+                  //               left: 20),
+                  //         )
+                  //     );
+                  //   }
+                  //  else if(_password.text.length < 6){
+                  //     ScaffoldMessenger.of(context).showSnackBar(
+                  //         SnackBar(content:Container(
+                  //           height: 60,
+                  //           decoration: BoxDecoration(
+                  //             color: ConstColors.background.withOpacity(0.50),
+                  //             border: Border.all(color: ConstColors.primaryColor),
+                  //             borderRadius: BorderRadius.circular(10),
+                  //           ),
+                  //           child: Padding(
+                  //             padding: const EdgeInsets.only(left: 10),
+                  //             child: Column(
+                  //               crossAxisAlignment: CrossAxisAlignment.start,
+                  //               children: [
+                  //                 SizedBox(height: 10,),
+                  //                 Text("Error",style: TextStyle(color: ConstColors.primaryColor,fontFamily: 'Bold',fontWeight: FontWeight.w700
+                  //                 ),),
+                  //                 SizedBox(height: 5,),
+                  //                 Text("Enter atleast six digits password",style: TextStyle(color: ConstColors.primaryColor,fontFamily: 'Book',fontWeight: FontWeight.w500
+                  //                 ),),
+                  //               ],
+                  //             ),
+                  //           ),
+                  //         ),
+                  //           backgroundColor: Colors.transparent,
+                  //           elevation: 0,
+                  //           behavior: SnackBarBehavior.floating,
+                  //           duration: Duration(seconds: 2),
+                  //           margin:  EdgeInsets.only(
+                  //               bottom: MediaQuery.of(context).size.height - 130,
+                  //               right: 20,
+                  //               left: 20),
+                  //         )
+                  //     );
+                  //   }
+                  //   else if (
+                  //   RegExp(
+                  //       r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$'
+                  //   ).hasMatch(_email.value.text)
+                  //   )
+                  //   {
+                  //     try{
+                  //       await FirebaseAuth.instance.createUserWithEmailAndPassword(email: _email.text, password: _password.text);
+                  //       if(FirebaseAuth.instance.currentUser!.uid.isNotEmpty){
+                  //         await FirebaseFirestore.instance
+                  //                     .collection("users")
+                  //                     .doc(FirebaseAuth.instance.currentUser!.uid)
+                  //                     .set({
+                  //                   "password": _password.text,
+                  //                   "email": _email.text,
+                  //                   "uid": FirebaseAuth.instance.currentUser!.uid,
+                  //                   "name": _name.text,
+                  //                   "time": countryValue.toString(),
+                  //                 });
+                  //         Navigator.pushReplacement(context,
+                  //                         MaterialPageRoute(builder: (context) => Home2()));
+                  //       }
+                  //     }on FirebaseAuthException catch(e){
+                  //   if (e.code == "email-already-in-use") {
+                  //     ScaffoldMessenger.of(context).showSnackBar(
+                  //         SnackBar(
+                  //           content:Container(
+                  //           height: 60,
+                  //           decoration: BoxDecoration(
+                  //             color: ConstColors.background.withOpacity(0.50),
+                  //             border: Border.all(color: ConstColors.primaryColor),
+                  //             borderRadius: BorderRadius.circular(10),
+                  //           ),
+                  //           child: Padding(
+                  //             padding: const EdgeInsets.only(left: 10),
+                  //             child: Column(
+                  //               crossAxisAlignment: CrossAxisAlignment.start,
+                  //               children: [
+                  //                 SizedBox(height: 10,),
+                  //                 Text("Error",style: TextStyle(color: ConstColors.primaryColor,fontFamily: 'Bold',fontWeight: FontWeight.w700
+                  //                 ),),
+                  //                 SizedBox(height: 5,),
+                  //                 Text("Email Already in use",style: TextStyle(color: ConstColors.primaryColor,fontFamily: 'Book',fontWeight: FontWeight.w500
+                  //                 ),),
+                  //               ],
+                  //             ),
+                  //           ),
+                  //         ),
+                  //           backgroundColor: Colors.transparent,
+                  //           elevation: 0,
+                  //           behavior: SnackBarBehavior.floating,
+                  //           duration: Duration(seconds: 2),
+                  //           margin:  EdgeInsets.only(
+                  //               bottom: MediaQuery.of(context).size.height - 130,
+                  //               right: 20,
+                  //               left: 20),
+                  //         )
+                  //     );
+                  //         }
+                  //     }catch (e) {
+                  //         print(e);
+                  //       }
+                  //   }
+                  //   else {
+                  //     ScaffoldMessenger.of(context).showSnackBar(
+                  //         SnackBar(
+                  //           content:Container(
+                  //             height: 60,
+                  //             decoration: BoxDecoration(
+                  //               color: ConstColors.background.withOpacity(0.50),
+                  //               border: Border.all(color: ConstColors.primaryColor),
+                  //               borderRadius: BorderRadius.circular(10),
+                  //             ),
+                  //             child: Padding(
+                  //               padding: const EdgeInsets.only(left: 10),
+                  //               child: Column(
+                  //                 crossAxisAlignment: CrossAxisAlignment.start,
+                  //                 children: [
+                  //                   SizedBox(height: 10,),
+                  //                   Text("Error",style: TextStyle(color: ConstColors.primaryColor,fontFamily: 'Bold',fontWeight: FontWeight.w700
+                  //                   ),),
+                  //                   SizedBox(height: 5,),
+                  //                   Text("Enter the valid email",style: TextStyle(color: ConstColors.primaryColor,fontFamily: 'Book',fontWeight: FontWeight.w500
+                  //                   ),),
+                  //                 ],
+                  //               ),
+                  //             ),
+                  //           ),
+                  //           backgroundColor: Colors.transparent,
+                  //           elevation: 0,
+                  //           behavior: SnackBarBehavior.floating,
+                  //           duration: Duration(seconds: 2),
+                  //           margin:  EdgeInsets.only(
+                  //               bottom: MediaQuery.of(context).size.height - 130,
+                  //               right: 20,
+                  //               left: 20),
+                  //         )
+                  //     );
+                  //   }
+                  // },
+
                   child: Container(
                     width: double.infinity,
                     height: 40,
