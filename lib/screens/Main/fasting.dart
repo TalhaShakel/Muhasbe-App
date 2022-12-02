@@ -1017,7 +1017,7 @@ class _FastingState extends State<Fasting> {
                             ConstColors.primaryColor,
                           ])),
                   child: Padding(
-                    padding: const EdgeInsets.only(left: 1, right: 1),
+                    padding: EdgeInsets.only(left: 1.w, right: 1.w),
                     child: Container(
                       width: double.infinity,
                       height: 38,

@@ -367,7 +367,9 @@ class _Home2State extends State<Home2> {
                                         color: Colors.white),
                                   ),
                                   Text(
-                                    snapshot.data!['name'],
+                                    "User Name",
+
+                                    // snapshot.data!['name'],
                                     style: TextStyle(
                                         fontFamily: 'CodeNext-Trial',
                                         fontSize: 18,

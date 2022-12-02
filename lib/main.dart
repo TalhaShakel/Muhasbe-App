@@ -6,6 +6,7 @@ import 'package:muhasebe_app/screens/DrawerScreens/Home.dart';
 import 'package:muhasebe_app/screens/Main/Home2.dart';
 import 'package:muhasebe_app/screens/Main/activity.dart';
 import 'package:muhasebe_app/screens/Main/additional_prayers.dart';
+import 'package:muhasebe_app/screens/Main/fasting.dart';
 import 'package:muhasebe_app/screens/Main/notes.dart';
 import 'package:muhasebe_app/screens/Main/prayer_tracker.dart';
 import 'package:muhasebe_app/screens/Main/quran_table.dart';
@@ -37,7 +38,7 @@ class MyApp extends StatelessWidget {
               primarySwatch: Colors.blue,
             ),
             debugShowCheckedModeBanner: false,
-            home: SplashScreen(),
+            home: Activity(),
             builder: InAppNotifications.init(),
           );
         });

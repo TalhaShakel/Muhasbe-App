@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:muhasebe_app/Components/text_theme.dart';
@@ -1052,96 +1053,103 @@ class _ActivityState extends State<Activity> {
                   ),
                 ),
               ),
-              SizedBox(
-                height: 20,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  SizedBox(
-                    width: 46,
-                  ),
-                  Text(
-                    "Reminder",
-                    style: AppTextTheme.labels,
-                  ),
-                  // SizedBox(
-                  //   width: 66,
-                  // ),
-                  Radio(
-                      value: Data.yes,
-                      activeColor: ConstColors.primaryColor,
-                      groupValue: _data,
-                      onChanged: (value) {
-                        setState(() {
-                          _data = value;
-                        });
-                      }),
-                  Text(
-                    "Yes",
-                    style: GoogleFonts.poppins(
-                        fontSize: 13, fontWeight: FontWeight.w300),
-                  ),
-                  Radio(
-                      value: Data.no,
-                      activeColor: ConstColors.primaryColor,
-                      groupValue: _data,
-                      onChanged: (value) {
-                        setState(() {
-                          _data = value;
-                        });
-                      }),
-                  Text(
-                    "No",
-                    style: GoogleFonts.poppins(
-                        fontSize: 13, fontWeight: FontWeight.w300),
-                  ),
-                ],
+              // SizedBox(
+              //   height: 20,
+              // ),
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 45.0.w),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    // SizedBox(
+                    //   width: 46,
+                    // ),
+                    Text(
+                      "Reminder",
+                      style: AppTextTheme.labels,
+                    ),
+                    // SizedBox(
+                    //   width: 66,
+                    // ),
+                    Radio(
+                        value: Data.yes,
+                        activeColor: ConstColors.primaryColor,
+                        groupValue: _data,
+                        onChanged: (value) {
+                          setState(() {
+                            _data = value;
+                          });
+                        }),
+                    Text(
+                      "Yes",
+                      style: GoogleFonts.poppins(
+                          fontSize: 13, fontWeight: FontWeight.w300),
+                    ),
+                    Radio(
+                        value: Data.no,
+                        activeColor: ConstColors.primaryColor,
+                        groupValue: _data,
+                        onChanged: (value) {
+                          setState(() {
+                            _data = value;
+                          });
+                        }),
+                    Text(
+                      "No",
+                      style: GoogleFonts.poppins(
+                          fontSize: 13, fontWeight: FontWeight.w300),
+                    ),
+                  ],
+                ),
               ),
               // SizedBox(
               //   width: 50,
               // ),
-              Row(
-                children: [
-                  SizedBox(
-                    width: 46,
-                  ),
-                  Text(
-                    "Calender",
-                    style: AppTextTheme.labels,
-                  ),
-                  // SizedBox(
-                  //   width: 70,
-                  // ),
-                  Radio(
-                      value: Val.eng,
-                      activeColor: ConstColors.primaryColor,
-                      groupValue: _val,
-                      onChanged: (value) {
-                        setState(() {
-                          _val = value;
-                        });
-                      }),
-                  Text(
-                    "Eng",
-                    style: GoogleFonts.poppins(
-                        fontSize: 13, fontWeight: FontWeight.w300),
-                  ),
-                  Radio(
-                      value: Val.hijri,
-                      activeColor: ConstColors.primaryColor,
-                      groupValue: _val,
-                      onChanged: (value) {
-                        setState(() {
-                          _val = value;
-                        });
-                      }),
-                  Text(
-                    "Hijri",
-                    style: GoogleFonts.poppins(
-                        fontSize: 13, fontWeight: FontWeight.w300),
-                  ),
-                ],
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 45.0.w),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    // SizedBox(
+                    //   width: 46,
+                    // ),
+                    Text(
+                      "Calender",
+                      style: AppTextTheme.labels,
+                    ),
+                    // SizedBox(
+                    //   width: 70,
+                    // ),
+                    Radio(
+                        value: Val.eng,
+                        activeColor: ConstColors.primaryColor,
+                        groupValue: _val,
+                        onChanged: (value) {
+                          setState(() {
+                            _val = value;
+                          });
+                        }),
+                    Text(
+                      "Eng",
+                      style: GoogleFonts.poppins(
+                          fontSize: 13, fontWeight: FontWeight.w300),
+                    ),
+                    Radio(
+                        value: Val.hijri,
+                        activeColor: ConstColors.primaryColor,
+                        groupValue: _val,
+                        onChanged: (value) {
+                          setState(() {
+                            _val = value;
+                          });
+                        }),
+                    Text(
+                      "Hijri",
+                      style: GoogleFonts.poppins(
+                          fontSize: 13, fontWeight: FontWeight.w300),
+                    ),
+                  ],
+                ),
               ),
               GestureDetector(
                 // onTap: (){
