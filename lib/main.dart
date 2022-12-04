@@ -38,7 +38,7 @@ class MyApp extends StatelessWidget {
               primarySwatch: Colors.blue,
             ),
             debugShowCheckedModeBanner: false,
-            home: Activity(),
+            home: SplashScreen(),
             builder: InAppNotifications.init(),
           );
         });

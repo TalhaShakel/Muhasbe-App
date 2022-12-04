@@ -368,8 +368,6 @@ class _Home2State extends State<Home2> {
                                   ),
                                   Text(
                                     "User Name",
-
-                                    // snapshot.data!['name'],
                                     style: TextStyle(
                                         fontFamily: 'CodeNext-Trial',
                                         fontSize: 18,
@@ -389,25 +387,22 @@ class _Home2State extends State<Home2> {
                                   SizedBox(
                                     height: 35,
                                   ),
-                                  RichText(
-                                      text: TextSpan(
-                                    text: DateFormat('dd MMM, yyyy')
-                                        .format(DateTime.now()),
+                                  Text(
+                                    "29, Sep, 2022",
                                     style: TextStyle(
                                         fontSize: 13,
                                         fontFamily: 'Trial',
                                         fontWeight: FontWeight.w600,
                                         color: Colors.white),
-                                  )),
+                                  ),
                                   SizedBox(
                                     height: 5,
                                   ),
                                   Text(
-                                    "Hijri: ${_format.toFormat('MMMM dd')}",
-                                    softWrap: true,
+                                    "Hijri : Shaban 23",
                                     style: TextStyle(
                                         fontSize: 14,
-                                        fontFamily: 'Book',
+                                        fontFamily: 'Trial',
                                         fontWeight: FontWeight.w600,
                                         color: Colors.white),
                                   ),
@@ -421,6 +416,119 @@ class _Home2State extends State<Home2> {
                   ),
                   preferredSize: Size.fromHeight(70.0),
                 ),
+                // appBar: PreferredSize(
+                //   child: Container(
+                //     height: 114,
+                //     decoration: BoxDecoration(
+                //         color: ConstColors.primaryColor,
+                //         boxShadow: [
+                //           BoxShadow(
+                //               color: Color(0xff000000).withOpacity(0.10),
+                //               blurRadius: 10,
+                //               spreadRadius: 0,
+                //               offset: Offset(5, 5))
+                //         ]),
+                //     child: Padding(
+                //       padding: const EdgeInsets.only(top: 0),
+                //       child: FittedBox(
+                //         child: Row(
+                //           children: [
+                //             SizedBox(
+                //               width: 20,
+                //             ),
+                //             GestureDetector(
+                //               onTap: () {
+                //                 scaffoldKey.currentState?.openDrawer();
+                //               },
+                //               child: Padding(
+                //                 padding: const EdgeInsets.only(top: 25),
+                //                 child: Container(
+                //                     height: 30,
+                //                     width: 30,
+                //                     decoration: BoxDecoration(
+                //                         shape: BoxShape.circle,
+                //                         color: Colors.white),
+                //                     child: Center(
+                //                         child: FaIcon(
+                //                       FontAwesomeIcons.bars,
+                //                       size: 18,
+                //                       color: ConstColors.secondary,
+                //                     ))),
+                //               ),
+                //             ),
+                //             SizedBox(
+                //               width: 20,
+                //             ),
+                //             SingleChildScrollView(
+                //               child: Column(
+                //                 crossAxisAlignment: CrossAxisAlignment.start,
+                //                 children: [
+                //                   SizedBox(
+                //                     height: 35,
+                //                   ),
+                //                   Text(
+                //                     "Welcome, ",
+                //                     style: TextStyle(
+                //                         fontSize: 13,
+                //                         fontFamily: 'Trial',
+                //                         fontWeight: FontWeight.w600,
+                //                         color: Colors.white),
+                //                   ),
+                //                   Text(
+                //                     "User Name",
+
+                //                     // snapshot.data!['name'],
+                //                     style: TextStyle(
+                //                         fontFamily: 'CodeNext-Trial',
+                //                         fontSize: 18,
+                //                         fontWeight: FontWeight.w600,
+                //                         color: Colors.white),
+                //                   ),
+                //                 ],
+                //               ),
+                //             ),
+                //             SizedBox(
+                //               width: 50,
+                //             ),
+                //             SingleChildScrollView(
+                //               child: Column(
+                //                 crossAxisAlignment: CrossAxisAlignment.start,
+                //                 children: [
+                //                   SizedBox(
+                //                     height: 35,
+                //                   ),
+                //                   RichText(
+                //                       text: TextSpan(
+                //                     text: DateFormat('dd MMM, yyyy')
+                //                         .format(DateTime.now()),
+                //                     style: TextStyle(
+                //                         fontSize: 13,
+                //                         fontFamily: 'Trial',
+                //                         fontWeight: FontWeight.w600,
+                //                         color: Colors.white),
+                //                   )),
+                //                   SizedBox(
+                //                     height: 5,
+                //                   ),
+                //                   Text(
+                //                     "Hijri: ${_format.toFormat('MMMM dd')}",
+                //                     softWrap: true,
+                //                     style: TextStyle(
+                //                         fontSize: 14,
+                //                         fontFamily: 'Book',
+                //                         fontWeight: FontWeight.w600,
+                //                         color: Colors.white),
+                //                   ),
+                //                 ],
+                //               ),
+                //             ),
+                //           ],
+                //         ),
+                //       ),
+                //     ),
+                //   ),
+                //   preferredSize: Size.fromHeight(70.0),
+                // ),
                 body: Container(
                   height: double.infinity,
                   width: double.infinity,
