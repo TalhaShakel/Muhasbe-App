@@ -988,50 +988,52 @@ class _FastingState extends State<Fasting> {
                 // onTap: (){
                 //   Navigator.push(context, MaterialPageRoute(builder: (context)=>Activity()));
                 // },
-                child: Container(
-                  width: 148.w,
-                  height: 40.h,
-                  alignment: Alignment.center,
-                  decoration: BoxDecoration(
-                      borderRadius: const BorderRadius.all(Radius.circular(10)),
-                      boxShadow: [
-                        BoxShadow(
-                            color: Color(0xff587CA7).withOpacity(0.31),
-                            blurRadius: 22,
-                            spreadRadius: 0,
-                            offset: Offset(
-                              6,
-                              6,
-                            )),
-                        BoxShadow(
-                            color: Color(0xffFFFFFF),
-                            blurRadius: 20,
-                            spreadRadius: 0,
-                            offset: Offset(-4, -4))
-                      ],
-                      gradient: LinearGradient(
-                          begin: Alignment.topCenter,
-                          end: Alignment.bottomCenter,
-                          colors: [
-                            ConstColors.secondary,
-                            ConstColors.primaryColor,
-                          ])),
-                  child: Padding(
-                    padding: EdgeInsets.only(left: 1.w, right: 1.w),
-                    child: Container(
-                      width: double.infinity,
-                      height: 38,
-                      decoration: const BoxDecoration(
-                        borderRadius: BorderRadius.all(Radius.circular(9)),
-                        color: Colors.white,
-                      ),
-                      alignment: Alignment.center,
-                      child: FittedBox(
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 110, right: 110),
+                  child: Container(
+                    width: double.infinity,
+                    height: 40,
+                    alignment: Alignment.center,
+                    decoration: BoxDecoration(
+                        borderRadius:
+                            const BorderRadius.all(Radius.circular(10)),
+                        boxShadow: [
+                          BoxShadow(
+                              color: Color(0xff587CA7).withOpacity(0.31),
+                              blurRadius: 22,
+                              spreadRadius: 0,
+                              offset: Offset(
+                                6,
+                                6,
+                              )),
+                          BoxShadow(
+                              color: Color(0xffFFFFFF),
+                              blurRadius: 20,
+                              spreadRadius: 0,
+                              offset: Offset(-4, -4))
+                        ],
+                        gradient: LinearGradient(
+                            begin: Alignment.topCenter,
+                            end: Alignment.bottomCenter,
+                            colors: [
+                              ConstColors.secondary,
+                              ConstColors.primaryColor,
+                            ])),
+                    child: Padding(
+                      padding: const EdgeInsets.only(left: 1, right: 1),
+                      child: Container(
+                        width: double.infinity,
+                        height: 38,
+                        decoration: const BoxDecoration(
+                          borderRadius: BorderRadius.all(Radius.circular(9)),
+                          color: Colors.white,
+                        ),
+                        alignment: Alignment.center,
                         child: Text(
                           'Calculate',
                           style: TextStyle(
                               fontFamily: 'Trial',
-                              fontSize: 17.sp,
+                              fontSize: 17,
                               fontWeight: FontWeight.w400,
                               color: ConstColors.secondary),
                         ),
@@ -1040,6 +1042,62 @@ class _FastingState extends State<Fasting> {
                   ),
                 ),
               ),
+              // GestureDetector(
+              //   // onTap: (){
+              //   //   Navigator.push(context, MaterialPageRoute(builder: (context)=>Activity()));
+              //   // },
+              //   child: Container(
+              //     width: 148.w,
+              //     height: 40.h,
+              //     alignment: Alignment.center,
+              //     decoration: BoxDecoration(
+              //         borderRadius: const BorderRadius.all(Radius.circular(10)),
+              //         boxShadow: [
+              //           BoxShadow(
+              //               color: Color(0xff587CA7).withOpacity(0.31),
+              //               blurRadius: 22,
+              //               spreadRadius: 0,
+              //               offset: Offset(
+              //                 6,
+              //                 6,
+              //               )),
+              //           BoxShadow(
+              //               color: Color(0xffFFFFFF),
+              //               blurRadius: 20,
+              //               spreadRadius: 0,
+              //               offset: Offset(-4, -4))
+              //         ],
+              //         gradient: LinearGradient(
+              //             begin: Alignment.topCenter,
+              //             end: Alignment.bottomCenter,
+              //             colors: [
+              //               ConstColors.secondary,
+              //               ConstColors.primaryColor,
+              //             ])),
+              //     child: Padding(
+              //       padding: EdgeInsets.only(left: 1.w, right: 1.w),
+              //       child: Container(
+              //         width: double.infinity,
+              //         height: 38,
+              //         decoration: const BoxDecoration(
+              //           borderRadius: BorderRadius.all(Radius.circular(9)),
+              //           color: Colors.white,
+              //         ),
+              //         alignment: Alignment.center,
+              //         child: FittedBox(
+              //           child: Text(
+              //             'Calculate',
+              //             style: TextStyle(
+              //                 fontFamily: 'Trial',
+              //                 fontSize: 17.sp,
+              //                 fontWeight: FontWeight.w400,
+              //                 color: ConstColors.secondary),
+              //           ),
+              //         ),
+              //       ),
+              //     ),
+              //   ),
+              // ),
               SizedBox(
                 height: 33,
               ),

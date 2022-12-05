@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:muhasebe_app/Components/text_theme.dart';
 import 'package:muhasebe_app/screens/Main/todo_list.dart';
@@ -399,8 +400,9 @@ class _ActivityDashboardState extends State<ActivityDashboard> {
               Padding(
                 padding: const EdgeInsets.only(left: 25, right: 25, top: 40),
                 child: Container(
-                  height: 445,
+                  height: Get.height * 0.6,
                   width: double.infinity,
+                  // width: Get.width * 0.9,
                   decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(10),
@@ -446,14 +448,17 @@ class _ActivityDashboardState extends State<ActivityDashboard> {
                             ),
                             Padding(
                               padding: const EdgeInsets.only(left: 8.0),
-                              child: Text(
-                                "Lorem Ipsum is simply dummy text of the printing and \ntypesetting industry...",
-                                style: TextStyle(
-                                    fontFamily: 'Trial',
-                                    fontSize: 12,
-                                    fontWeight: FontWeight.w400,
-                                    color: ConstColors.primaryColor,
-                                    letterSpacing: -0.9),
+                              child: Align(
+                                alignment: Alignment.topLeft,
+                                child: Text(
+                                  "Lorem Ipsum is simply dummy text of the printing and \ntypesetting industry...",
+                                  style: TextStyle(
+                                      fontFamily: 'Trial',
+                                      fontSize: 12,
+                                      fontWeight: FontWeight.w400,
+                                      color: ConstColors.primaryColor,
+                                      letterSpacing: -0.9),
+                                ),
                               ),
                             ),
                             SizedBox(
